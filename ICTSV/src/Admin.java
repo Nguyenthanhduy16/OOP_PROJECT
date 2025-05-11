@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Admin extends User {
 
-    private ArrayList<Activity> listActivities = new ArrayList<Activity>();
+    public ArrayList<Activity> listActivities = new ArrayList<Activity>();
 
     public void showMenu() {
         System.out.println("Admin Menu:");
@@ -14,22 +14,12 @@ public class Admin extends User {
     }
 
     // Thêm hoạt động mới cho sinh viên
-    public void addNewActivity(String name, String title, boolean status, int points) {
-        boolean found = false;
-
-        for (Activity activity : listActivities) {
-            if (activity != null && activity.getName()== name) {
-                System.out.println("Activity with name " + name + " already exists.");
-                found = true;
-                break;
-            }
-        }
-
-        if (!found) {
-            Activity newActivity = new Activity(title, name, status, points);
-            listActivities.add(newActivity);
-            System.out.println("Added activity: " + title + " with name " + name + " have " + points + " points.");
-        }
+    public void addNewActivity(Activity activity) {
+    	if(listActivities.contains(activity)) {
+    		System.out.println(activity.getName() + " has already been added.");
+		}else {
+			listActivities.add(activity);
+		}
     }
 
     // Xóa hoạt động đã hết hạn
@@ -37,9 +27,8 @@ public class Admin extends User {
     	if(listActivities.contains(activity)) {
 			listActivities.remove(activity);
 		}else {
-			System.out.println(activity.getName() + " was not found in your registered activity");
+			System.out.println(activity.getName() + " was not found in your activities.");
 		}
-        printActivity();
     }
 
 
