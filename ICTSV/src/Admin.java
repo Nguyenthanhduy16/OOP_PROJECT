@@ -5,12 +5,6 @@ public class Admin extends User {
 
     private List<Activity> listActivities;
 
-    public Admin(String username, String password, String name) {
-        super(username, password, name);
-        this.listActivities = new ArrayList<>();
-    }
-
-    
     public void showMenu() {
         System.out.println("Admin Menu:");
         System.out.println("1. View all activities");
@@ -21,10 +15,10 @@ public class Admin extends User {
     }
 
     // Thêm hoạt động mới cho sinh viên
-    public void addNewActivity(String activityName, String title, int points) {
-        Activity newActivity = new Activity(activityName, title, points);
+    public void addNewActivity(String name, String title, boolean status, int points) {
+        Activity newActivity = new Activity(name, title, status, points);
         listActivities.add(newActivity);
-        System.out.println("Added activity: " + activityName + " with title " + title + " have " + points + " points.");
+        System.out.println("Added activity: " + name + " with title " + title + " have " + points + " points.");
     }
 
     // Xóa hoạt động đã hết hạn
@@ -47,7 +41,7 @@ public class Admin extends User {
     public void printActivity() {
         System.out.println("All Activities:");
         for (Activity activity : listActivities) {
-            System.out.println("- " + activity.getName() + " (" + activity.getPoints() + " points)");
+            System.out.println("- " + activity.getName() + " (" + activity.getScore() + " points)");
         }
     }
 
