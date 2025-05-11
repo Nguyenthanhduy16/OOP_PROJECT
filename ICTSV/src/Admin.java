@@ -1,16 +1,9 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class Admin extends User {
 
-    private List<Activity> listActivities;
+    public ArrayList<Activity> listActivities = new ArrayList<Activity>();
 
-    public Admin(String username, String password, String name) {
-        super(username, password, name);
-        this.listActivities = new ArrayList<>();
-    }
-
-    
     public void showMenu() {
         System.out.println("Admin Menu:");
         System.out.println("1. View all activities");
@@ -21,25 +14,21 @@ public class Admin extends User {
     }
 
     // Thêm hoạt động mới cho sinh viên
-    public void addNewActivity(String activityName, String title, int points) {
-        Activity newActivity = new Activity(activityName, title, points);
-        listActivities.add(newActivity);
-        System.out.println("Added activity: " + activityName + " with title " + title + " have " + points + " points.");
+    public void addNewActivity(Activity activity) {
+    	if(listActivities.contains(activity)) {
+    		System.out.println(activity.getName() + " has already been added.");
+		}else {
+			listActivities.add(activity);
+		}
     }
 
     // Xóa hoạt động đã hết hạn
     public void removeOutdatedActivity(Activity activity) {
-        if (listActivities.size() == 0) {
-            System.out.println("No activities to remove\n");
-            return;
-        }
-        if (listActivities.remove(activity)) {
-            System.out.println("The activity \"" + activity.getName() + "\" has been removed\n");
-        } else {
-            System.out.println("The activity \"" + activity.getName() + "\" does not exist in the list\n");
-        }
-
-        printActivity();
+    	if(listActivities.contains(activity)) {
+			listActivities.remove(activity);
+		}else {
+			System.out.println(activity.getName() + " was not found in your activities.");
+		}
     }
 
 
@@ -47,12 +36,12 @@ public class Admin extends User {
     public void printActivity() {
         System.out.println("All Activities:");
         for (Activity activity : listActivities) {
-            System.out.println("- " + activity.getName() + " (" + activity.getPoints() + " points)");
+            System.out.println("- " + activity.getName() + " (" + activity.getScore() + " points)");
         }
     }
 
     // Optional: Truy cập danh sách nếu cần
-    public List<Activity> getListActivities() {
+    public ArrayList<Activity> getListActivities() {
         return listActivities;
     }
 }
