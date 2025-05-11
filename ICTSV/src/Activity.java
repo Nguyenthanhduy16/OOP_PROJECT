@@ -27,8 +27,9 @@ public class Activity {
         return score;
     }
 
-    public void display() {
-        System.out.println(this.getTitle() + "\n"
+    @Override 
+    public String toString() {
+        return (this.getTitle() + "\n"
                 + this.getName() + "\n"
                 + this.isStatus() + "\n"
                 + "Điểm: " + this.getScore());
