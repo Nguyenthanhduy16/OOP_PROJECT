@@ -2,29 +2,35 @@ public abstract class User {
 	private String userID;
 	private String userName;
 	private String passWord;
-	private String name;
-	
-	public User(String userID, String userName, String passWord, String name) {
+
+	public User(String userID, String userName, String passWord) {
 		this.userID = userID;
 		this.userName = userName;
 		this.passWord = passWord;
-		this.name = name;
 	}
-	
-	public boolean Login (String inputUserID, String inputUserName, String inputPassWord, String inputName) {
-		return this.userID.equals(inputUserID) && this.userName.equals(inputName) &&
-				this.passWord.equals(inputPassWord) && this.name.equals(inputName);
+
+	public boolean Login(String inputUserName, String inputPassWord) {
+		return this.userName.equals(inputName) && this.passWord.equals(inputPassWord);
 	}
-	
-	public void addActivity () {
-		
+
+	public String getUserID() {
+		return userID;
 	}
-	
-	public void removeActivity() {
-		
+
+	public String getUserName() {
+		return userName;
 	}
-	
-	public void displayActivity() {
-		
+
+	public String getPassWord() {
+		return passWord;
 	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public void setPassWord(String passWord) {
+		this.passWord = passWord;
+	}
+
 }

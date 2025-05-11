@@ -1,9 +1,8 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class Admin extends User {
 
-    private List<Activity> listActivities;
+    private ArrayList<Activity> listActivities = new ArrayList<Activity>();
 
     public void showMenu() {
         System.out.println("Admin Menu:");
@@ -16,23 +15,30 @@ public class Admin extends User {
 
     // Thêm hoạt động mới cho sinh viên
     public void addNewActivity(String name, String title, boolean status, int points) {
-        Activity newActivity = new Activity(name, title, status, points);
-        listActivities.add(newActivity);
-        System.out.println("Added activity: " + name + " with title " + title + " have " + points + " points.");
+        boolean found = false;
+
+        for (Activity activity : listActivities) {
+            if (activity != null && activity.getName()== name) {
+                System.out.println("Activity with name " + name + " already exists.");
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            Activity newActivity = new Activity(title, name, status, points);
+            listActivities.add(newActivity);
+            System.out.println("Added activity: " + title + " with name " + name + " have " + points + " points.");
+        }
     }
 
     // Xóa hoạt động đã hết hạn
     public void removeOutdatedActivity(Activity activity) {
-        if (listActivities.size() == 0) {
-            System.out.println("No activities to remove\n");
-            return;
-        }
-        if (listActivities.remove(activity)) {
-            System.out.println("The activity \"" + activity.getName() + "\" has been removed\n");
-        } else {
-            System.out.println("The activity \"" + activity.getName() + "\" does not exist in the list\n");
-        }
-
+    	if(listActivities.contains(activity)) {
+			listActivities.remove(activity);
+		}else {
+			System.out.println(activity.getName() + " was not found in your registered activity");
+		}
         printActivity();
     }
 
@@ -46,7 +52,7 @@ public class Admin extends User {
     }
 
     // Optional: Truy cập danh sách nếu cần
-    public List<Activity> getListActivities() {
+    public ArrayList<Activity> getListActivities() {
         return listActivities;
     }
 }
