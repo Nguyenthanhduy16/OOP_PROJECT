@@ -3,7 +3,7 @@ public class Activity {
     private String name;
     private boolean status;
     private int score;
-
+    
     public Activity(String title, String name, boolean status, int score) {
         this.title = title;
         this.name = name;
