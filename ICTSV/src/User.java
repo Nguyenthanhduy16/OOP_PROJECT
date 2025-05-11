@@ -10,7 +10,7 @@ public abstract class User {
 	}
 
 	public boolean Login(String inputUserName, String inputPassWord) {
-		return this.userName.equals(inputName) && this.passWord.equals(inputPassWord);
+		return this.userName.equals(inputUserName) && this.passWord.equals(inputPassWord);
 	}
 
 	public String getUserID() {

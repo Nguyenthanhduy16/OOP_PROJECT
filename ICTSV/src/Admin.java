@@ -2,7 +2,12 @@ import java.util.ArrayList;
 
 public class Admin extends User {
 
-    public ArrayList<Activity> listActivities = new ArrayList<Activity>();
+    public Admin(String userID, String userName, String passWord) {
+		super(userID, userName, passWord);
+		// TODO Auto-generated constructor stub
+	}
+
+	public static ArrayList<Activity> listActivities = new ArrayList<Activity>();
 
     public void showMenu() {
         System.out.println("Admin Menu:");
@@ -41,7 +46,7 @@ public class Admin extends User {
     }
 
     // Optional: Truy cập danh sách nếu cần
-    public ArrayList<Activity> getListActivities() {
+    public static ArrayList<Activity> getListActivities() {
         return listActivities;
     }
 }
