@@ -1,3 +1,4 @@
+package model;
 public class Activity {
     private String title;
     private String name;
