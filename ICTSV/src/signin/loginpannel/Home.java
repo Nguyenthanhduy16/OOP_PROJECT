@@ -1,4 +1,4 @@
-package loginpannel;
+package signin.loginpannel;
 
 import java.awt.EventQueue; 
 import javax.swing.JFrame; 

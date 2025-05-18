@@ -1,4 +1,4 @@
-package loginpannel;
+package signin.loginpannel;
 
 import javax.swing.JPanel;
 import javax.swing.JTextField;

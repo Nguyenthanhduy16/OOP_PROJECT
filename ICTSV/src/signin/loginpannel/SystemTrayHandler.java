@@ -1,4 +1,4 @@
-package loginpannel;
+package signin.loginpannel;
 
 import javax.swing.JFrame; 
 import javax.swing.JOptionPane; 

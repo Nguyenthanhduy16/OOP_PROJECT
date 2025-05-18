@@ -1,4 +1,4 @@
-package loginpannel;
+package signin.loginpannel;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -20,7 +20,7 @@ public class LeftPanel {
         JLabel topLeftImage = new JLabel();
         topLeftImage.setBounds(10, 20, 80, 100);
         topLeftImage.setIcon(new ImageIcon(
-            new ImageIcon(LeftPanel.class.getResource("/images/Hust.png")).getImage().getScaledInstance(80, 100, java.awt.Image.SCALE_SMOOTH)
+            new ImageIcon(LeftPanel.class.getResource("/signin/images/Hust.png")).getImage().getScaledInstance(80, 100, java.awt.Image.SCALE_SMOOTH)
         ));
         panel.add(topLeftImage);
 
@@ -30,7 +30,7 @@ public class LeftPanel {
         JLabel centerIcon = new JLabel();
         centerIcon.setBounds(0, 100, iconWidth, iconHeight);
         centerIcon.setIcon(new ImageIcon(
-            new ImageIcon(LeftPanel.class.getResource("/images/app_icon.png")).getImage().getScaledInstance(iconWidth, iconHeight, java.awt.Image.SCALE_SMOOTH)
+            new ImageIcon(LeftPanel.class.getResource("/signin/images/app_icon.png")).getImage().getScaledInstance(iconWidth, iconHeight, java.awt.Image.SCALE_SMOOTH)
         ));
         panel.add(centerIcon);
 
