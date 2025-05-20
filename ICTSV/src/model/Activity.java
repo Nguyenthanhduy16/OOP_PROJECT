@@ -35,4 +35,8 @@ public class Activity {
                 + "Điểm: " + this.getScore());
     }
 
+    // NOTE BY DUONG: T thêm cái toPrint in cho lẹ
+    public void toPrint() {
+        System.out.println(this.getName() + " " + this.getTitle() + " " + this.getScore());
+    }
 }

@@ -8,11 +8,11 @@ public class Student extends User{
 	private final int KyLuat = 25;
 	private final int XaHoi = 25;
 	private final int YThuc = 20;
-	private Admin admin;
+	//private Admin admin;
 
-	public Student(String userID, String userName, String passWord, Admin admin) {
+	public Student(String userID, String userName, String passWord/*, Admin admin*/) {
 	    super(userID, userName, passWord);
-	    this.admin = admin;
+	    //this.admin = admin;
 	}
 	
 	private ArrayList<Activity> registeredActivities = new ArrayList<Activity>();
@@ -37,6 +37,8 @@ public class Student extends User{
 			System.out.println(activity.getName() + " has been added to your registered activity");
 		}
 	}
+	
+	// NOTE BY DUONG: T chỉnh cái này để in ra đúng định dạng như của hàm print
 	public void cancelRegisteredActivity(Activity activity) {
 		if(registeredActivities.contains(activity)) {
 			registeredActivities.remove(activity);
@@ -44,10 +46,17 @@ public class Student extends User{
 			System.out.println(activity.getName() + " was not found in your registered activity");
 		}
 	}
-	public void viewRegisteredActivity() {
+	/*public void viewRegisteredActivity() {
 		for(int i = 0 ; i < registeredActivities.size(); i++) {
 			System.out.println((i + 1) + ". " + registeredActivities.get(i).toString());
 		}
+	}
+	*/
+	public void viewRegisteredActivity() {
+	    for (int i = 0; i < registeredActivities.size(); i++) {
+	        Activity a = registeredActivities.get(i);
+	        System.out.println(a.getName() + " " + a.getTitle() + " " + a.getScore());
+	    }
 	}
 	public int totalScore() {
 		int total1 = 0;
