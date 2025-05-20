@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <BorderPane layoutX="526.0" layoutY="296.0" prefHeight="1000.0" prefWidth="1600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <left>
+                  <AnchorPane prefHeight="1000.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="-81.0" prefHeight="1000.0" prefWidth="481.0" style="-fx-background-radius: 45;" styleClass="body" stylesheets="@../../style/layout.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-81.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="-3.0" layoutY="-3.0" prefHeight="190.0" prefWidth="403.0" style="-fx-background-radius: 45;" styleClass="header" stylesheets="@../../style/layout.css" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-3.0">
+                                 <children>
+                                    <Label layoutX="127.0" layoutY="78.0" styleClass="gradient_yellow" stylesheets="@../../style/text.css" text="Student Conduct Score Page" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <Label layoutX="123.0" layoutY="231.0" styleClass="button-text-color" stylesheets="@../../style/text.css" text="Welcome,">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="216.0" layoutY="223.0" styleClass="gradient_brown" stylesheets="@../../style/text.css" text="Đinh Ngọc Khánh" textFill="#141f59">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="120.0" layoutY="360.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" stylesheets="@../../style/button.css" text="Search Activity">
+                                 <textFill>
+                                    <RadialGradient centerX="0.5220994475138121" centerY="0.566350710900474" radius="0.5">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.006711409395973154">
+                                             <color>
+                                                <Color />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.6552422655099034">
+                                             <color>
+                                                <Color red="1.0" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="1.0" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </RadialGradient>
+                                 </textFill>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <Shadow />
+                                 </effect>
+                                 <graphic>
+                                    <FontAwesomeIconView fill="#3d0000" glyphName="SEARCH" opacity="0.8" size="20">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </FontAwesomeIconView>
+                                 </graphic>
+                              </Button>
+                              <Button layoutX="121.0" layoutY="530.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" stylesheets="@../../style/button.css" text="View Registered Activity">
+                                 <textFill>
+                                    <RadialGradient centerX="0.5220994475138121" centerY="0.566350710900474" radius="0.5">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.006711409395973154">
+                                             <color>
+                                                <Color />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.6552422655099034">
+                                             <color>
+                                                <Color red="1.0" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="1.0" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </RadialGradient>
+                                 </textFill>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIconView fill="#3d0000" glyphName="EYE" opacity="0.8" size="20" />
+                                 </graphic>
+                              </Button>
+                              <Button layoutX="120.0" layoutY="693.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" stylesheets="@../../style/button.css" text="Total Score">
+                                 <textFill>
+                                    <RadialGradient centerX="0.5220994475138121" centerY="0.542654028436019" radius="0.5">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.006711409395973154">
+                                             <color>
+                                                <Color />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.6552422655099034">
+                                             <color>
+                                                <Color red="1.0" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="1.0" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </RadialGradient>
+                                 </textFill>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIconView fill="#3d0000" glyphName="BAR_CHART" opacity="0.8" size="20" />
+                                 </graphic>
+                              </Button>
+                              <Button layoutX="226.0" layoutY="939.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="135.0" style="-fx-background-radius: 10;" stylesheets="@../../style/button.css" text="Sign Out">
+                                 <textFill>
+                                    <RadialGradient centerX="0.5220994475138121" centerY="0.566350710900474" radius="0.5">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.006711409395973154">
+                                             <color>
+                                                <Color />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.6552422655099034">
+                                             <color>
+                                                <Color red="1.0" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="1.0" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </RadialGradient>
+                                 </textFill>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIconView fill="#3d0000" glyphName="SIGN_OUT" opacity="0.8" size="2EM" />
+                                 </graphic>
+                                 <styleClass>
+                                    <String fx:value="body" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </Button>
+                           </children>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="8.0" layoutY="337.0" prefHeight="1000.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="20.0" layoutY="24.0" prefHeight="65.0" prefWidth="455.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="24.0">
+                                 <stylesheets>
+                                    <URL value="@../../style/layout.css" />
+                                    <URL value="@../../style/button.css" />
+                                 </stylesheets>
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                              </AnchorPane>
+                              <AnchorPane layoutX="23.0" layoutY="145.0" prefHeight="722.0" prefWidth="1150.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="27.0">
+                                 <stylesheets>
+                                    <URL value="@../../style/layout.css" />
+                                    <URL value="@../../style/button.css" />
+                                 </stylesheets>
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <ScrollPane layoutX="9.0" layoutY="7.0" prefHeight="703.0" prefWidth="1133.0" styleClass="transparent" stylesheets="@../../style/layout.css" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="7.0">
+                                       <content>
+                                          <AnchorPane prefHeight="1140.0" prefWidth="1119.0">
+                                             <children>
+                                                <AnchorPane layoutX="26.0" layoutY="20.0" prefHeight="156.0" prefWidth="1061.0" stylesheets="@../../style/layout.css" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="32.0">
+                                                   <styleClass>
+                                                      <String fx:value="body" />
+                                                      <String fx:value="radius" />
+                                                      <String fx:value="shadow" />
+                                                   </styleClass>
+                                                   <children>
+                                                      <FontAwesomeIconView glyphName="CALENDAR_ALT" layoutX="65.0" layoutY="100.0" opacity="0.8" size="80" />
+                                                      <Label layoutX="208.0" layoutY="-1.0" prefHeight="53.0" prefWidth="806.0" styleClass="button-text-color" stylesheets="@../../style/text.css" text="Chìa khóa giúp bạn học tốt, không nợ môn">
+                                                         <font>
+                                                            <Font name="System Bold" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <CheckBox layoutX="941.0" layoutY="47.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="50.0">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                         <stylesheets>
+                                                            <URL value="@../../style/check_box.css" />
+                                                            <URL value="@../../style/check_box.css" />
+                                                         </stylesheets>
+                                                      </CheckBox>
+                                                      <Label layoutX="210.0" layoutY="104.0" styleClass="button-text-color" stylesheets="@../../style/text.css" text="6 điểm">
+                                                         <font>
+                                                            <Font size="30.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="208.0" layoutY="52.0" styleClass="button-text-color" stylesheets="@../../style/text.css" text="Học tập">
+                                                         <font>
+                                                            <Font size="30.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </AnchorPane>
+                              <Separator layoutX="9.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="1002.0" prefWidth="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

@@ -1,0 +1,19 @@
+.header {
+  -fx-background-color: linear-gradient(to right, #b61f28, rgb(218, 88, 101));
+}
+
+.body {
+  -fx-background-color: #fbf0f6;
+}
+
+.white-bg {
+  -fx-background-color: #ffffff;
+}
+
+.radius {
+  -fx-background-radius: 15px;
+}
+
+.transparent {
+  -fx-background-color: transparent;
+}
