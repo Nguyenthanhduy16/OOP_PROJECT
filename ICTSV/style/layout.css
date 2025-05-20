@@ -1,4 +1,5 @@
 .header {
+  -fx-text-fill: #ffffff;
   -fx-background-color: linear-gradient(to right, #b61f28, rgb(218, 88, 101));
 }
 
