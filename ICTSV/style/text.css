@@ -33,3 +33,14 @@
 .black {
   -fx-text-fill: #000000;
 }
+
+.purple {
+  -fx-text-fill: #ff00f2;
+}
+
+.green {
+  -fx-text-fill: #007700;
+}
+.blue {
+  -fx-text-fill: #0077cc;
+}
