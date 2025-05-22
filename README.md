@@ -7,5 +7,9 @@
   - Cách sửa:  
   B1 tải và cài đặt Scene Builder - Link tutorial: https://www.youtube.com/watch?v=qtrFfNqTBWk  
   B2: setup: https://www.youtube.com/watch?v=7VXGzd3H51M
+### Long:
+- Chuột phải vào pj -> Properties -> Java build path -> Classpath -> Add JARs... -> thêm toàn bộ thư viện trong lib vào như hình là được
+  ![image](https://github.com/user-attachments/assets/51e3f0d8-7286-4743-a6c9-6c5e43a1027e)
 
+  
 
