@@ -1,7 +1,9 @@
 package model;
 import java.util.ArrayList;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 
 public class Student extends User{
 	private final int HocTap = 30;
@@ -9,6 +11,8 @@ public class Student extends User{
 	private final int XaHoi = 25;
 	private final int YThuc = 20;
 	private Admin admin;
+	
+	public Student() {super();}
 
 	public Student(String userID, String userName, String passWord, Admin admin) {
 	    super(userID, userName, passWord);
