@@ -1,14 +1,22 @@
 package model;
 import java.util.ArrayList;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Admin extends User {
+	
+	@JsonProperty("listActivities")
+	
+	public static ArrayList<Activity> listActivities = new ArrayList<Activity>();
+	
+	public Admin() { 
+		super();
+	}
 
     public Admin(String userID, String userName, String passWord) {
 		super(userID, userName, passWord);
 		// TODO Auto-generated constructor stub
 	}
-
-	public static ArrayList<Activity> listActivities = new ArrayList<Activity>();
 
     public void showMenu() {
         System.out.println("Admin Menu:");
@@ -47,7 +55,7 @@ public class Admin extends User {
     }
 
     // Optional: Truy cập danh sách nếu cần
-    public static ArrayList<Activity> getListActivities() {
+    public ArrayList<Activity> getListActivities() {
         return listActivities;
     }
 }
