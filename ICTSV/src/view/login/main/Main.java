@@ -1,7 +1,7 @@
-package main;
+package view.login.main;
 
-import component.PanelCover;
-import component.PanelAdminAndUser;
+import view.login.component.PanelCover;
+import view.login.component.PanelAdminAndUser;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;

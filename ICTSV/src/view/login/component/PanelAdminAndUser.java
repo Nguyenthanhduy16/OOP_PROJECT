@@ -1,8 +1,8 @@
-package component;
+package view.login.component;
 
-import swing.Button;
-import swing.MyPasswordField;
-import swing.MyTextField;
+import view.login.swing.Button;
+import view.login.swing.MyPasswordField;
+import view.login.swing.MyTextField;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import main.Main;
+import view.login.main.Main;
 import net.miginfocom.swing.MigLayout;
 
 public class PanelAdminAndUser extends javax.swing.JLayeredPane {
@@ -36,11 +36,11 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
         label.setForeground(new Color(255, 100, 100));
         userPanel.add(label);
         MyTextField txtUser = new MyTextField();
-        txtUser.setPrefixIcon(new ImageIcon(getClass().getResource("/icon/user.png")));
+        txtUser.setPrefixIcon(new ImageIcon(getClass().getResource("/view/login/icon/user.png")));
         txtUser.setHint("StudentID");
         userPanel.add(txtUser, "w 60%");
         MyPasswordField txtPass = new MyPasswordField();
-        txtPass.setPrefixIcon(new ImageIcon(getClass().getResource("/icon/pass.png")));
+        txtPass.setPrefixIcon(new ImageIcon(getClass().getResource("/view/login/icon/pass.png")));
         txtPass.setHint("Password");
         userPanel.add(txtPass, "w 60%");
         userPanel.add(new JLabel(), "h 10"); // Empty component for spacing
@@ -82,11 +82,11 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
         label.setForeground(new Color(255, 100, 100));
         adminPanel.add(label);
         MyTextField txtEmail = new MyTextField();
-        txtEmail.setPrefixIcon(new ImageIcon(getClass().getResource("/icon/mail.png")));
+        txtEmail.setPrefixIcon(new ImageIcon(getClass().getResource("/view/login/icon/mail.png")));
         txtEmail.setHint("Email");
         adminPanel.add(txtEmail, "w 60%");
         MyPasswordField txtPass = new MyPasswordField();
-        txtPass.setPrefixIcon(new ImageIcon(getClass().getResource("/icon/pass.png")));
+        txtPass.setPrefixIcon(new ImageIcon(getClass().getResource("/view/login/icon/pass.png")));
         txtPass.setHint("Password");
         adminPanel.add(txtPass, "w 60%");
         adminPanel.add(new JLabel(), "h 10"); // Empty component for spacing

@@ -1,4 +1,4 @@
-package swing;
+package view.login.swing;
 
 import java.awt.AlphaComposite;
 import java.awt.Color;
