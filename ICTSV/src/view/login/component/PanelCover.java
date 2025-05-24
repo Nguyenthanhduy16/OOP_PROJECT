@@ -1,6 +1,6 @@
-package component;
+package view.login.component;
 
-import swing.ButtonOutLine;
+import view.login.swing.ButtonOutLine;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GradientPaint;
@@ -39,7 +39,7 @@ public class PanelCover extends javax.swing.JPanel {
         // Thêm biểu tượng
         iconLabel = new JLabel();
         try {
-            ImageIcon icon = new ImageIcon(getClass().getResource("/icon/Hust.png"));
+            ImageIcon icon = new ImageIcon(getClass().getResource("/view/login/icon/Hust.png"));
             iconLabel.setIcon(icon);
         } catch (Exception e) {
             iconLabel.setText("Icon not found");
