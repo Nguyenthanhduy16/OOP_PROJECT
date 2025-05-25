@@ -1,26 +1,31 @@
 package view.loginpanel;
 
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.io.IOException;
+
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 import controller.LoginService;
 import handle.login.LoginHandle;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import model.Admin;
 import model.Student;
 import model.User;
-
-import javax.swing.JLabel;
-import javax.swing.JPasswordField;
-import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
-import java.awt.Button;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
 
 public class LoginPanel {
     private JPanel panel;
@@ -168,7 +173,25 @@ public class LoginPanel {
                // new AdminFrame((Admin) loggedUser).setVisible(true);
             } else if (loggedUser instanceof Student) {
                 JOptionPane.showMessageDialog(panel, "Đăng nhập thành công với vai trò Student!");
-               // new StudentFrame((Student) loggedUser).setVisible(true);
+               // Sinh viên đăng nhập
+                new javafx.embed.swing.JFXPanel();
+                javafx.application.Platform.runLater(() -> {
+                    try {
+                        Parent root = FXMLLoader.load(
+                             getClass().getResource("/view/StudentLayout.fxml"));
+
+                        Stage stage = new Stage();
+                        stage.setTitle("Student Management Page");
+                        stage.setScene(new Scene(root, 1600, 1000));
+                        stage.show();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                        JOptionPane.showMessageDialog(panel,
+                               "Không tải được giao diện StudentLayout.fxml",
+                               "Lỗi", JOptionPane.ERROR_MESSAGE);
+                    }
+                });
+                
             }
          // Đóng cửa sổ hiện tại
             SwingUtilities.getWindowAncestor(panel).dispose();
