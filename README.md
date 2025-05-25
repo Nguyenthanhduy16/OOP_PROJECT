@@ -10,6 +10,8 @@
 - Lỗi không chạy được file main của StudentController:
   - Cách sửa: Bấm Run -> Run Configurations -> Java Application -> Arguments -> VM arguments -> Thêm --module-path "C:\Users\ADMIN\Downloads\openjfx-24.0.1_windows-x64_bin-sdk\javafx-sdk-24.0.1\lib" --add-modules javafx.controls,javafx.fxml và chạy
   ![image](https://github.com/user-attachments/assets/70582ecf-507a-4c2d-8b89-39e0acd9f14c)
+  Tiếp theo cần tải các file font awesomefx vào build path ![image](https://github.com/user-attachments/assets/ad7fd3f5-c0b7-4603-a3d7-0aaa49ccc124)
+
 
 
 ### Long:
