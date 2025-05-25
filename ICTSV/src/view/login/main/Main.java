@@ -16,7 +16,17 @@ import net.miginfocom.swing.MigLayout;
 import org.jdesktop.animation.timing.Animator;
 import org.jdesktop.animation.timing.TimingTarget;
 import org.jdesktop.animation.timing.TimingTargetAdapter;
+
+import controller.LoginService;
+import handle.login.LoginHandle;
+import model.Admin;
+import model.Student;
+import model.User;
+
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+
 import java.awt.Color;
 import java.awt.Font;
 
@@ -37,26 +47,29 @@ public class Main extends javax.swing.JFrame {
 
     public Main() {
         initComponents();
-        initAccounts();
+       // initAccounts();
         init();
         initDragAndDrop();
     }
 
+    /*
     private void initAccounts() {
         // User accounts
         userAccounts.put("tyn", "5804");
         // Admin accounts
         adminAccounts.put("admin", "admin123");
-    }
+    }*/
 
-    public boolean authenticate(String role, String identifier, String password) {
+    /*public boolean authenticate(String role, String identifier, String password) {
         if (role.equals("User")) {
             return userAccounts.containsKey(identifier) && userAccounts.get(identifier).equals(password);
         } else if (role.equals("Admin")) {
             return adminAccounts.containsKey(identifier) && adminAccounts.get(identifier).equals(password);
         }
         return false;
-    }
+    }*/
+    
+   
 
     private void init() {
         layout = new MigLayout("fill, insets 0");

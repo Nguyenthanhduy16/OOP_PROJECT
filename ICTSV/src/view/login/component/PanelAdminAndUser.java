@@ -12,16 +12,24 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import view.login.main.Main;
 import net.miginfocom.swing.MigLayout;
+import controller.LoginService;
+import handle.login.LoginHandle;
+import model.Admin;
+import model.Student;
+import model.User;
 
 public class PanelAdminAndUser extends javax.swing.JLayeredPane {
 
     private Main main; // Reference to Main for authentication
 
+    private LoginService loginService;
+
     public void setMain(Main main) {
         this.main = main;
     }
-
+    
     public PanelAdminAndUser() {
+    	this.loginService = new LoginService(new LoginHandle("/data/data.json"));
         initComponents();
         setupUserPanel();
         setupAdminPanel();
@@ -31,13 +39,13 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
 
     private void setupUserPanel() {
         userPanel.setLayout(new MigLayout("wrap", "push[center]push", "push[]25[]10[]10[]25[]push"));
-        JLabel label = new JLabel("User");
+        JLabel label = new JLabel("Student");
         label.setFont(new Font("sansserif", 1, 30));
         label.setForeground(new Color(255, 100, 100));
         userPanel.add(label);
         MyTextField txtUser = new MyTextField();
         txtUser.setPrefixIcon(new ImageIcon(getClass().getResource("/view/login/icon/user.png")));
-        txtUser.setHint("StudentID");
+        txtUser.setHint("Username");
         userPanel.add(txtUser, "w 60%");
         MyPasswordField txtPass = new MyPasswordField();
         txtPass.setPrefixIcon(new ImageIcon(getClass().getResource("/view/login/icon/pass.png")));
@@ -51,27 +59,51 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
         cmd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String studentID = txtUser.getText().trim();
-                if (studentID.equals("StudentID")) studentID = "";
+                String username = txtUser.getText().trim();
+                if (username.equals("Username"))
+                    username = "";
                 String password = new String(txtPass.getPassword()).trim();
-                if (password.equals("Password")) password = "";
-                String role = "User";
+                if (password.equals("Password"))
+                    password = "";
+                String selectedRole = "student";
 
-                if (studentID.isEmpty() || password.isEmpty()) {
-                    JOptionPane.showMessageDialog(PanelAdminAndUser.this, 
-                        "Please fill all fields", "Error", JOptionPane.ERROR_MESSAGE);
+                if (username.isEmpty() || password.isEmpty()) {
+                    JOptionPane.showMessageDialog(PanelAdminAndUser.this,
+                            "Please fill all fields", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
+                
+                User loggedUser = loginService.authenticate(username, password, selectedRole);
 
-                if (main.authenticate(role, studentID, password)) {
-                    JOptionPane.showMessageDialog(PanelAdminAndUser.this, 
-                        "Login successful as User: " + studentID + "!", "Success", JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    JOptionPane.showMessageDialog(PanelAdminAndUser.this, 
-                        "Invalid StudentID or Password for role User", "Error", JOptionPane.ERROR_MESSAGE);
+                if (loggedUser != null) {
+                    if (loggedUser instanceof Student) {
+                        JOptionPane.showMessageDialog(PanelAdminAndUser.this,
+                                "Đăng nhập thành công với vai trò Student!");
+                        // new StudentFrame((Student) loggedUser).setVisible(true);
+                }
+                    //Đóng cửa sổ hiện tại lại
+                    java.awt.Window win = javax.swing.SwingUtilities.getWindowAncestor(PanelAdminAndUser.this);
+                    win.dispose();
+                }else {
+                	JOptionPane.showMessageDialog(PanelAdminAndUser.this,
+                            "Invalid Username or Password for role Student", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
+
+        /*
+         * if (.authenticate(role, email, password)) {
+         * JOptionPane.showMessageDialog(PanelAdminAndUser.this,
+         * "Login successful as Admin: " + email + "!", "Success",
+         * JOptionPane.INFORMATION_MESSAGE);
+         * } else {
+         * JOptionPane.showMessageDialog(PanelAdminAndUser.this,
+         * "Invalid Email or Password for role Admin", "Error",
+         * JOptionPane.ERROR_MESSAGE);
+         * }
+         * }
+         * });
+         */
         userPanel.add(cmd, "w 40%, h 40");
     }
 
@@ -83,7 +115,7 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
         adminPanel.add(label);
         MyTextField txtEmail = new MyTextField();
         txtEmail.setPrefixIcon(new ImageIcon(getClass().getResource("/view/login/icon/mail.png")));
-        txtEmail.setHint("Email");
+        txtEmail.setHint("Username");
         adminPanel.add(txtEmail, "w 60%");
         MyPasswordField txtPass = new MyPasswordField();
         txtPass.setPrefixIcon(new ImageIcon(getClass().getResource("/view/login/icon/pass.png")));
@@ -97,27 +129,51 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
         cmd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String email = txtEmail.getText().trim();
-                if (email.equals("Email")) email = "";
+                String username = txtEmail.getText().trim();
+                if (username.equals("Username"))
+                    username = "";
                 String password = new String(txtPass.getPassword()).trim();
-                if (password.equals("Password")) password = "";
-                String role = "Admin";
+                if (password.equals("Password"))
+                    password = "";
+                String selectedRole = "admin";
 
-                if (email.isEmpty() || password.isEmpty()) {
-                    JOptionPane.showMessageDialog(PanelAdminAndUser.this, 
-                        "Please fill all fields", "Error", JOptionPane.ERROR_MESSAGE);
+                if (username.isEmpty() || password.isEmpty()) {
+                    JOptionPane.showMessageDialog(PanelAdminAndUser.this,
+                            "Please fill all fields", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
 
-                if (main.authenticate(role, email, password)) {
-                    JOptionPane.showMessageDialog(PanelAdminAndUser.this, 
-                        "Login successful as Admin: " + email + "!", "Success", JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    JOptionPane.showMessageDialog(PanelAdminAndUser.this, 
-                        "Invalid Email or Password for role Admin", "Error", JOptionPane.ERROR_MESSAGE);
+                User loggedUser = loginService.authenticate(username, password, selectedRole);
+
+                if (loggedUser != null) {
+                    if (loggedUser instanceof Admin) {
+                        JOptionPane.showMessageDialog(PanelAdminAndUser.this,
+                                "Đăng nhập thành công với vai trò Admin!");
+                        // new AdminFrame((Admin) loggedUser).setVisible(true);
+                    } 
+                    //Đóng cửa sổ hiện tại lại
+                    java.awt.Window win = javax.swing.SwingUtilities.getWindowAncestor(PanelAdminAndUser.this);
+                    win.dispose();
+                }else {
+                	JOptionPane.showMessageDialog(PanelAdminAndUser.this,
+                            "Invalid Username or Password for role Admin", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
+
+        /*
+         * if (.authenticate(role, email, password)) {
+         * JOptionPane.showMessageDialog(PanelAdminAndUser.this,
+         * "Login successful as Admin: " + email + "!", "Success",
+         * JOptionPane.INFORMATION_MESSAGE);
+         * } else {
+         * JOptionPane.showMessageDialog(PanelAdminAndUser.this,
+         * "Invalid Email or Password for role Admin", "Error",
+         * JOptionPane.ERROR_MESSAGE);
+         * }
+         * }
+         * });
+         */
         adminPanel.add(cmd, "w 40%, h 40");
     }
 
@@ -144,13 +200,11 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
         javax.swing.GroupLayout adminPanelLayout = new javax.swing.GroupLayout(adminPanel);
         adminPanel.setLayout(adminPanelLayout);
         adminPanelLayout.setHorizontalGroup(
-            adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 327, Short.MAX_VALUE)
-        );
+                adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 327, Short.MAX_VALUE));
         adminPanelLayout.setVerticalGroup(
-            adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+                adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 300, Short.MAX_VALUE));
 
         add(adminPanel, "card3");
 
@@ -159,16 +213,15 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
         javax.swing.GroupLayout userPanelLayout = new javax.swing.GroupLayout(userPanel);
         userPanel.setLayout(userPanelLayout);
         userPanelLayout.setHorizontalGroup(
-            userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 327, Short.MAX_VALUE)
-        );
+                userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 327, Short.MAX_VALUE));
         userPanelLayout.setVerticalGroup(
-            userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+                userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 300, Short.MAX_VALUE));
 
         add(userPanel, "card2");
     }
+
     // Variables declaration - do not modify
     private javax.swing.JPanel adminPanel;
     private javax.swing.JPanel userPanel;
