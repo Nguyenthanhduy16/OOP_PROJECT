@@ -27,13 +27,13 @@
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane fx:id="Student_controller" prefHeight="200.0" prefWidth="200.0">
+      <AnchorPane fx:id="paneFullPane" prefHeight="200.0" prefWidth="200.0">
          <children>
             <BorderPane layoutX="526.0" layoutY="296.0" prefHeight="1000.0" prefWidth="1600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <left>
                   <AnchorPane prefHeight="1000.0" prefWidth="400.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="paneThanhDieuHuong" layoutX="-81.0" prefHeight="1000.0" prefWidth="481.0" style="-fx-background-radius: 45;" styleClass="body" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-81.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane layoutX="-81.0" prefHeight="1000.0" prefWidth="481.0" style="-fx-background-radius: 45;" styleClass="body" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-81.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane layoutY="-3.0" prefHeight="190.0" prefWidth="403.0" style="-fx-background-radius: 45;" styleClass="header" stylesheets="@../style/layout.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="-3.0">
                                  <children>
@@ -49,7 +49,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="217.0" layoutY="235.0" styleClass="gradient_brown" stylesheets="@../style/text.css" text="Đinh Ngọc Khánh" textFill="#141f59">
+                              <Label fx:id="textUserName" layoutX="217.0" layoutY="235.0" styleClass="gradient_brown" stylesheets="@../style/text.css" text="Đinh Ngọc Khánh" textFill="#141f59">
                                  <font>
                                     <Font size="28.0" />
                                  </font>
@@ -95,7 +95,7 @@
                                     </FontAwesomeIconView>
                                  </graphic>
                               </Button>
-                              <Button fx:id="viewRegisteredActivity" layoutX="121.0" layoutY="572.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Xem hoạt động đã đăng ký">
+                              <Button fx:id="buttonViewActivity" layoutX="121.0" layoutY="572.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Xem hoạt động đã đăng ký">
                                  <textFill>
                                     <RadialGradient centerX="0.5220994475138121" centerY="0.566350710900474" radius="0.5">
                                        <stops>
@@ -129,7 +129,7 @@
                                     <FontAwesomeIconView fill="#3d0000" glyphName="EYE" opacity="0.8" size="22" />
                                  </graphic>
                               </Button>
-                              <Button layoutX="120.0" layoutY="735.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Xem điểm">
+                              <Button fx:id="buttonViewScore" layoutX="120.0" layoutY="735.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Xem điểm">
                                  <textFill>
                                     <RadialGradient centerX="0.5220994475138121" centerY="0.542654028436019" radius="0.5">
                                        <stops>
@@ -163,7 +163,7 @@
                                     <FontAwesomeIconView fill="#3d0000" glyphName="BAR_CHART" opacity="0.8" size="22" />
                                  </graphic>
                               </Button>
-                              <Button layoutX="226.0" layoutY="939.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="135.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Thoát">
+                              <Button fx:id="buttonExit" layoutX="226.0" layoutY="939.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="135.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Thoát">
                                  <textFill>
                                     <RadialGradient centerX="0.5220994475138121" centerY="0.566350710900474" radius="0.5">
                                        <stops>
@@ -212,7 +212,7 @@
                <center>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane layoutX="8.0" layoutY="337.0" prefHeight="1000.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="paneRegister" layoutX="8.0" layoutY="337.0" prefHeight="1000.0" prefWidth="1200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane layoutX="30.0" layoutY="34.0" prefHeight="65.0" prefWidth="455.0">
                                  <stylesheets>
@@ -225,7 +225,7 @@
                                     <String fx:value="radius" />
                                  </styleClass>
                                  <children>
-                                    <TextField layoutX="79.0" layoutY="7.0" prefHeight="50.0" prefWidth="343.0" promptText="Tìm kiếm" stylesheets="@../style/layout.css">
+                                    <TextField fx:id="inputRegisterSearch" layoutX="79.0" layoutY="7.0" prefHeight="50.0" prefWidth="343.0" promptText="Tìm kiếm" stylesheets="@../style/layout.css">
                                        <styleClass>
                                           <String fx:value="radius" />
                                           <String fx:value="white-bg" />
@@ -234,7 +234,7 @@
                                           <Font size="36.0" />
                                        </font>
                                     </TextField>
-                                    <Button layoutX="7.0" layoutY="12.0" minWidth="36.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="36.0" style="-fx-background-radius: 10;" styleClass="white-button" stylesheets="@../style/button.css">
+                                    <Button fx:id="buttonRegisterActivitySearch" layoutX="7.0" layoutY="12.0" minWidth="36.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="36.0" style="-fx-background-radius: 10;" styleClass="white-button" stylesheets="@../style/button.css">
                                        <textFill>
                                           <RadialGradient centerX="0.5220994475138121" centerY="0.566350710900474" radius="0.5">
                                              <stops>
@@ -270,7 +270,7 @@
                                     </Button>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane layoutX="23.0" layoutY="145.0" prefHeight="722.0" prefWidth="1150.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="27.0">
+                              <AnchorPane fx:id="paneRegisterActivityLists" layoutX="23.0" layoutY="145.0" prefHeight="722.0" prefWidth="1150.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="27.0">
                                  <stylesheets>
                                     <URL value="@../style/layout.css" />
                                     <URL value="@../style/button.css" />
@@ -281,11 +281,11 @@
                                     <String fx:value="radius" />
                                  </styleClass>
                                  <children>
-                                    <ScrollPane layoutX="9.0" layoutY="7.0" prefHeight="703.0" prefWidth="1133.0" styleClass="transparent" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="7.0">
+                                    <ScrollPane fx:id="paneRegisterScrollPane" layoutX="9.0" layoutY="7.0" prefHeight="703.0" prefWidth="1133.0" styleClass="transparent" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="7.0">
                                        <content>
-                                          <AnchorPane prefHeight="1255.0" prefWidth="1110.0">
+                                          <AnchorPane fx:id="paneRegisterActivityFullPane" prefHeight="1255.0" prefWidth="1110.0">
                                              <children>
-                                                <AnchorPane layoutX="23.0" layoutY="21.0" prefHeight="400.0" prefWidth="290.0" stylesheets="@../style/layout.css" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="806.0">
+                                                <AnchorPane fx:id="paneRegisterActivityPane" layoutX="23.0" layoutY="21.0" prefHeight="400.0" prefWidth="290.0" stylesheets="@../style/layout.css" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="806.0">
                                                    <styleClass>
                                                       <String fx:value="body" />
                                                       <String fx:value="radius" />
@@ -296,456 +296,40 @@
                                                             <Image url="@img/people.png" />
                                                          </image>
                                                       </ImageView>
-                                                      <AnchorPane layoutX="16.0" layoutY="167.0" prefHeight="223.0" prefWidth="262.0" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="167.0">
+                                                      <AnchorPane fx:id="paneRegisterActivityInfo" layoutX="16.0" layoutY="167.0" prefHeight="223.0" prefWidth="262.0" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="167.0">
                                                          <styleClass>
                                                             <String fx:value="white-bg" />
                                                             <String fx:value="radius" />
                                                          </styleClass>
                                                          <children>
-                                                            <Label layoutX="16.0" layoutY="12.0" prefHeight="66.0" prefWidth="236.0" text="Chìa khóa giúp bạn học tốt, không nợ môn" textAlignment="CENTER" wrapText="true">
+                                                            <Label fx:id="textRegisterActivityTitle" layoutX="16.0" layoutY="12.0" prefHeight="66.0" prefWidth="236.0" text="Chìa khóa giúp bạn học tốt, không nợ môn" textAlignment="CENTER" wrapText="true">
                                                                <font>
                                                                   <Font name="System Bold" size="18.0" />
                                                                </font>
                                                             </Label>
-                                                            <CheckBox layoutX="121.0" layoutY="187.0" mnemonicParsing="false" />
+                                                            <CheckBox fx:id="checkBoxSelectRegisterActivity" layoutX="121.0" layoutY="187.0" mnemonicParsing="false" />
                                                             <Label layoutX="111.0" layoutY="168.0" text="Đăng ký" />
                                                             <AnchorPane layoutX="16.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
                                                                <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="purple" stylesheets="@../style/text.css" text="2025-06-30" />
+                                                                  <Label fx:id="textRegisterActivityTime" layoutX="29.0" layoutY="2.0" styleClass="purple" stylesheets="@../style/text.css" text="2025-06-30" />
                                                                   <FontAwesomeIconView glyphName="CLOCK_ALT" layoutX="8.0" layoutY="16.0" size="16" />
                                                                </children>
                                                             </AnchorPane>
                                                             <AnchorPane layoutX="16.0" layoutY="89.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
                                                                <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="blue" stylesheets="@../style/text.css" text="Học tập" />
+                                                                  <Label fx:id="textRegisterActivityCategory" layoutX="29.0" layoutY="2.0" styleClass="blue" stylesheets="@../style/text.css" text="Học tập" />
                                                                   <FontAwesomeIconView glyphName="CHECK_SQUARE" layoutX="8.0" layoutY="16.0" size="16" />
                                                                </children>
                                                             </AnchorPane>
                                                             <AnchorPane layoutX="139.0" layoutY="88.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="84.0">
                                                                <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="green" stylesheets="@../style/text.css" text="6 điểm" />
+                                                                  <Label fx:id="textRegisterActivityScore" layoutX="29.0" layoutY="2.0" styleClass="green" stylesheets="@../style/text.css" text="6 điểm" />
                                                                   <FontAwesomeIconView glyphName="CALCULATOR" layoutX="8.0" layoutY="16.0" size="16" />
                                                                </children>
                                                             </AnchorPane>
                                                             <AnchorPane layoutX="139.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="115.0">
                                                                <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="red" stylesheets="@../style/text.css" text="Hội trường C2" />
-                                                                  <FontAwesomeIconView glyphName="COMPASS" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </children>
-                                                      </AnchorPane>
-                                                   </children>
-                                                </AnchorPane>
-                                                <AnchorPane layoutX="403.0" layoutY="21.0" prefHeight="400.0" prefWidth="290.0" stylesheets="@../style/layout.css" AnchorPane.leftAnchor="403.0" AnchorPane.rightAnchor="426.0">
-                                                   <styleClass>
-                                                      <String fx:value="body" />
-                                                      <String fx:value="radius" />
-                                                   </styleClass>
-                                                   <children>
-                                                      <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="90.0" layoutY="30.0" opacity="0.8" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="30.0">
-                                                         <image>
-                                                            <Image url="@img/people.png" />
-                                                         </image>
-                                                      </ImageView>
-                                                      <AnchorPane layoutX="16.0" layoutY="167.0" prefHeight="223.0" prefWidth="262.0" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="167.0">
-                                                         <styleClass>
-                                                            <String fx:value="white-bg" />
-                                                            <String fx:value="radius" />
-                                                         </styleClass>
-                                                         <children>
-                                                            <Label layoutX="16.0" layoutY="12.0" prefHeight="66.0" prefWidth="236.0" text="Chìa khóa giúp bạn học tốt, không nợ môn" textAlignment="CENTER" wrapText="true">
-                                                               <font>
-                                                                  <Font name="System Bold" size="18.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <CheckBox layoutX="121.0" layoutY="187.0" mnemonicParsing="false" />
-                                                            <Label layoutX="111.0" layoutY="168.0" text="Đăng ký" />
-                                                            <AnchorPane layoutX="16.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="purple" stylesheets="@../style/text.css" text="2025-06-30" />
-                                                                  <FontAwesomeIconView glyphName="CLOCK_ALT" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="16.0" layoutY="89.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="blue" stylesheets="@../style/text.css" text="Học tập" />
-                                                                  <FontAwesomeIconView glyphName="CHECK_SQUARE" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="139.0" layoutY="88.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="84.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="green" stylesheets="@../style/text.css" text="6 điểm" />
-                                                                  <FontAwesomeIconView glyphName="CALCULATOR" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="139.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="115.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="red" stylesheets="@../style/text.css" text="Hội trường C2" />
-                                                                  <FontAwesomeIconView glyphName="COMPASS" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </children>
-                                                      </AnchorPane>
-                                                   </children>
-                                                </AnchorPane>
-                                                <AnchorPane layoutX="773.0" layoutY="21.0" prefHeight="400.0" prefWidth="290.0" stylesheets="@../style/layout.css">
-                                                   <styleClass>
-                                                      <String fx:value="body" />
-                                                      <String fx:value="radius" />
-                                                   </styleClass>
-                                                   <children>
-                                                      <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="90.0" layoutY="30.0" opacity="0.8" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="80.0">
-                                                         <image>
-                                                            <Image url="@img/people.png" />
-                                                         </image>
-                                                      </ImageView>
-                                                      <AnchorPane layoutX="16.0" layoutY="167.0" prefHeight="223.0" prefWidth="262.0" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="167.0">
-                                                         <styleClass>
-                                                            <String fx:value="white-bg" />
-                                                            <String fx:value="radius" />
-                                                         </styleClass>
-                                                         <children>
-                                                            <Label layoutX="16.0" layoutY="12.0" prefHeight="66.0" prefWidth="236.0" text="Chìa khóa giúp bạn học tốt, không nợ môn" textAlignment="CENTER" wrapText="true">
-                                                               <font>
-                                                                  <Font name="System Bold" size="18.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <CheckBox layoutX="121.0" layoutY="187.0" mnemonicParsing="false" />
-                                                            <Label layoutX="111.0" layoutY="168.0" text="Đăng ký" />
-                                                            <AnchorPane layoutX="16.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="purple" stylesheets="@../style/text.css" text="2025-06-30" />
-                                                                  <FontAwesomeIconView glyphName="CLOCK_ALT" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="16.0" layoutY="89.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="blue" stylesheets="@../style/text.css" text="Học tập" />
-                                                                  <FontAwesomeIconView glyphName="CHECK_SQUARE" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="139.0" layoutY="88.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="84.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="green" stylesheets="@../style/text.css" text="6 điểm" />
-                                                                  <FontAwesomeIconView glyphName="CALCULATOR" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="139.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="115.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="red" stylesheets="@../style/text.css" text="Hội trường C2" />
-                                                                  <FontAwesomeIconView glyphName="COMPASS" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </children>
-                                                      </AnchorPane>
-                                                   </children>
-                                                </AnchorPane>
-                                                <AnchorPane layoutX="23.0" layoutY="447.0" prefHeight="400.0" prefWidth="290.0" stylesheets="@../style/layout.css" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="806.0">
-                                                   <styleClass>
-                                                      <String fx:value="body" />
-                                                      <String fx:value="radius" />
-                                                   </styleClass>
-                                                   <children>
-                                                      <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="90.0" layoutY="30.0" opacity="0.8" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="30.0">
-                                                         <image>
-                                                            <Image url="@img/people.png" />
-                                                         </image>
-                                                      </ImageView>
-                                                      <AnchorPane layoutX="16.0" layoutY="167.0" prefHeight="223.0" prefWidth="262.0" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="167.0">
-                                                         <styleClass>
-                                                            <String fx:value="white-bg" />
-                                                            <String fx:value="radius" />
-                                                         </styleClass>
-                                                         <children>
-                                                            <Label layoutX="16.0" layoutY="12.0" prefHeight="66.0" prefWidth="236.0" text="Chìa khóa giúp bạn học tốt, không nợ môn" textAlignment="CENTER" wrapText="true">
-                                                               <font>
-                                                                  <Font name="System Bold" size="18.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <CheckBox layoutX="121.0" layoutY="187.0" mnemonicParsing="false" />
-                                                            <Label layoutX="111.0" layoutY="168.0" text="Đăng ký" />
-                                                            <AnchorPane layoutX="16.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="purple" stylesheets="@../style/text.css" text="2025-06-30" />
-                                                                  <FontAwesomeIconView glyphName="CLOCK_ALT" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="16.0" layoutY="89.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="blue" stylesheets="@../style/text.css" text="Học tập" />
-                                                                  <FontAwesomeIconView glyphName="CHECK_SQUARE" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="139.0" layoutY="88.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="84.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="green" stylesheets="@../style/text.css" text="6 điểm" />
-                                                                  <FontAwesomeIconView glyphName="CALCULATOR" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="139.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="115.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="red" stylesheets="@../style/text.css" text="Hội trường C2" />
-                                                                  <FontAwesomeIconView glyphName="COMPASS" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </children>
-                                                      </AnchorPane>
-                                                   </children>
-                                                </AnchorPane>
-                                                <AnchorPane layoutX="403.0" layoutY="447.0" prefHeight="400.0" prefWidth="290.0" stylesheets="@../style/layout.css" AnchorPane.leftAnchor="403.0" AnchorPane.rightAnchor="426.0">
-                                                   <styleClass>
-                                                      <String fx:value="body" />
-                                                      <String fx:value="radius" />
-                                                   </styleClass>
-                                                   <children>
-                                                      <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="90.0" layoutY="30.0" opacity="0.8" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="30.0">
-                                                         <image>
-                                                            <Image url="@img/people.png" />
-                                                         </image>
-                                                      </ImageView>
-                                                      <AnchorPane layoutX="16.0" layoutY="167.0" prefHeight="223.0" prefWidth="262.0" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="167.0">
-                                                         <styleClass>
-                                                            <String fx:value="white-bg" />
-                                                            <String fx:value="radius" />
-                                                         </styleClass>
-                                                         <children>
-                                                            <Label layoutX="16.0" layoutY="12.0" prefHeight="66.0" prefWidth="236.0" text="Chìa khóa giúp bạn học tốt, không nợ môn" textAlignment="CENTER" wrapText="true">
-                                                               <font>
-                                                                  <Font name="System Bold" size="18.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <CheckBox layoutX="121.0" layoutY="187.0" mnemonicParsing="false" />
-                                                            <Label layoutX="111.0" layoutY="168.0" text="Đăng ký" />
-                                                            <AnchorPane layoutX="16.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="purple" stylesheets="@../style/text.css" text="2025-06-30" />
-                                                                  <FontAwesomeIconView glyphName="CLOCK_ALT" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="16.0" layoutY="89.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="blue" stylesheets="@../style/text.css" text="Học tập" />
-                                                                  <FontAwesomeIconView glyphName="CHECK_SQUARE" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="139.0" layoutY="88.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="84.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="green" stylesheets="@../style/text.css" text="6 điểm" />
-                                                                  <FontAwesomeIconView glyphName="CALCULATOR" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="139.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="115.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="red" stylesheets="@../style/text.css" text="Hội trường C2" />
-                                                                  <FontAwesomeIconView glyphName="COMPASS" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </children>
-                                                      </AnchorPane>
-                                                   </children>
-                                                </AnchorPane>
-                                                <AnchorPane layoutX="773.0" layoutY="447.0" prefHeight="400.0" prefWidth="290.0" stylesheets="@../style/layout.css" AnchorPane.leftAnchor="773.0" AnchorPane.rightAnchor="56.0">
-                                                   <styleClass>
-                                                      <String fx:value="body" />
-                                                      <String fx:value="radius" />
-                                                   </styleClass>
-                                                   <children>
-                                                      <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="90.0" layoutY="30.0" opacity="0.8" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="30.0">
-                                                         <image>
-                                                            <Image url="@img/people.png" />
-                                                         </image>
-                                                      </ImageView>
-                                                      <AnchorPane layoutX="16.0" layoutY="167.0" prefHeight="223.0" prefWidth="262.0" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="167.0">
-                                                         <styleClass>
-                                                            <String fx:value="white-bg" />
-                                                            <String fx:value="radius" />
-                                                         </styleClass>
-                                                         <children>
-                                                            <Label layoutX="16.0" layoutY="12.0" prefHeight="66.0" prefWidth="236.0" text="Chìa khóa giúp bạn học tốt, không nợ môn" textAlignment="CENTER" wrapText="true">
-                                                               <font>
-                                                                  <Font name="System Bold" size="18.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <CheckBox layoutX="121.0" layoutY="187.0" mnemonicParsing="false" />
-                                                            <Label layoutX="111.0" layoutY="168.0" text="Đăng ký" />
-                                                            <AnchorPane layoutX="16.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="purple" stylesheets="@../style/text.css" text="2025-06-30" />
-                                                                  <FontAwesomeIconView glyphName="CLOCK_ALT" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="16.0" layoutY="89.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="blue" stylesheets="@../style/text.css" text="Học tập" />
-                                                                  <FontAwesomeIconView glyphName="CHECK_SQUARE" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="139.0" layoutY="88.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="84.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="green" stylesheets="@../style/text.css" text="6 điểm" />
-                                                                  <FontAwesomeIconView glyphName="CALCULATOR" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="139.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="115.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="red" stylesheets="@../style/text.css" text="Hội trường C2" />
-                                                                  <FontAwesomeIconView glyphName="COMPASS" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </children>
-                                                      </AnchorPane>
-                                                   </children>
-                                                </AnchorPane>
-                                                <AnchorPane layoutX="23.0" layoutY="872.0" prefHeight="400.0" prefWidth="290.0" stylesheets="@../style/layout.css" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="806.0">
-                                                   <styleClass>
-                                                      <String fx:value="body" />
-                                                      <String fx:value="radius" />
-                                                   </styleClass>
-                                                   <children>
-                                                      <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="90.0" layoutY="30.0" opacity="0.8" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="30.0">
-                                                         <image>
-                                                            <Image url="@img/people.png" />
-                                                         </image>
-                                                      </ImageView>
-                                                      <AnchorPane layoutX="16.0" layoutY="167.0" prefHeight="223.0" prefWidth="262.0" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="167.0">
-                                                         <styleClass>
-                                                            <String fx:value="white-bg" />
-                                                            <String fx:value="radius" />
-                                                         </styleClass>
-                                                         <children>
-                                                            <Label layoutX="16.0" layoutY="12.0" prefHeight="66.0" prefWidth="236.0" text="Chìa khóa giúp bạn học tốt, không nợ môn" textAlignment="CENTER" wrapText="true">
-                                                               <font>
-                                                                  <Font name="System Bold" size="18.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <CheckBox layoutX="121.0" layoutY="187.0" mnemonicParsing="false" />
-                                                            <Label layoutX="111.0" layoutY="168.0" text="Đăng ký" />
-                                                            <AnchorPane layoutX="16.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="purple" stylesheets="@../style/text.css" text="2025-06-30" />
-                                                                  <FontAwesomeIconView glyphName="CLOCK_ALT" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="16.0" layoutY="89.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="blue" stylesheets="@../style/text.css" text="Học tập" />
-                                                                  <FontAwesomeIconView glyphName="CHECK_SQUARE" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="139.0" layoutY="88.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="84.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="green" stylesheets="@../style/text.css" text="6 điểm" />
-                                                                  <FontAwesomeIconView glyphName="CALCULATOR" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="139.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="115.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="red" stylesheets="@../style/text.css" text="Hội trường C2" />
-                                                                  <FontAwesomeIconView glyphName="COMPASS" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </children>
-                                                      </AnchorPane>
-                                                   </children>
-                                                </AnchorPane>
-                                                <AnchorPane layoutX="403.0" layoutY="872.0" prefHeight="400.0" prefWidth="290.0" stylesheets="@../style/layout.css" AnchorPane.leftAnchor="403.0" AnchorPane.rightAnchor="426.0">
-                                                   <styleClass>
-                                                      <String fx:value="body" />
-                                                      <String fx:value="radius" />
-                                                   </styleClass>
-                                                   <children>
-                                                      <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="90.0" layoutY="30.0" opacity="0.8" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="30.0">
-                                                         <image>
-                                                            <Image url="@img/people.png" />
-                                                         </image>
-                                                      </ImageView>
-                                                      <AnchorPane layoutX="16.0" layoutY="167.0" prefHeight="223.0" prefWidth="262.0" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="167.0">
-                                                         <styleClass>
-                                                            <String fx:value="white-bg" />
-                                                            <String fx:value="radius" />
-                                                         </styleClass>
-                                                         <children>
-                                                            <Label layoutX="16.0" layoutY="12.0" prefHeight="66.0" prefWidth="236.0" text="Chìa khóa giúp bạn học tốt, không nợ môn" textAlignment="CENTER" wrapText="true">
-                                                               <font>
-                                                                  <Font name="System Bold" size="18.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <CheckBox layoutX="121.0" layoutY="187.0" mnemonicParsing="false" />
-                                                            <Label layoutX="111.0" layoutY="168.0" text="Đăng ký" />
-                                                            <AnchorPane layoutX="16.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="purple" stylesheets="@../style/text.css" text="2025-06-30" />
-                                                                  <FontAwesomeIconView glyphName="CLOCK_ALT" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="16.0" layoutY="89.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="blue" stylesheets="@../style/text.css" text="Học tập" />
-                                                                  <FontAwesomeIconView glyphName="CHECK_SQUARE" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="139.0" layoutY="88.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="84.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="green" stylesheets="@../style/text.css" text="6 điểm" />
-                                                                  <FontAwesomeIconView glyphName="CALCULATOR" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="139.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="115.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="red" stylesheets="@../style/text.css" text="Hội trường C2" />
-                                                                  <FontAwesomeIconView glyphName="COMPASS" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </children>
-                                                      </AnchorPane>
-                                                   </children>
-                                                </AnchorPane>
-                                                <AnchorPane layoutX="778.0" layoutY="872.0" prefHeight="400.0" prefWidth="290.0" stylesheets="@../style/layout.css" AnchorPane.leftAnchor="778.0" AnchorPane.rightAnchor="51.0">
-                                                   <styleClass>
-                                                      <String fx:value="body" />
-                                                      <String fx:value="radius" />
-                                                   </styleClass>
-                                                   <children>
-                                                      <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="90.0" layoutY="30.0" opacity="0.8" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="30.0">
-                                                         <image>
-                                                            <Image url="@img/people.png" />
-                                                         </image>
-                                                      </ImageView>
-                                                      <AnchorPane layoutX="16.0" layoutY="167.0" prefHeight="223.0" prefWidth="262.0" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="167.0">
-                                                         <styleClass>
-                                                            <String fx:value="white-bg" />
-                                                            <String fx:value="radius" />
-                                                         </styleClass>
-                                                         <children>
-                                                            <Label layoutX="16.0" layoutY="12.0" prefHeight="66.0" prefWidth="236.0" text="Chìa khóa giúp bạn học tốt, không nợ môn" textAlignment="CENTER" wrapText="true">
-                                                               <font>
-                                                                  <Font name="System Bold" size="18.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <CheckBox layoutX="121.0" layoutY="187.0" mnemonicParsing="false" />
-                                                            <Label layoutX="111.0" layoutY="168.0" text="Đăng ký" />
-                                                            <AnchorPane layoutX="16.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="purple" stylesheets="@../style/text.css" text="2025-06-30" />
-                                                                  <FontAwesomeIconView glyphName="CLOCK_ALT" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="16.0" layoutY="89.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="blue" stylesheets="@../style/text.css" text="Học tập" />
-                                                                  <FontAwesomeIconView glyphName="CHECK_SQUARE" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="139.0" layoutY="88.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="84.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="green" stylesheets="@../style/text.css" text="6 điểm" />
-                                                                  <FontAwesomeIconView glyphName="CALCULATOR" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="139.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="115.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="red" stylesheets="@../style/text.css" text="Hội trường C2" />
+                                                                  <Label fx:id="textRegisterActivityLocation" layoutX="29.0" layoutY="2.0" styleClass="red" stylesheets="@../style/text.css" text="Hội trường C2" />
                                                                   <FontAwesomeIconView glyphName="COMPASS" layoutX="8.0" layoutY="16.0" size="16" />
                                                                </children>
                                                             </AnchorPane>
@@ -760,7 +344,7 @@
                                  </children>
                               </AnchorPane>
                               <Separator layoutX="9.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="1002.0" prefWidth="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                              <Button layoutX="496.0" layoutY="903.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="201.0" style="-fx-background-radius: 10;" text="Đăng ký" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="903.0">
+                              <Button fx:id="buttonRegisterActivityButton" layoutX="496.0" layoutY="903.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="201.0" style="-fx-background-radius: 10;" text="Đăng ký" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="903.0">
                                  <textFill>
                                     <RadialGradient centerX="0.5220994475138121" centerY="0.566350710900474" radius="0.5">
                                        <stops>
@@ -801,7 +385,7 @@
                               </Button>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutY="3.0" prefHeight="1000.0" prefWidth="1200.0" visible="false" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0">
+                        <AnchorPane fx:id="paneViewActivity" layoutY="3.0" prefHeight="1000.0" prefWidth="1200.0" visible="false" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0">
                            <children>
                               <AnchorPane layoutX="30.0" layoutY="33.0" prefHeight="65.0" prefWidth="455.0">
                                  <stylesheets>
@@ -944,228 +528,6 @@
                                                       </Label>
                                                    </children>
                                                 </AnchorPane>
-                                                <AnchorPane layoutX="29.0" layoutY="202.0" prefHeight="156.0" prefWidth="1061.0" stylesheets="@../style/layout.css">
-                                                   <styleClass>
-                                                      <String fx:value="body" />
-                                                      <String fx:value="radius" />
-                                                      <String fx:value="shadow" />
-                                                   </styleClass>
-                                                   <children>
-                                                      <ImageView fitHeight="115.0" fitWidth="115.0" layoutX="21.0" layoutY="21.0" opacity="0.8" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="925.0" AnchorPane.topAnchor="21.0">
-                                                         <image>
-                                                            <Image url="@img/medal.png" />
-                                                         </image>
-                                                      </ImageView>
-                                                      <AnchorPane layoutX="154.0" layoutY="21.0" prefHeight="116.0" prefWidth="717.0" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="154.0" AnchorPane.rightAnchor="190.0" AnchorPane.topAnchor="21.0">
-                                                         <styleClass>
-                                                            <String fx:value="white-bg" />
-                                                            <String fx:value="radius" />
-                                                            <String fx:value="shadow" />
-                                                         </styleClass>
-                                                         <children>
-                                                            <Label layoutX="26.0" layoutY="14.0" prefHeight="35.0" prefWidth="667.0" styleClass="button-text-color" stylesheets="@../style/text.css" text="Chìa khóa giúp bạn học tốt, không nợ môn">
-                                                               <font>
-                                                                  <Font name="System Bold" size="24.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <AnchorPane layoutX="28.0" layoutY="86.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="purple" stylesheets="@../style/text.css" text="2025-06-30">
-                                                                     <font>
-                                                                        <Font size="14.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <FontAwesomeIconView glyphName="CLOCK_ALT" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="28.0" layoutY="55.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="blue" stylesheets="@../style/text.css" text="Học tập">
-                                                                     <font>
-                                                                        <Font size="14.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <FontAwesomeIconView glyphName="CHECK_SQUARE" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="210.0" layoutY="56.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="84.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="green" stylesheets="@../style/text.css" text="6 điểm">
-                                                                     <font>
-                                                                        <Font size="14.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <FontAwesomeIconView glyphName="CALCULATOR" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="210.0" layoutY="86.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="115.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="red" stylesheets="@../style/text.css" text="Hội trường C2">
-                                                                     <font>
-                                                                        <Font size="14.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <FontAwesomeIconView glyphName="COMPASS" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </children>
-                                                      </AnchorPane>
-                                                      <CheckBox disable="true" layoutX="952.0" layoutY="103.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="39.0" prefWidth="36.0" stylesheets="@../style/check_box.css" />
-                                                      <Label layoutX="925.0" layoutY="66.0" styleClass="green" stylesheets="@../style/text.css" text="Đã tham gia">
-                                                         <font>
-                                                            <Font size="18.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </AnchorPane>
-                                                <AnchorPane layoutX="28.0" layoutY="380.0" prefHeight="156.0" prefWidth="1061.0" stylesheets="@../style/layout.css">
-                                                   <styleClass>
-                                                      <String fx:value="body" />
-                                                      <String fx:value="radius" />
-                                                      <String fx:value="shadow" />
-                                                   </styleClass>
-                                                   <children>
-                                                      <ImageView fitHeight="115.0" fitWidth="115.0" layoutX="21.0" layoutY="21.0" opacity="0.8" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="925.0" AnchorPane.topAnchor="21.0">
-                                                         <image>
-                                                            <Image url="@img/medal.png" />
-                                                         </image>
-                                                      </ImageView>
-                                                      <AnchorPane layoutX="154.0" layoutY="21.0" prefHeight="116.0" prefWidth="717.0" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="154.0" AnchorPane.rightAnchor="190.0" AnchorPane.topAnchor="21.0">
-                                                         <styleClass>
-                                                            <String fx:value="white-bg" />
-                                                            <String fx:value="radius" />
-                                                            <String fx:value="shadow" />
-                                                         </styleClass>
-                                                         <children>
-                                                            <Label layoutX="26.0" layoutY="14.0" prefHeight="35.0" prefWidth="667.0" styleClass="button-text-color" stylesheets="@../style/text.css" text="Chìa khóa giúp bạn học tốt, không nợ môn">
-                                                               <font>
-                                                                  <Font name="System Bold" size="24.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <AnchorPane layoutX="28.0" layoutY="86.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="purple" stylesheets="@../style/text.css" text="2025-06-30">
-                                                                     <font>
-                                                                        <Font size="14.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <FontAwesomeIconView glyphName="CLOCK_ALT" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="28.0" layoutY="55.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="blue" stylesheets="@../style/text.css" text="Học tập">
-                                                                     <font>
-                                                                        <Font size="14.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <FontAwesomeIconView glyphName="CHECK_SQUARE" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="210.0" layoutY="56.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="84.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="green" stylesheets="@../style/text.css" text="6 điểm">
-                                                                     <font>
-                                                                        <Font size="14.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <FontAwesomeIconView glyphName="CALCULATOR" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="210.0" layoutY="86.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="115.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="red" stylesheets="@../style/text.css" text="Hội trường C2">
-                                                                     <font>
-                                                                        <Font size="14.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <FontAwesomeIconView glyphName="COMPASS" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </children>
-                                                      </AnchorPane>
-                                                      <CheckBox layoutX="952.0" layoutY="103.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="39.0" prefWidth="36.0" stylesheets="@../style/check_box.css" />
-                                                      <Label layoutX="925.0" layoutY="66.0" styleClass="orange" stylesheets="@../style/text.css" text="Đã đăng ký">
-                                                         <font>
-                                                            <Font size="18.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </AnchorPane>
-                                                <AnchorPane layoutX="31.0" layoutY="562.0" prefHeight="156.0" prefWidth="1061.0" stylesheets="@../style/layout.css">
-                                                   <styleClass>
-                                                      <String fx:value="body" />
-                                                      <String fx:value="radius" />
-                                                      <String fx:value="shadow" />
-                                                   </styleClass>
-                                                   <children>
-                                                      <ImageView fitHeight="115.0" fitWidth="115.0" layoutX="21.0" layoutY="21.0" opacity="0.8" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="925.0" AnchorPane.topAnchor="21.0">
-                                                         <image>
-                                                            <Image url="@img/medal.png" />
-                                                         </image>
-                                                      </ImageView>
-                                                      <AnchorPane layoutX="154.0" layoutY="21.0" prefHeight="116.0" prefWidth="717.0" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="154.0" AnchorPane.rightAnchor="190.0" AnchorPane.topAnchor="21.0">
-                                                         <styleClass>
-                                                            <String fx:value="white-bg" />
-                                                            <String fx:value="radius" />
-                                                            <String fx:value="shadow" />
-                                                         </styleClass>
-                                                         <children>
-                                                            <Label layoutX="26.0" layoutY="14.0" prefHeight="35.0" prefWidth="667.0" styleClass="button-text-color" stylesheets="@../style/text.css" text="Chìa khóa giúp bạn học tốt, không nợ môn">
-                                                               <font>
-                                                                  <Font name="System Bold" size="24.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <AnchorPane layoutX="28.0" layoutY="86.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="purple" stylesheets="@../style/text.css" text="2025-06-30">
-                                                                     <font>
-                                                                        <Font size="14.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <FontAwesomeIconView glyphName="CLOCK_ALT" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="28.0" layoutY="55.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="blue" stylesheets="@../style/text.css" text="Học tập">
-                                                                     <font>
-                                                                        <Font size="14.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <FontAwesomeIconView glyphName="CHECK_SQUARE" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="210.0" layoutY="56.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="84.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="green" stylesheets="@../style/text.css" text="6 điểm">
-                                                                     <font>
-                                                                        <Font size="14.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <FontAwesomeIconView glyphName="CALCULATOR" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="210.0" layoutY="86.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="115.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="red" stylesheets="@../style/text.css" text="Hội trường C2">
-                                                                     <font>
-                                                                        <Font size="14.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <FontAwesomeIconView glyphName="COMPASS" layoutX="8.0" layoutY="16.0" size="16" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </children>
-                                                      </AnchorPane>
-                                                      <CheckBox disable="true" layoutX="952.0" layoutY="103.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="39.0" prefWidth="36.0" stylesheets="@../style/check_box.css" />
-                                                      <Label layoutX="925.0" layoutY="66.0" styleClass="green" stylesheets="@../style/text.css" text="Đã tham gia">
-                                                         <font>
-                                                            <Font size="18.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </AnchorPane>
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -1214,7 +576,7 @@
                               <ComboBox fx:id="kyHoc" layoutX="999.0" layoutY="48.0" prefHeight="26.0" prefWidth="117.0" promptText="Kỳ học" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="51.0" layoutY="47.0" prefHeight="1000.0" prefWidth="1200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane layoutX="51.0" layoutY="47.0" prefHeight="1000.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane prefHeight="493.0" prefWidth="1157.0" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="498.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="9.0">
                                  <styleClass>

@@ -1,20 +1,17 @@
 package view;
 
-import java.awt.EventQueue; 
-import javax.swing.JFrame; 
-import javax.swing.JPanel; 
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import view.loginpanel.LeftPanel;
 import view.loginpanel.LoginPanel;
 import view.loginpanel.WindowControls;
-
-import java.awt.Color; 
-import java.awt.event.ComponentAdapter; 
-import java.awt.event.ComponentEvent;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 
 public class ICTSVPanel extends JFrame {
 	private JPanel contentPane;

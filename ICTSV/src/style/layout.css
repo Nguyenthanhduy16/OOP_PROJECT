@@ -18,3 +18,9 @@
 .transparent {
   -fx-background-color: transparent;
 }
+
+.table-view .column-header,
+.filter {
+  -fx-background-color: transparent;
+  -fs-size: 14px;
+}
