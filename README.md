@@ -9,7 +9,8 @@
   B2: setup: https://www.youtube.com/watch?v=7VXGzd3H51M
 - Lỗi không chạy được file main của StudentController:
   - Cách sửa: Bấm Run -> Run Configurations -> Java Application -> Arguments -> VM arguments -> Thêm --module-path "C:\Users\ADMIN\Downloads\openjfx-24.0.1_windows-x64_bin-sdk\javafx-sdk-24.0.1\lib" --add-modules javafx.controls,javafx.fxml và chạy
-    ![Uploading image.png…]()
+  ![image](https://github.com/user-attachments/assets/70582ecf-507a-4c2d-8b89-39e0acd9f14c)
+
 
 ### Long:
 - Chuột phải vào pj -> Properties -> Java build path -> Classpath -> Add JARs... -> thêm toàn bộ thư viện trong lib vào như hình là được
