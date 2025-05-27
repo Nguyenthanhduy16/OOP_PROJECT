@@ -1,0 +1,58 @@
+[
+  {
+    "userID": "GV1001",
+    "userName": "admin",
+    "passWord": "admin123",
+    "role": "admin",
+    "listActivities": [
+      {
+        "title": "Học tập tốt",
+        "name": "Quản lý hệ thống",
+        "status": true,
+        "score": 20
+      }
+    ]
+  },
+  {
+    "userID": "20235804",
+    "userName": "student",
+    "passWord": "student123",
+    "role": "student",
+    "registeredActivities": [
+      {
+        "title": "Học tập tốt",
+        "name": "Quản lý hệ thống",
+        "status": true,
+        "score": 20
+      }
+    ]
+  },
+  {
+      "userID": "20178594",
+      "userName": "tyn275",
+      "passWord": "oopquakho",
+      "role": "student",
+      "listActivities": [
+        {
+          "title": "Học tập tốt",
+          "name": "Quản lý hệ thống",
+          "status": true,
+          "score": 20
+        }
+      ]
+    },
+	{
+	      "userID": "20178594",
+	      "userName": "longlanhlung",
+	      "passWord": "20235772",
+	      "role": "admin",
+	      "listActivities": [
+	        {
+	          "title": "Học tập tốt",
+	          "name": "Quản lý hệ thống",
+	          "status": true,
+	          "score": 20
+	        }
+	      ]
+	    }
+]
