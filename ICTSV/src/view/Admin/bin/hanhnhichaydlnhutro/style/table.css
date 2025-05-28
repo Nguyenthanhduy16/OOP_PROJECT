@@ -1,0 +1,35 @@
+/* table.css */
+.table-view {
+  -fx-background-color: var(--background);
+  -fx-border-color: var(--border);
+  -fx-border-width: 1px;
+}
+.table-view .column-header-background {
+  -fx-background-color: linear-gradient(to bottom, var(--header-bg-start), var(--header-bg-end));
+}
+.table-view .column-header, .table-view .filler {
+  -fx-alignment: CENTER_LEFT;
+  -fx-font-size: var(--font-size-md);
+  -fx-font-weight: bold;
+  -fx-text-fill: var(--text-primary);
+  -fx-padding: 4 8 4 8;
+}
+.table-view .cell {
+  -fx-font-size: var(--font-size-sm);
+  -fx-text-fill: var(--text-primary);
+  -fx-padding: 6 8 6 8;
+}
+.table-row-cell:odd {
+  -fx-background-color: var(--alt-background);
+}
+.table-row-cell:even {
+  -fx-background-color: var(--background);
+}
+.table-row-cell:hover {
+  -fx-background-color: var(--row-hover);
+}
+.table-view:focused .cell:selected,
+.table-view .cell:selected {
+  -fx-background-color: -fx-selection-bar;
+  -fx-text-fill: var(--background);
+}

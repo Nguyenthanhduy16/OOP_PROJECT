@@ -1,0 +1,56 @@
+/* Áp dụng cho DropDownButton styleClass="dropbox" */
+.dropbox {
+    -fx-background-color: white;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+
+    /* Tăng kích thước chữ và padding */
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-padding: 15 20;      /* trên/dưới 12, trái/phải 20 */
+
+    /* Đặt chiều rộng & chiều cao tối thiểu */
+    -fx-min-width: 200px;
+    -fx-min-height: 50px;
+}
+
+/* Hiệu ứng hover trên nút chính */
+.dropbox:hover {
+    -fx-background-color: #f5f5f5;
+}
+
+/* Phần mũi tên */
+.dropbox .arrow-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0 16;       /* rộng hơn để cân với padding chính */
+}
+
+/* Hover lên mũi tên */
+.dropbox .arrow-button:hover {
+    -fx-background-color: rgba(51,51,51,0.05);
+}
+
+/* Style cho menu item */
+.dropbox .menu-item {
+    -fx-background-color: white;
+    -fx-text-fill: #333333;
+
+    /* Tăng padding và font-size cho từng mục */
+    -fx-font-size: 15px;
+    -fx-padding: 8 12;       /* trên/dưới 8, trái/phải 12 */
+
+    /* Đảm bảo menu đủ rộng */
+    -fx-pref-width: 250px;
+}
+
+/* Hover trên từng mục menu */
+.dropbox .menu-item:hover {
+    -fx-background-color: #f0f0f0;
+}
+
+/* Mục đang chọn */
+.dropbox .menu-item:selected {
+    -fx-background-color: #e6e6e6;
+    -fx-text-fill: #000000;
+}

@@ -1,0 +1,25 @@
+/* 1. Thu gọn khoảng thừa */
+.check-box {
+  -fx-padding: 0; /* bỏ padding mặc định */
+}
+
+/* 2. Nếu không hiển thị nhãn, ẩn luôn phần text */
+.check-box .text {
+  -fx-font-size: 0px; /* hoặc để 12-14 px nếu có nhãn */
+  -fx-padding: 0;
+}
+
+/* 3. Cố định kích thước ô vuông */
+.check-box .box {
+  -fx-pref-width: 35px;
+  -fx-pref-height: 35px;
+  -fx-min-width: 35px;
+  -fx-min-height: 35px;
+  -fx-max-width: 35px;
+  -fx-max-height: 35px;
+}
+
+/* (tuỳ chọn) 4. Bỏ khoảng cách mặc định giữa box và text */
+.check-box > .box {
+  -fx-spacing: 0; /* Java 17+ hỗ trợ thuộc tính này */
+}

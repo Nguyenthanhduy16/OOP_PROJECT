@@ -60,4 +60,7 @@ public class Activity {
                 + "Điểm: " + this.getScore());
     }
 
+    public void toPrint() {
+        System.out.println(this.getName() + " " + this.getTitle() + " " + this.getScore());
+    }
 }

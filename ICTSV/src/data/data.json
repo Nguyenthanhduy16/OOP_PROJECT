@@ -31,7 +31,7 @@
       "userID": "20178594",
       "userName": "tyn275",
       "passWord": "oopquakho",
-      "role": "admin",
+      "role": "student",
       "listActivities": [
         {
           "title": "Học tập tốt",
@@ -40,5 +40,19 @@
           "score": 20
         }
       ]
-    }
+    },
+	{
+	      "userID": "20178594",
+	      "userName": "longlanhlung",
+	      "passWord": "20235772",
+	      "role": "admin",
+	      "listActivities": [
+	        {
+	          "title": "Học tập tốt",
+	          "name": "Quản lý hệ thống",
+	          "status": true,
+	          "score": 20
+	        }
+	      ]
+	    }
 ]

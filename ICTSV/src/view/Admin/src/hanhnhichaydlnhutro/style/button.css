@@ -1,0 +1,47 @@
+.button {
+
+  /* bo góc nền */
+  -fx-background-radius: 15;
+  /* bo góc viền (nếu bạn có định border-color hoặc border-width) */
+  -fx-border-radius: 15;
+
+  /* các thuộc tính khác */
+  -fx-background-color: linear-gradient(from 0% 0% to 100% 0%, #e9b414 0%, #e4c465 100%);
+  -fx-text-fill: linear-gradient(from 0% 0% to 100% 0%, #3d0000 0%, #752a2a 100%);
+  -fx-font-size: 22px;
+  -fx-font-weight: bold;
+}
+
+
+.button:hover {
+  -fx-background-color: linear-gradient(to right, #e6ba38, #ebd8a1);
+  -fx-text-fill: linear-gradient(to right, #3d0000, #752a2a);
+}
+
+.shadow {
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 5, 0, 0, 0);
+}
+
+.register-button {
+  -fx-text-fill: #ffffff;
+  -fx-font-size: 25px;
+  -fx-font-weight: bold;
+  -fx-background-color: linear-gradient(to right, #b61f28, rgb(218, 88, 101));
+}
+
+.register-button:hover {
+  -fx-background-color: linear-gradient(to right, #b3363e, rgb(218, 115, 126));
+  -fx-font-size: 25px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #ffffff;
+}
+
+.white-button {
+  -fx-text-fill: #ffffff;
+  -fx-background-color: #ffffff;
+}
+
+.white-button:hover {
+  -fx-background-color: #dbdbdb;
+  -fx-text-fill: #000000;
+}
