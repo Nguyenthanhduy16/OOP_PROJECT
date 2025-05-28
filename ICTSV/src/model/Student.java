@@ -33,7 +33,7 @@ public class Student extends User{
 			}
 		}
 	}
-	public void registerActivity(Activity activity) {
+	public void addActivity(Activity activity) {
 		if(registeredActivities.contains(activity)) {
 			System.out.println(activity.getName() + " is ready in your registered activity");
 		}else {
@@ -84,4 +84,7 @@ public class Student extends User{
 	            System.out.println(activity.getName() + " " + activity.getTitle() + " " + activity.getScore());
 	    }
 	}
+    public ArrayList<Activity> getRegisteredActivities() {
+        return registeredActivities;
+    }
 }
