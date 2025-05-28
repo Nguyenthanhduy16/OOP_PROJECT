@@ -7,13 +7,7 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
@@ -44,7 +38,7 @@ public class DemoController {
     @FXML private Button btnRemoveActToStu;
     @FXML private Button AddActButton;
     @FXML private Button RemoveActButton;
-    @FXML private TextField Search;
+    @FXML private TextField SearchStu;
     @FXML private TextField Search2;
     @FXML private TextField ActName;
     @FXML private TextField Score;
@@ -106,7 +100,7 @@ public class DemoController {
         btnSearch2.setOnAction(e -> handleSearchActivity());
         BtnAddActToStu.setOnAction(e -> handleAddActivityToStudent());
         btnRemoveActToStu.setOnAction(e -> handleRemoveActivityFromStudent());
-        AddActButton.setOnAction(e -> CreateAct.setVisible(true));
+        AddActButton.setOnAction(e -> handleAddActivity());
         RemoveActButton.setOnAction(e -> handleRemoveActivity());
     }
 
@@ -194,7 +188,7 @@ public class DemoController {
     }
 
     private void handleSearch() {
-        String query = Search.getText().trim().toLowerCase();
+        String query = SearchStu.getText().trim().toLowerCase();
         if (query.isEmpty()) {
             StudentTable.setItems(studentData);
         } else {
@@ -228,6 +222,7 @@ public class DemoController {
         Activity selectedActivity = ActivitiesTable.getSelectionModel().getSelectedItem();
         if (selectedStudent != null && selectedActivity != null) {
             System.out.println("Added activity " + selectedActivity.getName() + " to student " + selectedStudent.getName());
+            // Add logic to associate activity with student (e.g., update a database or list)
         } else {
             System.out.println("Please select both a student and an activity");
         }
@@ -238,6 +233,7 @@ public class DemoController {
         Activity selectedActivity = ActivitiesTable.getSelectionModel().getSelectedItem();
         if (selectedStudent != null && selectedActivity != null) {
             System.out.println("Removed activity " + selectedActivity.getName() + " from student " + selectedStudent.getName());
+            // Add logic to disassociate activity from student
         } else {
             System.out.println("Please select both a student and an activity");
         }
@@ -259,10 +255,10 @@ public class DemoController {
                 clearAddActivityFields();
                 CreateAct.setVisible(false);
             } else {
-                System.out.println("Please fill in all fields with valid data");
+                showAlert("Error", "Please fill in all fields with valid data.");
             }
         } catch (NumberFormatException e) {
-            System.out.println("Score must be a valid number");
+            showAlert("Error", "Score must be a valid number.");
         }
     }
 
@@ -286,8 +282,16 @@ public class DemoController {
             ActivitiesTable.refresh();
             initCategoryDropDown();
         } else {
-            System.out.println("Please select an activity to remove");
+            showAlert("Error", "Please select an activity to remove.");
         }
+    }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     // Student class
@@ -301,6 +305,7 @@ public class DemoController {
             this.id = new SimpleStringProperty(id);
             this.selected = new SimpleBooleanProperty(selected);
         }
+
         public String getName() { return name.get(); }
         public StringProperty nameProperty() { return name; }
         public String getId() { return id.get(); }
@@ -324,6 +329,7 @@ public class DemoController {
             this.score = new SimpleStringProperty(score);
             this.selected = new SimpleBooleanProperty(selected);
         }
+
         public String getName() { return name.get(); }
         public StringProperty nameProperty() { return name; }
         public String getCategory() { return category.get(); }
