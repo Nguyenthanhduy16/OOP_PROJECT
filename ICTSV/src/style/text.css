@@ -44,3 +44,7 @@
 .blue {
   -fx-text-fill: #0077cc;
 }
+
+.orange {
+  -fx-text-fill: #ff7300;
+}
