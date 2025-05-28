@@ -15,16 +15,36 @@ public class Activity {
     @JsonProperty("score")
     private int score;
  
+    private String date;
+    private String location;
     public Activity() {}
 
-    public Activity(String title, String name, boolean status, int score) {
+    public Activity(String title, String name, boolean status, int score, String date, String location) {
         this.title = title;
         this.name = name;
         this.status = status;
         this.score = score;
+        this.date = date;
+        this.location = location;
     }
 
-    public String getTitle() {
+    public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getTitle() {
         return title;
     }
     public void setTitle(String title) {
@@ -60,4 +80,7 @@ public class Activity {
                 + "Điểm: " + this.getScore());
     }
 
+    public void toPrint() {
+        System.out.println(this.getName() + " " + this.getTitle() + " " + this.getScore());
+    }
 }
