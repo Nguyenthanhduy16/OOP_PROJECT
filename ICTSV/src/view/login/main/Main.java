@@ -1,34 +1,28 @@
 package view.login.main;
 
-import view.login.component.PanelCover;
-import view.login.component.PanelAdminAndUser;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.Point;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-import net.miginfocom.swing.MigLayout;
+
+import javax.swing.JButton;
+
 import org.jdesktop.animation.timing.Animator;
 import org.jdesktop.animation.timing.TimingTarget;
 import org.jdesktop.animation.timing.TimingTargetAdapter;
 
-import controller.LoginService;
-import handle.login.LoginHandle;
-import model.Admin;
-import model.Student;
-import model.User;
-
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
-
-import java.awt.Color;
-import java.awt.Font;
+import net.miginfocom.swing.MigLayout;
+import view.login.component.PanelAdminAndUser;
+import view.login.component.PanelCover;
 
 public class Main extends javax.swing.JFrame {
 
@@ -93,9 +87,9 @@ public class Main extends javax.swing.JFrame {
             public void timingEvent(float fraction) {
                 double fractionCover;
                 double fractionLogin;
-                double size = coverSize;
+                double size = coverSize; 
                 if (fraction <= 0.5f) {
-                    size += fraction * addSize;
+                    size += fraction * addSize; 
                 } else {
                     size += addSize - fraction * addSize;
                 }

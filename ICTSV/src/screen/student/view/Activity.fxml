@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="290.0" stylesheets="@../style/layout.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="90.0" layoutY="30.0" opacity="0.8" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="30.0">
+         <image>
+            <Image url="@img/people.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="16.0" layoutY="167.0" prefHeight="223.0" prefWidth="262.0" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="167.0">
+         <children>
+            <Label fx:id="labelName" alignment="CENTER" layoutX="16.0" layoutY="12.0" prefHeight="66.0" prefWidth="236.0" text="name" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <CheckBox layoutX="121.0" layoutY="187.0" mnemonicParsing="false" />
+            <Label layoutX="111.0" layoutY="168.0" text="Đăng ký" />
+            <AnchorPane layoutX="16.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
+               <children>
+                  <Label fx:id="labelDate" layoutX="29.0" layoutY="2.0" styleClass="purple" stylesheets="@../style/text.css" text="date" />
+                  <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="4.0" layoutY="1.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/check-circle.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="16.0" layoutY="89.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
+               <children>
+                  <Label fx:id="labelTieuChi" layoutX="29.0" layoutY="2.0" styleClass="blue" stylesheets="@../style/text.css" text="tieuChi" />
+                  <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="4.0" opacity="0.8" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="0.0">
+                     <image>
+                        <Image url="@img/calendar-clock.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="139.0" layoutY="88.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="84.0">
+               <children>
+                  <Label fx:id="labelGrade" layoutX="29.0" layoutY="2.0" styleClass="green" stylesheets="@../style/text.css" text="grade" />
+                  <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/calculator.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="139.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="84.0">
+               <children>
+                  <Label fx:id="labelLocation" layoutX="29.0" layoutY="2.0" styleClass="green" stylesheets="@../style/text.css" text="location" />
+                  <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/calculator.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+         <styleClass>
+            <String fx:value="white-bg" />
+            <String fx:value="radius" />
+         </styleClass>
+      </AnchorPane>
+   </children>
+   <styleClass>
+      <String fx:value="body" />
+      <String fx:value="radius" />
+   </styleClass>
+</AnchorPane>
