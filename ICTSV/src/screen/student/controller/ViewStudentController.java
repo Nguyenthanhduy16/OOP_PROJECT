@@ -1,4 +1,4 @@
-package controller.student;
+package screen.student.controller;
 
 import java.io.IOException;
 
@@ -6,6 +6,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import model.Student;
@@ -18,7 +22,7 @@ public class ViewStudentController {
 	}
 	@FXML
 	public void initialize() {
-	    final String ITEM_FXML_FILE_PATH = "/view/Activity.fxml";
+	    final String ITEM_FXML_FILE_PATH = "/screen/student/view/Activity.fxml";
 
 	    int column = 0;
 	    int row = 1;
@@ -49,31 +53,56 @@ public class ViewStudentController {
 	    }
 	}
     @FXML
+    private Label studentName;
+    @FXML
+    private ToggleGroup semesterViewActivity;
+    @FXML
+    private TextField searchTextField;
+    @FXML
+    private AnchorPane paneThanhDieuHuong;
+    @FXML
+    private ToggleGroup semesterViewActivity1;
+    @FXML
+    private AnchorPane Student_controller;
+    @FXML
     private GridPane gridPane;
 
     @FXML
     void btnRegisterActivity(ActionEvent event) {
-
+    	System.out.println("Clicked Register Activity");
     }
 
     @FXML
     void showRegistedActivity(ActionEvent event) {
-
+    	System.out.println("Showing registered activities");
     }
 
     @FXML
     void showGrade(ActionEvent event) {
 
     }
-
     @FXML
-    void out(ActionEvent event) {
+    void showActivity(ActionEvent event) {
+
+    }
+    @FXML
+    void logOut(ActionEvent event) {
 
     }
 
     @FXML
     void register(ActionEvent event) {
 
+    }
+    @FXML
+    private void registerSearchButtonClicked(MouseEvent event) {
+        System.out.println("Search button clicked!");
+        // thêm xử lý nếu cần
+    }
+    @FXML
+    private void registerActivity(ActionEvent event) {
+        System.out.println("Register activity button clicked");
+        // Gọi logic đăng ký hoạt động ở đây (nếu cần)
     }
 
 }

@@ -13,7 +13,7 @@ public class Activity {
     private boolean status;
 
     @JsonProperty("score")
-    private int score;
+    private int score; 
  
     private String date;
     private String location;

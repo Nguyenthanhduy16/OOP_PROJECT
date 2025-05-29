@@ -87,7 +87,7 @@ public class Main extends javax.swing.JFrame {
             public void timingEvent(float fraction) {
                 double fractionCover;
                 double fractionLogin;
-                double size = coverSize;
+                double size = coverSize; 
                 if (fraction <= 0.5f) {
                     size += fraction * addSize; 
                 } else {
