@@ -79,7 +79,7 @@ public class Student extends User{
 		return total1 + total2 + total3 + total4;
 	}
 	public void print() {
-	    for(Activity activity: Admin.getListActivities()) {
+	    for(Activity activity: Admin.getAllActivities()) {
 	        if(!registeredActivities.contains(activity))
 	            System.out.println(activity.getName() + " " + activity.getTitle() + " " + activity.getScore());
 	    }

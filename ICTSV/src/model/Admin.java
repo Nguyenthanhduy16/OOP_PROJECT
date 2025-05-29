@@ -1,11 +1,17 @@
 package model;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Admin extends User {
 
     public Admin(String userID, String userName, String passWord) {
 		super(userID, userName, passWord);
 		// TODO Auto-generated constructor stub
+	}
+
+	public Admin() {
+		// TODO Auto-generated constructor stub
+		super();
 	}
 
 	public static ArrayList<Activity> listActivities = new ArrayList<Activity>();
@@ -35,7 +41,7 @@ public class Admin extends User {
     }
 
     //1. Thêm hoạt động mới
-    public void addNewActivity(Activity activity) {
+    public void addActivity(Activity activity) {
     	if(listActivities.contains(activity)) {
     		System.out.println(activity.getName() + " has already been added.");
 		}else {
@@ -64,18 +70,18 @@ public class Admin extends User {
     }
 
     // Truy cập danh sách
-    public static ArrayList<Activity> getListActivities() {
+    public static ArrayList<Activity> getAllActivities() {
         return listActivities;
     }
     
-    //4. Thêm trực tiếp hoạt động cho sinh viên
-    public void addActivityToStudent(Student student, Activity activity) {
-        if (!listActivities.contains(activity)) {
-            System.out.println("Activity " + activity.getName() + " is not in the list.");
-            return;
-        }
-        student.registerActivity(activity);
-    }
+//    //4. Thêm trực tiếp hoạt động cho sinh viên
+//    public void addActivityToStudent(Student student, Activity activity) {
+//        if (!listActivities.contains(activity)) {
+//            System.out.println("Activity " + activity.getName() + " is not in the list.");
+//            return;
+//        }
+//        student.registerActivity(activity);
+//    }
     
     //5. Trực tiếp xóa hoạt động đã đăng ký của sinh viên
     public void removeActivityFromStudent(Student student, Activity activity) {
@@ -139,4 +145,5 @@ public class Admin extends User {
             System.out.println("No student found with ID: " + userID);
         }
     }
+
 }

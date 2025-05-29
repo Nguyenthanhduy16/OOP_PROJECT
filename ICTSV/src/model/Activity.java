@@ -83,4 +83,38 @@ public class Activity {
     public void toPrint() {
         System.out.println(this.getName() + " " + this.getTitle() + " " + this.getScore());
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Activity activity = (Activity) o;
+
+        return name != null ? name.equals(activity.name) : activity.name == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return name != null ? name.hashCode() : 0;
+    }
+
+	public double getHocTap() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public double getKyLuat() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public double getXaHoi() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public double getYThuc() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
