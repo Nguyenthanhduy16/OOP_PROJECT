@@ -7,8 +7,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -16,10 +14,6 @@ import view.login.main.Main;
 import net.miginfocom.swing.MigLayout;
 import controller.LoginService;
 import handle.login.LoginHandle;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import model.Admin;
 import model.Student;
 import model.User;
@@ -86,22 +80,6 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
                         JOptionPane.showMessageDialog(PanelAdminAndUser.this,
                                 "Đăng nhập thành công với vai trò Student!");
                         // new StudentFrame((Student) loggedUser).setVisible(true);
-                        new javafx.embed.swing.JFXPanel();
-                        javafx.application.Platform.runLater(() -> {
-                            try 
-                            {
-                            	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login/LoginLayout.fxml"));
-                            	Parent root = loader.load();
-                            	Stage stage = new Stage();
-                            	stage.setTitle("Login Page");
-                            	stage.setScene(new Scene(root));
-                            	stage.show();
-                            } 
-                            catch (IOException ex) 
-                            {
-                                ex.printStackTrace();
-                            }
-                        });
                 }
                     //Đóng cửa sổ hiện tại lại
                     java.awt.Window win = javax.swing.SwingUtilities.getWindowAncestor(PanelAdminAndUser.this);

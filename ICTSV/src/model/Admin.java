@@ -1,13 +1,22 @@
 package model;
 import java.util.ArrayList;
 
-public class Admin extends User {
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+public class Admin extends User 
+{
+	
+	public Admin ()
+	{
+		super();
+	}
+	
     public Admin(String userID, String userName, String passWord) {
 		super(userID, userName, passWord);
 		// TODO Auto-generated constructor stub
 	}
-
+    
+    @JsonProperty("listActivities")
 	public static ArrayList<Activity> listActivities = new ArrayList<Activity>();
 	public static ArrayList<Student> listStudents = new ArrayList<Student>();
 

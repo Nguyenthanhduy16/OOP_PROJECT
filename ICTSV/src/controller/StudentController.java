@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -29,6 +30,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import model.Activity;
+import model.Student;
 import view.Admin.src.hanhnhichaydlnhutro.Main;
 
 public class StudentController extends Application implements Initializable 
@@ -37,7 +39,7 @@ public class StudentController extends Application implements Initializable
 	
 	
 	// TODO: nhận tên user từ file json dưới đây là temp
-	private String username = new String("Tung tung tung");
+	private String username = new String("Trịnh Trần Phương Tuấn");
 	
 	// List chứa danh sách các hoạt động của sinh viên
 	private ArrayList<Activity> activityList; 
@@ -45,7 +47,23 @@ public class StudentController extends Application implements Initializable
 	//
 	private ObservableList <Activity> activityListData = FXCollections.observableArrayList();
 	
-
+	// Các thuộc tính FXML
+	
+	@FXML
+    private Button viewActivityPaneButton;
+	
+	@FXML
+    private Button viewRegisterPaneButton;
+	
+	@FXML
+    private Button viewScorePaneButton;
+	
+	@FXML
+    private AnchorPane registerActivityPane;
+	
+	@FXML
+    private AnchorPane viewScorePane;
+	
     @FXML
     private AnchorPane Student_controller;
     
@@ -124,6 +142,14 @@ public class StudentController extends Application implements Initializable
     // Thuộc tính alert này dùng để hiện thông báo thôi :))))
     private Alert alert;
     
+    
+    // StudentController.java
+    public void initData(Student loggedStudent) {
+        this.username = loggedStudent.getUserName();   // hoặc getter bạn đang dùng
+        displayStudentName();                          // cập-nhật nhãn tên sinh viên
+        registeredActivityDisplay();                   // nạp dữ liệu đã đăng ký
+    }
+
     // Thực hiện việc trả về danh sách các sự kiện đã đăng ký
     public ObservableList <Activity> getRegisteredActivityList ()
     {
@@ -184,6 +210,29 @@ public class StudentController extends Application implements Initializable
     		{
     			e.printStackTrace();
     		}
+    	}
+    }
+    
+    // Phương thức thực hiện việc đổi qua lại giữa các pane
+    public void switchForm (ActionEvent event)
+    {
+    	if (event.getSource() == viewRegisterPaneButton)
+    	{
+    		registerActivityPane.setVisible(true);
+    		viewActivityPane.setVisible(false);
+    		viewScorePane.setVisible(false);
+    	}
+    	else if (event.getSource() == viewActivityPaneButton)
+    	{
+    		registerActivityPane.setVisible(false);
+    		viewActivityPane.setVisible(true);
+    		viewScorePane.setVisible(false);
+    	}
+    	else if (event.getSource() == viewScorePaneButton)
+    	{
+    		registerActivityPane.setVisible(false);
+    		viewActivityPane.setVisible(false);
+    		viewScorePane.setVisible(true);
     	}
     }
     

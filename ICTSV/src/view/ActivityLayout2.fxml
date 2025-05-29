@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="156.0" prefWidth="1061.0" stylesheets="@../style/layout.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <styleClass>
+      <String fx:value="body" />
+      <String fx:value="radius" />
+      <String fx:value="shadow" />
+   </styleClass>
+   <children>
+      <ImageView fitHeight="115.0" fitWidth="115.0" layoutX="21.0" layoutY="21.0" opacity="0.8" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="925.0" AnchorPane.topAnchor="21.0">
+         <image>
+            <Image url="@img/medal.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="154.0" layoutY="21.0" prefHeight="116.0" prefWidth="717.0" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="154.0" AnchorPane.rightAnchor="190.0" AnchorPane.topAnchor="21.0">
+         <styleClass>
+            <String fx:value="white-bg" />
+            <String fx:value="radius" />
+            <String fx:value="shadow" />
+         </styleClass>
+         <children>
+            <Label layoutX="26.0" layoutY="14.0" prefHeight="35.0" prefWidth="667.0" styleClass="button-text-color" stylesheets="@../style/text.css" text="Chìa khóa giúp bạn học tốt, không nợ môn">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="28.0" layoutY="86.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
+               <children>
+                  <Label layoutX="29.0" layoutY="2.0" styleClass="purple" stylesheets="@../style/text.css" text="2025-06-30">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/calendar-clock.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="28.0" layoutY="55.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
+               <children>
+                  <Label layoutX="29.0" layoutY="2.0" styleClass="blue" stylesheets="@../style/text.css" text="Học tập">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="4.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="0.0">
+                     <image>
+                        <Image url="@img/check-circle.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="210.0" layoutY="56.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="84.0">
+               <children>
+                  <Label layoutX="29.0" layoutY="2.0" styleClass="green" stylesheets="@../style/text.css" text="6 điểm">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/calculator.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="210.0" layoutY="86.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="115.0">
+               <children>
+                  <Label layoutX="29.0" layoutY="2.0" styleClass="red" stylesheets="@../style/text.css" text="Hội trường C2">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/marker.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <CheckBox layoutX="952.0" layoutY="103.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="39.0" prefWidth="36.0" stylesheets="@../style/check_box.css" />
+      <Label layoutX="925.0" layoutY="66.0" styleClass="orange" stylesheets="@../style/text.css" text="Đã đăng ký">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
