@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFX">
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFX">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/ADMIN/OneDrive - Hanoi University of Science and Technology/HUST/Học kỳ 20242/OOP_PROJECT/ICTSV/src/view/login/lib/jackson-annotations-2.15.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ADMIN/OneDrive - Hanoi University of Science and Technology/HUST/Học kỳ 20242/OOP_PROJECT/ICTSV/src/view/login/lib/jackson-core-2.15.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ADMIN/OneDrive - Hanoi University of Science and Technology/HUST/Học kỳ 20242/OOP_PROJECT/ICTSV/src/view/login/lib/jackson-databind-2.15.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ADMIN/OneDrive - Hanoi University of Science and Technology/HUST/Học kỳ 20242/OOP_PROJECT/ICTSV/src/view/login/lib/miglayout-core-11.4.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ADMIN/OneDrive - Hanoi University of Science and Technology/HUST/Học kỳ 20242/OOP_PROJECT/ICTSV/src/view/login/lib/miglayout-swing-11.4.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ADMIN/OneDrive - Hanoi University of Science and Technology/HUST/Học kỳ 20242/OOP_PROJECT/ICTSV/src/view/login/lib/timingframework-1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/ADMIN/OneDrive - Hanoi University of Science and Technology/HUST/Học kỳ 20242/OOP_PROJECT/ICTSV/src/view/login/lib/jackson-annotations-2.15.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/ADMIN/OneDrive - Hanoi University of Science and Technology/HUST/Học kỳ 20242/OOP_PROJECT/ICTSV/src/view/login/lib/jackson-core-2.15.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/ADMIN/OneDrive - Hanoi University of Science and Technology/HUST/Học kỳ 20242/OOP_PROJECT/ICTSV/src/view/login/lib/jackson-databind-2.15.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/ADMIN/OneDrive - Hanoi University of Science and Technology/HUST/Học kỳ 20242/OOP_PROJECT/ICTSV/src/view/login/lib/miglayout-core-11.4.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/ADMIN/OneDrive - Hanoi University of Science and Technology/HUST/Học kỳ 20242/OOP_PROJECT/ICTSV/src/view/login/lib/miglayout-swing-11.4.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/ADMIN/OneDrive - Hanoi University of Science and Technology/HUST/Học kỳ 20242/OOP_PROJECT/ICTSV/src/view/login/lib/timingframework-1.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
