@@ -1,0 +1,9 @@
+#kyHoc {
+  -fx-pref-width: 150px; /* chiều rộng */
+  -fx-pref-height: 35px; /* chiều cao */
+  -fx-font-size: 14px; /* cỡ chữ */
+  -fx-background-color: white; /* màu nền */
+  -fx-border-color: #888888; /* màu viền */
+  -fx-border-radius: 5px; /* bo góc */
+  -fx-padding: 2px 5px;
+}

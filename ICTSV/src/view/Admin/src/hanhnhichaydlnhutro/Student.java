@@ -1,4 +1,4 @@
-package hanhnhichaydlnhutro;
+package view.Admin.src.hanhnhichaydlnhutro;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;

@@ -15,18 +15,19 @@
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentController">
    <children>
       <AnchorPane fx:id="Student_controller" prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -56,38 +57,9 @@
                                  </font>
                               </Label>
                               <Button layoutX="120.0" layoutY="402.0" mnemonicParsing="false" onMouseClicked="#registerPageButtonClicked" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Đăng ký hoạt động">
-                                 <textFill>
-                                    <RadialGradient centerX="0.5220994475138121" centerY="0.566350710900474" radius="0.5">
-                                       <stops>
-                                          <Stop>
-                                             <color>
-                                                <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
-                                             </color>
-                                          </Stop>
-                                          <Stop offset="0.006711409395973154">
-                                             <color>
-                                                <Color />
-                                             </color>
-                                          </Stop>
-                                          <Stop offset="0.6552422655099034">
-                                             <color>
-                                                <Color red="1.0" />
-                                             </color>
-                                          </Stop>
-                                          <Stop offset="1.0">
-                                             <color>
-                                                <Color red="1.0" />
-                                             </color>
-                                          </Stop>
-                                       </stops>
-                                    </RadialGradient>
-                                 </textFill>
                                  <font>
                                     <Font size="20.0" />
                                  </font>
-                                 <effect>
-                                    <Shadow />
-                                 </effect>
                                  <graphic>
                                     <ImageView fitHeight="25.0" fitWidth="25.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -97,32 +69,6 @@
                                  </graphic>
                               </Button>
                               <Button layoutX="121.0" layoutY="572.0" mnemonicParsing="false" onMouseClicked="#viewActivityPageButtonClicked" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Xem hoạt động đã đăng ký">
-                                 <textFill>
-                                    <RadialGradient centerX="0.5220994475138121" centerY="0.566350710900474" radius="0.5">
-                                       <stops>
-                                          <Stop>
-                                             <color>
-                                                <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
-                                             </color>
-                                          </Stop>
-                                          <Stop offset="0.006711409395973154">
-                                             <color>
-                                                <Color />
-                                             </color>
-                                          </Stop>
-                                          <Stop offset="0.6552422655099034">
-                                             <color>
-                                                <Color red="1.0" />
-                                             </color>
-                                          </Stop>
-                                          <Stop offset="1.0">
-                                             <color>
-                                                <Color red="1.0" />
-                                             </color>
-                                          </Stop>
-                                       </stops>
-                                    </RadialGradient>
-                                 </textFill>
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -135,32 +81,6 @@
                                  </graphic>
                               </Button>
                               <Button layoutX="120.0" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#viewScorePageButtonClicked" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Xem điểm">
-                                 <textFill>
-                                    <RadialGradient centerX="0.5220994475138121" centerY="0.542654028436019" radius="0.5">
-                                       <stops>
-                                          <Stop>
-                                             <color>
-                                                <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
-                                             </color>
-                                          </Stop>
-                                          <Stop offset="0.006711409395973154">
-                                             <color>
-                                                <Color />
-                                             </color>
-                                          </Stop>
-                                          <Stop offset="0.6552422655099034">
-                                             <color>
-                                                <Color red="1.0" />
-                                             </color>
-                                          </Stop>
-                                          <Stop offset="1.0">
-                                             <color>
-                                                <Color red="1.0" />
-                                             </color>
-                                          </Stop>
-                                       </stops>
-                                    </RadialGradient>
-                                 </textFill>
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -172,7 +92,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button layoutX="226.0" layoutY="939.0" mnemonicParsing="false" onContextMenuRequested="#exitAppButtonClicked" prefHeight="46.0" prefWidth="135.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Thoát">
+                              <Button fx:id="logout_btn" layoutX="226.0" layoutY="939.0" mnemonicParsing="false" onAction="#logout" onContextMenuRequested="#exitAppButtonClicked" prefHeight="46.0" prefWidth="135.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Thoát">
                                  <textFill>
                                     <RadialGradient centerX="0.5220994475138121" centerY="0.566350710900474" radius="0.5">
                                        <stops>
@@ -244,10 +164,10 @@
                                           <String fx:value="white-bg" />
                                        </styleClass>
                                        <font>
-                                          <Font size="36.0" />
+                                          <Font size="18.0" />
                                        </font>
                                     </TextField>
-                                    <Button layoutX="7.0" layoutY="12.0" minWidth="36.0" mnemonicParsing="false" onMouseClicked="#registerSearchButtonClicked" prefHeight="39.0" prefWidth="36.0" style="-fx-background-radius: 10;" styleClass="white-button" stylesheets="@../style/button.css">
+                                    <Button layoutX="7.0" layoutY="12.0" minWidth="36.0" mnemonicParsing="false" onMouseClicked="#registerSearchButtonClicked" prefHeight="45.0" prefWidth="70.0" style="-fx-background-radius: 10;" styleClass="white-button" stylesheets="@../style/button.css" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="381.0" AnchorPane.topAnchor="12.0">
                                        <textFill>
                                           <RadialGradient centerX="0.5220994475138121" centerY="0.566350710900474" radius="0.5">
                                              <stops>
@@ -298,80 +218,17 @@
                                     <String fx:value="radius" />
                                  </styleClass>
                                  <children>
-                                    <ScrollPane layoutX="9.0" layoutY="7.0" prefHeight="703.0" prefWidth="1133.0" styleClass="transparent" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="7.0">
+                                    <ScrollPane layoutX="9.0" layoutY="7.0" prefHeight="703.0" prefWidth="1133.0" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="7.0">
+                                       <styleClass>
+                                          <String fx:value="transparent" />
+                                          <String fx:value="white-bg" />
+                                       </styleClass>
                                        <content>
-                                          <AnchorPane prefHeight="1255.0" prefWidth="1110.0">
-                                             <children>
-                                                <AnchorPane layoutX="23.0" layoutY="21.0" prefHeight="400.0" prefWidth="290.0" stylesheets="@../style/layout.css" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="806.0">
-                                                   <styleClass>
-                                                      <String fx:value="body" />
-                                                      <String fx:value="radius" />
-                                                   </styleClass>
-                                                   <children>
-                                                      <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="90.0" layoutY="30.0" opacity="0.8" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="30.0">
-                                                         <image>
-                                                            <Image url="@img/people.png" />
-                                                         </image>
-                                                      </ImageView>
-                                                      <AnchorPane layoutX="16.0" layoutY="167.0" prefHeight="223.0" prefWidth="262.0" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="167.0">
-                                                         <styleClass>
-                                                            <String fx:value="white-bg" />
-                                                            <String fx:value="radius" />
-                                                         </styleClass>
-                                                         <children>
-                                                            <Label layoutX="16.0" layoutY="12.0" prefHeight="66.0" prefWidth="236.0" text="Chìa khóa giúp bạn học tốt, không nợ môn" textAlignment="CENTER" wrapText="true">
-                                                               <font>
-                                                                  <Font name="System Bold" size="18.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <CheckBox layoutX="121.0" layoutY="187.0" mnemonicParsing="false" />
-                                                            <Label layoutX="111.0" layoutY="168.0" text="Đăng ký" />
-                                                            <AnchorPane layoutX="16.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="purple" stylesheets="@../style/text.css" text="2025-06-30" />
-                                                                  <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="4.0" layoutY="1.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
-                                                                     <image>
-                                                                        <Image url="@img/check-circle.png" />
-                                                                     </image>
-                                                                  </ImageView>
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="16.0" layoutY="89.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="blue" stylesheets="@../style/text.css" text="Học tập" />
-                                                                  <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="4.0" opacity="0.8" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="0.0">
-                                                                     <image>
-                                                                        <Image url="@img/calendar-clock.png" />
-                                                                     </image>
-                                                                  </ImageView>
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="139.0" layoutY="88.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="84.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="green" stylesheets="@../style/text.css" text="6 điểm" />
-                                                                  <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
-                                                                     <image>
-                                                                        <Image url="@img/calculator.png" />
-                                                                     </image>
-                                                                  </ImageView>
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane layoutX="139.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="115.0">
-                                                               <children>
-                                                                  <Label layoutX="29.0" layoutY="2.0" styleClass="red" stylesheets="@../style/text.css" text="Hội trường C2" />
-                                                                  <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
-                                                                     <image>
-                                                                        <Image url="@img/marker.png" />
-                                                                     </image>
-                                                                  </ImageView>
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </children>
-                                                      </AnchorPane>
-                                                   </children>
-                                                </AnchorPane>
-                                             </children>
-                                          </AnchorPane>
+                                          <GridPane fx:id="viewRegistedActivityGridPane">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                          </GridPane>
                                        </content>
                                     </ScrollPane>
                                  </children>
@@ -418,7 +275,7 @@
                               </Button>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutY="3.0" prefHeight="1000.0" prefWidth="1200.0" visible="false" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0">
+                        <AnchorPane fx:id="viewActivityPane" layoutY="3.0" prefHeight="1000.0" prefWidth="1200.0" visible="false" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0">
                            <children>
                               <AnchorPane layoutX="30.0" layoutY="33.0" prefHeight="65.0" prefWidth="455.0">
                                  <stylesheets>
@@ -433,10 +290,10 @@
                                  <children>
                                     <TextField fx:id="searchTextField" layoutX="81.0" layoutY="8.0" prefHeight="50.0" prefWidth="349.0" promptText="Tìm kiếm">
                                        <font>
-                                          <Font size="36.0" />
+                                          <Font size="18.0" />
                                        </font>
                                     </TextField>
-                                    <Button layoutX="7.0" layoutY="12.0" minWidth="45.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="45.0" style="-fx-background-radius: 10;" styleClass="white-button" stylesheets="@../style/button.css">
+                                    <Button layoutX="7.0" layoutY="12.0" minWidth="45.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="70.0" style="-fx-background-radius: 10;" styleClass="white-button" stylesheets="@../style/button.css" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="378.0" AnchorPane.topAnchor="12.0">
                                        <textFill>
                                           <RadialGradient centerX="0.5220994475138121" centerY="0.566350710900474" radius="0.5">
                                              <stops>
@@ -489,7 +346,7 @@
                                  <children>
                                     <ScrollPane layoutX="9.0" layoutY="7.0" prefHeight="703.0" prefWidth="1133.0" styleClass="transparent" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="7.0">
                                        <content>
-                                          <AnchorPane prefHeight="1140.0" prefWidth="1119.0">
+                                          <AnchorPane prefHeight="1140.0" prefWidth="1119.0" styleClass="white-bg" stylesheets="@../style/layout.css">
                                              <children>
                                                 <AnchorPane layoutX="26.0" layoutY="20.0" prefHeight="156.0" prefWidth="1061.0" stylesheets="@../style/layout.css" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="32.0">
                                                    <styleClass>
@@ -626,18 +483,18 @@
                                     <String fx:value="header" />
                                  </styleClass>
                               </Button>
-                              <TitledPane expanded="false" layoutX="961.0" layoutY="53.0" prefHeight="164.0" prefWidth="161.0" text="Kỳ học" AnchorPane.bottomAnchor="783.0" AnchorPane.topAnchor="53.0">
+                              <TitledPane fx:id="viewSemesterList" layoutX="961.0" layoutY="53.0" prefHeight="164.0" prefWidth="161.0" text="Kỳ học" AnchorPane.bottomAnchor="783.0" AnchorPane.topAnchor="53.0">
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="146.0" prefWidth="159.0">
                                        <children>
-                                          <RadioButton layoutX="10.0" layoutY="14.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="Kỳ 1">
+                                          <RadioButton fx:id="viewSemester1" layoutX="10.0" layoutY="14.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="Kỳ 1">
                                              <toggleGroup>
                                                 <ToggleGroup fx:id="semesterViewActivity" />
                                              </toggleGroup>
                                           </RadioButton>
-                                          <RadioButton layoutX="10.0" layoutY="49.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="Kỳ 2" toggleGroup="$semesterViewActivity" />
-                                          <RadioButton layoutX="10.0" layoutY="83.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="Kỳ 3" toggleGroup="$semesterViewActivity" />
-                                          <RadioButton layoutX="10.0" layoutY="115.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="100.0" text="Kỳ 4" toggleGroup="$semesterViewActivity" />
+                                          <RadioButton fx:id="viewSemester2" layoutX="10.0" layoutY="49.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="Kỳ 2" toggleGroup="$semesterViewActivity" />
+                                          <RadioButton fx:id="viewSemester3" layoutX="10.0" layoutY="83.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="Kỳ 3" toggleGroup="$semesterViewActivity" />
+                                          <RadioButton fx:id="viewSemester4" layoutX="10.0" layoutY="115.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="100.0" text="Kỳ 4" toggleGroup="$semesterViewActivity" />
                                        </children>
                                     </AnchorPane>
                                 </content>
