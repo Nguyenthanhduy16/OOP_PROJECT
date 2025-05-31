@@ -266,7 +266,7 @@ public class AdminController {
 
     @FXML
     public void initialize() {
-        // Initialize table columns
+        // Thiết lập các cột bảng Student
         StuName.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         StuID.setCellValueFactory(cellData -> cellData.getValue().idProperty());
         colSelect.setCellValueFactory(cellData -> cellData.getValue().selectedProperty());
@@ -279,13 +279,15 @@ public class AdminController {
                 if (empty) {
                     setGraphic(null);
                 } else {
-                    checkBox.setSelected(item);
-                    checkBox.setOnAction(event -> getTableView().getItems().get(getIndex()).selectedProperty().set(checkBox.isSelected()));
+                    checkBox.setSelected(item != null && item);
+                    checkBox.setOnAction(event ->
+                            getTableView().getItems().get(getIndex()).selectedProperty().set(checkBox.isSelected()));
                     setGraphic(checkBox);
                 }
             }
         });
 
+        // Thiết lập các cột bảng Activity
         Act.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         ActivitiesName.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         Category.setCellValueFactory(cellData -> cellData.getValue().categoryProperty());
@@ -294,8 +296,9 @@ public class AdminController {
         ActPlace.setCellValueFactory(cellData -> cellData.getValue().placeProperty());
         ActScore.setCellValueFactory(cellData -> cellData.getValue().scoreProperty());
         ActTime.setCellValueFactory(cellData -> cellData.getValue().timeProperty());
+
+        // Cột colSelectAct - hiển thị checkbox
         colSelectAct.setCellValueFactory(cellData -> cellData.getValue().selectedProperty());
-        ActSelected.setCellValueFactory(cellData -> cellData.getValue().selectedProperty());
         colSelectAct.setCellFactory(column -> new TableCell<>() {
             private final CheckBox checkBox = new CheckBox();
 
@@ -305,14 +308,34 @@ public class AdminController {
                 if (empty) {
                     setGraphic(null);
                 } else {
-                    checkBox.setSelected(item);
-                    checkBox.setOnAction(event -> getTableView().getItems().get(getIndex()).selectedProperty().set(checkBox.isSelected()));
+                    checkBox.setSelected(item != null && item);
+                    checkBox.setOnAction(event ->
+                            getTableView().getItems().get(getIndex()).selectedProperty().set(checkBox.isSelected()));
                     setGraphic(checkBox);
                 }
             }
         });
 
-        // Initialize sample data
+        // ✅ Cột ActSelected - bổ sung tickbox như yêu cầu
+        ActSelected.setCellValueFactory(cellData -> cellData.getValue().selectedProperty());
+        ActSelected.setCellFactory(column -> new TableCell<>() {
+            private final CheckBox checkBox = new CheckBox();
+
+            @Override
+            protected void updateItem(Boolean item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    checkBox.setSelected(item != null && item);
+                    checkBox.setOnAction(event ->
+                            getTableView().getItems().get(getIndex()).selectedProperty().set(checkBox.isSelected()));
+                    setGraphic(checkBox);
+                }
+            }
+        });
+
+        // Khởi tạo dữ liệu mẫu
         studentList = FXCollections.observableArrayList(
                 new Student("Nguyen Van A", "STU001"),
                 new Student("Tran Thi B", "STU002")
@@ -325,184 +348,15 @@ public class AdminController {
         StudentTable.setItems(studentList);
         ActivitiesTable.setItems(activityList);
 
-        // Set initial pane visibility
+        // Ẩn các bảng không cần thiết ban đầu
         paneStudentManage.setVisible(true);
         paneViewActivity.setVisible(false);
         ActPane.setVisible(false);
         SearchActivities.setVisible(false);
         panStuNActList.setVisible(false);
 
-        // Initialize combo boxes
+        // Khởi tạo danh sách lựa chọn trong ComboBox
         ActCategorySelected.setItems(FXCollections.observableArrayList("Tất cả", "Học tập", "Văn hóa, chính trị, thể thao", "Ý thức"));
         ActivitiesCategorySelected.setItems(FXCollections.observableArrayList("Tất cả", "Học tập", "Văn hóa, chính trị, thể thao", "Ý thức"));
-    }
-
-    @FXML
-    private void handleViewActivity(ActionEvent event) {
-        paneStudentManage.setVisible(false);
-        paneViewActivity.setVisible(true);
-        ActPane.setVisible(true);
-        SearchActivities.setVisible(true);
-    }
-
-    @FXML
-    private void handleViewStudent(ActionEvent event) {
-        paneStudentManage.setVisible(true);
-        paneViewActivity.setVisible(false);
-        ActPane.setVisible(false);
-        SearchActivities.setVisible(false);
-    }
-
-    @FXML
-    private void handleLogout(ActionEvent event) {
-        Stage stage = (Stage) buttonLogout.getScene().getWindow();
-        stage.close();
-    }
-
-    @FXML
-    private void handleSearchStudent(ActionEvent event) {
-        String searchText = SearchStu.getText().toLowerCase();
-        ObservableList<Student> filteredList = FXCollections.observableArrayList();
-        for (Student student : studentList) {
-            if (student.getName().toLowerCase().contains(searchText) || student.getId().toLowerCase().contains(searchText)) {
-                filteredList.add(student);
-            }
-        }
-        StudentTable.setItems(filteredList);
-    }
-
-    @FXML
-    private void handleSearchActivity(ActionEvent event) {
-        String searchText = SearchAct.getText().toLowerCase();
-        ObservableList<Activity> filteredList = FXCollections.observableArrayList();
-        for (Activity activity : activityList) {
-            if (activity.getName().toLowerCase().contains(searchText) ||
-                    activity.getDuration().toLowerCase().contains(searchText) ||
-                    activity.getPlace().toLowerCase().contains(searchText) ||
-                    activity.getScore().toLowerCase().contains(searchText) ||
-                    activity.getTime().toLowerCase().contains(searchText)) {
-                filteredList.add(activity);
-            }
-        }
-        ActivitiesTable.setItems(filteredList);
-    }
-
-    @FXML
-    private void handleSearchActivity2(ActionEvent event) {
-        String searchText = Search2.getText().toLowerCase();
-        String selectedCategory = ActCategorySelected.getValue();
-        ObservableList<Activity> filteredList = FXCollections.observableArrayList();
-        for (Activity activity : activityList) {
-            if ((selectedCategory == null || selectedCategory.equals("Tất cả") || activity.getCategory().equals(selectedCategory)) &&
-                    (activity.getName().toLowerCase().contains(searchText) ||
-                            activity.getDuration().toLowerCase().contains(searchText) ||
-                            activity.getPlace().toLowerCase().contains(searchText) ||
-                            activity.getScore().toLowerCase().contains(searchText) ||
-                            activity.getTime().toLowerCase().contains(searchText))) {
-                filteredList.add(activity);
-            }
-        }
-        ActivitiesTable.setItems(filteredList);
-    }
-
-    @FXML
-    private void handleAddActivityToStudent(ActionEvent event) {
-        Student selectedStudent = null;
-        Activity selectedActivity = null;
-
-        for (Student student : studentList) {
-            if (student.isSelected()) {
-                selectedStudent = student;
-                break;
-            }
-        }
-
-        for (Activity activity : activityList) {
-            if (activity.isSelected()) {
-                selectedActivity = activity;
-                break;
-            }
-        }
-
-        if (selectedStudent != null && selectedActivity != null) {
-            showAlert(Alert.AlertType.INFORMATION, "Success", "Added activity " + selectedActivity.getName() + " to student " + selectedStudent.getName());
-        } else {
-            showAlert(Alert.AlertType.WARNING, "Selection Error", "Please select one student and one activity.");
-        }
-    }
-
-    @FXML
-    private void handleRemoveActivityFromStudent(ActionEvent event) {
-        Student selectedStudent = null;
-        Activity selectedActivity = null;
-
-        for (Student student : studentList) {
-            if (student.isSelected()) {
-                selectedStudent = student;
-                break;
-            }
-        }
-
-        for (Activity activity : activityList) {
-            if (activity.isSelected()) {
-                selectedActivity = activity;
-                break;
-            }
-        }
-
-        if (selectedStudent != null && selectedActivity != null) {
-            showAlert(Alert.AlertType.INFORMATION, "Success", "Removed activity " + selectedActivity.getName() + " from student " + selectedStudent.getName());
-        } else {
-            showAlert(Alert.AlertType.WARNING, "Selection Error", "Please select one student and one activity.");
-        }
-    }
-
-    @FXML
-    private void handleAddActivity(ActionEvent event) {
-        String name = ActivitiesName.getText();
-        String category = ActivitiesCategorySelected.getValue();
-        String duration = ActivitiesTime.getText();
-        String place = ActivitiesPlace.getText();
-        String score = "0"; // Default score
-        String time = ActivitiesTime.getText();
-
-        if (name != null && !name.isEmpty() && category != null && duration != null && !duration.isEmpty() && place != null && !place.isEmpty()) {
-            Activity newActivity = new Activity(name, category, duration, place, score, time);
-            activityList.add(newActivity);
-            showAlert(Alert.AlertType.INFORMATION, "Success", "Added activity " + name);
-            // Clear input fields
-            //ActivitiesName.clear();
-           // ActivitiesPlace.clear();
-            //ActivitiesTime.clear();
-        } else {
-            showAlert(Alert.AlertType.WARNING, "Input Error", "Please fill in all required fields.");
-        }
-    }
-
-    @FXML
-    private void handleRemoveActivity(ActionEvent event) {
-        Activity selectedActivity = null;
-
-        for (Activity activity : activityList) {
-            if (activity.isSelected()) {
-                selectedActivity = activity;
-                break;
-            }
-        }
-
-        if (selectedActivity != null) {
-            activityList.remove(selectedActivity);
-            showAlert(Alert.AlertType.INFORMATION, "Success", "Removed activity " + selectedActivity.getName());
-        } else {
-            showAlert(Alert.AlertType.WARNING, "Selection Error", "Please select an activity to remove.");
-        }
-    }
-
-    private void showAlert(Alert.AlertType type, String title, String content) {
-        Alert alert = new Alert(type);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(content);
-        alert.showAndWait();
     }
 }

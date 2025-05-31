@@ -462,16 +462,20 @@
                                                     <content>
                                                         <AnchorPane prefHeight="1140.0" prefWidth="1101.0">
                                              <children>
-                                                <TableView layoutX="-22.666666666666668" layoutY="114.0" prefHeight="1140.0" prefWidth="1124.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-23.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                  <columns>
-                                                    <TableColumn fx:id="ActivitiesName" prefWidth="291.33335626125336" text="Tên hoạt động" />
-                                                    <TableColumn fx:id="ActivitiesCatergory" minWidth="0.0" prefWidth="141.99993896484375" text="Tiêu chí " />
-                                                      <TableColumn fx:id="ActScore" minWidth="0.0" prefWidth="185.3333740234375" text="Điểm" />
-                                                      <TableColumn fx:id="ActTime" prefWidth="126.6666259765625" text="Thời gian" />
-                                                      <TableColumn fx:id="ActPlace" prefWidth="221.99993896484375" text="Địa điểm" />
-                                                      <TableColumn fx:id="ActSelected" prefWidth="136.00006103515625" text="Chọn" />
-                                                  </columns>
-                                                </TableView>
+                                                 <TableView fx:id="tableView" layoutX="-22.666666666666668" layoutY="114.0" prefHeight="1140.0" prefWidth="1124.0"
+                                                            AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-23.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                     <columns>
+                                                         <TableColumn fx:id="ActivitiesName" prefWidth="291.33335626125336" text="Tên hoạt động" />
+                                                         <TableColumn fx:id="ActivitiesCatergory" minWidth="0.0" prefWidth="141.99993896484375" text="Tiêu chí " />
+                                                         <TableColumn fx:id="ActScore" minWidth="0.0" prefWidth="185.3333740234375" text="Điểm" />
+                                                         <TableColumn fx:id="ActTime" prefWidth="126.6666259765625" text="Thời gian" />
+                                                         <TableColumn fx:id="ActPlace" prefWidth="221.99993896484375" text="Địa điểm" />
+                                                         <TableColumn fx:id="ActSelected" prefWidth="136.00006103515625" text="Chọn">
+                                                             <!-- Không cần thêm nội dung con vì sẽ cấu hình trong controller -->
+                                                         </TableColumn>
+                                                     </columns>
+                                                 </TableView>
+
                                              </children>
                                                         </AnchorPane>
                                                     </content>
