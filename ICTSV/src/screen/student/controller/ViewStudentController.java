@@ -29,7 +29,7 @@ public class ViewStudentController {
 	    final String ITEM_FXML_FILE_PATH = "/screen/student/view/Activity.fxml";
 //        // Hiển thị tên sinh viên lên Label
 //        studentName.setText("Chào mừng, " + student.getName());
-//
+// 
 //        // Clear trước khi load
 //        gridPane.getChildren().clear();
 	    int column = 0;

@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.scene.chart.BarChart?>
@@ -26,7 +35,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screen.student.controller.StudentController">
    <children>
       <AnchorPane fx:id="Student_controller" prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -34,70 +43,70 @@
                <left>
                   <AnchorPane prefHeight="1000.0" prefWidth="400.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="paneThanhDieuHuong" layoutX="-81.0" prefHeight="1000.0" prefWidth="481.0" style="-fx-background-radius: 45;" styleClass="body" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-81.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="paneThanhDieuHuong" layoutX="-81.0" prefHeight="1000.0" prefWidth="481.0" style="-fx-background-radius: 45;" styleClass="body" stylesheets="@../../../style/layout.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-81.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <AnchorPane layoutY="-3.0" prefHeight="190.0" prefWidth="403.0" style="-fx-background-radius: 45;" styleClass="header" stylesheets="@../style/layout.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="-3.0">
+                              <AnchorPane layoutY="-3.0" prefHeight="190.0" prefWidth="403.0" style="-fx-background-radius: 45;" styleClass="header" stylesheets="@../../../style/button.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="-3.0">
                                  <children>
-                                    <Label layoutX="104.0" layoutY="69.0" styleClass="gradient_yellow" stylesheets="@../style/text.css" text="Home page Sinh viên" textFill="WHITE">
+                                    <Label layoutX="104.0" layoutY="69.0" styleClass="gradient_yellow" stylesheets="@../../../style/text.css" text="Home page Sinh viên" textFill="WHITE">
                                        <font>
                                           <Font name="System Bold" size="36.0" />
                                        </font>
                                     </Label>
                                  </children>
                               </AnchorPane>
-                              <Label layoutX="105.0" layoutY="243.0" styleClass="button-text-color" stylesheets="@../style/text.css" text="Chào mừng, ">
+                              <Label layoutX="105.0" layoutY="243.0" styleClass="button-text-color" stylesheets="@../../../style/text.css" text="Chào mừng, ">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="studentName" layoutX="217.0" layoutY="235.0" styleClass="gradient_brown" stylesheets="@../style/text.css" text="Đinh Ngọc Khánh" textFill="#141f59">
+                              <Label fx:id="studentName" layoutX="217.0" layoutY="235.0" styleClass="gradient_brown" stylesheets="@../../../style/text.css" text="Đinh Ngọc Khánh" textFill="#141f59">
                                  <font>
                                     <Font size="28.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="viewRegisterPaneButton" layoutX="120.0" layoutY="402.0" mnemonicParsing="false" onAction="#switchForm" onMouseClicked="#registerPageButtonClicked" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Đăng ký hoạt động">
+                              <Button fx:id="viewRegisterPaneButton" layoutX="120.0" layoutY="402.0" mnemonicParsing="false" onAction="#switchForm" onMouseClicked="#registerPageButtonClicked" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" stylesheets="@../../../style/button.css" text="Đăng ký hoạt động">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                                  <graphic>
                                     <ImageView fitHeight="25.0" fitWidth="25.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@img/search.png" />
+                                          <Image url="@../../../view/img/search.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button fx:id="viewActivityPaneButton" layoutX="121.0" layoutY="572.0" mnemonicParsing="false" onAction="#switchForm" onMouseClicked="#viewActivityPageButtonClicked" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Xem hoạt động đã đăng ký">
+                              <Button fx:id="viewActivityPaneButton" layoutX="121.0" layoutY="572.0" mnemonicParsing="false" onAction="#switchForm" onMouseClicked="#viewActivityPageButtonClicked" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" stylesheets="@../../../style/button.css" text="Xem hoạt động đã đăng ký">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                                  <graphic>
                                     <ImageView fitHeight="25.0" fitWidth="25.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@img/eye.png" />
+                                          <Image url="@../../../view/img/eye.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button fx:id="viewScorePaneButton" layoutX="120.0" layoutY="735.0" mnemonicParsing="false" onAction="#switchForm" onMouseClicked="#viewScorePageButtonClicked" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Xem điểm">
+                              <Button fx:id="viewScorePaneButton" layoutX="120.0" layoutY="735.0" mnemonicParsing="false" onAction="#switchForm" onMouseClicked="#viewScorePageButtonClicked" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" stylesheets="@../../../style/button.css" text="Xem điểm">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                                  <graphic>
                                     <ImageView fitHeight="25.0" fitWidth="25.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@img/chart-histogram.png" />
+                                          <Image url="@../../../view/img/chart-histogram.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button fx:id="logout_btn" layoutX="226.0" layoutY="939.0" mnemonicParsing="false" onAction="#logout" onContextMenuRequested="#exitAppButtonClicked" prefHeight="46.0" prefWidth="135.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Thoát">
+                              <Button fx:id="logout_btn" layoutX="226.0" layoutY="939.0" mnemonicParsing="false" onAction="#logout" onContextMenuRequested="#exitAppButtonClicked" prefHeight="46.0" prefWidth="135.0" style="-fx-background-radius: 10;" stylesheets="@../../../style/button.css" text="Thoát">
                                  <textFill>
                                     <RadialGradient centerX="0.5220994475138121" centerY="0.566350710900474" radius="0.5">
                                        <stops>
                                           <Stop>
                                              <color>
-                                                <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
+                                                <Color blue="0.2763157784938812" green="0.2763157784938812" red="0.2763157784938812" />
                                              </color>
                                           </Stop>
                                           <Stop offset="0.006711409395973154">
@@ -128,7 +137,7 @@
                                  <graphic>
                                     <ImageView fitHeight="25.0" fitWidth="25.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@img/exit.png" />
+                                          <Image url="@../../../view/img/exit.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -148,8 +157,8 @@
                            <children>
                               <AnchorPane layoutX="30.0" layoutY="34.0" prefHeight="65.0" prefWidth="455.0" AnchorPane.bottomAnchor="901.0" AnchorPane.topAnchor="34.0">
                                  <stylesheets>
-                                    <URL value="@../style/layout.css" />
-                                    <URL value="@../style/button.css" />
+                                    <URL value="@../../../style/layout.css" />
+                                    <URL value="@../../../style/button.css" />
                                  </stylesheets>
                                  <styleClass>
                                     <String fx:value="white-bg" />
@@ -157,7 +166,7 @@
                                     <String fx:value="radius" />
                                  </styleClass>
                                  <children>
-                                    <TextField layoutX="79.0" layoutY="7.0" prefHeight="50.0" prefWidth="343.0" promptText="Tìm kiếm" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="8.0" AnchorPane.topAnchor="7.0">
+                                    <TextField layoutX="79.0" layoutY="7.0" prefHeight="50.0" prefWidth="343.0" promptText="Tìm kiếm" stylesheets="@../../../style/layout.css" AnchorPane.bottomAnchor="8.0" AnchorPane.topAnchor="7.0">
                                        <styleClass>
                                           <String fx:value="radius" />
                                           <String fx:value="white-bg" />
@@ -166,13 +175,13 @@
                                           <Font size="18.0" />
                                        </font>
                                     </TextField>
-                                    <Button layoutX="7.0" layoutY="12.0" minWidth="36.0" mnemonicParsing="false" onMouseClicked="#registerSearchButtonClicked" prefHeight="45.0" prefWidth="70.0" style="-fx-background-radius: 10;" styleClass="white-button" stylesheets="@../style/button.css" AnchorPane.bottomAnchor="14.0" AnchorPane.topAnchor="6.0">
+                                    <Button layoutX="7.0" layoutY="12.0" minWidth="36.0" mnemonicParsing="false" onMouseClicked="#registerSearchButtonClicked" prefHeight="45.0" prefWidth="70.0" style="-fx-background-radius: 10;" styleClass="white-button" stylesheets="@../../../style/button.css" AnchorPane.bottomAnchor="14.0" AnchorPane.topAnchor="6.0">
                                        <textFill>
                                           <RadialGradient centerX="0.5220994475138121" centerY="0.566350710900474" radius="0.5">
                                              <stops>
                                                 <Stop>
                                                    <color>
-                                                      <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
+                                                      <Color blue="0.2763157784938812" green="0.2763157784938812" red="0.2763157784938812" />
                                                    </color>
                                                 </Stop>
                                                 <Stop offset="0.006711409395973154">
@@ -199,17 +208,17 @@
                                        <graphic>
                                           <ImageView fitHeight="25.0" fitWidth="25.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@img/search.png" />
+                                                <Image url="@../../../view/img/search.png" />
                                              </image>
                                           </ImageView>
                                        </graphic>
                                     </Button>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane layoutX="23.0" layoutY="145.0" prefHeight="722.0" prefWidth="1150.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="27.0">
+                              <AnchorPane layoutX="23.0" layoutY="145.0" prefHeight="726.0" prefWidth="1161.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="16.0">
                                  <stylesheets>
-                                    <URL value="@../style/layout.css" />
-                                    <URL value="@../style/button.css" />
+                                    <URL value="@../../../style/layout.css" />
+                                    <URL value="@../../../style/button.css" />
                                  </stylesheets>
                                  <styleClass>
                                     <String fx:value="white-bg" />
@@ -217,29 +226,29 @@
                                     <String fx:value="radius" />
                                  </styleClass>
                                  <children>
-                                    <ScrollPane layoutX="9.0" layoutY="7.0" prefHeight="703.0" prefWidth="1133.0" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="7.0">
+                                    <ScrollPane layoutX="10.0" layoutY="5.0" prefHeight="705.0" prefWidth="1124.0" stylesheets="@../../../style/layout.css" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="5.0">
                                        <styleClass>
                                           <String fx:value="transparent" />
                                           <String fx:value="white-bg" />
                                        </styleClass>
                                        <content>
-                                          <GridPane>
-                                            <columnConstraints>
-                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                            </columnConstraints>
+                                          <GridPane fx:id="gridPane" prefHeight="0.0" prefWidth="0.0">
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
                                           </GridPane>
                                        </content>
                                     </ScrollPane>
                                  </children>
                               </AnchorPane>
                               <Separator layoutX="9.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="1002.0" prefWidth="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                              <Button layoutX="496.0" layoutY="903.0" mnemonicParsing="false" onMouseClicked="#activityRegisterButtonClick" prefHeight="67.0" prefWidth="201.0" style="-fx-background-radius: 10;" text="Đăng ký" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="903.0">
+                              <Button layoutX="496.0" layoutY="903.0" mnemonicParsing="false" onAction="#btnSubmitRegister" onMouseClicked="#activityRegisterButtonClick" prefHeight="67.0" prefWidth="201.0" style="-fx-background-radius: 10;" text="Đăng ký" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="903.0">
                                  <textFill>
                                     <RadialGradient centerX="0.5220994475138121" centerY="0.566350710900474" radius="0.5">
                                        <stops>
                                           <Stop>
                                              <color>
-                                                <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
+                                                <Color blue="0.2763157784938812" green="0.2763157784938812" red="0.2763157784938812" />
                                              </color>
                                           </Stop>
                                           <Stop offset="0.006711409395973154">
@@ -264,8 +273,8 @@
                                     <Font name="System Bold" size="22.0" />
                                  </font>
                                  <stylesheets>
-                                    <URL value="@../style/button.css" />
-                                    <URL value="@../style/layout.css" />
+                                    <URL value="@../../../style/button.css" />
+                                    <URL value="@../../../style/layout.css" />
                                  </stylesheets>
                                  <styleClass>
                                     <String fx:value="register-button" />
@@ -278,8 +287,8 @@
                            <children>
                               <AnchorPane layoutX="24.0" layoutY="142.0" prefHeight="722.0" prefWidth="1150.0" AnchorPane.bottomAnchor="136.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="142.0">
                                  <stylesheets>
-                                    <URL value="@../style/layout.css" />
-                                    <URL value="@../style/button.css" />
+                                    <URL value="@../../../style/layout.css" />
+                                    <URL value="@../../../style/button.css" />
                                  </stylesheets>
                                  <styleClass>
                                     <String fx:value="white-bg" />
@@ -287,7 +296,7 @@
                                     <String fx:value="radius" />
                                  </styleClass>
                                  <children>
-                                    <ScrollPane layoutX="9.0" layoutY="7.0" prefHeight="703.0" prefWidth="1133.0" styleClass="transparent" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="7.0">
+                                    <ScrollPane layoutX="9.0" layoutY="7.0" prefHeight="703.0" prefWidth="1133.0" styleClass="transparent" stylesheets="@../../../style/layout.css" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="7.0">
                                        <content>
                                           <GridPane fx:id="viewRegistedActivityGridPane">
                                             <columnConstraints>
@@ -304,7 +313,7 @@
                                        <stops>
                                           <Stop>
                                              <color>
-                                                <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
+                                                <Color blue="0.2763157784938812" green="0.2763157784938812" red="0.2763157784938812" />
                                              </color>
                                           </Stop>
                                           <Stop offset="0.006711409395973154">
@@ -329,8 +338,8 @@
                                     <Font size="20.0" />
                                  </font>
                                  <stylesheets>
-                                    <URL value="@../style/button.css" />
-                                    <URL value="@../style/layout.css" />
+                                    <URL value="@../../../style/button.css" />
+                                    <URL value="@../../../style/layout.css" />
                                  </stylesheets>
                                  <styleClass>
                                     <String fx:value="register-button" />
@@ -353,8 +362,8 @@
                                     </AnchorPane>
                                 </content>
                                  <stylesheets>
-                                    <URL value="@../style/button.css" />
-                                    <URL value="@../style/layout.css" />
+                                    <URL value="@../../../style/button.css" />
+                                    <URL value="@../../../style/layout.css" />
                                  </stylesheets>
                                  <styleClass>
                                     <String fx:value="shadow" />
@@ -363,8 +372,8 @@
                               </TitledPane>
                               <AnchorPane layoutX="30.0" layoutY="34.0" prefHeight="65.0" prefWidth="455.0" AnchorPane.bottomAnchor="901.0" AnchorPane.topAnchor="34.0">
                                  <stylesheets>
-                                    <URL value="@../style/layout.css" />
-                                    <URL value="@../style/button.css" />
+                                    <URL value="@../../../style/layout.css" />
+                                    <URL value="@../../../style/button.css" />
                                  </stylesheets>
                                  <styleClass>
                                     <String fx:value="white-bg" />
@@ -372,7 +381,7 @@
                                     <String fx:value="radius" />
                                  </styleClass>
                                  <children>
-                                    <TextField layoutX="79.0" layoutY="7.0" prefHeight="50.0" prefWidth="343.0" promptText="Tìm kiếm" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="8.0" AnchorPane.topAnchor="7.0">
+                                    <TextField layoutX="79.0" layoutY="7.0" prefHeight="50.0" prefWidth="343.0" promptText="Tìm kiếm" stylesheets="@../../../style/layout.css" AnchorPane.bottomAnchor="8.0" AnchorPane.topAnchor="7.0">
                                        <styleClass>
                                           <String fx:value="radius" />
                                           <String fx:value="white-bg" />
@@ -381,13 +390,13 @@
                                           <Font size="18.0" />
                                        </font>
                                     </TextField>
-                                    <Button layoutX="7.0" layoutY="12.0" minWidth="36.0" mnemonicParsing="false" onMouseClicked="#registerSearchButtonClicked" prefHeight="45.0" prefWidth="70.0" style="-fx-background-radius: 10;" styleClass="white-button" stylesheets="@../style/button.css" AnchorPane.bottomAnchor="14.0" AnchorPane.topAnchor="12.0">
+                                    <Button layoutX="7.0" layoutY="12.0" minWidth="36.0" mnemonicParsing="false" onMouseClicked="#registerSearchButtonClicked" prefHeight="45.0" prefWidth="70.0" style="-fx-background-radius: 10;" styleClass="white-button" stylesheets="@../../../style/button.css" AnchorPane.bottomAnchor="14.0" AnchorPane.topAnchor="12.0">
                                        <textFill>
                                           <RadialGradient centerX="0.5220994475138121" centerY="0.566350710900474" radius="0.5">
                                              <stops>
                                                 <Stop>
                                                    <color>
-                                                      <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
+                                                      <Color blue="0.2763157784938812" green="0.2763157784938812" red="0.2763157784938812" />
                                                    </color>
                                                 </Stop>
                                                 <Stop offset="0.006711409395973154">
@@ -414,7 +423,7 @@
                                        <graphic>
                                           <ImageView fitHeight="25.0" fitWidth="25.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@img/search.png" />
+                                                <Image url="@../../../view/img/search.png" />
                                              </image>
                                           </ImageView>
                                        </graphic>
@@ -425,7 +434,7 @@
                         </AnchorPane>
                         <AnchorPane fx:id="viewScorePane" layoutX="51.0" layoutY="47.0" prefHeight="1000.0" prefWidth="1200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <AnchorPane prefHeight="493.0" prefWidth="1157.0" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="498.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="9.0">
+                              <AnchorPane prefHeight="493.0" prefWidth="1157.0" stylesheets="@../../../style/layout.css" AnchorPane.bottomAnchor="498.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="9.0">
                                  <styleClass>
                                     <String fx:value="body" />
                                     <String fx:value="radius" />
@@ -466,7 +475,7 @@
                                     </Label>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane layoutX="19.0" layoutY="517.0" prefHeight="468.0" prefWidth="1159.0" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="517.0">
+                              <AnchorPane layoutX="19.0" layoutY="517.0" prefHeight="468.0" prefWidth="1159.0" stylesheets="@../../../style/layout.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="517.0">
                                  <styleClass>
                                     <String fx:value="body" />
                                     <String fx:value="radius" />
@@ -526,8 +535,8 @@
                                           </AnchorPane>
                                        </content>
                                        <stylesheets>
-                                          <URL value="@../style/button.css" />
-                                          <URL value="@../style/layout.css" />
+                                          <URL value="@../../../style/button.css" />
+                                          <URL value="@../../../style/layout.css" />
                                        </stylesheets>
                                        <styleClass>
                                           <String fx:value="shadow" />
