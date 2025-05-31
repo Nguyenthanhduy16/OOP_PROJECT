@@ -52,7 +52,7 @@
                                                 <Font size="28.0" />
                                             </font>
                                         </Label>
-                                        <Button fx:id="buttonViewActivity" layoutX="114.0" layoutY="508.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Quản lý hoạt động">
+                                        <Button fx:id="buttonViewActivity" layoutX="114.0" layoutY="612.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Quản lý hoạt động">
                                             <textFill>
                                                 <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                                                     <stops>
@@ -83,7 +83,7 @@
                                                 <Font size="20.0" />
                                             </font>
                                         </Button>
-                                        <Button fx:id="buttonViewStudent" layoutX="114.0" layoutY="671.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Quản lý sinh viên">
+                                        <Button fx:id="buttonViewStudent" layoutX="114.0" layoutY="671.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Quản lý sinh viên" visible="false">
                                             <textFill>
                                                 <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                                                     <stops>
@@ -422,7 +422,7 @@
                                         </AnchorPane>
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane fx:id="paneViewActivity" layoutY="3.0" prefHeight="1000.0" prefWidth="1197.0" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="5.0">
+                                <AnchorPane fx:id="paneViewActivity" layoutY="3.0" prefHeight="1000.0" prefWidth="1197.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="5.0">
                                     <children>
                                         <AnchorPane fx:id="SearchActivities" layoutX="69.0" layoutY="24.0" prefHeight="50.0" prefWidth="400.0" AnchorPane.leftAnchor="69.0">
                                             <stylesheets>
@@ -435,7 +435,7 @@
                                                 <String fx:value="radius" />
                                             </styleClass>
                                             <children>
-                                                <TextField fx:id="Search2" layoutX="81.0" layoutY="8.0" prefHeight="50.0" prefWidth="375.0" promptText="Tìm kiếm" stylesheets="@../style/text.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                                <TextField fx:id="Search2" layoutX="81.0" layoutY="8.0" prefHeight="50.0" prefWidth="320.0" promptText="Tìm kiếm" stylesheets="@../style/text.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                                                     <font>
                                                         <Font size="36.0" />
                                                     </font>
@@ -462,20 +462,16 @@
                                                     <content>
                                                         <AnchorPane prefHeight="1140.0" prefWidth="1101.0">
                                              <children>
-                                                 <TableView fx:id="tableView" layoutX="-22.666666666666668" layoutY="114.0" prefHeight="1140.0" prefWidth="1124.0"
-                                                            AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-23.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                     <columns>
-                                                         <TableColumn fx:id="ActivitiesName" prefWidth="291.33335626125336" text="Tên hoạt động" />
-                                                         <TableColumn fx:id="ActivitiesCatergory" minWidth="0.0" prefWidth="141.99993896484375" text="Tiêu chí " />
-                                                         <TableColumn fx:id="ActScore" minWidth="0.0" prefWidth="185.3333740234375" text="Điểm" />
-                                                         <TableColumn fx:id="ActTime" prefWidth="126.6666259765625" text="Thời gian" />
-                                                         <TableColumn fx:id="ActPlace" prefWidth="221.99993896484375" text="Địa điểm" />
-                                                         <TableColumn fx:id="ActSelected" prefWidth="136.00006103515625" text="Chọn">
-                                                             <!-- Không cần thêm nội dung con vì sẽ cấu hình trong controller -->
-                                                         </TableColumn>
-                                                     </columns>
-                                                 </TableView>
-
+                                                <TableView layoutX="-22.666666666666668" layoutY="114.0" prefHeight="1140.0" prefWidth="1124.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-23.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <columns>
+                                                    <TableColumn fx:id="ActivitiesName" prefWidth="291.33335626125336" text="Tên hoạt động" />
+                                                    <TableColumn fx:id="ActivitiesCatergory" minWidth="0.0" prefWidth="141.99993896484375" text="Tiêu chí " />
+                                                      <TableColumn fx:id="ActScore" minWidth="0.0" prefWidth="185.3333740234375" text="Điểm" />
+                                                      <TableColumn fx:id="ActTime" prefWidth="126.6666259765625" text="Thời gian" />
+                                                      <TableColumn fx:id="ActPlace" prefWidth="221.99993896484375" text="Địa điểm" />
+                                                      <TableColumn fx:id="ActSelected" prefWidth="136.00006103515625" text="Chọn" />
+                                                  </columns>
+                                                </TableView>
                                              </children>
                                                         </AnchorPane>
                                                     </content>
@@ -564,7 +560,7 @@
                                             <children>
                                                 
 
-                                                <ComboBox fx:id="ActCategorySelected" layoutX="110.0" layoutY="10.0" prefHeight="39.0" prefWidth="147.0" styleClass="dropbox" stylesheets="@../style/drop_box.css">
+                                                <ComboBox fx:id="ActCategorySelected" layoutX="42.0" layoutY="10.0" prefHeight="66.0" prefWidth="268.0" styleClass="dropbox" stylesheets="@../style/drop_box.css">
                                                     <items>
                                                         <FXCollections fx:factory="observableArrayList">
                                                             <String fx:value="Tất cả" />
@@ -579,7 +575,7 @@
                                         </AnchorPane>
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane layoutX="114.0" layoutY="132.0" prefHeight="1000.0" prefWidth="1330.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <AnchorPane layoutX="114.0" layoutY="132.0" prefHeight="1000.0" prefWidth="1330.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <children>
                                         <AnchorPane layoutX="143.0" layoutY="436.0" prefHeight="96.0" prefWidth="939.0">
                                             <children>
