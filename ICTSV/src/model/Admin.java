@@ -3,11 +3,17 @@ import java.util.ArrayList;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import handle.model.ActivityHandle;
+
 public class Admin extends User {
 	
 	@JsonProperty("listActivities")
 	
 	public static ArrayList<Activity> listActivities = new ArrayList<Activity>();
+	
+	static {
+	    listActivities = ActivityHandle.loadActivities();
+	}
 	
 	public Admin() { 
 		super();
@@ -33,6 +39,8 @@ public class Admin extends User {
     		System.out.println(activity.getName() + " has already been added.");
 		}else {
 			listActivities.add(activity);
+	        ActivityHandle.saveActivities(listActivities); // Ghi lại vào file Json
+	        System.out.println("Added and saved activity: " + activity.getTitle());
 		}
     }
 
@@ -40,9 +48,11 @@ public class Admin extends User {
     public void removeOutdatedActivity(Activity activity) {
     	if(listActivities.contains(activity)) {
 			listActivities.remove(activity);
+	        ActivityHandle.saveActivities(listActivities); // Ghi lại sau khi xóa
+	        System.out.println("Removed and updated file.");
 		}else {
 			System.out.println(activity.getName() + " was not found in your activities.");
-		}
+		} 
     }
 
 

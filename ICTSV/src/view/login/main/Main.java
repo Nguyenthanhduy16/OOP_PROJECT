@@ -17,8 +17,8 @@ import org.jdesktop.animation.timing.Animator;
 import org.jdesktop.animation.timing.TimingTarget;
 import org.jdesktop.animation.timing.TimingTargetAdapter;
 
-import controller.LoginService;
 import handle.login.LoginHandle;
+import handle.login.LoginService;
 import model.Admin;
 import model.Student;
 import model.User;
@@ -129,7 +129,7 @@ public class Main extends javax.swing.JFrame {
             @Override
             public void end() {
                 isUser = !isUser; 
-            }
+            } 
         };
         Animator animator = new Animator(800, target);
         animator.setAcceleration(0.5f);

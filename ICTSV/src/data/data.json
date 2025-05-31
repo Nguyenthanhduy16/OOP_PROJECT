@@ -1,58 +1,41 @@
-[
-  {
-    "userID": "GV1001",
-    "userName": "admin",
-    "passWord": "admin123",
-    "role": "admin",
-    "listActivities": [
-      {
-        "title": "Học tập tốt",
-        "name": "Quản lý hệ thống",
-        "status": true,
-        "score": 20
-      }
-    ]
-  },
-  {
-    "userID": "20235804",
-    "userName": "student",
-    "passWord": "student123",
-    "role": "student",
-    "registeredActivities": [
-      {
-        "title": "Học tập tốt",
-        "name": "Quản lý hệ thống",
-        "status": true,
-        "score": 20
-      }
-    ]
-  },
-  {
-      "userID": "20178594",
-      "userName": "tyn275",
-      "passWord": "oopquakho",
-      "role": "student",
-      "listActivities": [
-        {
-          "title": "Học tập tốt",
-          "name": "Quản lý hệ thống",
-          "status": true,
-          "score": 20
-        }
-      ]
-    },
-	{
-	      "userID": "20178594",
-	      "userName": "longlanhlung",
-	      "passWord": "20235772",
-	      "role": "admin",
-	      "listActivities": [
-	        {
-	          "title": "Học tập tốt",
-	          "name": "Quản lý hệ thống",
-	          "status": true,
-	          "score": 20
-	        }
-	      ]
-	    }
-]
+[ {
+  "userID" : "GV1001",
+  "userName" : "admin",
+  "passWord" : "admin123",
+  "role" : "admin",
+  "listActivities" : [ {
+    "title" : "Học tập tốt",
+    "name" : "Quản lý hệ thống",
+    "status" : true,
+    "score" : 20,
+    "date" : "29/05/2025",
+    "location" : "Nhà C2 Đại học Bách khoa Hà Nội"
+  } ]
+}, {
+  "userID" : "20235804",
+  "userName" : "student",
+  "passWord" : "student123",
+  "role" : "student",
+  "registeredActivities" : [ {
+    "title" : "KyLuat",
+    "name" : "Quản lý chi tiêu hàng tháng",
+    "status" : true,
+    "score" : 20,
+    "date" : "29/05/2025",
+    "location" : "Nhà C2 Đại học Bách khoa Hà Nội"
+  }, {
+    "title" : "YThuc",
+    "name" : "Quản lý thời gian rảnh",
+    "status" : true,
+    "score" : 20,
+    "date" : "29/05/2025",
+    "location" : "Nhà C2 Đại học Bách khoa Hà Nội"
+  }, {
+    "title" : "HocTap",
+    "name" : "Quản lý công việc",
+    "status" : true,
+    "score" : 15,
+    "date" : "29/05/2025",
+    "location" : "Bách khoa"
+  } ]
+} ]

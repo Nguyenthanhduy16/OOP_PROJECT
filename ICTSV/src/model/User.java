@@ -18,7 +18,7 @@ public abstract class User {
     private String userName;
     private String passWord;
 
-    public User() {}
+    public User() {} // Contructor cần thiết cho Json đọc dữ liệu không được xóa
 
     public User(String userID, String userName, String passWord) {
         this.userID = userID;

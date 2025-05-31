@@ -12,11 +12,15 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import view.login.main.Main;
 import net.miginfocom.swing.MigLayout;
-import controller.LoginService;
+import screen.AdminScreen;
+import screen.StudentScreen;
 import handle.login.LoginHandle;
+import handle.login.LoginService;
+import javafx.application.Application;
 import model.Admin;
 import model.Student;
 import model.User;
+
 
 public class PanelAdminAndUser extends javax.swing.JLayeredPane {
 
@@ -79,7 +83,11 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
                     if (loggedUser instanceof Student) {
                         JOptionPane.showMessageDialog(PanelAdminAndUser.this,
                                 "Đăng nhập thành công với vai trò Student!");
-                        // new StudentFrame((Student) loggedUser).setVisible(true);
+                      
+                        // Đặt lớp Student
+                        // Khởi chạy giao diện JavaFX trong một luồng riêng
+                        new Thread(() -> Application.launch(StudentScreen.class)).start();
+
                 }
                     //Đóng cửa sổ hiện tại lại
                     java.awt.Window win = javax.swing.SwingUtilities.getWindowAncestor(PanelAdminAndUser.this);
@@ -149,7 +157,11 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
                     if (loggedUser instanceof Admin) {
                         JOptionPane.showMessageDialog(PanelAdminAndUser.this,
                                 "Đăng nhập thành công với vai trò Admin!");
+                        // Đặt lớp AdminFrame vào đây
                         // new AdminFrame((Admin) loggedUser).setVisible(true);
+                        
+                     // Khởi chạy giao diện JavaFX trong một luồng riêng
+                        new Thread(() -> Application.launch(AdminScreen.class)).start();
                     } 
                     //Đóng cửa sổ hiện tại lại
                     java.awt.Window win = javax.swing.SwingUtilities.getWindowAncestor(PanelAdminAndUser.this);
@@ -218,7 +230,7 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
         userPanelLayout.setVerticalGroup(
                 userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGap(0, 300, Short.MAX_VALUE));
-
+ 
         add(userPanel, "card2");
     }
 
