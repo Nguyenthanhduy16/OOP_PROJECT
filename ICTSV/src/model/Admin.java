@@ -74,7 +74,7 @@ public class Admin extends User {
             System.out.println("Activity " + activity.getName() + " is not in the list.");
             return;
         }
-        student.registerActivity(activity);
+        //student.registerActivity(activity);
     }
     
     //5. Trực tiếp xóa hoạt động đã đăng ký của sinh viên

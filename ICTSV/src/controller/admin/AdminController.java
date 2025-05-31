@@ -16,65 +16,136 @@ public class AdminController {
 
     // FXML injected fields
     @FXML
-    private AnchorPane paneFullPane;
-    @FXML
-    private AnchorPane paneStudentManage;
-    @FXML
-    private AnchorPane paneViewActivity;
-    @FXML
-    private Label textUserName;
-    @FXML
-    private Label textID;
-    @FXML
-    private Label textRole;
-    @FXML
-    private Button buttonViewActivity;
-    @FXML
-    private Button buttonViewStudent;
-    @FXML
-    private Button buttonLogout;
-    @FXML
-    private TextField SearchStu;
-    @FXML
-    private Button btnSearch;
-    @FXML
-    private TextField SearchAct;
-    @FXML
-    private Button btnSearch1;
-    @FXML
-    private TextField Search2;
-    @FXML
-    private Button btnSearch2;
-    @FXML
-    private Button BtnAddActToStu;
-    @FXML
-    private Button btnRemoveActToStu;
-    @FXML
-    private Button AddActButton;
-    @FXML
-    private Button RemoveActButton;
+    private TableColumn<Activity, String> Act;
+
     @FXML
     private ComboBox<String> ActCategorySelected;
+
+    @FXML
+    private AnchorPane ActPane;
+
+    @FXML
+    private TableColumn<Activity, String> ActPlace;
+
+    @FXML
+    private TableColumn<Activity, String> ActScore;
+
+    @FXML
+    private TableColumn<Activity, Boolean> ActSelected;
+
+    @FXML
+    private TableColumn<Activity, String> ActTime;
+
     @FXML
     private ComboBox<String> ActivitiesCategorySelected;
+
     @FXML
-    private TableView<Student> StudentTable;
+    private TableColumn<Activity, String> ActivitiesCatergory;
+
     @FXML
-    private TableColumn<Student, String> StuName;
+    private TableColumn<Activity, String> ActivitiesName;
+
     @FXML
-    private TableColumn<Student, String> StuID;
+    private TextField ActivitiesPlace;
+
     @FXML
-    private TableColumn<Student, Boolean> colSelect;
+    private ScrollPane ActivitiesScrollPan;
+
     @FXML
     private TableView<Activity> ActivitiesTable;
+
     @FXML
-    private TableColumn<Activity, String> Act;
+    private TextField ActivitiesTime;
+
+    @FXML
+    private Button AddActButton;
+
+    @FXML
+    private Button BtnAddActToStu;
+
     @FXML
     private TableColumn<Activity, String> Category;
+
     @FXML
     private TableColumn<Activity, String> Duration;
+
+    @FXML
+    private Button RemoveActButton;
+
+    @FXML
+    private TextField Search2;
+
+    @FXML
+    private TextField SearchAct;
+
+    @FXML
+    private AnchorPane SearchActivities;
+
+    @FXML
+    private TextField SearchStu;
+
+    @FXML
+    private TableColumn<Student, String> StuID;
+
+    @FXML
+    private TableColumn<Student, String> StuName;
+
+    @FXML
+    private AnchorPane StudentPane;
+
+    @FXML
+    private ScrollPane StudentScrollPane;
+
+    @FXML
+    private TableView<Student> StudentTable;
+
+    @FXML
+    private Button btnRemoveActToStu;
+
+    @FXML
+    private Button btnSearch;
+
+    @FXML
+    private Button btnSearch1;
+
+    @FXML
+    private Button btnSearch2;
+
+    @FXML
+    private Button buttonLogout;
+
+    @FXML
+    private Button buttonViewActivity;
+
+    @FXML
+    private Button buttonViewStudent;
+
+    @FXML
+    private TableColumn<Student, Boolean> colSelect;
+
     @FXML
     private TableColumn<Activity, Boolean> colSelectAct;
+
+    @FXML
+    private AnchorPane panStuNActList;
+
+    @FXML
+    private AnchorPane paneFullPane;
+
+    @FXML
+    private AnchorPane paneStudentManage;
+
+    @FXML
+    private AnchorPane paneViewActivity;
+
+    @FXML
+    private Label textID;
+
+    @FXML
+    private Label textRole;
+
+    @FXML
+    private Label textUserName;
 
     // Data models
     public static class Student {
@@ -117,12 +188,18 @@ public class AdminController {
         private final StringProperty name;
         private final StringProperty category;
         private final StringProperty duration;
+        private final StringProperty place;
+        private final StringProperty score;
+        private final StringProperty time;
         private final BooleanProperty selected;
 
-        public Activity(String name, String category, String duration) {
+        public Activity(String name, String category, String duration, String place, String score, String time) {
             this.name = new SimpleStringProperty(name);
             this.category = new SimpleStringProperty(category);
             this.duration = new SimpleStringProperty(duration);
+            this.place = new SimpleStringProperty(place);
+            this.score = new SimpleStringProperty(score);
+            this.time = new SimpleStringProperty(time);
             this.selected = new SimpleBooleanProperty(false);
         }
 
@@ -148,6 +225,30 @@ public class AdminController {
 
         public StringProperty durationProperty() {
             return duration;
+        }
+
+        public String getPlace() {
+            return place.get();
+        }
+
+        public StringProperty placeProperty() {
+            return place;
+        }
+
+        public String getScore() {
+            return score.get();
+        }
+
+        public StringProperty scoreProperty() {
+            return score;
+        }
+
+        public String getTime() {
+            return time.get();
+        }
+
+        public StringProperty timeProperty() {
+            return time;
         }
 
         public boolean isSelected() {
@@ -186,9 +287,15 @@ public class AdminController {
         });
 
         Act.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+        ActivitiesName.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         Category.setCellValueFactory(cellData -> cellData.getValue().categoryProperty());
+        ActivitiesCatergory.setCellValueFactory(cellData -> cellData.getValue().categoryProperty());
         Duration.setCellValueFactory(cellData -> cellData.getValue().durationProperty());
+        ActPlace.setCellValueFactory(cellData -> cellData.getValue().placeProperty());
+        ActScore.setCellValueFactory(cellData -> cellData.getValue().scoreProperty());
+        ActTime.setCellValueFactory(cellData -> cellData.getValue().timeProperty());
         colSelectAct.setCellValueFactory(cellData -> cellData.getValue().selectedProperty());
+        ActSelected.setCellValueFactory(cellData -> cellData.getValue().selectedProperty());
         colSelectAct.setCellFactory(column -> new TableCell<>() {
             private final CheckBox checkBox = new CheckBox();
 
@@ -211,8 +318,8 @@ public class AdminController {
                 new Student("Tran Thi B", "STU002")
         );
         activityList = FXCollections.observableArrayList(
-                new Activity("Chìa khóa học tốt", "Học tập", "2025-06-30"),
-                new Activity("Ngày hội thể thao", "Văn hóa, chính trị, thể thao", "2025-07-15")
+                new Activity("Chìa khóa học tốt", "Học tập", "2025-06-30", "Room 101", "10", "08:00"),
+                new Activity("Ngày hội thể thao", "Văn hóa, chính trị, thể thao", "2025-07-15", "Stadium", "15", "09:00")
         );
 
         StudentTable.setItems(studentList);
@@ -221,8 +328,11 @@ public class AdminController {
         // Set initial pane visibility
         paneStudentManage.setVisible(true);
         paneViewActivity.setVisible(false);
+        ActPane.setVisible(false);
+        SearchActivities.setVisible(false);
+        panStuNActList.setVisible(false);
 
-        // Initialize combo box
+        // Initialize combo boxes
         ActCategorySelected.setItems(FXCollections.observableArrayList("Tất cả", "Học tập", "Văn hóa, chính trị, thể thao", "Ý thức"));
         ActivitiesCategorySelected.setItems(FXCollections.observableArrayList("Tất cả", "Học tập", "Văn hóa, chính trị, thể thao", "Ý thức"));
     }
@@ -231,20 +341,22 @@ public class AdminController {
     private void handleViewActivity(ActionEvent event) {
         paneStudentManage.setVisible(false);
         paneViewActivity.setVisible(true);
+        ActPane.setVisible(true);
+        SearchActivities.setVisible(true);
     }
 
     @FXML
     private void handleViewStudent(ActionEvent event) {
         paneStudentManage.setVisible(true);
         paneViewActivity.setVisible(false);
+        ActPane.setVisible(false);
+        SearchActivities.setVisible(false);
     }
 
     @FXML
     private void handleLogout(ActionEvent event) {
-        // Close the current window
         Stage stage = (Stage) buttonLogout.getScene().getWindow();
         stage.close();
-        // TODO: Implement actual logout logic (e.g., redirect to login screen)
     }
 
     @FXML
@@ -264,7 +376,11 @@ public class AdminController {
         String searchText = SearchAct.getText().toLowerCase();
         ObservableList<Activity> filteredList = FXCollections.observableArrayList();
         for (Activity activity : activityList) {
-            if (activity.getName().toLowerCase().contains(searchText) || activity.getDuration().toLowerCase().contains(searchText)) {
+            if (activity.getName().toLowerCase().contains(searchText) ||
+                    activity.getDuration().toLowerCase().contains(searchText) ||
+                    activity.getPlace().toLowerCase().contains(searchText) ||
+                    activity.getScore().toLowerCase().contains(searchText) ||
+                    activity.getTime().toLowerCase().contains(searchText)) {
                 filteredList.add(activity);
             }
         }
@@ -278,7 +394,11 @@ public class AdminController {
         ObservableList<Activity> filteredList = FXCollections.observableArrayList();
         for (Activity activity : activityList) {
             if ((selectedCategory == null || selectedCategory.equals("Tất cả") || activity.getCategory().equals(selectedCategory)) &&
-                    (activity.getName().toLowerCase().contains(searchText) || activity.getDuration().toLowerCase().contains(searchText))) {
+                    (activity.getName().toLowerCase().contains(searchText) ||
+                            activity.getDuration().toLowerCase().contains(searchText) ||
+                            activity.getPlace().toLowerCase().contains(searchText) ||
+                            activity.getScore().toLowerCase().contains(searchText) ||
+                            activity.getTime().toLowerCase().contains(searchText))) {
                 filteredList.add(activity);
             }
         }
@@ -305,7 +425,6 @@ public class AdminController {
         }
 
         if (selectedStudent != null && selectedActivity != null) {
-            // TODO: Implement logic to associate activity with student in the database
             showAlert(Alert.AlertType.INFORMATION, "Success", "Added activity " + selectedActivity.getName() + " to student " + selectedStudent.getName());
         } else {
             showAlert(Alert.AlertType.WARNING, "Selection Error", "Please select one student and one activity.");
@@ -332,7 +451,6 @@ public class AdminController {
         }
 
         if (selectedStudent != null && selectedActivity != null) {
-            // TODO: Implement logic to remove activity from student in the database
             showAlert(Alert.AlertType.INFORMATION, "Success", "Removed activity " + selectedActivity.getName() + " from student " + selectedStudent.getName());
         } else {
             showAlert(Alert.AlertType.WARNING, "Selection Error", "Please select one student and one activity.");
@@ -341,8 +459,24 @@ public class AdminController {
 
     @FXML
     private void handleAddActivity(ActionEvent event) {
-        // TODO: Show the activity creation pane or open a dialog
-        showAlert(Alert.AlertType.INFORMATION, "Add Activity", "Activity creation form to be implemented.");
+        String name = ActivitiesName.getText();
+        String category = ActivitiesCategorySelected.getValue();
+        String duration = ActivitiesTime.getText();
+        String place = ActivitiesPlace.getText();
+        String score = "0"; // Default score
+        String time = ActivitiesTime.getText();
+
+        if (name != null && !name.isEmpty() && category != null && duration != null && !duration.isEmpty() && place != null && !place.isEmpty()) {
+            Activity newActivity = new Activity(name, category, duration, place, score, time);
+            activityList.add(newActivity);
+            showAlert(Alert.AlertType.INFORMATION, "Success", "Added activity " + name);
+            // Clear input fields
+            //ActivitiesName.clear();
+           // ActivitiesPlace.clear();
+            //ActivitiesTime.clear();
+        } else {
+            showAlert(Alert.AlertType.WARNING, "Input Error", "Please fill in all required fields.");
+        }
     }
 
     @FXML
@@ -358,7 +492,6 @@ public class AdminController {
 
         if (selectedActivity != null) {
             activityList.remove(selectedActivity);
-            // TODO: Implement logic to remove activity from the database
             showAlert(Alert.AlertType.INFORMATION, "Success", "Removed activity " + selectedActivity.getName());
         } else {
             showAlert(Alert.AlertType.WARNING, "Selection Error", "Please select an activity to remove.");

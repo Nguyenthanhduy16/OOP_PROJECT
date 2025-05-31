@@ -12,8 +12,10 @@
       <root url="jar://C:/openjfx-24.0.1_windows-x64_bin-sdk/javafx-sdk-24.0.1/lib/jdk.jsobject.jar!/" />
       <root url="jar://C:/openjfx-24.0.1_windows-x64_bin-sdk/javafx-sdk-24.0.1/lib/jfx.incubator.input.jar!/" />
       <root url="jar://C:/openjfx-24.0.1_windows-x64_bin-sdk/javafx-sdk-24.0.1/lib/jfx.incubator.richtext.jar!/" />
+      <root url="file://$PROJECT_DIR$/ICTSV/src/view/login/lib" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/ICTSV/src/view/login/lib" recursive="false" />
   </library>
 </component>
