@@ -14,7 +14,6 @@ public class Activity {
 
     @JsonProperty("score")
     private int score; 
- 
     private String date;
     private String location;
     public Activity() {}

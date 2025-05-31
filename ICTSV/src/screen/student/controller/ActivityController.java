@@ -11,6 +11,7 @@ import model.Student;
 public class ActivityController {
     private Activity activity;
     private Student student;
+    
     @FXML
     private CheckBox btnAddToList;
 
