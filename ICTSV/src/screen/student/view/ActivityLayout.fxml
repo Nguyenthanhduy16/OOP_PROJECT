@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import java.lang.String?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
@@ -13,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="372.0" prefWidth="300.0" stylesheets="@../style/layout.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screen.student.controller.ActivityController">
+<AnchorPane prefHeight="372.0" prefWidth="300.0" stylesheets="@../style/layout.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screen.student.controller.ActivityController">
    <styleClass>
       <String fx:value="body" />
       <String fx:value="radius" />
@@ -37,7 +32,7 @@
                </font>
             </Label>
             <CheckBox fx:id="btnAddToList" layoutX="143.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnAddToListClicked" prefHeight="23.0" prefWidth="28.0" />
-            <Label layoutX="131.0" layoutY="165.0" styleClass="orange" stylesheets="@../style/text.css" text="Đăng ký" />
+            <Label fx:id="registerOrUnregister" layoutX="131.0" layoutY="165.0" styleClass="orange" stylesheets="@../style/text.css" text="Đăng ký" />
             <AnchorPane layoutX="14.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
                <children>
                   <Label fx:id="labelDate" layoutX="29.0" layoutY="2.0" styleClass="purple" stylesheets="@../style/text.css" text="2025-06-30" />

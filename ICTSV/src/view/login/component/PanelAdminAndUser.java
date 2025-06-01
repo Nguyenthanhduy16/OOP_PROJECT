@@ -14,12 +14,43 @@ import view.login.main.Main;
 import net.miginfocom.swing.MigLayout;
 import controller.LoginService;
 import handle.login.LoginHandle;
+import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import model.Admin;
 import model.Student;
 import model.User;
 
 public class PanelAdminAndUser extends javax.swing.JLayeredPane {
+	
+	private void openStudentView(Student student) {
+	    Platform.runLater(() -> {           // Bảo đảm chạy trên JavaFX-Thread
+	        try {
+	            FXMLLoader loader = new FXMLLoader(
+	                    getClass().getResource("/screen/student/view/StudentLayout.fxml"));
+	            Parent root = loader.load();
 
+	            // Gửi object Student sang controller (nếu cần hiển thị dữ liệu)
+	            screen.student.controller.StudentController c = loader.getController();
+	            c.setStudent(student);      // nhớ tạo setStudent(...) trong controller
+
+	            Stage stage = new Stage();
+	            stage.setTitle("Student Management Page");
+	            stage.setMinWidth(1000);
+	            stage.setMinHeight(600);
+	            stage.setScene(new Scene(root));
+	            stage.show();
+	        } catch (Exception ex) {
+	            ex.printStackTrace();
+	            JOptionPane.showMessageDialog(PanelAdminAndUser.this,
+	                    "Không thể mở Student View: " + ex.getMessage(),
+	                    "Lỗi", JOptionPane.ERROR_MESSAGE);
+	        }
+	    });
+	}
+	
     private Main main; // Reference to Main for authentication
 
     private LoginService loginService;

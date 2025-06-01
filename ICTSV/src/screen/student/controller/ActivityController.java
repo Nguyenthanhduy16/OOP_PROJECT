@@ -12,6 +12,11 @@ public class ActivityController {
     private Activity activity;
     private Student student;
     
+    
+    
+    @FXML
+    private Label registerOrUnregister;
+    
     @FXML
     private CheckBox btnAddToList;
 
@@ -46,7 +51,22 @@ public class ActivityController {
             System.out.println("Removed: " + activity.getName());
         }
     }
-
+    
+    public void changeDisplay (int x)
+    {
+    	// 1 là đăng ký các hoạt động
+    	if (x == 1)
+    	{
+    		registerOrUnregister.setText("Đăng ký");
+    	}
+    	// 2 ở đây là màn hình xem các hoạt động đăng ký
+    	else if (x == 2)
+    	{
+    		registerOrUnregister.setText("Hủy đăng ký");
+    	}
+    }
+    
+    
 	public void setData(Activity activities, Student student) {
 		// TODO Auto-generated method stub
 	    this.activity = activities;
@@ -79,6 +99,13 @@ public class ActivityController {
         registered = true;
         btnAddToList.setSelected(true);
         btnAddToList.setDisable(true);  // Không cho chỉnh checkbox nữa
+    }
+    
+    public void markNotRegistered()
+    {
+    	registered = false;
+        btnAddToList.setSelected(false);
+        btnAddToList.setDisable(false);
     }
 
     public void allowSelection() {

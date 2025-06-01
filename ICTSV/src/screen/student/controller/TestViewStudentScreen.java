@@ -36,6 +36,10 @@ public class TestViewStudentScreen extends Application {
         admin.addActivity(new Activity("AI Workshop", "AI Workshop", false, 88, "2025-03-10", "Ho Chi Minh City"));
         admin.addActivity(new Activity("Chính trị văn hóa", "Robotics Competition", false, 100, "2025-02-20", "Da Nang"));
         admin.addActivity(new Activity("Tổ chức kỷ luật", "Cybersecurity Training", false, 76, "2025-05-01", "Hue"));
+        admin.addActivity(new Activity("Học tập", "Ựa" ,false, 95, "2025-04-15", "Hanoi"));
+        admin.addActivity(new Activity("AI Workshop", "AI bad", false, 88, "2025-03-10", "Ho Chi Minh City"));
+        admin.addActivity(new Activity("Chính trị văn hóa", "Crying Competition", false, 100, "2025-02-20", "Da Nang"));
+        admin.addActivity(new Activity("Tổ chức kỷ luật", "Sadness Training", false, 76, "2025-05-01", "Hue"));
 
         launch(args);
     }

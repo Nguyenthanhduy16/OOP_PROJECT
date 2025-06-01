@@ -3,6 +3,9 @@ import java.util.ArrayList;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 
 public class Student extends User{
@@ -19,7 +22,7 @@ public class Student extends User{
 	    this.admin = admin;
 	}
 	
-	private ArrayList<Activity> registeredActivities = new ArrayList<Activity>();
+	private ObservableList<Activity> registeredActivities = FXCollections.observableArrayList();
 	public void searchActivity(String name) {
 		boolean found = false;
 		for(Activity activity: registeredActivities ) {
@@ -41,6 +44,12 @@ public class Student extends User{
 			System.out.println(activity.getName() + " has been added to your registered activity");
 		}
 	}
+	
+	public void removeActivity (Activity x)
+	{
+		registeredActivities.remove(x);
+	}
+	
 	public void cancelRegisteredActivity(Activity activity) {
 		if(registeredActivities.contains(activity)) {
 			registeredActivities.remove(activity);
@@ -84,7 +93,7 @@ public class Student extends User{
 	            System.out.println(activity.getName() + " " + activity.getTitle() + " " + activity.getScore());
 	    }
 	}
-    public ArrayList<Activity> getRegisteredActivities() {
+    public ObservableList<Activity> getRegisteredActivities() {
         return registeredActivities;
     }
 }

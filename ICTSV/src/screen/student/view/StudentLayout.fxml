@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
 <?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.scene.chart.BarChart?>
@@ -27,15 +18,15 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screen.student.controller.StudentController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screen.student.controller.StudentController">
    <children>
       <AnchorPane fx:id="Student_controller" prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -106,7 +97,7 @@
                                        <stops>
                                           <Stop>
                                              <color>
-                                                <Color blue="0.2763157784938812" green="0.2763157784938812" red="0.2763157784938812" />
+                                                <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
                                              </color>
                                           </Stop>
                                           <Stop offset="0.006711409395973154">
@@ -153,7 +144,7 @@
                <center>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="registerActivityPane" layoutX="8.0" layoutY="337.0" prefHeight="1000.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="registerActivityPane" layoutX="8.0" layoutY="337.0" prefHeight="1000.0" prefWidth="1200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane layoutX="30.0" layoutY="34.0" prefHeight="65.0" prefWidth="455.0" AnchorPane.bottomAnchor="901.0" AnchorPane.topAnchor="34.0">
                                  <stylesheets>
@@ -181,7 +172,7 @@
                                              <stops>
                                                 <Stop>
                                                    <color>
-                                                      <Color blue="0.2763157784938812" green="0.2763157784938812" red="0.2763157784938812" />
+                                                      <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
                                                    </color>
                                                 </Stop>
                                                 <Stop offset="0.006711409395973154">
@@ -248,7 +239,7 @@
                                        <stops>
                                           <Stop>
                                              <color>
-                                                <Color blue="0.2763157784938812" green="0.2763157784938812" red="0.2763157784938812" />
+                                                <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
                                              </color>
                                           </Stop>
                                           <Stop offset="0.006711409395973154">
@@ -283,7 +274,7 @@
                               </Button>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="viewActivityPane" layoutY="3.0" prefHeight="1000.0" prefWidth="1200.0" visible="false" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0">
+                        <AnchorPane fx:id="viewActivityPane" layoutY="3.0" prefHeight="1000.0" prefWidth="1200.0" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0">
                            <children>
                               <AnchorPane layoutX="24.0" layoutY="142.0" prefHeight="722.0" prefWidth="1150.0" AnchorPane.bottomAnchor="136.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="142.0">
                                  <stylesheets>
@@ -298,22 +289,22 @@
                                  <children>
                                     <ScrollPane layoutX="9.0" layoutY="7.0" prefHeight="703.0" prefWidth="1133.0" styleClass="transparent" stylesheets="@../../../style/layout.css" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="7.0">
                                        <content>
-                                          <GridPane fx:id="viewRegistedActivityGridPane">
-                                            <columnConstraints>
-                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                            </columnConstraints>
+                                          <GridPane fx:id="viewRegistedActivityGridPane" prefHeight="0.0" prefWidth="0.0">
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
                                           </GridPane>
                                        </content>
                                     </ScrollPane>
                                  </children>
                               </AnchorPane>
-                              <Button layoutX="496.0" layoutY="900.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="201.0" style="-fx-background-radius: 10;" text="Hủy đăng ký" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="903.0">
+                              <Button layoutX="496.0" layoutY="900.0" mnemonicParsing="false" onAction="#cancelActivity" prefHeight="67.0" prefWidth="201.0" style="-fx-background-radius: 10;" text="Hủy đăng ký" AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="903.0">
                                  <textFill>
                                     <RadialGradient centerX="0.5220994475138121" centerY="0.566350710900474" radius="0.5">
                                        <stops>
                                           <Stop>
                                              <color>
-                                                <Color blue="0.2763157784938812" green="0.2763157784938812" red="0.2763157784938812" />
+                                                <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
                                              </color>
                                           </Stop>
                                           <Stop offset="0.006711409395973154">
@@ -396,7 +387,7 @@
                                              <stops>
                                                 <Stop>
                                                    <color>
-                                                      <Color blue="0.2763157784938812" green="0.2763157784938812" red="0.2763157784938812" />
+                                                      <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
                                                    </color>
                                                 </Stop>
                                                 <Stop offset="0.006711409395973154">

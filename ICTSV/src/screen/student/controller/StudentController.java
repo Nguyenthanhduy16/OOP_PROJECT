@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -35,6 +36,11 @@ import model.Student;
 public class StudentController implements Initializable 
 {
 	private Student student;
+	
+	public void setStudent (Student student)
+	{
+		this.student = student;
+	}
 	// TODO: chưa có kỳ học
 	private Admin admin;
 	
@@ -48,6 +54,9 @@ public class StudentController implements Initializable
 	private ObservableList <Activity> activityListData = FXCollections.observableArrayList();
 	
 	// Các thuộc tính FXML
+	
+	@FXML
+    private GridPane viewRegistedActivityGridPane;
 	
 	@FXML
     private Button viewActivityPaneButton;
@@ -138,6 +147,41 @@ public class StudentController implements Initializable
     void viewScorePageButtonClicked(MouseEvent event) {
 
     }
+    
+    @FXML
+    private void cancelActivity(ActionEvent event) 
+    {
+    	System.out.println("Cancel activity button clicked");
+
+        boolean hasCancel = false;
+
+        /* ① ‒ quét đúng bảng “Đã đăng ký” */
+        for (Node node : viewRegistedActivityGridPane.getChildren()) {
+            if (node instanceof AnchorPane anchor) {
+                Object ud = anchor.getUserData();
+                if (ud instanceof ActivityController ac && ac.isSelected()) {
+
+                    Activity activity = ac.getActivity();
+
+                    /* xoá khi đang TỒN TẠI trong danh sách */
+                    if (student.getRegisteredActivities().remove(activity)) {
+                        hasCancel = true;
+                    }
+                }
+            }
+        }
+
+        if (!hasCancel) {
+            new Alert(AlertType.INFORMATION, "Bạn chưa chọn hoạt động nào để huỷ!",
+                      ButtonType.OK).showAndWait();
+            return;
+        }
+
+        /* ③ ‒ vẽ lại cả hai bảng để đồng bộ UI */
+        displayRegisteredActivity();     // bảng “Đã đăng ký”
+        registeredActivityDisplay();     // bảng “Đăng ký”
+    }
+    
     @FXML
     private void btnSubmitRegister(ActionEvent event) {
         System.out.println("Register activity button clicked");
@@ -206,6 +250,7 @@ public class StudentController implements Initializable
     // Phương thức này thực hiện việc reset lại datalist và thêm vào mọi activity đã đăng ký vô
     public void registeredActivityDisplay ()
     {
+    	gridPane.getChildren().clear();
 	    final String ITEM_FXML_FILE_PATH = "/screen/student/view/ActivityLayout.fxml";
 
 	    int column = 0;
@@ -218,11 +263,15 @@ public class StudentController implements Initializable
 		    	    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ITEM_FXML_FILE_PATH));
 		    	    AnchorPane anchorPane = fxmlLoader.load();
 		    	    ActivityController controller = fxmlLoader.getController();
+		    	    
 					controller.setData(activity, student);
+					controller.changeDisplay(1);
+					
 
 					anchorPane.setUserData(controller);
 		            // Đưa AnchorPane vào grid
-		            if (column == 3) { 
+		            if (column == 3) 
+		            { 
 		                column = 0;
 		                row++;
 		            }
@@ -237,12 +286,48 @@ public class StudentController implements Initializable
 	        e.printStackTrace();
 	    }
     }
+    
+    // TODO: sửa lại đoạn hiển thị chồng nhau
+    final String ITEM_FXML = "/screen/student/view/ActivityLayout.fxml";
+    public void displayRegisteredActivity ()
+    {
+    	viewRegistedActivityGridPane.getChildren().clear();
+    	int column = 0;
+    	int row = 1;
+
+        try
+        {
+        	
+        	for (Activity act : student.getRegisteredActivities()) {
+        	    FXMLLoader loader = new FXMLLoader(getClass().getResource(ITEM_FXML));
+        	    AnchorPane pane = loader.load();
+
+        	    ActivityController ctrl = loader.getController();
+        	    ctrl.setData(act, student);
+        	    ctrl.markNotRegistered();
+        	    ctrl.changeDisplay(2);
+
+        	    pane.setUserData(ctrl);              // 👈 thêm dòng này
+
+        	    if (column == 3) { column = 0; row++; }
+        	    viewRegistedActivityGridPane.add(pane, column++, row);
+        	    GridPane.setMargin(pane, new Insets(20,10,10,10));
+        	}
+        } 
+        catch (IOException e) 
+        {
+            e.printStackTrace();
+        }
+    }
+    
+    
     @FXML
     // Phương thức thực hiện việc đổi qua lại giữa các pane
     public void switchForm (ActionEvent event)
     {
     	if (event.getSource() == viewRegisterPaneButton)
     	{
+    		
     		registerActivityPane.setVisible(true);
     		viewActivityPane.setVisible(false);
     		viewScorePane.setVisible(false);
@@ -252,6 +337,7 @@ public class StudentController implements Initializable
     		registerActivityPane.setVisible(false);
     		viewActivityPane.setVisible(true);
     		viewScorePane.setVisible(false);
+    		displayRegisteredActivity();
     	}
     	else if (event.getSource() == viewScorePaneButton)
     	{
@@ -298,4 +384,3 @@ public class StudentController implements Initializable
 
 
 }
-

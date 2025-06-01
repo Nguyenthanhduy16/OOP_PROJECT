@@ -3,6 +3,8 @@ package model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Activity {
+	
+	
     @JsonProperty("title")
     private String title;
 
@@ -26,6 +28,7 @@ public class Activity {
         this.date = date;
         this.location = location;
     }
+    
 
     public String getDate() {
 		return date;
