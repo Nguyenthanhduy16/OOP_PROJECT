@@ -20,7 +20,8 @@ public class AdminController {
 
     @FXML
     private ComboBox<String> ActCategorySelected;
-
+    @FXML
+    private ComboBox<String> ActSemesterSelected;
     @FXML
     private AnchorPane ActPane;
 
@@ -56,9 +57,13 @@ public class AdminController {
 
     @FXML
     private TextField ActivitiesTime;
+    @FXML
+    private TextField Semester;
 
     @FXML
     private Button AddActButton;
+    @FXML
+    private Button AddActivities;
 
     @FXML
     private Button BtnAddActToStu;
@@ -357,6 +362,7 @@ public class AdminController {
 
         // Khởi tạo danh sách lựa chọn trong ComboBox
         ActCategorySelected.setItems(FXCollections.observableArrayList("Tất cả", "Học tập", "Văn hóa, chính trị, thể thao", "Ý thức"));
+        ActSemesterSelected.setItems(FXCollections.observableArrayList("2024.2", "2024.1", "2023.2", "2023.1"));
         ActivitiesCategorySelected.setItems(FXCollections.observableArrayList("Tất cả", "Học tập", "Văn hóa, chính trị, thể thao", "Ý thức"));
     }
 }
