@@ -20,8 +20,8 @@ public class TestViewStudentScreen extends Application {
       stage.setTitle("Student Management Page");
       stage.setMinWidth(1000);
       stage.setMinHeight(600); 
-      stage.setScene(scene);
-      stage.show();
+      stage.setScene(scene); 
+      stage.show();  
   
     } 
 
@@ -31,11 +31,11 @@ public class TestViewStudentScreen extends Application {
 ////    	student.addActivity(new Activity("Robotics Competition", "Le Van C", true, 100, "2025-02-20", "Da Nang"));
 ////    	student.addActivity(new Activity("Cybersecurity Training", "Pham Thi D", false, 76, "2025-05-01", "Hue"));
 ////    	student.addActivity(new Activity("Tech Talk: Data Science", "Do Van E", true, 90, "2025-01-28", "Can Tho"));
-        admin = new Admin();
-        admin.addActivity(new Activity("Học tập", "Hackathon 2025" ,false, 95, "2025-04-15", "Hanoi"));
-        admin.addActivity(new Activity("AI Workshop", "AI Workshop", false, 88, "2025-03-10", "Ho Chi Minh City"));
-        admin.addActivity(new Activity("Chính trị văn hóa", "Robotics Competition", false, 100, "2025-02-20", "Da Nang"));
-        admin.addActivity(new Activity("Tổ chức kỷ luật", "Cybersecurity Training", false, 76, "2025-05-01", "Hue"));
+    		admin = new Admin();
+        admin.addActivity(new Activity("Học tập", "Hackathon 2025" , "2024.2", false, 95, "2025-04-15", "Hanoi"));
+        admin.addActivity(new Activity("AI Workshop", "AI Workshop", "2023.1", false, 88, "2025-03-10", "Ho Chi Minh City"));
+        admin.addActivity(new Activity("Chính trị văn hóa", "Robotics Competition", "2023.2", false, 100, "2025-02-20", "Da Nang"));
+        admin.addActivity(new Activity("Tổ chức kỷ luật", "Cybersecurity Training","2024.2" ,false, 76, "2025-05-01", "Hue"));
 
         launch(args);
     }

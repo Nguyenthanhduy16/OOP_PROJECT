@@ -65,7 +65,7 @@ public class ActivityController {
             btnAddToList.setSelected(false);  // Nếu chưa đăng ký -> để checkbox trống
             btnAddToList.setDisable(false);   // Cho phép tick vào
         }
-	}
+	} 
 	/** Trả về xem checkbox có được tick hay không */
     public boolean isSelected() {
         return btnAddToList.isSelected() && !registered;
