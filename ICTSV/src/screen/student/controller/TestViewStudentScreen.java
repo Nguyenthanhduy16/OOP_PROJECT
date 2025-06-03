@@ -1,5 +1,11 @@
 package screen.student.controller;
 
+import java.io.File;
+import java.util.List;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,35 +14,69 @@ import javafx.stage.Stage;
 import model.Activity;
 import model.Admin;
 import model.Student;
+import model.User;
 
 public class TestViewStudentScreen extends Application {
 	private static Student student;
 	private static Admin admin;
     @Override
     public void start(Stage stage) throws Exception {
-      Parent root = FXMLLoader.load(getClass().getResource("/screen/student/view/StudentLayout.fxml"));
-      Scene scene = new Scene(root);
-      
-      stage.setTitle("Student Management Page");
-      stage.setMinWidth(1000);
-      stage.setMinHeight(600); 
-      stage.setScene(scene);
-      stage.show();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/screen/student/view/StudentLayout.fxml"));
+        Parent root = loader.load();
+
+        // Lấy controller từ FXMLLoader
+        StudentController controller = loader.getController();
+        // Truyền dữ liệu admin và student vào controller
+        controller.setAdmin(admin);
+        controller.setStudent(student);	
+        controller.initData(student); // Gọi phương thức initData để khởi tạo dữ liệu cho student
+        
+        Scene scene = new Scene(root);
+        stage.setTitle("Student Management Page");
+        stage.setMinWidth(1000);
+        stage.setMinHeight(600); 
+        stage.setScene(scene); 
+        stage.show();  
   
     } 
 
     public static void main(String[] args) {
-//    	student = new Student();
-//    	student.addActivity(new Activity("Hackathon 2025", "Nguyen Van A", true, 95, "2025-04-15", "Hanoi"));
-////    	student.addActivity(new Activity("Robotics Competition", "Le Van C", true, 100, "2025-02-20", "Da Nang"));
-////    	student.addActivity(new Activity("Cybersecurity Training", "Pham Thi D", false, 76, "2025-05-01", "Hue"));
-////    	student.addActivity(new Activity("Tech Talk: Data Science", "Do Van E", true, 90, "2025-01-28", "Can Tho"));
-        admin = new Admin();
-        admin.addActivity(new Activity("Học tập", "Hackathon 2025" ,false, 95, "2025-04-15", "Hanoi"));
-        admin.addActivity(new Activity("AI Workshop", "AI Workshop", false, 88, "2025-03-10", "Ho Chi Minh City"));
-        admin.addActivity(new Activity("Chính trị văn hóa", "Robotics Competition", false, 100, "2025-02-20", "Da Nang"));
-        admin.addActivity(new Activity("Tổ chức kỷ luật", "Cybersecurity Training", false, 76, "2025-05-01", "Hue"));
+    	    try {
+    	        ObjectMapper mapper = new ObjectMapper();
 
-        launch(args);
+    	        File file = new File("src/data/data.json"); // đường dẫn file JSON
+                List<User> users = mapper.readValue(new File("src/data/data.json"),
+                        new TypeReference<List<User>>() {});
+
+    	        for (User u : users) {
+    	            if (u instanceof Student && u.getUserID().equals("20235804")) {
+    	                student = (Student) u;
+    	            }
+    	            if (u instanceof Admin && u.getUserID().equals("GV1001")) {
+    	                admin = (Admin) u;
+    	            }
+    	        }
+
+    	        if (student == null) {
+    	            System.out.println("Student không tồn tại trong JSON.");
+    	            return;
+    	        }
+    	        // Gán admin cho student 
+    	        student.setAdmin(admin);
+    	        System.out.println("Admin activities: " + admin.getAllActivities().size());
+    	        System.out.println("All activities:");
+    	        for (Activity a : admin.getAllActivities()) {
+    	            System.out.println(" - " + a.getName());
+    	        }
+    	        System.out.println("Student activities:");
+    	        for (Activity a : student.getRegisteredActivities()) {
+    	            System.out.println(" - " + a.getName());
+    	        }
+    	        launch(args);
+
+    	    } catch (Exception e) {
+    	        e.printStackTrace();
+    	    }
+     
     }
 }
