@@ -37,3 +37,25 @@
   -fx-background-color: #dbdbdb;
   -fx-text-fill: #000000;
 }
+
+.button-with-shadow-surround-yellow {
+  -fx-effect: dropshadow(
+    gaussian,
+    rgba(174, 103, 9, 0.5),
+    /* tím nhạt từ #9178d1, 30% opacity */ 20,
+    /* radius */ 0.5,
+    /* spread */ 0,
+    /* offset-x */ 5 /* offset-y */
+  );
+}
+
+.button-with-shadow-surround-red {
+  -fx-effect: dropshadow(
+    gaussian,
+    rgba(174, 9, 9, 0.5),
+    /* tím nhạt từ #9178d1, 30% opacity */ 20,
+    /* radius */ 0.5,
+    /* spread */ 0,
+    /* offset-x */ 5 /* offset-y */
+  );
+}

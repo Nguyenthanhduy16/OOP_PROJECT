@@ -1,7 +1,10 @@
 package model;
 import java.util.ArrayList;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,7 +25,19 @@ public class Student extends User{
 	    this.admin = admin;
 	}
 	
+	@JsonIgnore
 	private ObservableList<Activity> registeredActivities = FXCollections.observableArrayList();
+
+	@JsonProperty("registeredActivities")
+	public List<Activity> getRegisteredActivitiesJson() {
+	    return new ArrayList<>(registeredActivities);
+	}
+
+	@JsonProperty("registeredActivities")
+	public void setRegisteredActivitiesJson(List<Activity> activities) {
+	    this.registeredActivities.setAll(activities);
+	}
+	
 	public void searchActivity(String name) {
 		boolean found = false;
 		for(Activity activity: registeredActivities ) {

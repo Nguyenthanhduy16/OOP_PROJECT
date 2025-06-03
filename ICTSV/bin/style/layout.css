@@ -18,3 +18,11 @@
 .transparent {
   -fx-background-color: transparent;
 }
+
+.scroll-pane > .viewport {
+  -fx-background-color: transparent;
+}
+
+.scroll-pane {
+  -fx-background-color: #f0f0f0;
+}

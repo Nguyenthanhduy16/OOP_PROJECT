@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -45,12 +46,9 @@ public class StudentController implements Initializable
 	private Admin admin;
 	
 	// TODO: nhận tên user từ file json dưới đây là temp
-	private String username = new String("Trịnh Trần Phương Tuấn");
+	private String username = new String("Tên của sv ở đây");
 	
 	// List chứa danh sách các hoạt động của sinh viên
-	private ArrayList<Activity> activityList; 
-	
-	//
 	private ObservableList <Activity> activityListData = FXCollections.observableArrayList();
 	
 	// Các thuộc tính FXML
@@ -209,6 +207,7 @@ public class StudentController implements Initializable
     
     // StudentController.java
     public void initData(Student loggedStudent) {
+    	this.student = loggedStudent;
         this.username = loggedStudent.getUserName();   // hoặc getter bạn đang dùng
         displayStudentName();                          // cập-nhật nhãn tên sinh viên
         registeredActivityDisplay();                   // nạp dữ liệu đã đăng ký
@@ -217,11 +216,15 @@ public class StudentController implements Initializable
     @Override
     public void initialize (URL location, ResourceBundle resources)
     {
-    	this.student = new Student();
     	displayStudentName();
-    	registeredActivityDisplay();
+    	if (student != null) {            // ⬅️ an toàn
+            registeredActivityDisplay();
+        }
 
     }
+    
+    
+    
 //    // Thực hiện việc trả về danh sách các sự kiện đã đăng ký
 //    public ObservableList <Activity> getRegisteredActivityList ()
 //    {
@@ -360,11 +363,8 @@ public class StudentController implements Initializable
     		
     		if (option.get().equals(ButtonType.OK))
     		{
-    			// Ẩn đi student layout
-    			logout_btn.getScene().getWindow().hide();
-    			
-    			// Gọi lại trang đăng nhập
-    			new view.login.main.Main().setVisible(true);
+    			// Thoát hẳn
+    			Platform.exit();
     		}
     	}
     	catch (Exception e)

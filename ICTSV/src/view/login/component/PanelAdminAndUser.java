@@ -26,30 +26,39 @@ import model.User;
 public class PanelAdminAndUser extends javax.swing.JLayeredPane {
 	
 	private void openStudentView(Student student) {
-	    Platform.runLater(() -> {           // Bảo đảm chạy trên JavaFX-Thread
-	        try {
-	            FXMLLoader loader = new FXMLLoader(
-	                    getClass().getResource("/screen/student/view/StudentLayout.fxml"));
-	            Parent root = loader.load();
+		Platform.runLater(() -> {
+		    try 
+		    {
+		        FXMLLoader loader = new FXMLLoader(
+		                getClass().getResource("/screen/student/view/StudentLayout.fxml"));
+		        Parent root = loader.load();
 
-	            // Gửi object Student sang controller (nếu cần hiển thị dữ liệu)
-	            screen.student.controller.StudentController c = loader.getController();
-	            c.setStudent(student);      // nhớ tạo setStudent(...) trong controller
+		        screen.student.controller.StudentController c = loader.getController();
+		        c.initData(student);
 
-	            Stage stage = new Stage();
-	            stage.setTitle("Student Management Page");
-	            stage.setMinWidth(1000);
-	            stage.setMinHeight(600);
-	            stage.setScene(new Scene(root));
-	            stage.show();
-	        } catch (Exception ex) {
-	            ex.printStackTrace();
-	            JOptionPane.showMessageDialog(PanelAdminAndUser.this,
-	                    "Không thể mở Student View: " + ex.getMessage(),
-	                    "Lỗi", JOptionPane.ERROR_MESSAGE);
-	        }
-	    });
+		        Stage stage = new Stage();
+		        stage.setTitle("Student Management Page");
+		        stage.setScene(new Scene(root));
+
+		        //Khi cửa sổ JavaFX được hiển thị xong, mới dispose login
+		        stage.setOnShown(ev -> {
+		            if (main != null) {
+		                main.dispose();  // 💥 chỉ dispose sau khi Stage hiển thị xong
+		            }
+		        });
+
+		        stage.show();
+		    } 
+		    catch (Exception ex) 
+		    {
+		        ex.printStackTrace();
+		        JOptionPane.showMessageDialog(PanelAdminAndUser.this,
+		                "Không thể mở Student View: " + ex.getMessage(),
+		                "Lỗi", JOptionPane.ERROR_MESSAGE);
+		    }
+		});
 	}
+
 	
     private Main main; // Reference to Main for authentication
 
@@ -106,16 +115,20 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
                 
                 User loggedUser = loginService.authenticate(username, password, selectedRole);
 
-                if (loggedUser != null) {
-                    if (loggedUser instanceof Student) {
+                if (loggedUser != null) 
+                {
+                    if (loggedUser instanceof Student student) 
+                    {
                         JOptionPane.showMessageDialog(PanelAdminAndUser.this,
                                 "Đăng nhập thành công với vai trò Student!");
-                        // new StudentFrame((Student) loggedUser).setVisible(true);
+                        openStudentView(student);
+                        //Đóng cửa sổ hiện tại lại
+                        java.awt.Window win = javax.swing.SwingUtilities.getWindowAncestor(PanelAdminAndUser.this);
+                        win.dispose();
+                    }
                 }
-                    //Đóng cửa sổ hiện tại lại
-                    java.awt.Window win = javax.swing.SwingUtilities.getWindowAncestor(PanelAdminAndUser.this);
-                    win.dispose();
-                }else {
+                else 
+                {
                 	JOptionPane.showMessageDialog(PanelAdminAndUser.this,
                             "Invalid Username or Password for role Student", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -181,10 +194,11 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
                         JOptionPane.showMessageDialog(PanelAdminAndUser.this,
                                 "Đăng nhập thành công với vai trò Admin!");
                         // new AdminFrame((Admin) loggedUser).setVisible(true);
+                        //Đóng cửa sổ hiện tại lại
+                        if (main != null) {
+                            main.dispose(); // ✅ chính xác và an toàn
+                        }
                     } 
-                    //Đóng cửa sổ hiện tại lại
-                    java.awt.Window win = javax.swing.SwingUtilities.getWindowAncestor(PanelAdminAndUser.this);
-                    win.dispose();
                 }else {
                 	JOptionPane.showMessageDialog(PanelAdminAndUser.this,
                             "Invalid Username or Password for role Admin", "Error", JOptionPane.ERROR_MESSAGE);
