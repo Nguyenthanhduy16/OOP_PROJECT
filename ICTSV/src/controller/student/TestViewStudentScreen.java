@@ -17,8 +17,8 @@ public class TestViewStudentScreen extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(STUDENT_FXML_FILE_PATH));
 		ViewStudentController viewStoreController = new ViewStudentController(student);
 		fxmlLoader.setController(viewStoreController);
-        
-        Parent root = fxmlLoader.load();	
+
+        Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
@@ -28,11 +28,11 @@ public class TestViewStudentScreen extends Application {
 
     public static void main(String[] args) {
     	Student student = new Student();
-    	student.addActivity(new Activity("Hackathon 2025", "Nguyen Van A", true, 95, "2025-04-15", "Hanoi"));
-    	student.addActivity(new Activity("AI Workshop", "Tran Thi B", false, 88, "2025-03-10", "Ho Chi Minh City"));
-    	student.addActivity(new Activity("Robotics Competition", "Le Van C", true, 100, "2025-02-20", "Da Nang"));
-    	student.addActivity(new Activity("Cybersecurity Training", "Pham Thi D", false, 76, "2025-05-01", "Hue"));
-    	student.addActivity(new Activity("Tech Talk: Data Science", "Do Van E", true, 90, "2025-01-28", "Can Tho"));
+//    	student.addActivity(new Activity("Hackathon 2025", "Nguyen Van A", true, 95, "2025-04-15", "Hanoi"));
+//    	student.addActivity(new Activity("AI Workshop", "Tran Thi B", false, 88, "2025-03-10", "Ho Chi Minh City"));
+//    	student.addActivity(new Activity("Robotics Competition", "Le Van C", true, 100, "2025-02-20", "Da Nang"));
+//    	student.addActivity(new Activity("Cybersecurity Training", "Pham Thi D", false, 76, "2025-05-01", "Hue"));
+//    	student.addActivity(new Activity("Tech Talk: Data Science", "Do Van E", true, 90, "2025-01-28", "Can Tho"));
 
         launch(args);
     }

@@ -1,0 +1,41 @@
+/* Tổng thể bảng */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #dddddd;
+    -fx-border-radius: 10;
+    -fx-padding: 5;
+    -fx-table-cell-border-color: transparent;
+    -fx-font-size: 14px;
+}
+
+/* Header */
+.table-view .column-header-background {
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 0 0 1 0;
+}
+
+/* Ô tiêu đề cột */
+.table-view .column-header {
+    -fx-alignment: CENTER;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+/* Ô dữ liệu */
+.table-view .cell {
+    -fx-alignment: CENTER;
+    -fx-padding: 6 10 6 10;
+}
+
+/* Dòng được chọn */
+.table-view:focused .cell:filled:selected,
+.table-view .cell:filled:selected {
+    -fx-background-color: #1976d2;
+    -fx-text-fill: white;
+}
+
+/* Đổ bóng nếu thích */
+.table-view {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.1, 0, 3);
+}
