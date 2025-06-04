@@ -1,36 +1,36 @@
 [ {
-  "title" : "HocTap",
-  "name" : "Quản lý hệ thống",
-  "status" : true,
-  "score" : 20,
-  "date" : "29/05/2025",
-  "location" : "Nhà C2 Đại học Bách khoa Hà Nội"
-}, {
   "title" : "KyLuat",
   "name" : "Quản lý chi tiêu hàng tháng",
-  "status" : true,
+  "status" : false,
   "score" : 20,
   "date" : "29/05/2025",
   "location" : "Nhà C2 Đại học Bách khoa Hà Nội"
 }, {
   "title" : "YThuc",
   "name" : "Quản lý thời gian rảnh",
-  "status" : true,
+  "status" : false,
   "score" : 20,
   "date" : "29/05/2025",
   "location" : "Nhà C2 Đại học Bách khoa Hà Nội"
 }, {
   "title" : "XaHoi",
   "name" : "Quản lý dự án",
-  "status" : true,
+  "status" : false,
   "score" : 15,
   "date" : "29/05/2025",
   "location" : "Nhà C2 Đại học Bách khoa Hà Nội"
 }, {
   "title" : "HocTap",
-  "name" : "Quản lý công việc",
-  "status" : true,
+  "name" : "Quản lý người yêu",
+  "status" : false,
   "score" : 15,
   "date" : "29/05/2025",
   "location" : "Bách khoa"
+}, {
+  "title" : "HocTap",
+  "name" : "Quản lý hệ thống",
+  "status" : false,
+  "score" : 20,
+  "date" : "29/05/2025",
+  "location" : "Nhà C2 Đại học Bách khoa Hà Nội"
 } ]
