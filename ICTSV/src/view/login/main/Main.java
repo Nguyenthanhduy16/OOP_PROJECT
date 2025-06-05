@@ -46,7 +46,7 @@ public class Main extends javax.swing.JFrame {
         initDragAndDrop();
     }
     
-
+    
     /*
     private void initAccounts() {
         // User accounts

@@ -4,9 +4,12 @@
 <?import java.net.URL?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
@@ -209,7 +212,7 @@
                                     <String fx:value="button-with-shadow-surround-red" />
                                  </styleClass>
                               </Button>
-                              <Button layoutX="31.0" layoutY="45.0" minWidth="36.0" mnemonicParsing="false" onMouseClicked="#registerSearchButtonClicked" prefHeight="48.0" prefWidth="50.0" style="-fx-border-radius: 10;" AnchorPane.bottomAnchor="918.0" AnchorPane.topAnchor="45.0">
+                              <Button layoutX="31.0" layoutY="45.0" minWidth="36.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="50.0" style="-fx-border-radius: 10;" AnchorPane.bottomAnchor="918.0" AnchorPane.topAnchor="45.0">
                                  <textFill>
                                     <RadialGradient centerX="0.5220994475138121" centerY="0.566350710900474" radius="0.5">
                                        <stops>
@@ -266,7 +269,7 @@
                                     <String fx:value="search-bar" />
                                  </styleClass>
                                  <children>
-                                    <TextField layoutX="10.0" layoutY="7.0" prefHeight="55.0" prefWidth="412.0" promptText="Tìm kiếm" styleClass="search-text-field" stylesheets="@../../../style/search-bar.css" AnchorPane.bottomAnchor="8.0" AnchorPane.topAnchor="7.0">
+                                    <TextField fx:id="searchField" layoutX="10.0" layoutY="7.0" prefHeight="55.0" prefWidth="412.0" promptText="Tìm kiếm" styleClass="search-text-field" stylesheets="@../../../style/search-bar.css" AnchorPane.bottomAnchor="8.0" AnchorPane.topAnchor="7.0">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
@@ -385,18 +388,18 @@
                                     <String fx:value="button-with-shadow-surround-red" />
                                  </styleClass>
                               </Button>
-                              <TitledPane fx:id="viewSemesterList" expanded="false" layoutX="961.0" layoutY="34.0" prefHeight="197.0" prefWidth="161.0" stylesheets="@../../../style/titled_pane.css" text="Kỳ học" AnchorPane.bottomAnchor="774.0" AnchorPane.rightAnchor="78.0" AnchorPane.topAnchor="34.0">
+                              <TitledPane fx:id="viewSemesterList" layoutX="961.0" layoutY="34.0" prefHeight="197.0" prefWidth="161.0" stylesheets="@../../../style/titled_pane.css" text="Kỳ học" AnchorPane.bottomAnchor="774.0" AnchorPane.rightAnchor="78.0" AnchorPane.topAnchor="34.0">
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="146.0" prefWidth="159.0">
                                        <children>
-                                          <RadioButton fx:id="viewSemester1" layoutX="10.0" layoutY="14.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="Kỳ 1">
+                                          <RadioButton fx:id="viewSemester1" layoutX="10.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchSemesterInViewRegisteredAct" prefHeight="18.0" prefWidth="100.0" text="Kỳ 2023.1">
                                              <toggleGroup>
                                                 <ToggleGroup fx:id="semesterViewActivity" />
                                              </toggleGroup>
                                           </RadioButton>
-                                          <RadioButton fx:id="viewSemester2" layoutX="10.0" layoutY="49.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="Kỳ 2" toggleGroup="$semesterViewActivity" />
-                                          <RadioButton fx:id="viewSemester3" layoutX="10.0" layoutY="83.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="Kỳ 3" toggleGroup="$semesterViewActivity" />
-                                          <RadioButton fx:id="viewSemester4" layoutX="10.0" layoutY="115.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="100.0" text="Kỳ 4" toggleGroup="$semesterViewActivity" />
+                                          <RadioButton fx:id="viewSemester2" layoutX="10.0" layoutY="49.0" mnemonicParsing="false" onAction="#switchSemesterInViewRegisteredAct" prefHeight="18.0" prefWidth="100.0" text="Kỳ 2023.2" toggleGroup="$semesterViewActivity" />
+                                          <RadioButton fx:id="viewSemester3" layoutX="10.0" layoutY="83.0" mnemonicParsing="false" onAction="#switchSemesterInViewRegisteredAct" prefHeight="18.0" prefWidth="100.0" text="Kỳ 2024.1" toggleGroup="$semesterViewActivity" />
+                                          <RadioButton fx:id="viewSemester4" layoutX="10.0" layoutY="115.0" mnemonicParsing="false" onAction="#switchSemesterInViewRegisteredAct" prefHeight="7.0" prefWidth="100.0" selected="true" text="Kỳ 2024.2" toggleGroup="$semesterViewActivity" />
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -423,48 +426,28 @@
                         </AnchorPane>
                         <AnchorPane fx:id="viewScorePane" layoutX="51.0" layoutY="47.0" prefHeight="1000.0" prefWidth="1200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <AnchorPane prefHeight="493.0" prefWidth="1157.0" stylesheets="@../../../style/layout.css" AnchorPane.bottomAnchor="498.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="9.0">
+                              <AnchorPane fx:id="chartSumContainer" prefHeight="493.0" prefWidth="1157.0" stylesheets="@../../../style/layout.css" AnchorPane.bottomAnchor="498.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="9.0">
                                  <styleClass>
                                     <String fx:value="body" />
                                     <String fx:value="radius" />
                                  </styleClass>
                                  <children>
-                                    <BarChart layoutX="23.0" layoutY="35.0" prefHeight="428.0" prefWidth="1110.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="35.0">
-                                      <xAxis>
-                                        <CategoryAxis side="BOTTOM" />
-                                      </xAxis>
-                                      <yAxis>
-                                        <NumberAxis prefHeight="321.0" prefWidth="29.0" side="LEFT" />
-                                      </yAxis>
-                                    </BarChart>
-                                    <Label layoutX="484.0" layoutY="6.0" text="Điểm tổng hợp">
+                                    <Label layoutX="484.0" layoutY="11.0" prefHeight="35.0" prefWidth="177.0" text="Điểm tổng hợp" AnchorPane.bottomAnchor="440.0" AnchorPane.topAnchor="4.0">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="186.0" layoutY="449.0" text="2023.1" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="186.0" AnchorPane.topAnchor="449.0">
-                                       <font>
-                                          <Font size="20.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="440.0" layoutY="446.0" text="2023.2" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="440.0" AnchorPane.topAnchor="446.0">
-                                       <font>
-                                          <Font size="20.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="694.0" layoutY="445.0" text="2024.1" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="694.0" AnchorPane.topAnchor="446.0">
-                                       <font>
-                                          <Font size="20.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="926.0" layoutY="446.0" text="2024.2" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="926.0" AnchorPane.topAnchor="446.0">
-                                       <font>
-                                          <Font size="20.0" />
-                                       </font>
-                                    </Label>
+                                    <LineChart fx:id="lineChart" layoutX="78.0" layoutY="66.0" prefHeight="400.0" prefWidth="1000.0" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="78.0" AnchorPane.rightAnchor="66.0" AnchorPane.topAnchor="66.0">
+                                       <xAxis>
+                                          <CategoryAxis side="BOTTOM" />
+                                       </xAxis>
+                                       <yAxis>
+                                          <NumberAxis side="LEFT" />
+                                       </yAxis>
+                                    </LineChart>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane layoutX="19.0" layoutY="517.0" prefHeight="468.0" prefWidth="1159.0" stylesheets="@../../../style/layout.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="517.0">
+                              <AnchorPane fx:id="chartSemesterContainer" layoutX="19.0" layoutY="517.0" prefHeight="468.0" prefWidth="1159.0" stylesheets="@../../../style/layout.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="517.0">
                                  <styleClass>
                                     <String fx:value="body" />
                                     <String fx:value="radius" />
@@ -475,12 +458,12 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="503.0" layoutY="4.0" text="Điểm theo kỳ">
+                                    <Label layoutX="503.0" layoutY="4.0" text="Điểm theo kỳ" AnchorPane.bottomAnchor="440.0" AnchorPane.topAnchor="4.0">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <BarChart layoutX="28.0" layoutY="49.0" prefHeight="372.0" prefWidth="1107.0" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="49.0">
+                                    <BarChart fx:id="barChart" layoutX="80.0" layoutY="48.0" prefHeight="383.0" prefWidth="1000.0" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="48.0">
                                        <xAxis>
                                           <CategoryAxis side="BOTTOM" />
                                        </xAxis>
@@ -488,42 +471,22 @@
                                           <NumberAxis prefHeight="321.0" prefWidth="29.0" side="LEFT" />
                                        </yAxis>
                                     </BarChart>
-                                    <Label layoutX="128.0" layoutY="416.0" text="Học tập">
-                                       <font>
-                                          <Font size="20.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="285.0" layoutY="417.0" text="Tổ chức kỷ luật">
-                                       <font>
-                                          <Font size="20.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="513.0" layoutY="417.0" text="Hoạt động chính trị, văn hóa, thể thao">
-                                       <font>
-                                          <Font size="20.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="928.0" layoutY="417.0" text="Ý thức công dân">
-                                       <font>
-                                          <Font size="20.0" />
-                                       </font>
-                                    </Label>
-                                    <TitledPane expanded="false" layoutX="80.0" layoutY="7.0" prefHeight="183.0" prefWidth="149.0" styleClass="titled-pane-small" stylesheets="@../../../style/titled_pane.css" text="Kỳ học" AnchorPane.leftAnchor="80.0">
-                                       <content>
-                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="146.0" prefWidth="131.0">
-                                             <children>
-                                                <RadioButton layoutX="10.0" layoutY="14.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="Kỳ 1">
-                                                   <toggleGroup>
-                                                      <ToggleGroup fx:id="semesterViewActivity1" />
-                                                   </toggleGroup>
-                                                </RadioButton>
-                                                <RadioButton layoutX="10.0" layoutY="49.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="Kỳ 2" toggleGroup="$semesterViewActivity1" />
-                                                <RadioButton layoutX="10.0" layoutY="83.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="Kỳ 3" toggleGroup="$semesterViewActivity1" />
-                                                <RadioButton layoutX="10.0" layoutY="115.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="100.0" text="Kỳ 4" toggleGroup="$semesterViewActivity1" />
-                                             </children>
-                                          </AnchorPane>
-                                       </content>
-                                    </TitledPane>
+                                    <MenuButton fx:id="semesterMenuButton" layoutX="80.0" layoutY="14.0" maxHeight="41.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="41.0" prefWidth="97.0" text="Kỳ học" AnchorPane.leftAnchor="80.0">
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" onAction="#handleSemesterSelection" text="Kì 2023.1" />
+                                          <MenuItem mnemonicParsing="false" onAction="#handleSemesterSelection" text="Kì 2023.2" />
+                                          <MenuItem mnemonicParsing="false" onAction="#handleSemesterSelection" text="Kì 2024.1" />
+                                          <MenuItem mnemonicParsing="false" onAction="#handleSemesterSelection" text="Kì 2024.2" />
+                                       </items>
+                                       <stylesheets>
+                                          <URL value="@../../../style/menu_button.css" />
+                                          <URL value="@../../../style/button.css" />
+                                       </stylesheets>
+                                       <styleClass>
+                                          <String fx:value="menu-buttonopenvertically" />
+                                          <String fx:value="button-with-shadow-surround-yellow" />
+                                       </styleClass>
+                                    </MenuButton>
                                  </children>
                               </AnchorPane>
                               <Separator layoutX="20.0" layoutY="509.0" prefHeight="0.0" prefWidth="1160.0" AnchorPane.bottomAnchor="488.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="509.0" />

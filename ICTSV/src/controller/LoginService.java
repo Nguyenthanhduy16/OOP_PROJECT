@@ -13,7 +13,7 @@ public class LoginService {
     }
 
     public User authenticate(String username, String password, String selectedRole) {
-        for (User user : loginHandle.getUsers()) {
+        for (User user : loginHandle.loadUsers()) {  // <-- load lại từ file MỖI LẦN
             if (user.getUserName().equals(username) && user.getPassWord().equals(password)) {
                 if (selectedRole.equalsIgnoreCase("admin") && user instanceof Admin) {
                     return user;
@@ -24,5 +24,6 @@ public class LoginService {
         }
         return null;
     }
+
 }
 

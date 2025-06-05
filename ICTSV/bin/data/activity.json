@@ -4,33 +4,38 @@
   "status" : true,
   "score" : 20,
   "date" : "29/05/2025",
-  "location" : "Nhà C2 Đại học Bách khoa Hà Nội"
+  "location" : "Nhà C2",
+  "semester" : "Kỳ 2023.1"
 }, {
   "title" : "KyLuat",
   "name" : "Quản lý chi tiêu hàng tháng",
   "status" : true,
   "score" : 20,
   "date" : "29/05/2025",
-  "location" : "Nhà C2 Đại học Bách khoa Hà Nội"
+  "location" : "Nhà C2",
+  "semester" : "Kỳ 2023.2"
 }, {
   "title" : "YThuc",
   "name" : "Quản lý thời gian rảnh",
   "status" : true,
   "score" : 20,
   "date" : "29/05/2025",
-  "location" : "Nhà C2 Đại học Bách khoa Hà Nội"
+  "location" : "Nhà C2",
+  "semester": "Kỳ 2024.1"
 }, {
   "title" : "XaHoi",
   "name" : "Quản lý dự án",
   "status" : true,
   "score" : 15,
   "date" : "29/05/2025",
-  "location" : "Nhà C2 Đại học Bách khoa Hà Nội"
+  "location" : "Nhà C2",
+  "semester" : "Kỳ 2024.2"
 }, {
   "title" : "HocTap",
   "name" : "Quản lý công việc",
   "status" : true,
   "score" : 15,
   "date" : "29/05/2025",
-  "location" : "Bách khoa"
+  "location" : "Bách khoa",
+  "semester": "Kỳ 2024.1"
 } ]
