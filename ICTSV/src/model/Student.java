@@ -25,6 +25,11 @@ public class Student extends User{
 	    this.admin = admin;
 	}
 	
+	public void setAdmin(Admin admin) {
+		// TODO Auto-generated method stub
+		this.admin = admin;
+	} 
+	
 	@JsonIgnore
 	private ObservableList<Activity> registeredActivities = FXCollections.observableArrayList();
 
@@ -103,7 +108,7 @@ public class Student extends User{
 		return total1 + total2 + total3 + total4;
 	}
 	public void print() {
-	    for(Activity activity: Admin.getAllActivities()) {
+	    for(Activity activity: admin.getAllActivities()) {
 	        if(!registeredActivities.contains(activity))
 	            System.out.println(activity.getName() + " " + activity.getTitle() + " " + activity.getScore());
 	    }

@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import view.login.main.Main;
 import net.miginfocom.swing.MigLayout;
+import screen.student.controller.StudentController;
 import controller.LoginService;
 import handle.login.LoginHandle;
 import javafx.application.Platform;
@@ -26,38 +27,41 @@ import model.User;
 public class PanelAdminAndUser extends javax.swing.JLayeredPane {
 	
 	private void openStudentView(Student student) {
-		Platform.runLater(() -> {
-		    try 
-		    {
-		        FXMLLoader loader = new FXMLLoader(
-		                getClass().getResource("/screen/student/view/StudentLayout.fxml"));
-		        Parent root = loader.load();
+	    Platform.runLater(() -> {
+	        try {
+	            FXMLLoader loader = new FXMLLoader(
+	                    getClass().getResource("/screen/student/view/StudentLayout.fxml"));
+	            Parent root = loader.load();
 
-		        screen.student.controller.StudentController c = loader.getController();
-		        c.initData(student);
+	            // 1️⃣  lấy admin – ví dụ load từ file
+	            Admin admin = handle.model.UserHandle.loadUsers()
+	                         .stream()
+	                         .filter(u -> u instanceof Admin)
+	                         .map(u -> (Admin) u)
+	                         .findFirst()
+	                         .orElseThrow(() -> new IllegalStateException("Không tìm thấy Admin"));
 
-		        Stage stage = new Stage();
-		        stage.setTitle("Student Management Page");
-		        stage.setScene(new Scene(root));
+	            // 2️⃣  inject vào controller
+	            StudentController ctrl = loader.getController();
+	            ctrl.setAdmin(admin);
+	            ctrl.setStudent(student);        // hoặc ctrl.initData(student) sau setAdmin
+	            ctrl.initData(student);
 
-		        //Khi cửa sổ JavaFX được hiển thị xong, mới dispose login
-		        stage.setOnShown(ev -> {
-		            if (main != null) {
-		                main.dispose();  // 💥 chỉ dispose sau khi Stage hiển thị xong
-		            }
-		        });
+	            Stage stage = new Stage();
+	            stage.setTitle("Student Management Page");
+	            stage.setScene(new Scene(root));
+	            stage.setOnShown(ev -> { if (main != null) main.dispose(); });
+	            stage.show();
 
-		        stage.show();
-		    } 
-		    catch (Exception ex) 
-		    {
-		        ex.printStackTrace();
-		        JOptionPane.showMessageDialog(PanelAdminAndUser.this,
-		                "Không thể mở Student View: " + ex.getMessage(),
-		                "Lỗi", JOptionPane.ERROR_MESSAGE);
-		    }
-		});
+	        } catch (Exception ex) {
+	            ex.printStackTrace();
+	            JOptionPane.showMessageDialog(this,
+	                    "Không thể mở Student View: " + ex.getMessage(),
+	                    "Lỗi", JOptionPane.ERROR_MESSAGE);
+	        }
+	    });
 	}
+
 
 	
     private Main main; // Reference to Main for authentication

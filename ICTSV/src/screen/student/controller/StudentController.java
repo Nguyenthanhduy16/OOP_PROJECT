@@ -3,10 +3,14 @@ package screen.student.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
+import handle.model.UserHandle;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,11 +20,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -41,9 +52,13 @@ public class StudentController implements Initializable
 	public void setStudent (Student student)
 	{
 		this.student = student;
+		
+		// Bảo đảm danh sách được cập nhật từ file
+	    List<Activity> freshList = UserHandle.getRegisteredActivities(); // đọc lại từ file
+	    student.setRegisteredActivitiesJson(freshList);
 	}
-	// TODO: chưa có kỳ học
 	private Admin admin;
+	public void setAdmin(Admin admin) { this.admin = admin; }
 	
 	// TODO: nhận tên user từ file json dưới đây là temp
 	private String username = new String("Tên của sv ở đây");
@@ -52,6 +67,9 @@ public class StudentController implements Initializable
 	private ObservableList <Activity> activityListData = FXCollections.observableArrayList();
 	
 	// Các thuộc tính FXML
+	
+	@FXML
+    private TextField registeredActivitySearchText;
 	
 	@FXML
     private GridPane viewRegistedActivityGridPane;
@@ -95,8 +113,11 @@ public class StudentController implements Initializable
     @FXML
     private AnchorPane paneThanhDieuHuong;
 
+    
+    // Tìm kiếm các hoạt động đã đăng ký
     @FXML
     private TextField searchTextField;
+    private List<Activity> allActivities;
 
     @FXML
     private ToggleGroup semesterViewActivity;
@@ -133,18 +154,28 @@ public class StudentController implements Initializable
 
     @FXML
     void registerSearchButtonClicked(MouseEvent event) {
+    	String keyword = registeredActivitySearchText.getText().trim();
 
+        if (keyword.isBlank()) {
+            displayRegisteredActivity();      // Hiển thị lại toàn bộ nếu ô trống
+        } else {
+            searchRegisteredActivity(keyword);
+        }
     }
 
     @FXML
     void viewActivityPageButtonClicked(MouseEvent event) {
-
+    	
     }
 
     @FXML
     void viewScorePageButtonClicked(MouseEvent event) {
-
+    	khoiTaoDuLieu();
+    	displayScoreCharts();
     }
+    // TODO thêm
+    @FXML
+    private TextField searchField;
     
     @FXML
     private void cancelActivity(ActionEvent event) 
@@ -163,6 +194,7 @@ public class StudentController implements Initializable
 
                     /* xoá khi đang TỒN TẠI trong danh sách */
                     if (student.getRegisteredActivities().remove(activity)) {
+                    	handle.model.UserHandle.removeActivityFromStudent(activity.getName());
                         hasCancel = true;
                     }
                 }
@@ -177,7 +209,7 @@ public class StudentController implements Initializable
 
         /* ③ ‒ vẽ lại cả hai bảng để đồng bộ UI */
         displayRegisteredActivity();     // bảng “Đã đăng ký”
-        registeredActivityDisplay();     // bảng “Đăng ký”
+        registeredActivityDisplay(allActivities);     // bảng “Đăng ký”
     }
     
     @FXML
@@ -191,8 +223,9 @@ public class StudentController implements Initializable
                     if (ac.isSelected()) {
                         Activity activity = ac.getActivity();
                         if (!student.getRegisteredActivities().contains(activity)) {
-                            student.addActivity(activity);    // 🟢 Thêm vào danh sách đã đăng ký
-                            ac.markAsRegistered();            // ✅ Khóa tick + cập nhật trạng thái
+                            student.addActivity(activity);               // Cập nhật trên RAM/UI
+                            UserHandle.addActivityToStudent(activity);   // ⬅️  Ghi vào file
+                            ac.markAsRegistered();
                         }
                     }
                 }
@@ -205,22 +238,213 @@ public class StudentController implements Initializable
     private Alert alert;
     
     
+    private String currentSemes = "2024.2";
+    // Thực hiện việc sort các activity theo kỳ học trong phần xem các hoạt động đã đăng ký
+    public void switchSemesterInViewRegisteredAct (ActionEvent e)
+    {
+    	// Lấy radiobutton
+    	RadioButton rbutton = (RadioButton) e.getSource();
+    	String semesterChosen = rbutton.getText().trim();
+    	
+    	// Lọc danh sách hoạt động
+    	List <Activity> filter = student.getRegisteredActivities().stream().filter(a -> semesterChosen.equalsIgnoreCase(a.getSemester())).collect(Collectors.toList());
+    	
+    	redraw(filter);
+    }
+    
+    // Phương thức redraw vẽ lại các hoạt động filter theo kỳ
+    private void redraw (List <Activity> list)
+    {
+    	// Loại bỏ hiện tại
+    	viewRegistedActivityGridPane.getChildren().clear();
+    	final String ITEM_FXML = "/screen/student/view/ActivityLayout.fxml";
+    	int column = 0, row = 1;
+    	
+    	try 
+    	{
+            for (Activity act : list) 
+            {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(ITEM_FXML));
+                AnchorPane pane  = loader.load();
+
+                ActivityController ctrl = loader.getController();
+                ctrl.setData(act, student);
+                ctrl.markNotRegistered();      // nút “Huỷ đăng ký”
+                ctrl.changeDisplay(2);
+
+                pane.setUserData(ctrl);
+
+                if (column == 3) { column = 0; row++; }
+                viewRegistedActivityGridPane.add(pane, column++, row);
+                GridPane.setMargin(pane, new Insets(20, 10, 10, 10));
+            }
+        } 
+    	catch (IOException ex) 
+    	{
+            ex.printStackTrace();
+        }
+    }
+    
     // StudentController.java
     public void initData(Student loggedStudent) {
     	this.student = loggedStudent;
-        this.username = loggedStudent.getUserName();   // hoặc getter bạn đang dùng
-        displayStudentName();                          // cập-nhật nhãn tên sinh viên
-        registeredActivityDisplay();                   // nạp dữ liệu đã đăng ký
+        this.username = loggedStudent.getUserName();
+        
+        System.out.println("Admin in controller: " + admin);
+        System.out.println("Activities in controller: " + (admin != null ? admin.getAllActivities().size() : "admin is null"));
+        
+        displayStudentName();          
+        allActivities = handle.model.ActivityHandle.loadActivities();// cập-nhật nhãn tên sinh viên
+        if (student == null) {
+            System.out.println("Student is null in StudentController");
+        } else {
+            registeredActivityDisplay(allActivities);
+            searchField.textProperty().addListener((obs, oldText, newText) -> {
+                searchActivities(newText);
+            });
+        }
     }
+    
+    // Tìm kiếm các activities trong trang đăng ký hoạt động
+    public void searchActivities(String searchText) {
+        // Lọc theo tên hoạt động, học kỳ, tiêu chí (title), có thể mở rộng thêm
+        List<Activity> filtered = allActivities.stream()
+            .filter(a -> 
+                (a.getTitle() != null && a.getTitle().toLowerCase().contains(searchText.toLowerCase())) ||
+                (a.getSemester() != null && a.getSemester().toLowerCase().contains(searchText.toLowerCase())) ||
+                (a.getName() != null && a.getName().toLowerCase().contains(searchText.toLowerCase()))
+                
+                // Có thể thêm điều kiện khác nếu cần
+            )
+            .collect(Collectors.toList());
+
+        // Xóa các node hiện tại khỏi gridPane
+        gridPane.getChildren().clear();
+        // Hiển thị lại các activity đã lọc
+        registeredActivityDisplay(filtered);
+    }
+    
+ // Ve bieu do 1
+    @FXML
+    private void handleSemesterSelection(ActionEvent event) {
+        MenuItem selectedItem = (MenuItem) event.getSource();
+        String selectedSemester = selectedItem.getText(); // Ví dụ: "2023.1"
+        semesterMenuButton.setText(selectedSemester);     // Cập nhật nút
+        
+        updateBarChart(selectedSemester);                 // Cập nhật biểu đồ
+    }
+    
+    // TODO: bổ xung mấy cái bên dưới
+    @FXML
+    private BarChart<String, Number> barChart; // ID của bar chart trong FXML
+    @FXML
+    private LineChart<String, Number> lineChart;
+    @FXML
+    private MenuButton semesterMenuButton;
+    @FXML
+    private AnchorPane chartSumContainer;
+    @FXML
+    private AnchorPane chartSemesterContainer;
+    
     // Hàm bên dưới thực hiện việc khởi tạo mỗi khi student đăng nhập
     @Override
     public void initialize (URL location, ResourceBundle resources)
     {
     	displayStudentName();
-    	if (student != null) {            // ⬅️ an toàn
-            registeredActivityDisplay();
+    	// Chỉ thực hiện setup giao diện tĩnh, không phụ thuộc dữ liệu
+        registerActivityPane.setVisible(true);
+        viewActivityPane.setVisible(false);
+        viewScorePane.setVisible(false);
+
+    }
+    
+    // Danh sách các kỳ học
+    private final List<String> semesterOrder = List.of(
+    	    "Kỳ 2023.1",
+    	    "Kỳ 2023.2",
+    	    "Kỳ 2024.1",
+    	    "Kỳ 2024.2"
+    	);
+    
+    // TODO: hỏi Duy đoạn code này hoạt động như thế nào ?
+    private final Map<String, Map<String, Integer>> scoreDataBySemester = new HashMap<>();
+    
+    public void displayScoreCharts() {
+        lineChart.getData().clear();
+        lineChart.setTitle("Điểm rèn luyện các học kì");
+        XYChart.Series<String, Number> lineSeries = new XYChart.Series<>();
+        lineSeries.setName("Tổng điểm");
+        // Giới hạn trục Y
+        NumberAxis yAxis = (NumberAxis) lineChart.getYAxis();
+        yAxis.setAutoRanging(true);
+        yAxis.setLowerBound(0);
+        yAxis.setUpperBound(100);
+        yAxis.setTickUnit(10);
+        
+        // Đảm bảo trục X hiển thị đúng thứ tự và đủ các kỳ
+        CategoryAxis xAxis = (CategoryAxis) lineChart.getXAxis();
+        xAxis.setCategories(FXCollections.observableArrayList(semesterOrder));
+        
+        
+        for (String semester : semesterOrder) {
+            Map<String, Integer> criteria = scoreDataBySemester.get(semester);
+            int total = 0;
+            if (criteria != null) {
+                total = criteria.values().stream().mapToInt(Integer::intValue).sum();
+            }
+            lineSeries.getData().add(new XYChart.Data<>(semester, total));
         }
 
+        lineChart.getData().add(lineSeries);
+
+        chartSumContainer.getChildren().clear();
+        chartSumContainer.getChildren().add(lineChart);
+        AnchorPane.setTopAnchor(lineChart, 70.0);
+        AnchorPane.setLeftAnchor(lineChart, 10.0);
+        AnchorPane.setRightAnchor(lineChart, 10.0); 
+
+        // Hiển thị biểu đồ bar cho kỳ đầu tiên
+        updateBarChart(semesterMenuButton.getText());
+    }
+    
+    private void updateBarChart(String selectedSemester) {
+        barChart.getData().clear();
+        barChart.setTitle("Biểu đồ điểm rèn luyện");
+
+        XYChart.Series<String, Number> barSeries = new XYChart.Series<>();
+        barSeries.setName("Điểm tiêu chí");
+
+        Map<String, Integer> criteria = scoreDataBySemester.get(selectedSemester);
+        if (criteria != null) {
+            for (Map.Entry<String, Integer> entry : criteria.entrySet()) {
+                XYChart.Data<String, Number> data = new XYChart.Data<>(entry.getKey(), entry.getValue());
+                barSeries.getData().add(data);
+            }
+        }
+
+        barChart.getData().add(barSeries);
+
+        chartSemesterContainer.getChildren().clear();
+        chartSemesterContainer.getChildren().add(barChart);
+        AnchorPane.setTopAnchor(barChart, 10.0);
+        AnchorPane.setLeftAnchor(barChart, 150.0);
+        AnchorPane.setRightAnchor(barChart, 150.0);
+
+        // Gán màu cho từng cột sau khi hiển thị
+        Platform.runLater(() -> {
+            for (int i = 0; i < barSeries.getData().size(); i++) {
+                XYChart.Data<String, Number> data = barSeries.getData().get(i);
+                final int colorIndex = i % 4;
+                if (data.getNode() != null) {
+                    data.getNode().setStyle("-fx-bar-fill: " + getColorNameForIndex(colorIndex) + ";");
+                }
+            }
+        });
+    }
+    
+    private String getColorNameForIndex(int index) {
+        String[] colors = {"#FF6F61", "#6B8E23", "#4682B4", "#FFA07A"};
+        return colors[index % colors.length];
     }
     
     
@@ -251,46 +475,40 @@ public class StudentController implements Initializable
     int column = 0;
     
     // Phương thức này thực hiện việc reset lại datalist và thêm vào mọi activity đã đăng ký vô
-    public void registeredActivityDisplay ()
-    {
-    	gridPane.getChildren().clear();
-	    final String ITEM_FXML_FILE_PATH = "/screen/student/view/ActivityLayout.fxml";
+    public void registeredActivityDisplay(List<Activity> activities) {
+        final String ITEM_FXML_FILE_PATH = "/screen/student/view/ActivityLayout.fxml";
 
-	    int column = 0;
-	    int row = 1;
+        int column = 0;
+        int row    = 1;
 
-	    try {
-	    	List<Activity> activities = admin.getAllActivities();
-	    	for (Activity activity : activities) {
-	    		if (!student.getRegisteredActivities().contains(activity) && student != null) {
-		    	    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ITEM_FXML_FILE_PATH));
-		    	    AnchorPane anchorPane = fxmlLoader.load();
-		    	    ActivityController controller = fxmlLoader.getController();
-		    	    
-					controller.setData(activity, student);
-					controller.changeDisplay(1);
-					
+        try {
+            for (Activity activity : activities) {
 
-					anchorPane.setUserData(controller);
-		            // Đưa AnchorPane vào grid
-		            if (column == 3) 
-		            { 
-		                column = 0;
-		                row++;
-		            }
+                /* Bỏ điều kiện loại trừ: hiển thị cả những cái đã đăng ký  */
+                // if (!student.getRegisteredActivities().contains(activity))
 
+                FXMLLoader fxmlLoader = new FXMLLoader(
+                        getClass().getResource(ITEM_FXML_FILE_PATH));
+                AnchorPane anchorPane = fxmlLoader.load();
 
-					gridPane.add(anchorPane, column++, row);
-		            GridPane.setMargin(anchorPane, new Insets(20, 10, 10, 10));
-	    		}
+                ActivityController controller = fxmlLoader.getController();
+                controller.setData(activity, student);   // phương thức này đã tự tick
+                                                         // + disable nếu SV đã đăng ký
 
-	        }
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	    }
+                anchorPane.setUserData(controller);
+
+                if (column == 3) { column = 0; row++; }
+                gridPane.add(anchorPane, column++, row);
+                GridPane.setMargin(anchorPane, new Insets(20, 10, 10, 10));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
     
-    // TODO: sửa lại đoạn hiển thị chồng nhau
+    
+    // Hiển thị các hoạt động sinh viên đã đăng ký
     final String ITEM_FXML = "/screen/student/view/ActivityLayout.fxml";
     public void displayRegisteredActivity ()
     {
@@ -323,6 +541,48 @@ public class StudentController implements Initializable
         }
     }
     
+    // Phương thức thực hiện việc tìm kiếm các hoạt động đã đăng ký 💔💔💔
+    public void searchRegisteredActivity (String text)
+    {
+        viewRegistedActivityGridPane.getChildren().clear();
+        int column = 0;
+        int row = 1;
+
+        try 
+        {
+            for (Activity act : student.getRegisteredActivities()) 
+            {
+                // So sánh từ khóa với tiêu đề hoạt động (có thể mở rộng thêm nếu muốn)
+                if ((act.getTitle() != null && act.getTitle().contains(text)) ||
+                	(act.getName() != null && act.getName().contains(text)) ||
+                	(act.getTitle() != null && act.getTitle().contains(text))) 
+                {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource(ITEM_FXML));
+                    AnchorPane pane = loader.load();
+
+                    ActivityController ctrl = loader.getController();
+                    ctrl.setData(act, student);
+                    ctrl.markNotRegistered();
+                    ctrl.changeDisplay(2);
+
+                    pane.setUserData(ctrl);  // Gán controller để sau này còn dùng
+                    if (column == 3) 
+                    {
+                        column = 0;
+                        row++;
+                    }
+
+                    viewRegistedActivityGridPane.add(pane, column++, row);
+                    GridPane.setMargin(pane, new Insets(20, 10, 10, 10));
+                }
+            }
+        } 
+        catch (IOException e) 
+        {
+            e.printStackTrace();
+        }
+    }
+    
     
     @FXML
     // Phương thức thực hiện việc đổi qua lại giữa các pane
@@ -330,7 +590,6 @@ public class StudentController implements Initializable
     {
     	if (event.getSource() == viewRegisterPaneButton)
     	{
-    		
     		registerActivityPane.setVisible(true);
     		viewActivityPane.setVisible(false);
     		viewScorePane.setVisible(false);
@@ -381,6 +640,32 @@ public class StudentController implements Initializable
     	studentName.setText(student_name);
     }
     
+    
+    private void khoiTaoDuLieu() {
+        scoreDataBySemester.clear(); // Dọn dẹp dữ liệu cũ
+
+        List<Activity> activities = student.getRegisteredActivities();
+
+        for (Activity activity : activities) {
+            String semester = activity.getSemester();
+            String criterion = activity.getTitle(); // Giả sử tiêu chí như "Ý thức", "Học tập" nằm ở title
+            int score = activity.getScore();
+
+            // Nếu chưa có học kỳ này thì khởi tạo
+            scoreDataBySemester.putIfAbsent(semester, new HashMap<>());
+
+            Map<String, Integer> criteriaMap = scoreDataBySemester.get(semester);
+            // Cộng dồn điểm cho tiêu chí
+            criteriaMap.put(criterion, criteriaMap.getOrDefault(criterion, 0) + score);
+        }
+
+        // Gán mặc định học kỳ đầu tiên (nếu có)
+        if (!scoreDataBySemester.isEmpty()) {
+            String firstSemester = scoreDataBySemester.keySet().iterator().next();
+            semesterMenuButton.setText(firstSemester);
+            updateBarChart(firstSemester); // Tự động hiển thị biểu đồ luôn
+        }
+    }
 
 
 }

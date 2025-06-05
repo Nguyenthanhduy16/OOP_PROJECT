@@ -16,20 +16,32 @@ public class Activity {
 
     @JsonProperty("score")
     private int score; 
+    @JsonProperty("date")
     private String date;
+    @JsonProperty("location")
     private String location;
+    @JsonProperty("semester")
+    private String semester;
     public Activity() {}
 
-    public Activity(String title, String name, boolean status, int score, String date, String location) {
+    public Activity(String title, String name, String semester, boolean status, int score, String date, String location) {
         this.title = title;
         this.name = name;
+        this.semester = semester;
         this.status = status;
         this.score = score;
         this.date = date;
         this.location = location;
     }
     
+    public String getSemester() {
+		return semester;
+	}
 
+	public void setSemester(String semester) {
+		this.semester = semester;
+	}
+    
     public String getDate() {
 		return date;
 	}
@@ -100,23 +112,23 @@ public class Activity {
         return name != null ? name.hashCode() : 0;
     }
 
-	public double getHocTap() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public double getKyLuat() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public double getXaHoi() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public double getYThuc() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+//	public double getHocTap() {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+//
+//	public double getKyLuat() {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+//
+//	public double getXaHoi() {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+//
+//	public double getYThuc() {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
 }

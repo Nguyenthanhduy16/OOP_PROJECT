@@ -17,7 +17,7 @@ public class Admin extends User {
 		super();
 	}
 
-	public static ArrayList<Activity> listActivities = new ArrayList<Activity>();
+	public ArrayList<Activity> listActivities = new ArrayList<Activity>();
 	public static ArrayList<Student> listStudents = new ArrayList<Student>();
 
 	// Thêm sinh viên vào danh sách
@@ -73,8 +73,8 @@ public class Admin extends User {
     }
 
     // Truy cập danh sách
-    public static ArrayList<Activity> getAllActivities() {
-        return listActivities;
+    public ArrayList<Activity> getAllActivities() {
+        return this.listActivities;
     }
     
 //    //4. Thêm trực tiếp hoạt động cho sinh viên
