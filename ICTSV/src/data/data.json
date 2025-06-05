@@ -13,7 +13,7 @@
   } ]
 }, {
   "userID" : "20235804",
-  "userName" : "student",
+  "userName" : "J98",
   "passWord" : "student123",
   "role" : "student",
   "registeredActivities" : [ {
@@ -37,5 +37,13 @@
     "score" : 15,
     "date" : "29/05/2025",
     "location" : "Bách khoa"
-  } ]
+  },
+  {
+      "title" : "HocTap",
+      "name" : "150 sinh viên đau bụng",
+      "status" : true,
+      "score" : 15,
+      "date" : "29/05/2025",
+      "location" : "Bách khoa"
+    } ]
 } ]

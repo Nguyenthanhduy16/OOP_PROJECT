@@ -54,6 +54,9 @@ public class StudentController implements Initializable
 	// Các thuộc tính FXML
 	
 	@FXML
+    private TextField registeredActivitySearchText;
+	
+	@FXML
     private GridPane viewRegistedActivityGridPane;
 	
 	@FXML
@@ -95,8 +98,11 @@ public class StudentController implements Initializable
     @FXML
     private AnchorPane paneThanhDieuHuong;
 
+    
+    // Tìm kiếm các hoạt động đã đăng ký
     @FXML
     private TextField searchTextField;
+    private List<Activity> allActivities;
 
     @FXML
     private ToggleGroup semesterViewActivity;
@@ -133,7 +139,13 @@ public class StudentController implements Initializable
 
     @FXML
     void registerSearchButtonClicked(MouseEvent event) {
+    	String keyword = registeredActivitySearchText.getText().trim();
 
+        if (keyword.isBlank()) {
+            displayRegisteredActivity();      // Hiển thị lại toàn bộ nếu ô trống
+        } else {
+            searchRegisteredActivity(keyword);
+        }
     }
 
     @FXML
@@ -163,6 +175,7 @@ public class StudentController implements Initializable
 
                     /* xoá khi đang TỒN TẠI trong danh sách */
                     if (student.getRegisteredActivities().remove(activity)) {
+                    	handle.model.UserHandle.removeActivityFromStudent(activity.getName());
                         hasCancel = true;
                     }
                 }
@@ -316,6 +329,48 @@ public class StudentController implements Initializable
         	    viewRegistedActivityGridPane.add(pane, column++, row);
         	    GridPane.setMargin(pane, new Insets(20,10,10,10));
         	}
+        } 
+        catch (IOException e) 
+        {
+            e.printStackTrace();
+        }
+    }
+    
+    // Phương thức thực hiện việc tìm kiếm các hoạt động đã đăng ký 💔💔💔
+    public void searchRegisteredActivity (String text)
+    {
+        viewRegistedActivityGridPane.getChildren().clear();
+        int column = 0;
+        int row = 1;
+
+        try 
+        {
+            for (Activity act : student.getRegisteredActivities()) 
+            {
+                // So sánh từ khóa với tiêu đề hoạt động (có thể mở rộng thêm nếu muốn)
+                if ((act.getTitle() != null && act.getTitle().contains(text)) ||
+                	(act.getName() != null && act.getName().contains(text)) ||
+                	(act.getTitle() != null && act.getTitle().contains(text))) 
+                {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource(ITEM_FXML));
+                    AnchorPane pane = loader.load();
+
+                    ActivityController ctrl = loader.getController();
+                    ctrl.setData(act, student);
+                    ctrl.markNotRegistered();
+                    ctrl.changeDisplay(2);
+
+                    pane.setUserData(ctrl);  // Gán controller để sau này còn dùng
+                    if (column == 3) 
+                    {
+                        column = 0;
+                        row++;
+                    }
+
+                    viewRegistedActivityGridPane.add(pane, column++, row);
+                    GridPane.setMargin(pane, new Insets(20, 10, 10, 10));
+                }
+            }
         } 
         catch (IOException e) 
         {

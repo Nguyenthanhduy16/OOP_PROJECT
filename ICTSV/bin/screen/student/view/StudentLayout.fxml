@@ -412,7 +412,7 @@
                                     <String fx:value="search-bar" />
                                  </styleClass>
                                  <children>
-                                    <TextField layoutX="10.0" layoutY="7.0" prefHeight="55.0" prefWidth="412.0" promptText="Tìm kiếm" styleClass="search-text-field" stylesheets="@../../../style/search-bar.css" AnchorPane.bottomAnchor="8.0" AnchorPane.topAnchor="7.0">
+                                    <TextField fx:id="registeredActivitySearchText" layoutX="10.0" layoutY="7.0" prefHeight="55.0" prefWidth="412.0" promptText="Tìm kiếm" styleClass="search-text-field" stylesheets="@../../../style/search-bar.css" AnchorPane.bottomAnchor="8.0" AnchorPane.topAnchor="7.0">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
