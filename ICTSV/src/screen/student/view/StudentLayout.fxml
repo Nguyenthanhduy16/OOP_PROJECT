@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.scene.chart.BarChart?>
@@ -29,7 +38,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screen.student.controller.StudentController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screen.student.controller.StudentController">
    <children>
       <AnchorPane fx:id="Student_controller" prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -100,7 +109,7 @@
                                        <stops>
                                           <Stop>
                                              <color>
-                                                <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
+                                                <Color blue="0.2763157784938812" green="0.2763157784938812" red="0.2763157784938812" />
                                              </color>
                                           </Stop>
                                           <Stop offset="0.006711409395973154">
@@ -178,7 +187,7 @@
                                        <stops>
                                           <Stop>
                                              <color>
-                                                <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
+                                                <Color blue="0.2763157784938812" green="0.2763157784938812" red="0.2763157784938812" />
                                              </color>
                                           </Stop>
                                           <Stop offset="0.006711409395973154">
@@ -218,7 +227,7 @@
                                        <stops>
                                           <Stop>
                                              <color>
-                                                <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
+                                                <Color blue="0.2763157784938812" green="0.2763157784938812" red="0.2763157784938812" />
                                              </color>
                                           </Stop>
                                           <Stop offset="0.006711409395973154">
@@ -278,7 +287,7 @@
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="viewActivityPane" layoutY="3.0" prefHeight="1000.0" prefWidth="1200.0" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0">
+                        <AnchorPane fx:id="viewActivityPane" layoutY="3.0" prefHeight="1000.0" prefWidth="1200.0" visible="false" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0">
                            <children>
                               <Button layoutX="31.0" layoutY="45.0" minWidth="36.0" mnemonicParsing="false" onMouseClicked="#registerSearchButtonClicked" prefHeight="48.0" prefWidth="50.0" style="-fx-border-radius: 10;" AnchorPane.bottomAnchor="912.0" AnchorPane.topAnchor="45.0">
                                  <textFill>
@@ -286,7 +295,7 @@
                                        <stops>
                                           <Stop>
                                              <color>
-                                                <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
+                                                <Color blue="0.2763157784938812" green="0.2763157784938812" red="0.2763157784938812" />
                                              </color>
                                           </Stop>
                                           <Stop offset="0.006711409395973154">
@@ -354,7 +363,7 @@
                                        <stops>
                                           <Stop>
                                              <color>
-                                                <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
+                                                <Color blue="0.2763157784938812" green="0.2763157784938812" red="0.2763157784938812" />
                                              </color>
                                           </Stop>
                                           <Stop offset="0.006711409395973154">
@@ -424,9 +433,9 @@
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="viewScorePane" layoutX="51.0" layoutY="47.0" prefHeight="1000.0" prefWidth="1200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="viewScorePane" layoutX="51.0" layoutY="47.0" prefHeight="1000.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <AnchorPane fx:id="chartSumContainer" prefHeight="493.0" prefWidth="1157.0" stylesheets="@../../../style/layout.css" AnchorPane.bottomAnchor="498.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="9.0">
+                              <AnchorPane fx:id="chartSumContainer" layoutX="36.0" prefHeight="505.0" prefWidth="1138.0" stylesheets="@../../../style/layout.css" AnchorPane.bottomAnchor="498.0" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="9.0">
                                  <styleClass>
                                     <String fx:value="body" />
                                     <String fx:value="radius" />
@@ -447,17 +456,12 @@
                                     </LineChart>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane fx:id="chartSemesterContainer" layoutX="19.0" layoutY="517.0" prefHeight="468.0" prefWidth="1159.0" stylesheets="@../../../style/layout.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="517.0">
+                              <AnchorPane fx:id="chartSemesterContainer" layoutX="34.0" layoutY="518.0" prefHeight="479.0" prefWidth="1144.0" stylesheets="@../../../style/layout.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="34.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="518.0">
                                  <styleClass>
                                     <String fx:value="body" />
                                     <String fx:value="radius" />
                                  </styleClass>
                                  <children>
-                                    <Label layoutX="8.0" layoutY="11.0" prefHeight="30.0" prefWidth="72.0" text="Kỳ học: " AnchorPane.bottomAnchor="432.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="11.0">
-                                       <font>
-                                          <Font size="20.0" />
-                                       </font>
-                                    </Label>
                                     <Label layoutX="503.0" layoutY="4.0" text="Điểm theo kỳ" AnchorPane.bottomAnchor="440.0" AnchorPane.topAnchor="4.0">
                                        <font>
                                           <Font size="24.0" />
@@ -471,25 +475,25 @@
                                           <NumberAxis prefHeight="321.0" prefWidth="29.0" side="LEFT" />
                                        </yAxis>
                                     </BarChart>
-                                    <MenuButton fx:id="semesterMenuButton" layoutX="80.0" layoutY="14.0" maxHeight="41.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="41.0" prefWidth="97.0" text="Kỳ học" AnchorPane.leftAnchor="80.0">
-                                       <items>
-                                          <MenuItem mnemonicParsing="false" onAction="#handleSemesterSelection" text="Kì 2023.1" />
-                                          <MenuItem mnemonicParsing="false" onAction="#handleSemesterSelection" text="Kì 2023.2" />
-                                          <MenuItem mnemonicParsing="false" onAction="#handleSemesterSelection" text="Kì 2024.1" />
-                                          <MenuItem mnemonicParsing="false" onAction="#handleSemesterSelection" text="Kì 2024.2" />
-                                       </items>
-                                       <stylesheets>
-                                          <URL value="@../../../style/menu_button.css" />
-                                          <URL value="@../../../style/button.css" />
-                                       </stylesheets>
-                                       <styleClass>
-                                          <String fx:value="menu-buttonopenvertically" />
-                                          <String fx:value="button-with-shadow-surround-yellow" />
-                                       </styleClass>
-                                    </MenuButton>
                                  </children>
                               </AnchorPane>
                               <Separator layoutX="20.0" layoutY="509.0" prefHeight="0.0" prefWidth="1160.0" AnchorPane.bottomAnchor="488.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="509.0" />
+                              <MenuButton fx:id="semesterMenuButton" layoutX="17.0" layoutY="521.0" maxHeight="41.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="41.0" prefWidth="97.0" text="Kỳ học" AnchorPane.leftAnchor="17.0">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#handleSemesterSelection" text="Kỳ 2023.1" />
+                                    <MenuItem mnemonicParsing="false" onAction="#handleSemesterSelection" text="Kỳ 2023.2" />
+                                    <MenuItem mnemonicParsing="false" onAction="#handleSemesterSelection" text="Kỳ 2024.1" />
+                                    <MenuItem mnemonicParsing="false" onAction="#handleSemesterSelection" text="Kỳ 2024.2" />
+                                 </items>
+                                 <stylesheets>
+                                    <URL value="@../../../style/menu_button.css" />
+                                    <URL value="@../../../style/button.css" />
+                                 </stylesheets>
+                                 <styleClass>
+                                    <String fx:value="menu-buttonopenvertically" />
+                                    <String fx:value="button-with-shadow-surround-yellow" />
+                                 </styleClass>
+                              </MenuButton>
                            </children>
                         </AnchorPane>
                      </children>

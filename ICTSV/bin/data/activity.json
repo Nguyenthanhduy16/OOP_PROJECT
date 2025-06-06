@@ -1,5 +1,5 @@
 [ {
-  "title" : "HocTap",
+  "title" : "Học tập",
   "name" : "Quản lý hệ thống",
   "status" : true,
   "score" : 20,
@@ -31,11 +31,11 @@
   "location" : "Nhà C2",
   "semester" : "Kỳ 2024.2"
 }, {
-  "title" : "HocTap",
+  "title" : "Học tập",
   "name" : "Quản lý công việc",
   "status" : true,
   "score" : 15,
   "date" : "29/05/2025",
   "location" : "Bách khoa",
-  "semester": "Kỳ 2024.1"
+  "semester": "Kỳ 2023.1"
 } ]

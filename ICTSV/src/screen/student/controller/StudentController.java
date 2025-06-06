@@ -447,29 +447,6 @@ public class StudentController implements Initializable
         return colors[index % colors.length];
     }
     
-    
-    
-//    // Thực hiện việc trả về danh sách các sự kiện đã đăng ký
-//    public ObservableList <Activity> getRegisteredActivityList ()
-//    {
-//    	ObservableList <Activity> listData = FXCollections.observableArrayList();
-//    	// TODO: try-catch dưới đây thực hiện việc nhận dữ liệu của các sự kiện mà sinh viên đã đăng ký
-//    	try
-//    	{
-////    		while(something.next())
-////    		{
-////    			Activity temp;
-////    			temp = new Activity(something.getTitle, something.getName, something.getStatus, something.getScore);
-////    			listData.add(temp);
-////    		}
-//    	}
-//    	catch (Exception e)
-//    	{
-//    		e.printStackTrace();
-//    	}
-//    	return listData;
-//    }
-    
     // Hàng và cột trong grid
     int row = 0;
     int column = 0;
