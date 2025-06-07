@@ -184,7 +184,7 @@ public class StudentController implements Initializable
 
         boolean hasCancel = false;
 
-        /* ① ‒ quét đúng bảng “Đã đăng ký” */
+        /* ① ‒ quét đúng bảng "Đã đăng ký" */
         for (Node node : viewRegistedActivityGridPane.getChildren()) {
             if (node instanceof AnchorPane anchor) {
                 Object ud = anchor.getUserData();
@@ -208,8 +208,8 @@ public class StudentController implements Initializable
         }
 
         /* ③ ‒ vẽ lại cả hai bảng để đồng bộ UI */
-        displayRegisteredActivity();     // bảng “Đã đăng ký”
-        registeredActivityDisplay(allActivities);     // bảng “Đăng ký”
+        displayRegisteredActivity();     // bảng "Đã đăng ký"
+        registeredActivityDisplay(allActivities);     // bảng "Đăng ký"
     }
     
     @FXML
@@ -269,7 +269,7 @@ public class StudentController implements Initializable
 
                 ActivityController ctrl = loader.getController();
                 ctrl.setData(act, student);
-                ctrl.markNotRegistered();      // nút “Huỷ đăng ký”
+                ctrl.markNotRegistered();      // nút "Huỷ đăng ký"
                 ctrl.changeDisplay(2);
 
                 pane.setUserData(ctrl);

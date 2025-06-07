@@ -4,12 +4,7 @@
   "passWord" : "admin123",
   "role" : "admin",
   "listActivities" : [ {
-    "title" : "HocTap",
-    "name" : "Quản lý hệ thống",
-    "status" : true,
-    "score" : 20,
-    "date" : "29/05/2025",
-    "location" : "Nhà C2"
+    
   } ]
 }, {
   "userID" : "20235804",

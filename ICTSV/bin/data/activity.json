@@ -5,31 +5,31 @@
   "score" : 20,
   "date" : "29/05/2025",
   "location" : "Nhà C2",
-  "semester" : "Kỳ 2023.1"
+  "semester" : "2023.1"
 }, {
-  "title" : "KyLuat",
+  "title" : "Kỷ luật",
   "name" : "Quản lý chi tiêu hàng tháng",
   "status" : true,
   "score" : 20,
   "date" : "29/05/2025",
   "location" : "Nhà C2",
-  "semester" : "Kỳ 2023.2"
+  "semester" : "2023.2"
 }, {
-  "title" : "YThuc",
+  "title" : "Ý thức",
   "name" : "Quản lý thời gian rảnh",
   "status" : true,
   "score" : 20,
   "date" : "29/05/2025",
   "location" : "Nhà C2",
-  "semester": "Kỳ 2024.1"
+  "semester" : "2024.1"
 }, {
-  "title" : "XaHoi",
+  "title" : "Xã hội",
   "name" : "Quản lý dự án",
   "status" : true,
   "score" : 15,
   "date" : "29/05/2025",
   "location" : "Nhà C2",
-  "semester" : "Kỳ 2024.2"
+  "semester" : "2024.2"
 }, {
   "title" : "Học tập",
   "name" : "Quản lý công việc",
@@ -37,5 +37,21 @@
   "score" : 15,
   "date" : "29/05/2025",
   "location" : "Bách khoa",
-  "semester": "Kỳ 2023.1"
+  "semester" : "2023.1"
+}, {
+  "title" : "Học tập",
+  "name" : "Thi thử CLB HTHT",
+  "status" : true,
+  "score" : 20,
+  "date" : "7/6/2025",
+  "location" : "D3",
+  "semester" : "2024.2"
+}, {
+  "title" : "Xã hội",
+  "name" : "Hoạt động không gian mạng",
+  "status" : true,
+  "score" : 15,
+  "date" : "9/9/2025",
+  "location" : "Teams",
+  "semester" : "2024.2"
 } ]

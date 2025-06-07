@@ -62,8 +62,29 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
 	    });
 	}
 
+	private void openAdminView(Admin admin) {
+	    Platform.runLater(() -> {
+	        try {
+	            FXMLLoader loader = new FXMLLoader(
+	                getClass().getResource("/screen/admin/view/Admin.fxml"));
+	            Parent root = loader.load();
+	            // Nếu muốn truyền dữ liệu cho controller:
+	            // AdminController ctrl = loader.getController();
+	            // ctrl.setAdmin(admin);
+	            Stage stage = new Stage();
+	            stage.setTitle("Admin Management Page");
+	            stage.setScene(new Scene(root, 1600, 1000));
+	            stage.setOnShown(ev -> { if (main != null) main.dispose(); });
+	            stage.show();
+	        } catch (Exception ex) {
+	            ex.printStackTrace();
+	            JOptionPane.showMessageDialog(this,
+	                "Không thể mở Admin View: " + ex.getMessage(),
+	                "Lỗi", JOptionPane.ERROR_MESSAGE);
+	        }
+	    });
+	}
 
-	
     private Main main; // Reference to Main for authentication
 
     private LoginService loginService;
@@ -194,14 +215,12 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
                 User loggedUser = loginService.authenticate(username, password, selectedRole);
 
                 if (loggedUser != null) {
-                    if (loggedUser instanceof Admin) {
+                    if (loggedUser instanceof Admin admin) {
                         JOptionPane.showMessageDialog(PanelAdminAndUser.this,
                                 "Đăng nhập thành công với vai trò Admin!");
-                        // new AdminFrame((Admin) loggedUser).setVisible(true);
-                        //Đóng cửa sổ hiện tại lại
-                        if (main != null) {
-                            main.dispose(); // ✅ chính xác và an toàn
-                        }
+                        openAdminView(admin);
+                        java.awt.Window win = javax.swing.SwingUtilities.getWindowAncestor(PanelAdminAndUser.this);
+                        win.dispose();
                     } 
                 }else {
                 	JOptionPane.showMessageDialog(PanelAdminAndUser.this,

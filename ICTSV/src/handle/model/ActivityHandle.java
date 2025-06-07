@@ -28,7 +28,13 @@ public class ActivityHandle {
     public static void saveActivities(ArrayList<Activity> activities) {
         ObjectMapper mapper = new ObjectMapper();
         try {
-            mapper.writerWithDefaultPrettyPrinter().writeValue(new File(FILE_PATH), activities);
+            ArrayList<Activity> validActivities = new ArrayList<>();
+            for (Activity a : activities) {
+                if (a != null && a.getName() != null && a.getTitle() != null) {
+                    validActivities.add(a);
+                }
+            }
+            mapper.writerWithDefaultPrettyPrinter().writeValue(new File(FILE_PATH), validActivities);
         } catch (IOException e) {
             e.printStackTrace();
         }
