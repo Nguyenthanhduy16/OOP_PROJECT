@@ -1,4 +1,4 @@
-package screen.student.controller;
+package screen;
 
 import java.io.File;
 import java.util.List;
@@ -6,6 +6,7 @@ import java.util.List;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import controller.StudentController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,12 +17,12 @@ import model.Admin;
 import model.Student;
 import model.User;
 
-public class TestViewStudentScreen extends Application {
+public class ViewStudentScreen extends Application {
 	private static Student student;
 	private static Admin admin;
     @Override
     public void start(Stage stage) throws Exception {
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/screen/student/view/StudentLayout.fxml"));
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/StudentLayout.fxml"));
         Parent root = loader.load();
 
         // Lấy controller từ FXMLLoader

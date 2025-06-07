@@ -1,4 +1,4 @@
-package screen.student.controller;
+package controller;
 
 
 import javafx.event.ActionEvent;

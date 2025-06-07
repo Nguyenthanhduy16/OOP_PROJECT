@@ -1,4 +1,4 @@
-package screen.student.controller;
+package controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -26,7 +26,7 @@ public class ViewStudentController {
 	}
 	@FXML
 	public void initialize() {
-	    final String ITEM_FXML_FILE_PATH = "/screen/student/view/Activity.fxml";
+	    final String ITEM_FXML_FILE_PATH = "/view/Activity.fxml";
 //        // Hiển thị tên sinh viên lên Label
 //        studentName.setText("Chào mừng, " + student.getName());
 // 

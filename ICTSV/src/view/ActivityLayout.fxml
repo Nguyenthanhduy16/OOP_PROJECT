@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="372.0" prefWidth="300.0" stylesheets="@../../../style/layout.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screen.student.controller.ActivityController">
+<AnchorPane prefHeight="372.0" prefWidth="300.0" stylesheets="@/style/layout.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ActivityController">
    <styleClass>
       <String fx:value="body" />
       <String fx:value="radius" />
@@ -17,10 +17,10 @@
    <children>
       <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="115.0" layoutY="29.0" opacity="0.8" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="251.0" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="115.0" AnchorPane.topAnchor="29.0">
          <image>
-            <Image url="@../../../view/img/people.png" />
+            <Image url="@/view/img/people.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="16.0" layoutY="167.0" prefHeight="223.0" prefWidth="321.0" stylesheets="@../../../style/layout.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="167.0">
+      <AnchorPane layoutX="16.0" layoutY="167.0" prefHeight="223.0" prefWidth="321.0" stylesheets="@/style/layout.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="167.0">
          <styleClass>
             <String fx:value="white-bg" />
             <String fx:value="radius" />
@@ -32,44 +32,44 @@
                </font>
             </Label>
             <CheckBox fx:id="btnAddToList" layoutX="143.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnAddToListClicked" prefHeight="23.0" prefWidth="28.0" />
-            <Label fx:id="registerOrUnregister" layoutX="131.0" layoutY="165.0" styleClass="orange" stylesheets="@../../../style/text.css" text="Đăng ký" />
+            <Label fx:id="registerOrUnregister" layoutX="131.0" layoutY="165.0" styleClass="orange" stylesheets="@/style/text.css" text="Đăng ký" />
             <AnchorPane layoutX="14.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
                <children>
-                  <Label fx:id="labelDate" layoutX="29.0" layoutY="2.0" styleClass="purple" stylesheets="@../../../style/text.css" text="2025-06-30" />
+                  <Label fx:id="labelDate" layoutX="29.0" layoutY="2.0" styleClass="purple" stylesheets="@/style/text.css" text="2025-06-30" />
                   <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="4.0" layoutY="1.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../view/img/check-circle.png" />
+                        <Image url="@/view/img/check-circle.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
             <AnchorPane layoutX="14.0" layoutY="88.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
                <children>
-                  <Label fx:id="labelTieuChi" layoutX="29.0" layoutY="2.0" styleClass="blue" stylesheets="@../../../style/text.css" text="Học tập" />
+                  <Label fx:id="labelTieuChi" layoutX="29.0" layoutY="2.0" styleClass="blue" stylesheets="@/style/text.css" text="Học tập" />
                   <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="4.0" opacity="0.8" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="0.0">
                      <image>
-                        <Image url="@../../../view/img/calendar-clock.png" />
+                        <Image url="@/view/img/calendar-clock.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
             <AnchorPane layoutX="186.0" layoutY="88.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="84.0">
                <children>
-                  <Label fx:id="labelGrade" layoutX="29.0" layoutY="2.0" styleClass="green" stylesheets="@../../../style/text.css" text="6 " />
+                  <Label fx:id="labelGrade" layoutX="29.0" layoutY="2.0" styleClass="green" stylesheets="@/style/text.css" text="6 " />
                   <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../view/img/calculator.png" />
+                        <Image url="@/view/img/calculator.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="56.0" layoutY="2.0" styleClass="green" stylesheets="@../../../style/text.css" text="Điểm" />
+                  <Label layoutX="56.0" layoutY="2.0" styleClass="green" stylesheets="@/style/text.css" text="Điểm" />
                </children>
             </AnchorPane>
             <AnchorPane layoutX="186.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="127.0">
                <children>
-                  <Label fx:id="labelLocation" layoutX="29.0" layoutY="2.0" prefHeight="17.0" prefWidth="94.0" styleClass="red" stylesheets="@../../../style/text.css" text="Hội trường C2" wrapText="true" />
+                  <Label fx:id="labelLocation" layoutX="29.0" layoutY="2.0" prefHeight="17.0" prefWidth="94.0" styleClass="red" stylesheets="@/style/text.css" text="Hội trường C2" wrapText="true" />
                   <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../view/img/marker.png" />
+                        <Image url="@/view/img/marker.png" />
                      </image>
                   </ImageView>
                </children>

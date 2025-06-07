@@ -1,6 +1,5 @@
-package controller;
+package handle.login;
 
-import handle.login.LoginHandle;
 import model.Admin;
 import model.Student;
 import model.User;

@@ -1,4 +1,4 @@
-package view.login.main;
+package screen;
 
 
 import java.awt.Color;
@@ -24,7 +24,7 @@ import net.miginfocom.swing.MigLayout;
 import view.login.component.PanelAdminAndUser;
 import view.login.component.PanelCover;
 
-public class Main extends javax.swing.JFrame {
+public class ViewLoginScreen extends javax.swing.JFrame {
 
     private final DecimalFormat df = new DecimalFormat("##0.###", DecimalFormatSymbols.getInstance(Locale.US));
     private MigLayout layout;
@@ -39,7 +39,7 @@ public class Main extends javax.swing.JFrame {
     private final Map<String, String> adminAccounts = new HashMap<>();
     private JButton closeButton; // Close button
 
-    public Main() {
+    public ViewLoginScreen() {
         initComponents();
        // initAccounts();
         init();
@@ -213,7 +213,7 @@ public class Main extends javax.swing.JFrame {
 
     public static void main(String args[]) {
     	javafx.application.Platform.startup(() -> {});
-    	java.awt.EventQueue.invokeLater(() -> new Main().setVisible(true));
+    	java.awt.EventQueue.invokeLater(() -> new ViewLoginScreen().setVisible(true));
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -222,7 +222,7 @@ public class Main extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewLoginScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
         

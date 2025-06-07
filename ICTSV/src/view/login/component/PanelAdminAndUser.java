@@ -10,11 +10,12 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import view.login.main.Main;
+
+import controller.StudentController;
 import net.miginfocom.swing.MigLayout;
-import screen.student.controller.StudentController;
-import controller.LoginService;
+import screen.ViewLoginScreen;
 import handle.login.LoginHandle;
+import handle.login.LoginService;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -30,7 +31,7 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
 	    Platform.runLater(() -> {
 	        try {
 	            FXMLLoader loader = new FXMLLoader(
-	                    getClass().getResource("/screen/student/view/StudentLayout.fxml"));
+	                    getClass().getResource("/view/StudentLayout.fxml"));
 	            Parent root = loader.load();
 
 	            // 1️⃣  lấy admin – ví dụ load từ file
@@ -50,7 +51,7 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
 	            Stage stage = new Stage();
 	            stage.setTitle("Student Management Page");
 	            stage.setScene(new Scene(root));
-	            stage.setOnShown(ev -> { if (main != null) main.dispose(); });
+	            stage.setOnShown(ev -> { if (viewLoginScreen != null) viewLoginScreen.dispose(); });
 	            stage.show();
 
 	        } catch (Exception ex) {
@@ -64,12 +65,12 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
 
 
 	
-    private Main main; // Reference to Main for authentication
+    private ViewLoginScreen viewLoginScreen; // Reference to Main for authentication
 
     private LoginService loginService;
 
-    public void setMain(Main main) {
-        this.main = main;
+    public void setMain(ViewLoginScreen viewLoginScreen) {
+        this.viewLoginScreen = viewLoginScreen;
     }
     
     public PanelAdminAndUser() {
@@ -199,8 +200,8 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
                                 "Đăng nhập thành công với vai trò Admin!");
                         // new AdminFrame((Admin) loggedUser).setVisible(true);
                         //Đóng cửa sổ hiện tại lại
-                        if (main != null) {
-                            main.dispose(); // ✅ chính xác và an toàn
+                        if (viewLoginScreen != null) {
+                            viewLoginScreen.dispose(); // ✅ chính xác và an toàn
                         }
                     } 
                 }else {

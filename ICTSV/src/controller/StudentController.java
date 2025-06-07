@@ -1,4 +1,4 @@
-package screen.student.controller;
+package controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -257,7 +257,7 @@ public class StudentController implements Initializable
     {
     	// Loại bỏ hiện tại
     	viewRegistedActivityGridPane.getChildren().clear();
-    	final String ITEM_FXML = "/screen/student/view/ActivityLayout.fxml";
+    	final String ITEM_FXML = "/view/ActivityLayout.fxml";
     	int column = 0, row = 1;
     	
     	try 
@@ -453,7 +453,7 @@ public class StudentController implements Initializable
     
     // Phương thức này thực hiện việc reset lại datalist và thêm vào mọi activity đã đăng ký vô
     public void registeredActivityDisplay(List<Activity> activities) {
-        final String ITEM_FXML_FILE_PATH = "/screen/student/view/ActivityLayout.fxml";
+        final String ITEM_FXML_FILE_PATH = "/view/ActivityLayout.fxml";
 
         int column = 0;
         int row    = 1;
@@ -486,7 +486,7 @@ public class StudentController implements Initializable
     
     
     // Hiển thị các hoạt động sinh viên đã đăng ký
-    final String ITEM_FXML = "/screen/student/view/ActivityLayout.fxml";
+    final String ITEM_FXML = "/view/ActivityLayout.fxml";
     public void displayRegisteredActivity ()
     {
     	viewRegistedActivityGridPane.getChildren().clear();
