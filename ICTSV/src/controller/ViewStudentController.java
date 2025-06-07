@@ -3,6 +3,9 @@ package controller;
 import java.io.IOException;
 import java.util.List;
 
+import entity.Activity;
+import entity.Admin;
+import entity.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,9 +16,6 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import model.Activity;
-import model.Admin;
-import model.Student;
 
 public class ViewStudentController {
     private Student student;

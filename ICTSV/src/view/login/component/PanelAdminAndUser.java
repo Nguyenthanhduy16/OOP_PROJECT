@@ -12,6 +12,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import controller.StudentController;
+import entity.Admin;
+import entity.Student;
+import entity.User;
 import net.miginfocom.swing.MigLayout;
 import screen.ViewLoginScreen;
 import handle.login.LoginHandle;
@@ -21,9 +24,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.Admin;
-import model.Student;
-import model.User;
 
 public class PanelAdminAndUser extends javax.swing.JLayeredPane {
 	
@@ -35,7 +35,7 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
 	            Parent root = loader.load();
 
 	            // 1️⃣  lấy admin – ví dụ load từ file
-	            Admin admin = handle.model.UserHandle.loadUsers()
+	            Admin admin = handle.entity.UserHandle.loadUsers()
 	                         .stream()
 	                         .filter(u -> u instanceof Admin)
 	                         .map(u -> (Admin) u)

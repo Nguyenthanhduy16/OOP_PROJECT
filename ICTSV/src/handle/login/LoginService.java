@@ -1,8 +1,8 @@
 package handle.login;
 
-import model.Admin;
-import model.Student;
-import model.User;
+import entity.Admin;
+import entity.Student;
+import entity.User;
 
 public class LoginService {
     private LoginHandle loginHandle;

@@ -1,12 +1,12 @@
-package handle.model;
+package handle.entity;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import model.Activity;
-import model.User;
+import entity.Activity;
+import entity.User;
 
 import java.io.File;
 import java.io.IOException;

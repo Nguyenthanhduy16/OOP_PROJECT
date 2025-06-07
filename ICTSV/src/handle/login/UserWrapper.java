@@ -2,7 +2,7 @@ package handle.login;
 
 import java.util.List;
 
-import model.User;
+import entity.User;
 
 public class UserWrapper {
     private List<User> users;

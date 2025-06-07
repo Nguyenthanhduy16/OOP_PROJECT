@@ -10,7 +10,10 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
-import handle.model.UserHandle;
+import entity.Activity;
+import entity.Admin;
+import entity.Student;
+import handle.entity.UserHandle;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -41,9 +44,6 @@ import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import model.Activity;
-import model.Admin;
-import model.Student;
 
 public class StudentController implements Initializable 
 {
@@ -194,7 +194,7 @@ public class StudentController implements Initializable
 
                     /* xoá khi đang TỒN TẠI trong danh sách */
                     if (student.getRegisteredActivities().remove(activity)) {
-                    	handle.model.UserHandle.removeActivityFromStudent(activity.getName());
+                    	handle.entity.UserHandle.removeActivityFromStudent(activity.getName());
                         hasCancel = true;
                     }
                 }
@@ -294,7 +294,7 @@ public class StudentController implements Initializable
         System.out.println("Activities in controller: " + (admin != null ? admin.getAllActivities().size() : "admin is null"));
         
         displayStudentName();          
-        allActivities = handle.model.ActivityHandle.loadActivities();// cập-nhật nhãn tên sinh viên
+        allActivities = handle.entity.ActivityHandle.loadActivities();// cập-nhật nhãn tên sinh viên
         if (student == null) {
             System.out.println("Student is null in StudentController");
         } else {

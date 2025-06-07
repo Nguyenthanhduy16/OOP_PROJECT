@@ -1,8 +1,10 @@
-package handle.model;
+package handle.entity;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import entity.Activity;
+
 import com.fasterxml.jackson.core.type.TypeReference;
-import model.Activity;
 
 import java.io.File;
 import java.io.IOException;

@@ -7,15 +7,15 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import controller.StudentController;
+import entity.Activity;
+import entity.Admin;
+import entity.Student;
+import entity.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.Activity;
-import model.Admin;
-import model.Student;
-import model.User;
 
 public class ViewStudentScreen extends Application {
 	private static Student student;

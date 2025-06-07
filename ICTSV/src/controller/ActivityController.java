@@ -1,12 +1,12 @@
 package controller;
 
 
+import entity.Activity;
+import entity.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import model.Activity;
-import model.Student;
 
 public class ActivityController {
     private Activity activity;
