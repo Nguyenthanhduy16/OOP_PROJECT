@@ -53,9 +53,11 @@ public class StudentController implements Initializable
 	{
 		this.student = student;
 		
-		// Bảo đảm danh sách được cập nhật từ file
-	    List<Activity> freshList = UserHandle.getRegisteredActivities(); // đọc lại từ file
-	    student.setRegisteredActivitiesJson(freshList);
+	    // Chỉ lấy danh sách hoạt động từ đúng userID của student này
+	    List<Activity> registered = UserHandle.getActivitiesByStudentId(student.getUserID());
+	    if (registered != null) {
+	        student.setRegisteredActivitiesJson(registered);
+	    }
 	}
 	private Admin admin;
 	public void setAdmin(Admin admin) { this.admin = admin; }
@@ -194,7 +196,7 @@ public class StudentController implements Initializable
 
                     /* xoá khi đang TỒN TẠI trong danh sách */
                     if (student.getRegisteredActivities().remove(activity)) {
-                    	handle.entity.UserHandle.removeActivityFromStudent(activity.getName());
+                    	handle.entity.UserHandle.removeActivityFromStudent(student.getUserID(), activity.getName());
                         hasCancel = true;
                     }
                 }
@@ -224,7 +226,7 @@ public class StudentController implements Initializable
                         Activity activity = ac.getActivity();
                         if (!student.getRegisteredActivities().contains(activity)) {
                             student.addActivity(activity);               // Cập nhật trên RAM/UI
-                            UserHandle.addActivityToStudent(activity);   // ⬅️  Ghi vào file
+                            UserHandle.addActivityToStudent(student.getUserID(), activity);   // ⬅️  Ghi vào file
                             ac.markAsRegistered();
                         }
                     }
@@ -366,7 +368,7 @@ public class StudentController implements Initializable
     	    "Kỳ 2024.2"
     	);
     
-    // TODO: hỏi Duy đoạn code này hoạt động như thế nào ?
+    // TODO: Cập nhật dữ liệu và hiển thị lên biểu đồ
     private final Map<String, Map<String, Integer>> scoreDataBySemester = new HashMap<>();
     
     public void displayScoreCharts() {
@@ -385,12 +387,11 @@ public class StudentController implements Initializable
         CategoryAxis xAxis = (CategoryAxis) lineChart.getXAxis();
         xAxis.setCategories(FXCollections.observableArrayList(semesterOrder));
         
-        
         for (String semester : semesterOrder) {
             Map<String, Integer> criteria = scoreDataBySemester.get(semester);
             int total = 0;
             if (criteria != null) {
-                total = criteria.values().stream().mapToInt(Integer::intValue).sum();
+                total = Math.min(100, criteria.values().stream().mapToInt(Integer::intValue).sum());
             }
             lineSeries.getData().add(new XYChart.Data<>(semester, total));
         }
@@ -413,13 +414,30 @@ public class StudentController implements Initializable
 
         XYChart.Series<String, Number> barSeries = new XYChart.Series<>();
         barSeries.setName("Điểm tiêu chí");
-
+        
+        // Danh sách tiêu chí cố định
+        String[] allCriteria = {"Học tập",  "Kỷ luật", "Ý thức",  "Xã hội"};
+        // Map điểm tối đa cho từng tiêu chí
+        Map<String, Integer> maxScores = new HashMap<>();
+        maxScores.put("Ý thức", 20);
+        maxScores.put("Kỷ luật", 25);
+        maxScores.put("Học tập", 30);
+        maxScores.put("Xã hội", 25);
         Map<String, Integer> criteria = scoreDataBySemester.get(selectedSemester);
-        if (criteria != null) {
-            for (Map.Entry<String, Integer> entry : criteria.entrySet()) {
-                XYChart.Data<String, Number> data = new XYChart.Data<>(entry.getKey(), entry.getValue());
-                barSeries.getData().add(data);
-            }
+//        if (criteria != null) {
+//            for (Map.Entry<String, Integer> entry : criteria.entrySet()) {
+//                XYChart.Data<String, Number> data = new XYChart.Data<>(entry.getKey(), entry.getValue());
+//                barSeries.getData().add(data);
+//            }
+//        }
+        for (int i = 0; i < allCriteria.length; i++) {
+            String criterion = allCriteria[i];
+            int value = (criteria != null && criteria.containsKey(criterion)) ? criteria.get(criterion) : 0;
+            int maxValue = maxScores.getOrDefault(criterion, 100); // fallback max = 100 nếu không có
+            // Giới hạn điểm hiển thị
+            int displayedValue = Math.min(value, maxValue);
+            XYChart.Data<String, Number> data = new XYChart.Data<>(criterion, displayedValue);
+            barSeries.getData().add(data);
         }
 
         barChart.getData().add(barSeries);

@@ -12,17 +12,55 @@
     "location" : "Nhà C2"
   } ]
 }, {
+  "userID" : "20231234",
+  "userName" : "J98",
+  "passWord" : "student123",
+  "role" : "student",
+  "registeredActivities" : [ {
+    "title" : "Học tập",
+    "name" : "Tham gia thi thử CK",
+    "status" : true,
+    "score" : 50,
+    "date" : "29/05/2025",
+    "location" : "Nhà C2",
+    "semester" : "Kỳ 2023.1"
+  }, {
+    "title" : "Học tập",
+    "name" : "Hello World",
+    "status" : true,
+    "score" : 50,
+    "date" : "29/05/2025",
+    "location" : "Nhà C2",
+    "semester" : "Kỳ 2023.1"
+  } ]
+}, {
   "userID" : "20235804",
   "userName" : "J97",
   "passWord" : "student123",
   "role" : "student",
   "registeredActivities" : [ {
     "title" : "Học tập",
-    "name" : "Quản lý công việc",
+    "name" : "Tham gia thi thử CK",
     "status" : true,
-    "score" : 15,
+    "score" : 50,
     "date" : "29/05/2025",
-    "location" : "Bách khoa",
+    "location" : "Nhà C2",
+    "semester" : "Kỳ 2023.1"
+  }, {
+    "title" : "Học tập",
+    "name" : "Hello World",
+    "status" : true,
+    "score" : 50,
+    "date" : "29/05/2025",
+    "location" : "Nhà C2",
+    "semester" : "Kỳ 2023.1"
+  }, {
+    "title" : "Học tập",
+    "name" : "GPA >= 3.6",
+    "status" : true,
+    "score" : 30,
+    "date" : "29/05/2025",
+    "location" : "Nhà C2",
     "semester" : "Kỳ 2023.1"
   } ]
 } ]
