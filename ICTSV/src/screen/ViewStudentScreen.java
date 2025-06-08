@@ -16,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
 
 public class ViewStudentScreen extends Application {
 	private static Student student;
@@ -37,6 +38,7 @@ public class ViewStudentScreen extends Application {
         stage.setMinWidth(1000);
         stage.setMinHeight(600); 
         stage.setScene(scene); 
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/view/img/logo.png")));
         stage.show();  
   
     } 

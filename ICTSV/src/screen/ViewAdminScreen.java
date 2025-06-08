@@ -3,6 +3,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -23,6 +24,7 @@ public class ViewAdminScreen extends Application {
             // Configure the stage
             primaryStage.setTitle("Admin Management System");
             primaryStage.setResizable(false); // Optional: Prevent resizing
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/view/img/logo.png")));
             primaryStage.show();
 
         } catch (IOException e) {
