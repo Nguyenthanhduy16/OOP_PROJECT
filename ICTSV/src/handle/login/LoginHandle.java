@@ -11,7 +11,7 @@ import java.net.URL;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import model.User;
+import entity.User;
 
 public class LoginHandle {
     private List<User> users;

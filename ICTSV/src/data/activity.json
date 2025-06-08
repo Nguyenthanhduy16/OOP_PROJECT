@@ -21,21 +21,13 @@
   "score" : 20,
   "date" : "29/05/2025",
   "location" : "Nhà C2",
-  "semester": "Kỳ 2024.1"
+  "semester" : "Kỳ 2024.1"
 }, {
-  "title" : "XaHoi",
-  "name" : "Quản lý dự án",
+  "title" : "Ý thức",
+  "name" : "Jack bỏ con",
   "status" : true,
   "score" : 15,
-  "date" : "29/05/2025",
-  "location" : "Nhà C2",
-  "semester" : "Kỳ 2024.2"
-}, {
-  "title" : "Học tập",
-  "name" : "Quản lý công việc",
-  "status" : true,
-  "score" : 15,
-  "date" : "29/05/2025",
-  "location" : "Bách khoa",
-  "semester": "Kỳ 2023.1"
+  "date" : "07:00",
+  "location" : "C2",
+  "semester" : "2024.2"
 } ]

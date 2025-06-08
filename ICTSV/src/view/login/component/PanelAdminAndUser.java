@@ -10,19 +10,20 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import view.login.main.Main;
+
+import controller.StudentController;
+import entity.Admin;
+import entity.Student;
+import entity.User;
 import net.miginfocom.swing.MigLayout;
-import screen.student.controller.StudentController;
-import controller.LoginService;
+import screen.ViewLoginScreen;
 import handle.login.LoginHandle;
+import handle.login.LoginService;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.Admin;
-import model.Student;
-import model.User;
 
 public class PanelAdminAndUser extends javax.swing.JLayeredPane {
 	
@@ -30,11 +31,11 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
 	    Platform.runLater(() -> {
 	        try {
 	            FXMLLoader loader = new FXMLLoader(
-	                    getClass().getResource("/screen/student/view/StudentLayout.fxml"));
+	                    getClass().getResource("/view/StudentLayout.fxml"));
 	            Parent root = loader.load();
 
 	            // 1️⃣  lấy admin – ví dụ load từ file
-	            Admin admin = handle.model.UserHandle.loadUsers()
+	            Admin admin = handle.entity.UserHandle.loadUsers()
 	                         .stream()
 	                         .filter(u -> u instanceof Admin)
 	                         .map(u -> (Admin) u)
@@ -50,7 +51,7 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
 	            Stage stage = new Stage();
 	            stage.setTitle("Student Management Page");
 	            stage.setScene(new Scene(root));
-	            stage.setOnShown(ev -> { if (main != null) main.dispose(); });
+	            stage.setOnShown(ev -> { if (viewLoginScreen != null) viewLoginScreen.dispose(); });
 	            stage.show();
 
 	        } catch (Exception ex) {
@@ -62,14 +63,35 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
 	    });
 	}
 
-
+	private void openAdminView(Admin admin) {
+	    Platform.runLater(() -> {
+	        try {
+	            FXMLLoader loader = new FXMLLoader(
+	                getClass().getResource("/view/Admin.fxml"));
+	            Parent root = loader.load();
+	            // Nếu muốn truyền dữ liệu cho controller:
+	            // AdminController ctrl = loader.getController();
+	            // ctrl.setAdmin(admin);
+	            Stage stage = new Stage();
+	            stage.setTitle("Admin Management Page");
+	            stage.setScene(new Scene(root, 1600, 1000));
+	            stage.setOnShown(ev -> { if (viewLoginScreen != null) viewLoginScreen.dispose(); });
+	            stage.show();
+	        } catch (Exception ex) {
+	            ex.printStackTrace();
+	            JOptionPane.showMessageDialog(this,
+	                "Không thể mở Admin View: " + ex.getMessage(),
+	                "Lỗi", JOptionPane.ERROR_MESSAGE);
+	        }
+	    });
+	}
 	
-    private Main main; // Reference to Main for authentication
+    private ViewLoginScreen viewLoginScreen; // Reference to Main for authentication
 
     private LoginService loginService;
 
-    public void setMain(Main main) {
-        this.main = main;
+    public void setMain(ViewLoginScreen viewLoginScreen) {
+        this.viewLoginScreen = viewLoginScreen;
     }
     
     public PanelAdminAndUser() {
@@ -80,7 +102,7 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
         adminPanel.setVisible(false);
         userPanel.setVisible(true);
     }
-
+    
     private void setupUserPanel() {
         userPanel.setLayout(new MigLayout("wrap", "push[center]push", "push[]25[]10[]10[]25[]push"));
         JLabel label = new JLabel("Student");
@@ -194,13 +216,14 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
                 User loggedUser = loginService.authenticate(username, password, selectedRole);
 
                 if (loggedUser != null) {
-                    if (loggedUser instanceof Admin) {
+                    if (loggedUser instanceof Admin admin) {
                         JOptionPane.showMessageDialog(PanelAdminAndUser.this,
                                 "Đăng nhập thành công với vai trò Admin!");
                         // new AdminFrame((Admin) loggedUser).setVisible(true);
+                        openAdminView(admin);
                         //Đóng cửa sổ hiện tại lại
-                        if (main != null) {
-                            main.dispose(); // ✅ chính xác và an toàn
+                        if (viewLoginScreen != null) {
+                            viewLoginScreen.dispose(); // ✅ chính xác và an toàn
                         }
                     } 
                 }else {
