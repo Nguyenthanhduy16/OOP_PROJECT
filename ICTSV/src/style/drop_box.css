@@ -8,7 +8,7 @@
     /* Tăng kích thước chữ và padding */
     -fx-font-size: 15px;
     -fx-font-weight: bold;
-    -fx-padding: 12 20;      /* trên/dưới 12, trái/phải 20 */
+    -fx-padding: 10 20;      /* trên/dưới 12, trái/phải 20 */
 
     /* Đặt chiều rộng & chiều cao tối thiểu */
     -fx-min-width: 200px;
