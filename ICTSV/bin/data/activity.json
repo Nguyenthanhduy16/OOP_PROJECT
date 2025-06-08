@@ -1,13 +1,53 @@
 [ {
   "title" : "Học tập",
-  "name" : "Quản lý hệ thống",
+  "name" : "Tham gia thi thử CK",
   "status" : true,
-  "score" : 20,
+  "score" : 50,
   "date" : "29/05/2025",
   "location" : "Nhà C2",
   "semester" : "Kỳ 2023.1"
-}, {
-  "title" : "KyLuat",
+},   {
+    "title" : "Học tập",
+    "name" : "Hello World",
+    "status" : true,
+    "score" : 50,
+    "date" : "29/05/2025",
+    "location" : "Nhà C2",
+    "semester" : "Kỳ 2023.1"
+  },	{
+	  "title" : "Học tập",
+	  "name" : "GPA >= 3.6",
+	  "status" : true,
+	  "score" : 30,
+	  "date" : "29/05/2025",
+	  "location" : "Nhà C2",
+	  "semester" : "Kỳ 2023.1"
+	},  {
+    "title" : "Kỷ luật",
+    "name" : "Quản lý ",
+    "status" : true,
+    "score" : 20,
+    "date" : "29/05/2025",
+    "location" : "Nhà C2",
+    "semester" : "Kỳ 2023.1"
+  },	{
+	  "title" : "Xã hội",
+	  "name" : "Quản lý hệ ",
+	  "status" : true,
+	  "score" : 20,
+	  "date" : "29/05/2025",
+	  "location" : "Nhà C2",
+	  "semester" : "Kỳ 2023.1"
+	},	  {
+	    "title" : "Ý thức",
+	    "name" : "Quản lý hệ thống",
+	    "status" : true,
+	    "score" : 20,
+	    "date" : "29/05/2025",
+	    "location" : "Nhà C2",
+	    "semester" : "Kỳ 2023.1"
+	  },{
+  "title" : "Kỷ luật",
   "name" : "Quản lý chi tiêu hàng tháng",
   "status" : true,
   "score" : 20,
@@ -15,7 +55,7 @@
   "location" : "Nhà C2",
   "semester" : "Kỳ 2023.2"
 }, {
-  "title" : "YThuc",
+  "title" : "Xã hội",
   "name" : "Quản lý thời gian rảnh",
   "status" : true,
   "score" : 20,
@@ -23,7 +63,7 @@
   "location" : "Nhà C2",
   "semester": "Kỳ 2024.1"
 }, {
-  "title" : "XaHoi",
+  "title" : "Xã hội",
   "name" : "Quản lý dự án",
   "status" : true,
   "score" : 15,

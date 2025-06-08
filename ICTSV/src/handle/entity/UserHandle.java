@@ -6,6 +6,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import entity.Activity;
+import entity.Student;
 import entity.User;
 
 import java.io.File;
@@ -78,27 +79,27 @@ public class UserHandle {
     }
 
     // Lấy danh sách registeredActivities của student
-    public static List<Activity> getRegisteredActivities() {
-        JsonNode studentNode = findStudentNode();
-        if (studentNode != null && studentNode.has("registeredActivities")) {
-            try {
-                return mapper.readValue(studentNode.get("registeredActivities").traverse(), new TypeReference<List<Activity>>() {});
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return new ArrayList<>();
-    }
+//    public static List<Activity> getRegisteredActivities() {
+//        JsonNode studentNode = findStudentNode();
+//        if (studentNode != null && studentNode.has("registeredActivities")) {
+//            try {
+//                return mapper.readValue(studentNode.get("registeredActivities").traverse(), new TypeReference<List<Activity>>() {});
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        return new ArrayList<>();
+//    }
 
     // Cập nhật registeredActivities của student và lưu lại file
-    public static void updateRegisteredActivities(List<Activity> newActivities) {
+    public static void updateRegisteredActivities(String userID, List<Activity> newActivities) {
         try {
             File file = new File(DATA_JSON_PATH);
             List<JsonNode> rawUsers = loadRawUsers();
 
             for (int i = 0; i < rawUsers.size(); i++) {
                 JsonNode node = rawUsers.get(i);
-                if (node.has("registeredActivities")) {
+                if (node.has("registeredActivities") && node.get("userID").asText().equals(userID)) {
                     if (node.isObject()) {
                         ObjectNode objNode = (ObjectNode) node;
                         objNode.putPOJO("registeredActivities", newActivities);
@@ -116,23 +117,28 @@ public class UserHandle {
     }
 
     // Ví dụ thêm một activity cho student (thêm vào registeredActivities)
-    public static void addActivityToStudent(Activity newActivity) {
-        List<Activity> activities = getRegisteredActivities();
-        activities.add(newActivity);
-        updateRegisteredActivities(activities);
+    public static void addActivityToStudent(String userID, Activity newActivity) {
+        List<Activity> activities = getActivitiesByStudentId(userID);
+
+        boolean alreadyExists = activities.stream()
+            .anyMatch(a -> a.getName().equals(newActivity.getName()) && a.getSemester().equals(newActivity.getSemester()));
+
+        if (!alreadyExists) {
+            activities.add(newActivity);
+            updateRegisteredActivities(userID, activities);
+        }
     }
 
-    // Xóa activity khỏi registeredActivities student (theo title hoặc name)
-    public static void removeActivityFromStudent(String activityTitleOrName) {
-        List<Activity> activities = getRegisteredActivities();
+    public static void removeActivityFromStudent(String userID, String activityTitleOrName) {
+        List<Activity> activities = getActivitiesByStudentId(userID);
         activities.removeIf(act -> act.getTitle().equals(activityTitleOrName) || act.getName().equals(activityTitleOrName));
-        updateRegisteredActivities(activities);
+        updateRegisteredActivities(userID, activities);
     }
 
     // Tính tổng score (totalCost) của các hoạt động đã đăng ký có status = true
-    public static int totalScore() {
+    public static int totalScore(String userID) {
         int total = 0;
-        List<Activity> activities = getRegisteredActivities();
+        List<Activity> activities = getActivitiesByStudentId(userID);
         for (Activity act : activities) {
             if (act.isStatus()) {
                 total += act.getScore();
@@ -142,13 +148,13 @@ public class UserHandle {
     }
 
     // In ra các hoạt động đã đăng ký của student
-    public static void viewRegisteredActivities() {
-        List<Activity> activities = getRegisteredActivities();
+    public static void viewRegisteredActivities(String userID) {
+        List<Activity> activities = getActivitiesByStudentId(userID);
         if (activities.isEmpty()) {
             System.out.println("Student chưa đăng ký hoạt động nào.");
             return;
         }
-        System.out.println("Các hoạt động đã đăng ký của student:");
+        System.out.println("Các hoạt động đã đăng ký của student " + userID + ":");
         for (Activity act : activities) {
             System.out.println(act);
         }
@@ -178,5 +184,30 @@ public class UserHandle {
             }
         }
         return result;
+    }
+
+    public static List<Activity> getActivitiesByStudentId(String userID) {
+        try {
+            File file = new File(DATA_JSON_PATH);
+            JsonNode root = mapper.readTree(file);
+
+            if (root.isArray()) {
+                for (JsonNode node : root) {
+                    if (node.has("userID") &&
+                        node.get("userID").asText().equals(userID) &&
+                        node.has("registeredActivities")) {
+
+                        return mapper.readValue(
+                            node.get("registeredActivities").traverse(),
+                            new TypeReference<List<Activity>>() {}
+                        );
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return new ArrayList<>(); // Trả về danh sách rỗng nếu không tìm thấy
     }
 }
