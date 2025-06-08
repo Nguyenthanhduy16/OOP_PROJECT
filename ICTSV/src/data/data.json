@@ -17,12 +17,12 @@
   "passWord" : "student123",
   "role" : "student",
   "registeredActivities" : [ {
-    "title" : "Học tập",
-    "name" : "Quản lý công việc",
+    "title" : "KyLuat",
+    "name" : "Quản lý chi tiêu hàng tháng",
     "status" : true,
-    "score" : 15,
+    "score" : 20,
     "date" : "29/05/2025",
-    "location" : "Bách khoa",
-    "semester" : "Kỳ 2023.1"
+    "location" : "Nhà C2",
+    "semester" : "Kỳ 2023.2"
   } ]
 } ]

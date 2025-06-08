@@ -211,7 +211,7 @@ public class ViewLoginScreen extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
-    public static void main(String args[]) {
+    /*public static void main(String args[]) {
     	javafx.application.Platform.startup(() -> {});
     	java.awt.EventQueue.invokeLater(() -> new ViewLoginScreen().setVisible(true));
         try {
@@ -225,8 +225,7 @@ public class ViewLoginScreen extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ViewLoginScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
-        
-    }
+    }*/
 
     // Variables declaration
     private javax.swing.JLayeredPane bg;
