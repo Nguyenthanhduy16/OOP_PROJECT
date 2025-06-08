@@ -528,7 +528,7 @@
                                             <children>
 
 
-                                                <ComboBox fx:id="ActCategorySelected" editable="true" layoutX="87.0" layoutY="6.0" minHeight="39.0" prefHeight="63.0" prefWidth="252.0" promptText="Lọc theo tiêu chí" styleClass="dropbox" stylesheets="@../style/drop_box.css">
+                                                <ComboBox fx:id="ActCategorySelected" layoutX="87.0" layoutY="6.0" minHeight="39.0" prefHeight="63.0" prefWidth="252.0" promptText="Lọc theo tiêu chí" styleClass="dropbox" stylesheets="@../style/drop_box.css">
                                                     <items>
                                                         <FXCollections fx:factory="observableArrayList">
                                                             <String fx:value="Tất cả" />
@@ -538,7 +538,7 @@
                                                         </FXCollections>
                                                     </items>
                                                 </ComboBox>
-                                                <ComboBox fx:id="ActSemesterSelected" editable="true" layoutX="376.0" layoutY="4.0" minHeight="39.0" prefHeight="65.0" prefWidth="252.0" promptText=" Lọc theo kì học" styleClass="dropbox" stylesheets="@../style/drop_box.css">
+                                                <ComboBox fx:id="ActSemesterSelected" layoutX="376.0" layoutY="4.0" minHeight="39.0" prefHeight="65.0" prefWidth="252.0" promptText=" Lọc theo kì học" styleClass="dropbox" stylesheets="@../style/drop_box.css">
                                                     <items>
                                                         <FXCollections fx:factory="observableArrayList">
                                                             <String fx:value="Tất cả" />
@@ -603,7 +603,7 @@
                                                         <Font name="System Bold" size="33.0" />
                                                     </font>
                                                 </Label>
-                                                <ComboBox fx:id="ActivitiesCategorySelected" layoutX="268.0" layoutY="20.0" prefHeight="61.0" prefWidth="219.0" styleClass="dropbox" stylesheets="@../style/drop_box.css">
+                                                <ComboBox fx:id="ActivitiesCategorySelected" layoutX="268.0" layoutY="20.0" prefHeight="61.0" prefWidth="219.0" styleClass="dropbox" stylesheets="@../style/drop_box.css" visible="false">
                                                     <items>
                                                         <FXCollections fx:factory="observableArrayList">
                                                             <String fx:value="Tất cả" />
