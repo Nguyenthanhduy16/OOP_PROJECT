@@ -1,7 +1,7 @@
 /controller/
 /data/
-/handle/
-/model/
-/screen/
-/view/
 /entity/
+/handle/
+/screen/
+/style/
+/view/

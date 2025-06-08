@@ -63,7 +63,28 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
 	    });
 	}
 
-
+	private void openAdminView(Admin admin) {
+	    Platform.runLater(() -> {
+	        try {
+	            FXMLLoader loader = new FXMLLoader(
+	                getClass().getResource("/view/Admin.fxml"));
+	            Parent root = loader.load();
+	            // Nếu muốn truyền dữ liệu cho controller:
+	            // AdminController ctrl = loader.getController();
+	            // ctrl.setAdmin(admin);
+	            Stage stage = new Stage();
+	            stage.setTitle("Admin Management Page");
+	            stage.setScene(new Scene(root, 1600, 1000));
+	            stage.setOnShown(ev -> { if (viewLoginScreen != null) viewLoginScreen.dispose(); });
+	            stage.show();
+	        } catch (Exception ex) {
+	            ex.printStackTrace();
+	            JOptionPane.showMessageDialog(this,
+	                "Không thể mở Admin View: " + ex.getMessage(),
+	                "Lỗi", JOptionPane.ERROR_MESSAGE);
+	        }
+	    });
+	}
 	
     private ViewLoginScreen viewLoginScreen; // Reference to Main for authentication
 
@@ -81,7 +102,7 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
         adminPanel.setVisible(false);
         userPanel.setVisible(true);
     }
-
+    
     private void setupUserPanel() {
         userPanel.setLayout(new MigLayout("wrap", "push[center]push", "push[]25[]10[]10[]25[]push"));
         JLabel label = new JLabel("Student");
@@ -195,10 +216,11 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
                 User loggedUser = loginService.authenticate(username, password, selectedRole);
 
                 if (loggedUser != null) {
-                    if (loggedUser instanceof Admin) {
+                    if (loggedUser instanceof Admin admin) {
                         JOptionPane.showMessageDialog(PanelAdminAndUser.this,
                                 "Đăng nhập thành công với vai trò Admin!");
                         // new AdminFrame((Admin) loggedUser).setVisible(true);
+                        openAdminView(admin);
                         //Đóng cửa sổ hiện tại lại
                         if (viewLoginScreen != null) {
                             viewLoginScreen.dispose(); // ✅ chính xác và an toàn
