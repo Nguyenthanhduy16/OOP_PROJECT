@@ -16,13 +16,11 @@
   "userName" : "J97",
   "passWord" : "student123",
   "role" : "student",
-  "registeredActivities" : [ {
-    "title" : "KyLuat",
-    "name" : "Quản lý chi tiêu hàng tháng",
-    "status" : true,
-    "score" : 20,
-    "date" : "29/05/2025",
-    "location" : "Nhà C2",
-    "semester" : "Kỳ 2023.2"
-  } ]
+  "registeredActivities" : [ ]
+}, {
+  "userID" : "20235805",
+  "userName" : "Lisa",
+  "passWord" : "student456",
+  "role" : "student",
+  "registeredActivities" : [ ]
 } ]

@@ -54,7 +54,7 @@ public class StudentController implements Initializable
 		this.student = student;
 		
 		// Bảo đảm danh sách được cập nhật từ file
-	    List<Activity> freshList = UserHandle.getRegisteredActivities(); // đọc lại từ file
+	    List<Activity> freshList = UserHandle.getRegisteredActivities(student.getUserName()); // đọc lại từ file
 	    student.setRegisteredActivitiesJson(freshList);
 	}
 	private Admin admin;
@@ -194,7 +194,7 @@ public class StudentController implements Initializable
 
                     /* xoá khi đang TỒN TẠI trong danh sách */
                     if (student.getRegisteredActivities().remove(activity)) {
-                    	handle.entity.UserHandle.removeActivityFromStudent(activity.getName());
+                    	handle.entity.UserHandle.removeActivityFromStudent(student.getUserName(), activity.getName());
                         hasCancel = true;
                     }
                 }
@@ -224,7 +224,7 @@ public class StudentController implements Initializable
                         Activity activity = ac.getActivity();
                         if (!student.getRegisteredActivities().contains(activity)) {
                             student.addActivity(activity);               // Cập nhật trên RAM/UI
-                            UserHandle.addActivityToStudent(activity);   // ⬅️  Ghi vào file
+                            UserHandle.addActivityToStudent(student.getUserName(), activity);   // ⬅️  Ghi vào file
                             ac.markAsRegistered();
                         }
                     }

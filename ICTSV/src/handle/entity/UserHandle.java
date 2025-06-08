@@ -56,10 +56,10 @@ public class UserHandle {
     ArrayList<Activity> activities = ActivityHandle.loadActivities();
 
     // Tìm JsonNode của student (user có registeredActivities)
-    private static JsonNode findStudentNode() {
+    private static JsonNode findStudentNode(String userName) {
         List<JsonNode> rawUsers = loadRawUsers();
         for (JsonNode node : rawUsers) {
-            if (node.has("registeredActivities")) {
+            if (node.has("registeredActivities") && node.get("userName").asText().equals(userName)) {
                 return node;
             }
         }
@@ -78,8 +78,8 @@ public class UserHandle {
     }
 
     // Lấy danh sách registeredActivities của student
-    public static List<Activity> getRegisteredActivities() {
-        JsonNode studentNode = findStudentNode();
+    public static List<Activity> getRegisteredActivities(String userName) {
+        JsonNode studentNode = findStudentNode(userName);
         if (studentNode != null && studentNode.has("registeredActivities")) {
             try {
                 return mapper.readValue(studentNode.get("registeredActivities").traverse(), new TypeReference<List<Activity>>() {});
@@ -91,14 +91,14 @@ public class UserHandle {
     }
 
     // Cập nhật registeredActivities của student và lưu lại file
-    public static void updateRegisteredActivities(List<Activity> newActivities) {
+    public static void updateRegisteredActivities(String userName, List<Activity> newActivities) {
         try {
             File file = new File(DATA_JSON_PATH);
             List<JsonNode> rawUsers = loadRawUsers();
 
             for (int i = 0; i < rawUsers.size(); i++) {
                 JsonNode node = rawUsers.get(i);
-                if (node.has("registeredActivities")) {
+                if (node.has("registeredActivities") && node.get("userName").asText().equals(userName)) {
                     if (node.isObject()) {
                         ObjectNode objNode = (ObjectNode) node;
                         objNode.putPOJO("registeredActivities", newActivities);
@@ -116,23 +116,23 @@ public class UserHandle {
     }
 
     // Ví dụ thêm một activity cho student (thêm vào registeredActivities)
-    public static void addActivityToStudent(Activity newActivity) {
-        List<Activity> activities = getRegisteredActivities();
+    public static void addActivityToStudent(String userName, Activity newActivity) {
+        List<Activity> activities = getRegisteredActivities(userName);
         activities.add(newActivity);
-        updateRegisteredActivities(activities);
+        updateRegisteredActivities(userName, activities);
     }
 
     // Xóa activity khỏi registeredActivities student (theo title hoặc name)
-    public static void removeActivityFromStudent(String activityTitleOrName) {
-        List<Activity> activities = getRegisteredActivities();
+    public static void removeActivityFromStudent(String userName, String activityTitleOrName) {
+        List<Activity> activities = getRegisteredActivities(userName);
         activities.removeIf(act -> act.getTitle().equals(activityTitleOrName) || act.getName().equals(activityTitleOrName));
-        updateRegisteredActivities(activities);
+        updateRegisteredActivities(userName, activities);
     }
 
     // Tính tổng score (totalCost) của các hoạt động đã đăng ký có status = true
-    public static int totalScore() {
+    public static int totalScore(String userName) {
         int total = 0;
-        List<Activity> activities = getRegisteredActivities();
+        List<Activity> activities = getRegisteredActivities(userName);
         for (Activity act : activities) {
             if (act.isStatus()) {
                 total += act.getScore();
@@ -142,8 +142,8 @@ public class UserHandle {
     }
 
     // In ra các hoạt động đã đăng ký của student
-    public static void viewRegisteredActivities() {
-        List<Activity> activities = getRegisteredActivities();
+    public static void viewRegisteredActivities(String userName) {
+        List<Activity> activities = getRegisteredActivities(userName);
         if (activities.isEmpty()) {
             System.out.println("Student chưa đăng ký hoạt động nào.");
             return;

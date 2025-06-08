@@ -46,7 +46,7 @@ public class Student extends User{
 	public void searchActivity(String name) {
 		boolean found = false;
 		for(Activity activity: registeredActivities ) {
-			if(activity != null && activity.getName() == name) {
+			if(activity != null && activity.getName().equals(name)) {
 	            System.out.println("Found: " + activity.toString());
 	            found = true;
 	            break;
