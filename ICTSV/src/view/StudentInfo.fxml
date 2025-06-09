@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="372.0" prefWidth="300.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="372.0" prefWidth="300.0" stylesheets="@../style/layout.css">
+         <styleClass>
+            <String fx:value="body" />
+            <String fx:value="radius" />
+            <String fx:value="shadow" />
+         </styleClass>
+         <children>
+            <ImageView fitHeight="142.0" fitWidth="178.0" layoutX="82.0" layoutY="37.0" opacity="0.8" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="196.6454620361328" AnchorPane.leftAnchor="82.0" AnchorPane.rightAnchor="89.0" AnchorPane.topAnchor="37.0">
+               <image>
+                  <Image url="@img/avt_test.jpg" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="26.0" layoutY="220.0" prefHeight="124.0" prefWidth="289.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;">
+               <children>
+                  <Label layoutX="20.0" layoutY="12.0" text="Tên:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="49.0" text="ID:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="100.0" layoutY="12.0" styleClass="gradient_brown" stylesheets="@../style/text.css" text="J97">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="100.0" layoutY="49.0" styleClass="gradient_brown" stylesheets="@../style/text.css" text="5000000">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="119.0" layoutY="84.0" styleClass="gradient_blue" stylesheets="@../style/text.css" text="Thông tin" />
+                  <RadioButton layoutX="137.0" layoutY="102.0" mnemonicParsing="false">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="studentInfoCheckBoxGroup" />
+                     </toggleGroup>
+                  </RadioButton>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -13,8 +13,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.RadialGradient?>
@@ -51,7 +55,7 @@
                                                 <Font size="28.0" />
                                             </font>
                                         </Label>
-                                        <Button fx:id="buttonViewActivity" layoutX="146.0" layoutY="566.0" mnemonicParsing="false" onAction="#handleViewActivity" prefHeight="78.0" prefWidth="293.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Danh sách hoạt động">
+                                        <Button fx:id="buttonViewActivity" layoutX="145.0" layoutY="515.0" mnemonicParsing="false" onAction="#handleViewActivity" prefHeight="78.0" prefWidth="293.0" style="-fx-background-radius: 10;" styleClass="button-with-shadow-surround-yellow" stylesheets="@../style/button.css" text="Danh sách hoạt động">
                                             <textFill>
                                                 <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                                                     <stops>
@@ -146,6 +150,7 @@
                                             <styleClass>
                                                 <String fx:value="body" />
                                                 <String fx:value="shadow" />
+                                    <String fx:value="button-with-shadow-surround-yellow" />
                                             </styleClass>
                                         </Button>
                                         <Label fx:id="textID" layoutX="227.0" layoutY="393.0" styleClass="gradient_brown" stylesheets="@../style/text.css" text="000001" textFill="#141f59">
@@ -169,7 +174,7 @@
                                             </font>
                                         </Label>
                                         <Line endX="233.33331298828125" layoutX="247.0" layoutY="463.0" startX="-162.66665649414062" />
-                                        <Button fx:id="AddActButton" layoutX="145.0" layoutY="710.0" mnemonicParsing="false" onAction="#handleViewAddNewAct" prefHeight="78.0" prefWidth="293.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Thêm hoạt động">
+                                        <Button fx:id="AddActButton" layoutX="145.0" layoutY="630.0" mnemonicParsing="false" onAction="#handleViewAddNewAct" prefHeight="78.0" prefWidth="293.0" style="-fx-background-radius: 10;" styleClass="button-with-shadow-surround-yellow" stylesheets="@../style/button.css" text="Thêm hoạt động">
                                             <textFill>
                                                 <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                                                     <stops>
@@ -200,6 +205,37 @@
                                                 <Font size="20.0" />
                                             </font>
                                         </Button>
+                              <Button layoutX="145.0" layoutY="745.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="293.0" style="-fx-background-radius: 10;" styleClass="button-with-shadow-surround-yellow" stylesheets="@../style/button.css" text="Xem danh sách sinh viên">
+                                 <textFill>
+                                    <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.006711409395973154">
+                                             <color>
+                                                <Color red="0.0" green="0.0" blue="0.0" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.6552422655099034">
+                                             <color>
+                                                <Color red="1.0" green="1.0" blue="1.0" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="1.0" green="1.0" blue="1.0" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </RadialGradient>
+                                 </textFill>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Button>
                                     </children>
                                     <effect>
                                         <DropShadow />
@@ -452,7 +488,7 @@
                                         </AnchorPane>
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane fx:id="paneViewActivity" layoutY="3.0" prefHeight="1000.0" prefWidth="1197.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="5.0">
+                                <AnchorPane fx:id="paneViewActivity" layoutY="3.0" prefHeight="1000.0" prefWidth="1197.0" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="5.0">
                                     <children>
                                         <AnchorPane layoutX="24.0" layoutY="142.0" prefHeight="722.0" prefWidth="1151.0" AnchorPane.leftAnchor="40.0">
                                             <stylesheets>
@@ -522,13 +558,14 @@
                                             <styleClass>
                                                 <String fx:value="register-button" />
                                                 <String fx:value="header" />
+                                    <String fx:value="button-with-shadow-surround-red" />
                                             </styleClass>
                                         </Button>
                                         <AnchorPane layoutX="526.0" layoutY="32.0" prefHeight="77.0" prefWidth="629.0">
                                             <children>
 
 
-                                                <ComboBox fx:id="ActCategorySelected" editable="true" layoutX="87.0" layoutY="6.0" minHeight="39.0" prefHeight="63.0" prefWidth="252.0" promptText="Lọc theo tiêu chí" styleClass="dropbox" stylesheets="@../style/drop_box.css">
+                                                <ComboBox fx:id="ActCategorySelected" layoutX="87.0" layoutY="6.0" minHeight="39.0" prefHeight="63.0" prefWidth="252.0" promptText="Lọc theo tiêu chí" styleClass="dropbox" stylesheets="@../style/drop_box.css">
                                                     <items>
                                                         <FXCollections fx:factory="observableArrayList">
                                                             <String fx:value="Tất cả" />
@@ -538,7 +575,7 @@
                                                         </FXCollections>
                                                     </items>
                                                 </ComboBox>
-                                                <ComboBox fx:id="ActSemesterSelected" editable="true" layoutX="376.0" layoutY="4.0" minHeight="39.0" prefHeight="65.0" prefWidth="252.0" promptText=" Lọc theo kì học" styleClass="dropbox" stylesheets="@../style/drop_box.css">
+                                                <ComboBox fx:id="ActSemesterSelected" layoutX="376.0" layoutY="4.0" minHeight="39.0" prefHeight="65.0" prefWidth="252.0" promptText=" Lọc theo kì học" styleClass="dropbox" stylesheets="@../style/drop_box.css">
                                                     <items>
                                                         <FXCollections fx:factory="observableArrayList">
                                                             <String fx:value="Tất cả" />
@@ -553,12 +590,16 @@
                                         </AnchorPane>
                                         <AnchorPane fx:id="SearchActivities" layoutX="60.0" layoutY="38.0" prefHeight="73.0" prefWidth="479.0">
                                             <children>
-                                                <Button fx:id="btnSearch2" layoutX="4.0" layoutY="9.0" mnemonicParsing="false" onAction="#handleSearchActivity" prefHeight="48.0" prefWidth="129.0" styleClass="searchbutton" stylesheets="@../style/button.css" text="Tìm kiếm">
+                                                <Button fx:id="btnSearch2" layoutX="4.0" layoutY="9.0" mnemonicParsing="false" onAction="#handleSearchActivity" prefHeight="48.0" prefWidth="129.0" stylesheets="@../style/button.css" text="Tìm kiếm">
                                                     <font>
                                                         <Font name="System Bold" size="11.0" />
                                                     </font>
+                                       <styleClass>
+                                          <String fx:value="searchbutton" />
+                                          <String fx:value="button-with-shadow-surround-yellow" />
+                                       </styleClass>
                                                 </Button>
-                                                <TextField fx:id="Search2" layoutX="146.0" layoutY="1.0" prefHeight="63.0" prefWidth="324.0" />
+                                                <TextField fx:id="Search2" layoutX="146.0" layoutY="1.0" prefHeight="63.0" prefWidth="324.0" styleClass="search-bar" stylesheets="@../style/search-bar.css" />
                                             </children>
                                         </AnchorPane>
                                     </children>
@@ -572,7 +613,7 @@
                                                         <Font name="System Bold" size="33.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField fx:id="NewActScore" layoutX="253.0" layoutY="9.0" prefHeight="61.0" prefWidth="331.0">
+                                                <TextField fx:id="NewActScore" layoutX="253.0" layoutY="9.0" prefHeight="61.0" prefWidth="331.0" styleClass="search-bar" stylesheets="@../style/search-bar.css">
                                        <font>
                                           <Font size="28.0" />
                                        </font></TextField>
@@ -585,7 +626,7 @@
                                                         <Font name="System Bold" size="33.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField fx:id="NewActName" layoutX="312.0" layoutY="13.0" prefHeight="69.0" prefWidth="675.0">
+                                                <TextField fx:id="NewActName" layoutX="312.0" layoutY="13.0" prefHeight="69.0" prefWidth="675.0" styleClass="search-bar" stylesheets="@../style/search-bar.css">
                                        <font>
                                           <Font size="28.0" />
                                        </font></TextField>
@@ -622,7 +663,7 @@
                                                         <Font name="System Bold" size="33.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField fx:id="NewActTime" layoutX="260.0" layoutY="16.0" prefHeight="67.0" prefWidth="691.0">
+                                                <TextField fx:id="NewActTime" layoutX="260.0" layoutY="16.0" prefHeight="67.0" prefWidth="691.0" styleClass="search-bar" stylesheets="@../style/search-bar.css">
                                        <font>
                                           <Font size="28.0" />
                                        </font></TextField>
@@ -635,7 +676,7 @@
                                                         <Font name="System Bold" size="33.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField fx:id="NewActPlace" layoutX="248.0" layoutY="3.0" prefHeight="67.0" prefWidth="692.0">
+                                                <TextField fx:id="NewActPlace" layoutX="248.0" layoutY="3.0" prefHeight="67.0" prefWidth="692.0" styleClass="search-bar" stylesheets="@../style/search-bar.css">
                                        <font>
                                           <Font size="28.0" />
                                        </font></TextField>
@@ -648,7 +689,7 @@
                                                         <Font name="System Bold" size="33.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField fx:id="NewActSemester" layoutX="268.0" layoutY="8.0" prefHeight="63.0" prefWidth="355.0">
+                                                <TextField fx:id="NewActSemester" layoutX="268.0" layoutY="8.0" prefHeight="63.0" prefWidth="355.0" styleClass="search-bar" stylesheets="@../style/search-bar.css">
                                        <font>
                                           <Font size="28.0" />
                                        </font></TextField>
@@ -656,11 +697,143 @@
                                         </AnchorPane>
                                         <AnchorPane layoutX="447.0" layoutY="861.0" prefHeight="87.0" prefWidth="359.0">
                                             <children>
-                                                <Button fx:id="AddActivites" layoutX="34.0" layoutY="9.0" mnemonicParsing="false" onAction="#handleAddAct" prefHeight="69.0" prefWidth="300.0" styleClass="register-button" stylesheets="@../style/button.css" text="Thêm Hoạt Động" />
+                                                <Button fx:id="AddActivites" layoutX="34.0" layoutY="9.0" mnemonicParsing="false" onAction="#handleAddAct" prefHeight="69.0" prefWidth="300.0" stylesheets="@../style/button.css" text="Thêm Hoạt Động">
+                                       <styleClass>
+                                          <String fx:value="register-button" />
+                                          <String fx:value="button-with-shadow-surround-red" />
+                                       </styleClass></Button>
                                             </children>
                                         </AnchorPane>
                                     </children>
                                 </AnchorPane>
+                        <AnchorPane prefHeight="1000.0" prefWidth="1329.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label layoutX="421.0" layoutY="24.0" prefHeight="72.0" prefWidth="425.0" styleClass="gradient_red" stylesheets="@../style/text.css" text="Danh sách sinh viên">
+                                 <font>
+                                    <Font size="48.0" />
+                                 </font>
+                              </Label>
+                              <AnchorPane layoutX="33.0" layoutY="123.0" prefHeight="761.0" prefWidth="1161.0" AnchorPane.bottomAnchor="116.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="135.0" AnchorPane.topAnchor="123.0">
+                                 <stylesheets>
+                                    <URL value="@../style/layout.css" />
+                                    <URL value="@../style/button.css" />
+                                 </stylesheets>
+                                 <styleClass>
+                                    <String fx:value="radius" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="white-bg" />
+                                 </styleClass>
+                                 <children>
+                                    <ScrollPane prefHeight="761.0" prefWidth="1161.0" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <content>
+                                          <GridPane fx:id="viewRegistedActivityGridPane" prefHeight="0.0" prefWidth="0.0">
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                          </GridPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </AnchorPane>
+                              <Button fx:id="AddActivites1" layoutX="529.0" layoutY="904.0" mnemonicParsing="false" onAction="#handleAddAct" prefHeight="69.0" prefWidth="211.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Xem thông tin">
+                                 <styleClass>
+                                    <String fx:value="register-button" />
+                                    <String fx:value="button-with-shadow-surround-red" />
+                                 </styleClass>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="1000.0" prefWidth="1329.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label layoutX="449.0" layoutY="14.0" prefHeight="72.0" prefWidth="378.0" styleClass="gradient_red" stylesheets="@../style/text.css" text="Thông tin chi tiết">
+                                 <font>
+                                    <Font size="48.0" />
+                                 </font>
+                              </Label>
+                              <AnchorPane layoutX="39.0" layoutY="118.0" prefHeight="212.0" prefWidth="576.0" AnchorPane.bottomAnchor="670.0" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="714.0" AnchorPane.topAnchor="118.0">
+                                 <stylesheets>
+                                    <URL value="@../style/layout.css" />
+                                    <URL value="@../style/button.css" />
+                                 </stylesheets>
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="261.0" layoutY="20.0" text="Tên:">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="261.0" layoutY="85.0" text="ID:">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="261.0" layoutY="150.0" text="Tổng số hoạt động:">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="33.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/avt_test.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Label layoutX="351.0" layoutY="20.0" text="J97">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="355.0" layoutY="85.0" text="5000000">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="518.0" layoutY="150.0" text="5">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="40.0" layoutY="418.0" prefHeight="556.0" prefWidth="1152.0" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="137.0" AnchorPane.topAnchor="418.0">
+                                 <stylesheets>
+                                    <URL value="@../style/layout.css" />
+                                    <URL value="@../style/button.css" />
+                                 </stylesheets>
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <ScrollPane layoutX="33.0" layoutY="33.0" prefHeight="556.0" prefWidth="1152.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <content>
+                                          <TableView fx:id="ActivitiesTable1" prefHeight="549.0" prefWidth="1133.0">
+                                             <columns>
+                                                <TableColumn fx:id="ActivitiesName1" prefWidth="291.33335626125336" text="Tên hoạt động" />
+                                                <TableColumn fx:id="ActivitiesCategory1" minWidth="0.0" prefWidth="200.66671752929688" text="Tiêu chí " />
+                                                <TableColumn fx:id="ActScore1" minWidth="0.0" prefWidth="127.33343505859375" text="Điểm" />
+                                                <TableColumn fx:id="ActTime1" prefWidth="164.0" text="Thời gian" />
+                                                <TableColumn fx:id="ActPlace1" prefWidth="209.99993896484375" text="Địa điểm" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </AnchorPane>
+                              <Label layoutX="363.0" layoutY="341.0" prefHeight="72.0" prefWidth="541.0" styleClass="gradient_red" stylesheets="@../style/text.css" text="Danh sách hoạt động đã đăng ký">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
                             </children>
                         </AnchorPane>
                     </center>
