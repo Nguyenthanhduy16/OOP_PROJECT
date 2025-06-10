@@ -706,14 +706,14 @@
                                         </AnchorPane>
                                     </children>
                                 </AnchorPane>
-                        <AnchorPane prefHeight="1000.0" prefWidth="1329.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane prefHeight="1000.0" prefWidth="1329.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <Label layoutX="421.0" layoutY="24.0" prefHeight="72.0" prefWidth="425.0" styleClass="gradient_red" stylesheets="@../style/text.css" text="Danh sách sinh viên">
                                  <font>
                                     <Font size="48.0" />
                                  </font>
                               </Label>
-                              <AnchorPane layoutX="33.0" layoutY="123.0" prefHeight="761.0" prefWidth="1161.0" AnchorPane.bottomAnchor="116.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="135.0" AnchorPane.topAnchor="123.0">
+                              <AnchorPane layoutX="33.0" layoutY="123.0" prefHeight="856.0" prefWidth="1161.0" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="135.0" AnchorPane.topAnchor="123.0">
                                  <stylesheets>
                                     <URL value="@../style/layout.css" />
                                     <URL value="@../style/button.css" />
@@ -735,15 +735,9 @@
                                     </ScrollPane>
                                  </children>
                               </AnchorPane>
-                              <Button fx:id="AddActivites1" layoutX="529.0" layoutY="904.0" mnemonicParsing="false" onAction="#handleAddAct" prefHeight="69.0" prefWidth="211.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Xem thông tin">
-                                 <styleClass>
-                                    <String fx:value="register-button" />
-                                    <String fx:value="button-with-shadow-surround-red" />
-                                 </styleClass>
-                              </Button>
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="1000.0" prefWidth="1329.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane prefHeight="1000.0" prefWidth="1329.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <Label layoutX="449.0" layoutY="14.0" prefHeight="72.0" prefWidth="378.0" styleClass="gradient_red" stylesheets="@../style/text.css" text="Thông tin chi tiết">
                                  <font>

@@ -28,6 +28,20 @@
   -fx-text-fill: #ffffff;
 }
 
+.info-button {
+  -fx-text-fill: #ffffff;
+  -fx-font-size: 12px;
+  -fx-font-weight: bold;
+  -fx-background-color: linear-gradient(to right, #b61f28, rgb(218, 88, 101));
+}
+
+.info-button:hover {
+  -fx-background-color: linear-gradient(to right, #b3363e, rgb(218, 115, 126));
+  -fx-font-size: 12px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #ffffff;
+}
+
 .white-button {
   -fx-text-fill: #ffffff;
   -fx-background-color: #ffffff;
@@ -53,6 +67,17 @@
   -fx-effect: dropshadow(
     gaussian,
     rgba(174, 9, 9, 0.5),
+    /* tím nhạt từ #9178d1, 30% opacity */ 20,
+    /* radius */ 0.5,
+    /* spread */ 0,
+    /* offset-x */ 5 /* offset-y */
+  );
+}
+
+.button-with-shadow-surround-red-smaller {
+  -fx-effect: dropshadow(
+    gaussian,
+    rgba(174, 9, 9, 0.25),
     /* tím nhạt từ #9178d1, 30% opacity */ 20,
     /* radius */ 0.5,
     /* spread */ 0,
