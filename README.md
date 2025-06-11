@@ -1,4 +1,4 @@
-# OOP_PROJECT_ICTSV
+# HỆ THỐNG QUẢN LÝ ĐIỂM RÈN LUYỆN 
 
 ## Note về các đặc thù từng phần:
 ### Khánh:
