@@ -57,7 +57,7 @@ git clone https://github.com/Nguyenthanhduy16/OOP_PROJECT.git
 3. Thiết lập môi trường JavaFX như trên
 4. Chạy file ICTSV
 ## 📷 Demo
-LƯU Ý: Để hiển thị như màn hình Display của máy: Scale <100%>
+LƯU Ý: Để hiển thị như màn hình, Display của máy: Scale <100%>
 
 https://github.com/user-attachments/assets/a70fd047-32d9-4e3f-8ad2-59af61082dd3
 
