@@ -28,10 +28,31 @@ Với Eclipse:
 - Setup cấu hình chạy: Chuột phải vào project ->  Run As → Run Configurations → Arguments → VM arguments
   Add the following command: --module-path "YOUR\PATH\lib" --add-modules javafx.controls,javafx.fxml -> chọn Apply.
   E.g: --module-path "C:\javafx\openjfx-16_windows-x64_bin-sdk\javafx-sdk-16\lib" --add-modules javafx.controls,javafx.fxml
-![image](https://github.com/user-attachments/assets/ad7fd3f5-c0b7-4603-a3d7-0aaa49ccc124)
+![Image](https://github.com/user-attachments/assets/d603037f-ab17-475c-affd-785e2efcc8db)
 ### 3. Cấu hình trong IDE(Eclipse/IntelliJ)
 Để chạy được dự án cần thêm một số thư viện:
 - Vào Project -> Build Path -> Configure Build Path -> Libraries-> Add External JARs và thêm tất cả file .jar ở đường dẫn ..\OOP_PROJECT\ICTSV\src\view\login\lib  
-![image](https://github.com/user-attachments/assets/51e3f0d8-7286-4743-a6c9-6c5e43a1027e)
-## Note về các đặc thù từng phần:
-  
+![Image](https://github.com/user-attachments/assets/b58f043e-6520-4d07-b237-9b5be98fa005)
+##🧩 Kiến trúc & Cấu trúc thư mục
+```
+## Cấu trúc dự án
+OOP_PROJECT/
+├─ src/                 → Code nguồn (Java, MVC: Controller, Model, View FXML)
+  ├── controller/
+  ├── data/              # Chữa file json lưu thông tin sinh viên, admin và danh sách hoạt động của admin        
+  ├── entity/            # Các lớp thực thể (model) như SinhVien, HoatDong,...
+  ├── handle/            # Xử lý logic chính (tính điểm, kiểm tra hợp lệ, ...)
+  ├── screen/            # Màn hình chính và các giao diện phụ
+  ├── style/             # Tệp CSS và cấu hình giao diện JavaFX
+  ├── view/              # Quản lý giao diện người dùng và tương tác UI
+├─ DESIGN/              → UML, sơ đồ thiết kế
+├─ .project / .idea     → File cấu hình IDE
+```
+## 🚀 Hướng Dẫn Sử Dụng
+1. Clone repo về máy:
+```bash
+git clone https://github.com/Nguyenthanhduy16/OOP_PROJECT.git
+```
+2. Mở project trong IDE
+3. Thiết lập môi trường JavaFX như trên
+4. Chạy file ICTSV
