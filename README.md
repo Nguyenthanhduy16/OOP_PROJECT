@@ -33,7 +33,7 @@ Với Eclipse:
 Để chạy được dự án cần thêm một số thư viện:
 - Vào Project -> Build Path -> Configure Build Path -> Libraries-> Add External JARs và thêm tất cả file .jar ở đường dẫn ..\OOP_PROJECT\ICTSV\src\view\login\lib  
 ![Image](https://github.com/user-attachments/assets/b58f043e-6520-4d07-b237-9b5be98fa005)
-##🧩 Kiến trúc & Cấu trúc thư mục
+## 🧩 Kiến trúc & Cấu trúc thư mục
 ```
 ## Cấu trúc dự án
 OOP_PROJECT/
@@ -56,3 +56,11 @@ git clone https://github.com/Nguyenthanhduy16/OOP_PROJECT.git
 2. Mở project trong IDE
 3. Thiết lập môi trường JavaFX như trên
 4. Chạy file ICTSV
+## 📷 Demo
+LƯU Ý: Để hiển thị như màn hình Display của máy: Scale <100%>
+
+https://github.com/user-attachments/assets/a70fd047-32d9-4e3f-8ad2-59af61082dd3
+
+
+
+
