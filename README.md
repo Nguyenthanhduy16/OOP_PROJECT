@@ -1,5 +1,26 @@
-# HỆ THỐNG QUẢN LÝ ĐIỂM RÈN LUYỆN 
+# 🎓HỆ THỐNG QUẢN LÝ ĐIỂM RÈN LUYỆN 
+Mục tiêu dự án:
+Dự án "Hệ thống Quản lý Điểm Rèn Luyện" được phát triển với mục tiêu xây dựng một ứng dụng phần mềm hỗ trợ quản lý và đánh giá điểm rèn luyện của sinh viên một cách hiệu quả. Dự án tập trung vào việc áp dụng và minh họa các nguyên lý cốt lõi của Lập trình Hướng Đối tượng (OOP), bao gồm: Lớp (Class), Kế thừa (Inheritance), Đa hình (Polymorphism), Đóng gói (Encapsulation).
+Tính năng hệ thống:
+- Người dùng (Sinh viên):
+Thêm, xóa các hoạt động tham gia.
+Xem bảng tổng kết điểm rèn luyện theo từng học kỳ.
+- Quản trị viên (Admin):
+• Quản lý danh sách sinh viên.
+• Tạo, chỉnh sửa, và xóa các hoạt động.
+• Nhập và cập nhật điểm rèn luyện cho sinh viên.
+Giao diện người dùng:
+Hệ thống được xây dựng bằng JavaFX, cung cấp giao diện đồ họa trực quan, thân thiện và dễ sử dụng, hỗ trợ người dùng thao tác nhanh chóng và hiệu quả với các chức năng của hệ thống.
+## 📁 Repo
+> GitHub: [OOP_PROJECT](https://github.com/Nguyenthanhduy16/OOP_PROJECT.git)
+## 🔧 Yêu Cầu & Cài Đặt
+### 1. Yêu cầu môi trường
+- Java JDK 21 trở lên (nên dùng JDK 23)
+- JavaFX SDK (bản tương ứng với JDK đang dùng)
+- Scene Builder (tùy chọn để chỉnh sửa file FXML)
+- IDE: Eclipse hoặc IntelliJ IDEA
 
+- 
 ## Note về các đặc thù từng phần:
 ### Khánh:
 - Cần cập nhật Build Path của project chính: bấm vào ICTSV -> chuột phải vào build path -> bấm vào libraries -> thêm thư viện JavaFX vào phần Modulepath
