@@ -362,10 +362,10 @@ public class StudentController implements Initializable
     
     // Danh sách các kỳ học
     private final List<String> semesterOrder = List.of(
-    	    "Kỳ 2023.1",
-    	    "Kỳ 2023.2",
-    	    "Kỳ 2024.1",
-    	    "Kỳ 2024.2"
+    	    "2023.1",
+    	    "2023.2",
+    	    "2024.1",
+    	    "2024.2"
     	);
     
     // TODO: Cập nhật dữ liệu và hiển thị lên biểu đồ

@@ -18,20 +18,28 @@
   "role" : "student",
   "registeredActivities" : [ {
     "title" : "Học tập",
-    "name" : "Tham gia thi thử CK",
+    "name" : "Hoàn thành đề án tốt nghiệp",
     "status" : true,
-    "score" : 50,
-    "date" : "29/05/2025",
-    "location" : "Nhà C2",
-    "semester" : "Kỳ 2023.1"
+    "score" : 10,
+    "date" : "20/06/2025",
+    "location" : "Xưởng thực hành",
+    "semester" : "2024.2"
   }, {
-    "title" : "Học tập",
-    "name" : "Hello World",
+    "title" : "Ý thức",
+    "name" : "Đi học đúng giờ và đầy đủ",
     "status" : true,
-    "score" : 50,
-    "date" : "29/05/2025",
-    "location" : "Nhà C2",
-    "semester" : "Kỳ 2023.1"
+    "score" : 3,
+    "date" : "22/05/2025",
+    "location" : "Phòng học C4",
+    "semester" : "2024.2"
+  }, {
+    "title" : "Ý thức",
+    "name" : "Hỗ trợ bạn học trong các tình huống khó khăn",
+    "status" : true,
+    "score" : 5,
+    "date" : "21/05/2025",
+    "location" : "Lớp học C9-205",
+    "semester" : "2024.2"
   } ]
 }, {
   "userID" : "20235804",
