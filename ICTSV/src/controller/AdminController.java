@@ -17,6 +17,9 @@ import entity.Admin;
 import entity.Activity;
 
 import java.util.Optional;
+import java.util.Comparator;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class AdminController {
     // FXML injected fields
@@ -316,7 +319,19 @@ public class AdminController {
     // Hàm này để luôn đọc lại dữ liệu từ file json qua Admin
     private void reloadActivityList() {
         activityList = FXCollections.observableArrayList();
-        for (entity.Activity a : admin.getAllActivities()) {
+        java.util.List<entity.Activity> allActs = new java.util.ArrayList<>(admin.getAllActivities());
+        // Sắp xếp theo thời gian giảm dần (dùng LocalDate)
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        allActs.sort((a, b) -> {
+            try {
+                LocalDate dateA = LocalDate.parse(a.getDate(), formatter);
+                LocalDate dateB = LocalDate.parse(b.getDate(), formatter);
+                return dateB.compareTo(dateA);
+            } catch (Exception e) {
+                return 0;
+            }
+        });
+        for (entity.Activity a : allActs) {
             if (a == null || a.getName() == null || a.getTitle() == null) continue;
             activityList.add(new Activities(
                 a.getName(),          // name
@@ -567,6 +582,8 @@ public class AdminController {
         try {
             for (entity.User u : users) {
                 if (u instanceof entity.Student student) {
+                    // Sắp xếp hoạt động của sinh viên theo thời gian giảm dần
+                    student.getRegisteredActivities().sort((a, b) -> b.getDate().compareTo(a.getDate()));
                     FXMLLoader loader = new FXMLLoader(getClass().getResource(ITEM_FXML));
                     AnchorPane pane = loader.load();
                     controller.StudentInfoController ctrl = loader.getController();
@@ -590,8 +607,20 @@ public class AdminController {
         detailNameLabel.setText(student.getUserName());
         detailIDLabel.setText(student.getUserID());
         detailTotalActivityLabel.setText(String.valueOf(student.getRegisteredActivities().size()));
+        // Sắp xếp hoạt động theo thời gian giảm dần (dùng LocalDate, giống admin)
+        java.util.List<entity.Activity> sortedActs = new java.util.ArrayList<>(student.getRegisteredActivities());
+        java.time.format.DateTimeFormatter formatter = java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        sortedActs.sort((a, b) -> {
+            try {
+                java.time.LocalDate dateA = java.time.LocalDate.parse(a.getDate(), formatter);
+                java.time.LocalDate dateB = java.time.LocalDate.parse(b.getDate(), formatter);
+                return dateB.compareTo(dateA);
+            } catch (Exception e) {
+                return 0;
+            }
+        });
         ObservableList<Activities> acts = FXCollections.observableArrayList();
-        for (entity.Activity a : student.getRegisteredActivities()) {
+        for (entity.Activity a : sortedActs) {
             acts.add(new Activities(
                 a.getName(), a.getTitle(), a.getLocation(), String.valueOf(a.getScore()), a.getDate(), a.getSemester()
             ));

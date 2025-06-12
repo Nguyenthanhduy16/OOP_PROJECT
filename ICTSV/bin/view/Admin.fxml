@@ -510,7 +510,7 @@
                                                                         <TableColumn fx:id="ActivitiesName" prefWidth="291.33335626125336" text="Tên hoạt động" />
                                                                         <TableColumn fx:id="ActivitiesCategory" minWidth="0.0" prefWidth="200.66671752929688" text="Tiêu chí " />
                                                                         <TableColumn fx:id="ActScore" minWidth="0.0" prefWidth="127.33343505859375" text="Điểm" />
-                                                                        <TableColumn fx:id="ActTime" prefWidth="164.0" text="Thời gian" />
+                                                                        <TableColumn fx:id="ActTime" prefWidth="164.0" sortType="DESCENDING" text="Thời gian" />
                                                                         <TableColumn fx:id="ActPlace" prefWidth="209.99993896484375" text="Địa điểm" />
                                                                         <TableColumn fx:id="ActSelected" prefWidth="111.3331298828125" text="Chọn" />
                                                                     </columns>
@@ -706,7 +706,7 @@
                                         </AnchorPane>
                                     </children>
                                 </AnchorPane>
-                        <AnchorPane fx:id="paneStudentList" prefHeight="1000.0" prefWidth="1329.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="paneStudentList" prefHeight="1000.0" prefWidth="1329.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <Label layoutX="421.0" layoutY="24.0" prefHeight="72.0" prefWidth="425.0" styleClass="gradient_red" stylesheets="@../style/text.css" text="Danh sách sinh viên">
                                  <font>
@@ -737,7 +737,7 @@
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="paneStudentDetail" prefHeight="1000.0" prefWidth="1329.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="paneStudentDetail" prefHeight="1000.0" prefWidth="1329.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <Label layoutX="449.0" layoutY="14.0" prefHeight="72.0" prefWidth="378.0" styleClass="gradient_red" stylesheets="@../style/text.css" text="Thông tin chi tiết">
                                  <font>
@@ -775,17 +775,17 @@
                                           <Image url="@img/avt_test.jpg" />
                                        </image>
                                     </ImageView>
-                                    <Label layoutX="351.0" layoutY="20.0" fx:id="detailNameLabel" text="J97">
+                                    <Label fx:id="detailNameLabel" layoutX="351.0" layoutY="20.0" text="J97">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="355.0" layoutY="85.0" fx:id="detailIDLabel" text="5000000">
+                                    <Label fx:id="detailIDLabel" layoutX="355.0" layoutY="85.0" text="5000000">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="518.0" layoutY="150.0" fx:id="detailTotalActivityLabel" text="5">
+                                    <Label fx:id="detailTotalActivityLabel" layoutX="518.0" layoutY="150.0" text="5">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
