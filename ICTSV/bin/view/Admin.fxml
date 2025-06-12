@@ -205,7 +205,7 @@
                                                 <Font size="20.0" />
                                             </font>
                                         </Button>
-                              <Button layoutX="145.0" layoutY="745.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="293.0" style="-fx-background-radius: 10;" styleClass="button-with-shadow-surround-yellow" stylesheets="@../style/button.css" text="Xem danh sách sinh viên">
+                              <Button fx:id="buttonViewStuList" layoutX="145.0" layoutY="745.0" mnemonicParsing="false" onAction="#handleViewStudentList" prefHeight="78.0" prefWidth="293.0" style="-fx-background-radius: 10;" styleClass="button-with-shadow-surround-yellow" stylesheets="@../style/button.css" text="Xem danh sách sinh viên">
                                  <textFill>
                                     <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                                        <stops>
@@ -706,7 +706,7 @@
                                         </AnchorPane>
                                     </children>
                                 </AnchorPane>
-                        <AnchorPane prefHeight="1000.0" prefWidth="1329.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="paneStudentList" prefHeight="1000.0" prefWidth="1329.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <Label layoutX="421.0" layoutY="24.0" prefHeight="72.0" prefWidth="425.0" styleClass="gradient_red" stylesheets="@../style/text.css" text="Danh sách sinh viên">
                                  <font>
@@ -726,7 +726,7 @@
                                  <children>
                                     <ScrollPane prefHeight="761.0" prefWidth="1161.0" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <content>
-                                          <GridPane fx:id="viewRegistedActivityGridPane" prefHeight="0.0" prefWidth="0.0">
+                                          <GridPane fx:id="studentGridPane" prefHeight="0.0" prefWidth="0.0">
                                              <rowConstraints>
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                              </rowConstraints>
@@ -737,7 +737,7 @@
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="1000.0" prefWidth="1329.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="paneStudentDetail" prefHeight="1000.0" prefWidth="1329.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <Label layoutX="449.0" layoutY="14.0" prefHeight="72.0" prefWidth="378.0" styleClass="gradient_red" stylesheets="@../style/text.css" text="Thông tin chi tiết">
                                  <font>
@@ -775,17 +775,17 @@
                                           <Image url="@img/avt_test.jpg" />
                                        </image>
                                     </ImageView>
-                                    <Label layoutX="351.0" layoutY="20.0" text="J97">
+                                    <Label layoutX="351.0" layoutY="20.0" fx:id="detailNameLabel" text="J97">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="355.0" layoutY="85.0" text="5000000">
+                                    <Label layoutX="355.0" layoutY="85.0" fx:id="detailIDLabel" text="5000000">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="518.0" layoutY="150.0" text="5">
+                                    <Label layoutX="518.0" layoutY="150.0" fx:id="detailTotalActivityLabel" text="5">
                                        <font>
                                           <Font size="24.0" />
                                        </font>

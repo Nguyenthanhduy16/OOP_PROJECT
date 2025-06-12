@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="372.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="372.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentInfoController">
    <children>
       <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="372.0" prefWidth="300.0" stylesheets="@../style/layout.css">
          <styleClass>
@@ -17,7 +17,7 @@
             <String fx:value="shadow" />
          </styleClass>
          <children>
-            <ImageView fitHeight="142.0" fitWidth="178.0" layoutX="82.0" layoutY="37.0" opacity="0.8" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="196.6454620361328" AnchorPane.leftAnchor="82.0" AnchorPane.rightAnchor="89.0" AnchorPane.topAnchor="37.0">
+            <ImageView fx:id="imageView" fitHeight="142.0" fitWidth="178.0" layoutX="82.0" layoutY="37.0" opacity="0.8" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="196.6454620361328" AnchorPane.leftAnchor="82.0" AnchorPane.rightAnchor="89.0" AnchorPane.topAnchor="37.0">
                <image>
                   <Image url="@img/avt_test.jpg" />
                </image>
@@ -34,17 +34,17 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="100.0" layoutY="12.0" styleClass="gradient_brown" stylesheets="@../style/text.css" text="J97">
+                  <Label fx:id="labelName" layoutX="100.0" layoutY="12.0" styleClass="gradient_brown" stylesheets="@../style/text.css" text="J97">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="100.0" layoutY="49.0" styleClass="gradient_brown" stylesheets="@../style/text.css" text="5000000">
+                  <Label fx:id="labelID" layoutX="100.0" layoutY="49.0" styleClass="gradient_brown" stylesheets="@../style/text.css" text="5000000">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button layoutX="111.0" layoutY="85.0" mnemonicParsing="false" stylesheets="@../style/button.css" text="Thông tin">
+                  <Button fx:id="infoButton" layoutX="111.0" layoutY="85.0" mnemonicParsing="false" stylesheets="@../style/button.css" text="Thông tin">
                      <styleClass>
                         <String fx:value="info-button" />
                         <String fx:value="button-with-shadow-surround-red-smaller" />
