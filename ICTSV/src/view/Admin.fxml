@@ -117,7 +117,7 @@
                                                 <Font size="20.0" />
                                             </font>
                                         </Button>
-                                        <Button fx:id="buttonLogout" layoutX="216.0" layoutY="888.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="46.0" prefWidth="135.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Log out">
+                                        <Button fx:id="buttonLogout" layoutX="216.0" layoutY="888.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="46.0" prefWidth="135.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Thoát">
                                             <textFill>
                                                 <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                                                     <stops>
@@ -604,11 +604,11 @@
                                         </AnchorPane>
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane fx:id="paneAddNewAct" layoutX="114.0" layoutY="132.0" prefHeight="1000.0" prefWidth="1330.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <AnchorPane fx:id="paneAddNewAct" layoutX="114.0" layoutY="132.0" prefHeight="1000.0" prefWidth="1330.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <children>
                                         <AnchorPane layoutX="146.0" layoutY="357.0" prefHeight="96.0" prefWidth="939.0">
                                             <children>
-                                                <Label layoutX="-6.0" layoutY="21.0" text="Scrore">
+                                                <Label layoutX="-6.0" layoutY="21.0" text="Điểm">
                                                     <font>
                                                         <Font name="System Bold" size="33.0" />
                                                     </font>
@@ -737,7 +737,7 @@
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="paneStudentDetail" prefHeight="1000.0" prefWidth="1329.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="paneStudentDetail" layoutX="8.0" layoutY="-1.0" prefHeight="1000.0" prefWidth="1329.0" visible="false" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="-1.0">
                            <children>
                               <Label layoutX="449.0" layoutY="14.0" prefHeight="72.0" prefWidth="378.0" styleClass="gradient_red" stylesheets="@../style/text.css" text="Thông tin chi tiết">
                                  <font>
