@@ -690,50 +690,61 @@ public class AdminController {
         }
     }
 
-    private void showStudentDetail(entity.Student student) {
-    	this.currentStudent = student;
-        paneStudentList.setVisible(false);
-        paneStudentDetail.setVisible(true);
-        // Cập nhật thông tin sinh viên
-        detailNameLabel.setText(student.getUserName());
-        detailIDLabel.setText(student.getUserID());
-        String path = "/view/avatar/" + student.getUserName() + ".jpg";
-    	Image image = new Image(getClass().getResourceAsStream(path));
-    	studentImg.setImage(image);
-    	double SIZE = 150;
-    	studentImg.setFitWidth(SIZE);
-    	studentImg.setFitHeight(SIZE);
-    	studentImg.setPreserveRatio(false);
 
-        // ---- Clip (crop) trung tâm
-        Rectangle clip = new Rectangle(SIZE, SIZE);
-        studentImg.setClip(clip);
-        detailTotalActivityLabel.setText(String.valueOf(student.getRegisteredActivities().size()));
-        // Sắp xếp hoạt động theo thời gian giảm dần (dùng LocalDate, giống admin)
-        java.util.List<entity.Activity> sortedActs = new java.util.ArrayList<>(student.getRegisteredActivities());
-        java.time.format.DateTimeFormatter formatter = java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        sortedActs.sort((a, b) -> {
-            try {
-                java.time.LocalDate dateA = java.time.LocalDate.parse(a.getDate(), formatter);
-                java.time.LocalDate dateB = java.time.LocalDate.parse(b.getDate(), formatter);
-                return dateB.compareTo(dateA);
-            } catch (Exception e) {
-                return 0;
-            }
-        });
-        ObservableList<Activities> acts = FXCollections.observableArrayList();
-        for (entity.Activity a : sortedActs) {
-            acts.add(new Activities(
-                a.getName(), a.getTitle(), a.getLocation(), String.valueOf(a.getScore()), a.getDate(), a.getSemester()
-            ));
-        }
-        ActivitiesTable1.setItems(acts);
-        ActivitiesName1.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
-        ActivitiesCategory1.setCellValueFactory(cellData -> cellData.getValue().categoryProperty());
-        ActPlace1.setCellValueFactory(cellData -> cellData.getValue().placeProperty());
-        ActScore1.setCellValueFactory(cellData -> cellData.getValue().scoreProperty());
-        ActTime1.setCellValueFactory(cellData -> cellData.getValue().timeProperty());
-    }
+	 private void showStudentDetail(Student student) 
+	 {
+
+
+	     paneStudentList.setVisible(false);
+	     paneStudentDetail.setVisible(true);
+
+	     detailNameLabel.setText(student.getUserName());
+	     detailIDLabel.setText(student.getUserID());
+
+	     Image avatar;
+	     String fileName = "/avatar/" + student.getUserName() + ".jpg";
+	     java.io.InputStream is = getClass().getResourceAsStream(fileName);
+	     if (is == null) 
+	     {
+	         is = getClass().getResourceAsStream("/avatar/default.jpg");
+	     }
+	     avatar = new Image(is);
+	     studentImg.setImage(avatar);
+	
+	     final double SIZE = 150;
+	     studentImg.setFitWidth(SIZE);
+	     studentImg.setFitHeight(SIZE);
+	     studentImg.setPreserveRatio(false);
+	     studentImg.setClip(new Rectangle(SIZE, SIZE));
+	     detailTotalActivityLabel.setText(String.valueOf(student.getRegisteredActivities().size()));
+	
+
+	     java.util.List<Activity> acts = new java.util.ArrayList<>(student.getRegisteredActivities());
+	     java.time.format.DateTimeFormatter fmt = java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	     acts.sort((a, b) -> {
+	         try {
+	             return java.time.LocalDate.parse(b.getDate(), fmt)
+	                                       .compareTo(java.time.LocalDate.parse(a.getDate(), fmt));
+	         } catch (Exception e) {                // lỡ sai format
+	             return 0;
+	         }
+	     });
+
+	     ObservableList<Activities> rows = FXCollections.observableArrayList();
+	     for (Activity a : acts) {
+	         rows.add(new Activities(
+	                 a.getName(),
+	                 a.getTitle(),
+	                 a.getLocation(),
+	                 String.valueOf(a.getScore()),
+	                 a.getDate(),
+	                 a.getSemester()
+	         ));
+	     }
+	     ActivitiesTable1.setItems(rows);
+
+	 }
+
     
     // Thêm 1 account student nữa
     @FXML
