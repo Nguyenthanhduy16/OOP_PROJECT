@@ -1,0 +1,44 @@
+/* Base */
+.table-view {
+  -fx-background-color: white;
+  -fx-border-color: #ccc;
+  -fx-border-radius: 6;
+  -fx-padding: 8;
+  -fx-table-cell-border-color: transparent;
+  -fx-focus-color: transparent;
+}
+
+/* Header */
+.table-view .column-header {
+  -fx-background-color: linear-gradient(to bottom, #d66565, #c22323, #ac0202);
+}
+
+.table-view .column-header .label {
+  -fx-font-weight: bold;
+  -fx-font-size: 14px;
+  -fx-text-fill: #ffffff;
+  -fx-padding: 8 12;
+}
+
+/* Dòng và ô trong bảng */
+.table-view .table-row-cell {
+  -fx-font-size: 13px;
+  -fx-padding: 6;
+  -fx-border-color: transparent;
+}
+
+.table-view .table-cell {
+  -fx-text-fill: #222;
+  -fx-alignment: CENTER-LEFT;
+  -fx-padding: 6 12;
+}
+
+/* Hiệu ứng hover + select */
+.table-row-cell:hover {
+  -fx-background-color: #f1f8ff;
+}
+
+.table-row-cell:selected {
+  -fx-background-color: #d2e4fc;
+  -fx-text-fill: black;
+}

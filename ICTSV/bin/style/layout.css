@@ -1,6 +1,6 @@
 .header {
   -fx-text-fill: #ffffff;
-  -fx-background-color: linear-gradient(to right, #b61f28, rgb(218, 88, 101));
+  -fx-background-color: linear-gradient(to right, #d66565, #c22323, #ac0202);
 }
 
 .body {

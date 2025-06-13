@@ -33,9 +33,9 @@
                     <left>
                         <AnchorPane prefHeight="1000.0" prefWidth="400.0" BorderPane.alignment="CENTER">
                             <children>
-                                <AnchorPane prefHeight="1000.0" prefWidth="481.0" style="-fx-background-radius: 45;" styleClass="body" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <AnchorPane prefHeight="1000.0" prefWidth="481.0" style="-fx-background-radius: 45;" styleClass="body" stylesheets="@../style/layout.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <children>
-                                        <AnchorPane prefHeight="215.0" prefWidth="485.0" style="-fx-background-radius: 45;" styleClass="header" stylesheets="@../style/layout.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                        <AnchorPane prefHeight="215.0" prefWidth="485.0" style="-fx-background-radius: 45;" styleClass="header" stylesheets="@../style/layout.css" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <children>
                                                 <Label layoutX="158.0" layoutY="81.0" styleClass="gradient_yellow" stylesheets="@../style/text.css" text="Trang quản lý" textFill="WHITE">
                                                     <font>
@@ -487,7 +487,7 @@
                                         </AnchorPane>
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane fx:id="paneViewActivity" layoutY="3.0" prefHeight="1000.0" prefWidth="1197.0" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="5.0">
+                                <AnchorPane fx:id="paneViewActivity" layoutY="3.0" prefHeight="1000.0" prefWidth="1197.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="5.0">
                                     <children>
                                         <AnchorPane layoutX="24.0" layoutY="142.0" prefHeight="722.0" prefWidth="1151.0" AnchorPane.leftAnchor="40.0">
                                             <stylesheets>
@@ -504,7 +504,7 @@
                                                     <content>
                                                         <AnchorPane prefHeight="1140.0" prefWidth="1101.0">
                                                             <children>
-                                                                <TableView fx:id="ActivitiesTable" layoutX="1.3333333333333333" layoutY="114.0" prefHeight="1140.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                <TableView fx:id="ActivitiesTable" layoutX="1.3333333333333333" layoutY="114.0" prefHeight="1140.0" prefWidth="1100.0" stylesheets="@../style/table_view.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                                     <columns>
                                                                         <TableColumn fx:id="ActivitiesName" prefWidth="291.33335626125336" text="Tên hoạt động" />
                                                                         <TableColumn fx:id="ActivitiesCategory" minWidth="0.0" prefWidth="200.66671752929688" text="Tiêu chí " />
@@ -736,7 +736,7 @@
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="paneStudentDetail" layoutX="8.0" layoutY="-1.0" prefHeight="1000.0" prefWidth="1329.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="-1.0">
+                        <AnchorPane fx:id="paneStudentDetail" layoutX="8.0" layoutY="-1.0" prefHeight="1000.0" prefWidth="1329.0" visible="false" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="-1.0">
                            <children>
                               <Label layoutX="449.0" layoutY="14.0" prefHeight="72.0" prefWidth="378.0" styleClass="gradient_red" stylesheets="@../style/text.css" text="Thông tin chi tiết">
                                  <font>
@@ -800,7 +800,7 @@
                                  <children>
                                     <ScrollPane layoutX="33.0" layoutY="33.0" prefHeight="556.0" prefWidth="1152.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <content>
-                                          <TableView fx:id="ActivitiesTable1" prefHeight="549.0" prefWidth="1133.0">
+                                          <TableView fx:id="ActivitiesTable1" prefHeight="549.0" prefWidth="1133.0" stylesheets="@../style/table_view.css">
                                              <columns>
                                                 <TableColumn fx:id="ActivitiesName1" prefWidth="291.33335626125336" text="Tên hoạt động" />
                                                 <TableColumn fx:id="ActivitiesCategory1" minWidth="0.0" prefWidth="200.66671752929688" text="Tiêu chí " />

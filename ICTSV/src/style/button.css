@@ -3,11 +3,20 @@
   -fx-font-size: 22px;
   -fx-font-weight: bold;
   -fx-background-color: linear-gradient(to right, #e9b414, #e4c465);
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 6, 0.1, 0, 2);
+  -fx-transition: all 0.2s ease;
 }
 
 .button:hover {
   -fx-background-color: linear-gradient(to right, #e6ba38, #ebd8a1);
   -fx-text-fill: linear-gradient(to right, #3d0000, #752a2a);
+}
+
+.button:pressed {
+  -fx-translate-y: 2;
+  -fx-scale-x: 0.98;
+  -fx-scale-y: 0.98;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 2, 0.1, 0, 1);
 }
 
 .shadow {
@@ -22,7 +31,7 @@
 }
 
 .register-button:hover {
-  -fx-background-color: linear-gradient(to right, #b3363e, rgb(218, 115, 126));
+  -fx-background-color: linear-gradient(to right, #b8353e, rgb(216, 104, 115));
   -fx-font-size: 25px;
   -fx-font-weight: bold;
   -fx-text-fill: #ffffff;

@@ -44,6 +44,10 @@ public class ViewLoginScreen extends javax.swing.JFrame {
        // initAccounts();
         init();
         initDragAndDrop();
+        java.awt.Image icon = new javax.swing.ImageIcon(
+                getClass().getResource("/view/img/logo.png")   // đường dẫn giống JavaFX
+        ).getImage();
+        setIconImage(icon);
     }
     
     

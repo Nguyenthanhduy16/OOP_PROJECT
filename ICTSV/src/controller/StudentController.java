@@ -46,6 +46,7 @@ import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
 public class StudentController implements Initializable 
@@ -304,7 +305,8 @@ public class StudentController implements Initializable
     	avatar.setFitWidth(SIZE);
     	avatar.setFitHeight(SIZE);
     	avatar.setPreserveRatio(false);
-        Rectangle clip = new Rectangle(SIZE, SIZE);
+        double r = 75;
+        Circle clip = new Circle(r, r, r);
         avatar.setClip(clip);
         
         System.out.println("Admin in controller: " + admin);

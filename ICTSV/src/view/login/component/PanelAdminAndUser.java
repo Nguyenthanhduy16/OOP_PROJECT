@@ -23,6 +23,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class PanelAdminAndUser extends javax.swing.JLayeredPane {
@@ -51,6 +52,7 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
 	            Stage stage = new Stage();
 	            stage.setTitle("Student Management Page");
 	            stage.setScene(new Scene(root));
+	            stage.getIcons().add( new Image(getClass().getResourceAsStream("/view/img/logo.png")));
 	            stage.setOnShown(ev -> { if (viewLoginScreen != null) viewLoginScreen.dispose(); });
 	            stage.show();
 
@@ -75,6 +77,7 @@ public class PanelAdminAndUser extends javax.swing.JLayeredPane {
 	            Stage stage = new Stage();
 	            stage.setTitle("Admin Management Page");
 	            stage.setScene(new Scene(root, 1600, 1000));
+	            stage.getIcons().add(new Image(getClass().getResourceAsStream("/view/img/logo.png")));
 	            stage.setOnShown(ev -> { if (viewLoginScreen != null) viewLoginScreen.dispose(); });
 	            stage.show();
 	        } catch (Exception ex) {
