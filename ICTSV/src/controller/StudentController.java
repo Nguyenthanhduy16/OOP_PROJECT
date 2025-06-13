@@ -40,10 +40,13 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.shape.Rectangle;
 
 public class StudentController implements Initializable 
 {
@@ -138,6 +141,9 @@ public class StudentController implements Initializable
     
     @FXML
     private ScrollPane viewActivityScrollPane;
+    
+    @FXML
+    private ImageView avatar;
 
     @FXML
     void activityRegisterButtonClick(MouseEvent event) {
@@ -291,6 +297,15 @@ public class StudentController implements Initializable
     public void initData(Student loggedStudent) {
     	this.student = loggedStudent;
         this.username = loggedStudent.getUserName();
+        String path = "/view/avatar/" + student.getUserName() + ".jpg";
+    	Image image = new Image(getClass().getResourceAsStream(path));
+    	avatar.setImage(image);
+    	double SIZE = 150;
+    	avatar.setFitWidth(SIZE);
+    	avatar.setFitHeight(SIZE);
+    	avatar.setPreserveRatio(false);
+        Rectangle clip = new Rectangle(SIZE, SIZE);
+        avatar.setClip(clip);
         
         System.out.println("Admin in controller: " + admin);
         System.out.println("Activities in controller: " + (admin != null ? admin.getAllActivities().size() : "admin is null"));

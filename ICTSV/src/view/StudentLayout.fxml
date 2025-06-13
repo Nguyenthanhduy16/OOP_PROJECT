@@ -48,17 +48,17 @@
                                     </Label>
                                  </children>
                               </AnchorPane>
-                              <Label layoutX="105.0" layoutY="243.0" styleClass="button-text-color" stylesheets="@/style/text.css" text="Chào mừng, ">
+                              <Label layoutX="105.0" layoutY="374.0" styleClass="button-text-color" stylesheets="@/style/text.css" text="Chào mừng, ">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="studentName" layoutX="217.0" layoutY="235.0" styleClass="gradient_brown" stylesheets="@/style/text.css" text="Đinh Ngọc Khánh" textFill="#141f59">
+                              <Label fx:id="studentName" layoutX="217.0" layoutY="366.0" styleClass="gradient_brown" stylesheets="@/style/text.css" text="Đinh Ngọc Khánh" textFill="#141f59">
                                  <font>
                                     <Font size="28.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="viewRegisterPaneButton" layoutX="120.0" layoutY="402.0" mnemonicParsing="false" onAction="#switchForm" onMouseClicked="#registerPageButtonClicked" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" styleClass="button-with-shadow-surround-yellow" stylesheets="@/style/button.css" text="Đăng ký hoạt động">
+                              <Button fx:id="viewRegisterPaneButton" layoutX="120.0" layoutY="450.0" mnemonicParsing="false" onAction="#switchForm" onMouseClicked="#registerPageButtonClicked" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" styleClass="button-with-shadow-surround-yellow" stylesheets="@/style/button.css" text="Đăng ký hoạt động" translateZ="-1.0">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -70,7 +70,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button fx:id="viewActivityPaneButton" layoutX="121.0" layoutY="572.0" mnemonicParsing="false" onAction="#switchForm" onMouseClicked="#viewActivityPageButtonClicked" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" styleClass="button-with-shadow-surround-yellow" stylesheets="@/style/button.css" text="Xem hoạt động đã đăng ký">
+                              <Button fx:id="viewActivityPaneButton" layoutX="121.0" layoutY="620.0" mnemonicParsing="false" onAction="#switchForm" onMouseClicked="#viewActivityPageButtonClicked" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" styleClass="button-with-shadow-surround-yellow" stylesheets="@/style/button.css" text="Xem hoạt động đã đăng ký" translateZ="-1.0">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -82,7 +82,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button fx:id="viewScorePaneButton" layoutX="120.0" layoutY="735.0" mnemonicParsing="false" onAction="#switchForm" onMouseClicked="#viewScorePageButtonClicked" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" styleClass="button-with-shadow-surround-yellow" stylesheets="@/style/button.css" text="Xem điểm">
+                              <Button fx:id="viewScorePaneButton" layoutX="120.0" layoutY="783.0" mnemonicParsing="false" onAction="#switchForm" onMouseClicked="#viewScorePageButtonClicked" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" styleClass="button-with-shadow-surround-yellow" stylesheets="@/style/button.css" text="Xem điểm" translateZ="-1.0">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -136,6 +136,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
+                              <ImageView fx:id="avatar" fitHeight="150.0" fitWidth="150.0" layoutX="216.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="663.0" AnchorPane.leftAnchor="216.0" AnchorPane.rightAnchor="115.0" AnchorPane.topAnchor="199.0" />
                            </children>
                            <effect>
                               <DropShadow />

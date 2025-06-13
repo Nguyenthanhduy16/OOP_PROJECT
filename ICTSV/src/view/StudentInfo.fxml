@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="372.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentInfoController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="372.0" prefWidth="300.0" stylesheets="@../style/layout.css">
+         <styleClass>
+            <String fx:value="body" />
+            <String fx:value="radius" />
+            <String fx:value="shadow" />
+         </styleClass>
+         <children>
+            <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="150.0" layoutX="75.0" layoutY="30.0" opacity="0.8" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="192.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="30.0" />
+            <AnchorPane layoutX="5.0" layoutY="221.0" prefHeight="124.0" prefWidth="289.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;">
+               <children>
+                  <Label layoutX="20.0" layoutY="12.0" text="Tên:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="49.0" text="ID:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelName" layoutX="100.0" layoutY="12.0" styleClass="gradient_brown" stylesheets="@../style/text.css" text="J97">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelID" layoutX="100.0" layoutY="49.0" styleClass="gradient_brown" stylesheets="@../style/text.css" text="5000000">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="infoButton" layoutX="80.0" layoutY="85.0" mnemonicParsing="false" stylesheets="@../style/button.css" text="Thông tin">
+                     <styleClass>
+                        <String fx:value="info-button" />
+                        <String fx:value="button-with-shadow-surround-red-smaller" />
+                     </styleClass>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

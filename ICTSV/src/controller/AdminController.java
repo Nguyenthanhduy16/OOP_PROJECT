@@ -7,14 +7,22 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import entity.Admin;
 import entity.Activity;
 
 import java.util.Optional;
+import java.util.Comparator;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class AdminController {
     // FXML injected fields
@@ -28,11 +36,20 @@ public class AdminController {
     @FXML
     private AnchorPane paneAddNewAct;
     @FXML
+    private AnchorPane paneStudentList;
+    @FXML
+    private AnchorPane paneStudentDetail;
+    @FXML
     private AnchorPane ActPane;
     @FXML
     private AnchorPane SearchActivities;
     @FXML
     private AnchorPane panStuNActList;
+    @FXML
+    private GridPane studentGridPane;
+    
+    @FXML
+    private Button backToViewStudentList;
 
     // Labels
     @FXML
@@ -41,12 +58,20 @@ public class AdminController {
     private Label textID;
     @FXML
     private Label textRole;
+    @FXML
+    private Label detailNameLabel;
+    @FXML
+    private Label detailIDLabel;
+    @FXML
+    private Label detailTotalActivityLabel;
 
     // Buttons
     @FXML
     private Button buttonViewActivity;
     @FXML
     private Button buttonViewStudent;
+    @FXML
+    private Button buttonViewStuList;
     @FXML
     private Button buttonLogout;
     @FXML
@@ -95,6 +120,8 @@ public class AdminController {
     // TableViews
     @FXML
     private TableView<Activities> ActivitiesTable;
+    @FXML
+    private TableView<Activities> ActivitiesTable1;
 
     // Activity TableColumns
     @FXML
@@ -111,6 +138,19 @@ public class AdminController {
     private TableColumn<Activities, Boolean> ActSelected;
     @FXML
     private TableColumn<Activities, Boolean> colSelectAct;
+    @FXML
+    private TableColumn<Activities, String> ActivitiesName1;
+    @FXML
+    private TableColumn<Activities, String> ActivitiesCategory1;
+    @FXML
+    private TableColumn<Activities, String> ActPlace1;
+    @FXML
+    private TableColumn<Activities, String> ActScore1;
+    @FXML
+    private TableColumn<Activities, String> ActTime1;
+    
+    @FXML
+    private ImageView studentImg;
 
     // ScrollPanes
     @FXML
@@ -194,6 +234,15 @@ public class AdminController {
             return selected;
         }
     }
+    
+    @FXML
+    void backToStudentList(ActionEvent event) {
+    	paneViewActivity.setVisible(false);
+        paneAddNewAct.setVisible(false);
+        paneStudentList.setVisible(true);
+        paneStudentDetail.setVisible(false);
+        displayStudentList();
+    }
 
     // Observable lists for tables
     private ObservableList<Activities> activityList;
@@ -269,6 +318,9 @@ public class AdminController {
         paneViewActivity.setVisible(true);
         paneAddNewAct.setVisible(false);
         ActPane.setVisible(true);
+        paneStudentList.setVisible(false);
+        paneStudentDetail.setVisible(false);
+
         // Khởi tạo danh sách lựa chọn trong ComboBox
         ActCategorySelected.setItems(FXCollections.observableArrayList("Tất cả tiêu chí", "Học tập", "Xã hội", "Kỷ luật", "Ý thức"));
         ActivitiesCategorySelected.setItems(FXCollections.observableArrayList( "Học tập", "Xã hội", "Kỷ luật", "Ý thức"));
@@ -285,7 +337,19 @@ public class AdminController {
     // Hàm này để luôn đọc lại dữ liệu từ file json qua Admin
     private void reloadActivityList() {
         activityList = FXCollections.observableArrayList();
-        for (entity.Activity a : admin.getAllActivities()) {
+        java.util.List<entity.Activity> allActs = new java.util.ArrayList<>(admin.getAllActivities());
+        // Sắp xếp theo thời gian giảm dần (dùng LocalDate)
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        allActs.sort((a, b) -> {
+            try {
+                LocalDate dateA = LocalDate.parse(a.getDate(), formatter);
+                LocalDate dateB = LocalDate.parse(b.getDate(), formatter);
+                return dateB.compareTo(dateA);
+            } catch (Exception e) {
+                return 0;
+            }
+        });
+        for (entity.Activity a : allActs) {
             if (a == null || a.getName() == null || a.getTitle() == null) continue;
             activityList.add(new Activities(
                 a.getName(),          // name
@@ -305,23 +369,27 @@ public class AdminController {
 
     @FXML
     private void handleViewActivity(ActionEvent event) {
-        paneStudentManage.setVisible(false);
         paneViewActivity.setVisible(true);
         paneAddNewAct.setVisible(false);
-    }
-
-    @FXML
-    private void handleViewStudent(ActionEvent event) {
-        paneStudentManage.setVisible(true);
-        paneViewActivity.setVisible(false);
-        paneAddNewAct.setVisible(false);
+        paneStudentList.setVisible(false);
+        paneStudentDetail.setVisible(false);
     }
 
     @FXML
     private void handleViewAddNewAct(ActionEvent event) {
-        paneStudentManage.setVisible(false);
         paneViewActivity.setVisible(false);
         paneAddNewAct.setVisible(true);
+        paneStudentList.setVisible(false);
+        paneStudentDetail.setVisible(false);
+    }
+
+    @FXML
+    private void handleViewStudentList(ActionEvent event) {
+        paneViewActivity.setVisible(false);
+        paneAddNewAct.setVisible(false);
+        paneStudentList.setVisible(true);
+        paneStudentDetail.setVisible(false);
+        displayStudentList();
     }
 
     private Alert alert;
@@ -520,5 +588,77 @@ public class AdminController {
         alert.setHeaderText(null);
         alert.setContentText(content);
         alert.showAndWait();
+    }
+
+    // Hàm hiển thị danh sách sinh viên dạng grid
+    public void displayStudentList() {
+        studentGridPane.getChildren().clear();
+        int column = 0;
+        int row = 1;
+        final String ITEM_FXML = "/view/StudentInfo.fxml";
+        java.util.List<entity.User> users = handle.entity.UserHandle.loadUsers();
+        try {
+            for (entity.User u : users) {
+                if (u instanceof entity.Student student) {
+                    // Sắp xếp hoạt động của sinh viên theo thời gian giảm dần
+                    student.getRegisteredActivities().sort((a, b) -> b.getDate().compareTo(a.getDate()));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource(ITEM_FXML));
+                    AnchorPane pane = loader.load();
+                    controller.StudentInfoController ctrl = loader.getController();
+                    ctrl.setData(student);
+                    ctrl.setOnInfoClicked(s -> showStudentDetail(s));
+                    pane.setUserData(ctrl);
+                    if (column == 3) { column = 0; row++; }
+                    studentGridPane.add(pane, column++, row);
+                    GridPane.setMargin(pane, new javafx.geometry.Insets(20, 10, 10, 10));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void showStudentDetail(entity.Student student) {
+        paneStudentList.setVisible(false);
+        paneStudentDetail.setVisible(true);
+        // Cập nhật thông tin sinh viên
+        detailNameLabel.setText(student.getUserName());
+        detailIDLabel.setText(student.getUserID());
+        String path = "/view/avatar/" + student.getUserName() + ".jpg";
+    	Image image = new Image(getClass().getResourceAsStream(path));
+    	studentImg.setImage(image);
+    	double SIZE = 150;
+    	studentImg.setFitWidth(SIZE);
+    	studentImg.setFitHeight(SIZE);
+    	studentImg.setPreserveRatio(false);
+
+        // ---- Clip (crop) trung tâm
+        Rectangle clip = new Rectangle(SIZE, SIZE);
+        studentImg.setClip(clip);
+        detailTotalActivityLabel.setText(String.valueOf(student.getRegisteredActivities().size()));
+        // Sắp xếp hoạt động theo thời gian giảm dần (dùng LocalDate, giống admin)
+        java.util.List<entity.Activity> sortedActs = new java.util.ArrayList<>(student.getRegisteredActivities());
+        java.time.format.DateTimeFormatter formatter = java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        sortedActs.sort((a, b) -> {
+            try {
+                java.time.LocalDate dateA = java.time.LocalDate.parse(a.getDate(), formatter);
+                java.time.LocalDate dateB = java.time.LocalDate.parse(b.getDate(), formatter);
+                return dateB.compareTo(dateA);
+            } catch (Exception e) {
+                return 0;
+            }
+        });
+        ObservableList<Activities> acts = FXCollections.observableArrayList();
+        for (entity.Activity a : sortedActs) {
+            acts.add(new Activities(
+                a.getName(), a.getTitle(), a.getLocation(), String.valueOf(a.getScore()), a.getDate(), a.getSemester()
+            ));
+        }
+        ActivitiesTable1.setItems(acts);
+        ActivitiesName1.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+        ActivitiesCategory1.setCellValueFactory(cellData -> cellData.getValue().categoryProperty());
+        ActPlace1.setCellValueFactory(cellData -> cellData.getValue().placeProperty());
+        ActScore1.setCellValueFactory(cellData -> cellData.getValue().scoreProperty());
+        ActTime1.setCellValueFactory(cellData -> cellData.getValue().timeProperty());
     }
 }
