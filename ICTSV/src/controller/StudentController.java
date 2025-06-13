@@ -1,7 +1,12 @@
 package controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -48,10 +53,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.FileChooser;
 
 public class StudentController implements Initializable 
 {
 	private Student student;
+	
+
 	
 	public void setStudent (Student student)
 	{
@@ -73,6 +81,11 @@ public class StudentController implements Initializable
 	private ObservableList <Activity> activityListData = FXCollections.observableArrayList();
 	
 	// Các thuộc tính FXML
+	
+	@FXML
+    private AnchorPane editAvatarPane;
+	
+
 	
 	@FXML
     private TextField registeredActivitySearchText;
@@ -143,8 +156,27 @@ public class StudentController implements Initializable
     @FXML
     private ScrollPane viewActivityScrollPane;
     
+    
+    // Ảnh đại diện
     @FXML
     private ImageView avatar;
+    
+    @FXML
+    private Button acceptPicture;
+    
+    @FXML
+    private ImageView currentAvatar;
+
+	@FXML
+    private Button editAvatarButton;
+	
+	
+	@FXML
+    private Button insertPicture;
+	
+	@FXML
+    private Button removeStudentButton;
+	
 
     @FXML
     void activityRegisterButtonClick(MouseEvent event) {
@@ -160,6 +192,8 @@ public class StudentController implements Initializable
     void registerPageButtonClicked(MouseEvent event) {
 
     }
+    
+    
 
     @FXML
     void registerSearchButtonClicked(MouseEvent event) {
@@ -298,9 +332,9 @@ public class StudentController implements Initializable
     public void initData(Student loggedStudent) {
     	this.student = loggedStudent;
         this.username = loggedStudent.getUserName();
-        String path = "/view/avatar/" + student.getUserName() + ".jpg";
-    	Image image = new Image(getClass().getResourceAsStream(path));
-    	avatar.setImage(image);
+        
+        // Ảnh đại diện
+        avatar.setImage(loadAvatar(student.getUserName()));
     	double SIZE = 150;
     	avatar.setFitWidth(SIZE);
     	avatar.setFitHeight(SIZE);
@@ -595,29 +629,116 @@ public class StudentController implements Initializable
         }
     }
     
+    // Làm việc với avatar
+    private static final Path AVATAR_DIR = Paths.get("src", "avatar");
+
+    private Image loadAvatar(String userName) {
+        Path personal = AVATAR_DIR.resolve(userName + ".jpg");
+        if (Files.exists(personal)) 
+        {
+            return new Image(personal.toUri().toString());
+        }
+
+        Path defFile = AVATAR_DIR.resolve("default.jpg");
+        if (Files.exists(defFile)) 
+        {
+            return new Image(defFile.toUri().toString());
+        }
+        
+        // Ảnh null phòng khi ảnh default bị lỗi
+        return new Image("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdj+P///38ACfsD/Q1E8HAAAAAASUVORK5CYII=");
+    }
+    
+    
+    private File selectedAvatarFile;
+    // Phương thức thực hiện việc nhận ảnh
+    @FXML
+    void changeAvatar(ActionEvent event) {
+    	FileChooser fileChooser = new FileChooser();
+    	fileChooser.setTitle("Chọn ảnh đại diện đi người anh em");
+    	fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
+    	
+    	File file = fileChooser.showOpenDialog(insertPicture.getScene().getWindow());
+    	if (file != null)
+    	{
+    		// Hiện tạm thời
+    		selectedAvatarFile = file;
+    		Image tempImage = new Image(file.toURI().toString());
+            currentAvatar.setImage(tempImage);
+    	}
+    }
+    
+    // Xác nhận thay avatar
+    @FXML
+    void confirmChange(ActionEvent event) {
+    	if (selectedAvatarFile != null)
+    	{
+    		try
+    		{
+    			Files.createDirectories(AVATAR_DIR);
+    			Path dest = AVATAR_DIR.resolve(student.getUserName() + ".jpg");
+    			Files.copy(selectedAvatarFile.toPath(), dest, StandardCopyOption.REPLACE_EXISTING);
+    			Image image = new Image(dest.toUri().toString());
+                avatar.setImage(image);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "Đã thay ảnh đại diện thành công!");
+                alert.showAndWait();
+    		}
+    		catch (IOException e)
+    		{
+    			e.printStackTrace();
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Không thể lưu ảnh!", ButtonType.OK);
+                alert.showAndWait();
+    		}
+    	}
+    }
+    
     
     @FXML
     // Phương thức thực hiện việc đổi qua lại giữa các pane
     public void switchForm (ActionEvent event)
     {
+    	// Xem trang đăng ký hoạt động
     	if (event.getSource() == viewRegisterPaneButton)
     	{
     		registerActivityPane.setVisible(true);
     		viewActivityPane.setVisible(false);
     		viewScorePane.setVisible(false);
+    		editAvatarPane.setVisible(false);
     	}
+    	// Xem trang các hoạt động đã đăng ký
     	else if (event.getSource() == viewActivityPaneButton)
     	{
     		registerActivityPane.setVisible(false);
     		viewActivityPane.setVisible(true);
     		viewScorePane.setVisible(false);
+    		editAvatarPane.setVisible(false);
     		displayRegisteredActivity();
     	}
+    	// Xem trang điểm
     	else if (event.getSource() == viewScorePaneButton)
     	{
     		registerActivityPane.setVisible(false);
     		viewActivityPane.setVisible(false);
+    		editAvatarPane.setVisible(false);
     		viewScorePane.setVisible(true);
+    	}
+    	// Xem ảnh đại diện
+    	else if (event.getSource() == editAvatarButton)
+    	{
+    		// Load ảnh hiện tại
+    		currentAvatar.setImage(avatar.getImage());
+        	double SIZE = 400;
+        	currentAvatar.setFitWidth(SIZE);
+        	currentAvatar.setFitHeight(SIZE);
+        	currentAvatar.setPreserveRatio(false);
+            Rectangle clip = new Rectangle(SIZE, SIZE);
+            currentAvatar.setClip(clip);
+            
+            
+    		registerActivityPane.setVisible(false);
+    		viewActivityPane.setVisible(false);
+    		viewScorePane.setVisible(false);
+    		editAvatarPane.setVisible(true);
     	}
     }
     

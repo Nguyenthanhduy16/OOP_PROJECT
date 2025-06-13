@@ -8,6 +8,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.function.Consumer;
 
 public class StudentInfoController {
@@ -24,24 +28,28 @@ public class StudentInfoController {
     private Consumer<Student> onInfoClicked;
 
     public void setData(Student student) {
-        this.student = student;
+    	this.student = student;
         labelName.setText(student.getUserName());
         labelID.setText(student.getUserID());
-        
-        String path = "/view/avatar/" + student.getUserName() + ".jpg";
-        Image image = new Image(getClass().getResourceAsStream(path));
-        imageView.setImage(image);
-        
-        double SIZE = 150;
+
+        Path diskImg = Paths.get("src", "avatar", student.getUserName() + ".jpg");
+        Image img;
+
+        if (Files.exists(diskImg)) 
+        {
+            img = new Image(diskImg.toUri().toString());
+        } 
+        else 
+        {
+        	img = new Image(getClass().getResource("/avatar/default.jpg").toExternalForm());
+        }
+
+        imageView.setImage(img);
+        final double SIZE = 150;
         imageView.setFitWidth(SIZE);
         imageView.setFitHeight(SIZE);
         imageView.setPreserveRatio(false);
-
-        // ---- Clip (crop) trung tâm
-        Rectangle clip = new Rectangle(SIZE, SIZE);
-        imageView.setClip(clip);
-        // Nếu muốn set ảnh riêng cho từng sinh viên, có thể sửa ở đây
-        // imageView.setImage(new Image("file:path/to/avatar.png"));
+        imageView.setClip(new Rectangle(SIZE, SIZE));
     }
     
 

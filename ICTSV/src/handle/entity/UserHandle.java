@@ -210,4 +210,56 @@ public class UserHandle {
 
         return new ArrayList<>(); // Trả về danh sách rỗng nếu không tìm thấy
     }
+    
+    // Thêm 1 sinh viên
+    public static boolean addStudent(String userID, String userName, String passWord) 
+    {
+        try 
+        {
+            File file = new File(DATA_JSON_PATH);
+            List<JsonNode> db = loadRawUsers();
+
+            boolean duplicated = db.stream().anyMatch(n ->
+                     n.path("userID").asText().equals(userID)
+                  || n.path("userName").asText().equalsIgnoreCase(userName));
+            if (duplicated) return false;
+
+            ObjectNode newNode = mapper.createObjectNode();
+            newNode.put("userID",   userID);
+            newNode.put("userName", userName);
+            newNode.put("passWord", passWord);
+            newNode.put("role",     "student");
+            newNode.putPOJO("registeredActivities",
+                            new ArrayList<Activity>());
+
+            db.add(newNode);
+            mapper.writerWithDefaultPrettyPrinter().writeValue(file, db);
+            return true;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    
+    // Xóa user
+    public static boolean removeUser(String userID) 
+    {
+        try 
+        {
+            File file = new File(DATA_JSON_PATH);
+            List<JsonNode> db = loadRawUsers();
+            int before = db.size();
+            db.removeIf(n -> n.path("userID").asText().equals(userID));
+            if (db.size() == before) return false;
+            mapper.writerWithDefaultPrettyPrinter().writeValue(file, db);
+            return true;
+        } 
+        catch (IOException e) 
+        {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

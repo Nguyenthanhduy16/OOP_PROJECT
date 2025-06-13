@@ -71,4 +71,10 @@
     "location" : "Nhà C2",
     "semester" : "Kỳ 2023.1"
   } ]
+}, {
+  "userID" : "20235752",
+  "userName" : "Kaio",
+  "passWord" : "12345",
+  "role" : "student",
+  "registeredActivities" : [ ]
 } ]

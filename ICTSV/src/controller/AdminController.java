@@ -17,6 +17,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import entity.Admin;
+import entity.Student;
 import entity.Activity;
 
 import java.util.Optional;
@@ -150,11 +151,70 @@ public class AdminController {
     private TableColumn<Activities, String> ActTime1;
     
     @FXML
+    private TextField genAccountID;
+
+    @FXML
+    private TextField genAccountPassWord;
+
+    @FXML
+    private TextField genAccountUserName;
+    
+    @FXML
+    private Button createAccountButton;
+    
+    @FXML
     private ImageView studentImg;
 
     // ScrollPanes
     @FXML
     private ScrollPane ActivitiesScrollPan;
+    
+    // Thêm sinh viên
+    @FXML
+    private Button addStudentButton;
+    
+    @FXML
+    private AnchorPane paneAddStudent;
+    
+    // Xóa sinh viên
+    private entity.Student currentStudent;
+    @FXML
+    void removeCurrentStudent(ActionEvent event) {
+    	// Nếu không thể xóa được
+    	if (currentStudent == null) return;
+    	
+    	Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
+    	confirm.setTitle("Xác nhận xóa ?");
+    	confirm.setHeaderText(null);
+    	confirm.setContentText("Bạn chắc muốn xóa sinh viên " + currentStudent.getUserName() + " MSSV: " + currentStudent.getUserID() + " ?");
+    	if (confirm.showAndWait().orElse(ButtonType.CANCEL) != ButtonType.OK) return;
+    	
+    	boolean ok = handle.entity.UserHandle.removeUser(currentStudent.getUserID());
+    	if (ok)
+    	{
+    		// Xóa avatar
+    		java.nio.file.Path av = java.nio.file.Paths.get("src","avatar", currentStudent.getUserName() + ".jpg");
+    		try 
+    		{ 
+    			java.nio.file.Files.deleteIfExists(av); 
+    		} 
+    		catch (Exception ignored) 
+    		{
+    			
+    		}
+
+            showAlert(Alert.AlertType.INFORMATION, "Đã xoá", "Đã xoá sinh viên thành công!");
+            paneStudentDetail.setVisible(false);
+            paneStudentList.setVisible(true);
+            displayStudentList();
+            currentStudent = null;
+    	}
+    	else 
+    	{
+            showAlert(Alert.AlertType.ERROR, "Lỗi",
+                      "Không tìm thấy sinh viên trong dữ liệu!");
+        }
+    }
 
 
     // Data models
@@ -373,6 +433,7 @@ public class AdminController {
         paneAddNewAct.setVisible(false);
         paneStudentList.setVisible(false);
         paneStudentDetail.setVisible(false);
+        paneAddStudent.setVisible(false);
     }
 
     @FXML
@@ -381,6 +442,7 @@ public class AdminController {
         paneAddNewAct.setVisible(true);
         paneStudentList.setVisible(false);
         paneStudentDetail.setVisible(false);
+        paneAddStudent.setVisible(false);
     }
 
     @FXML
@@ -389,7 +451,17 @@ public class AdminController {
         paneAddNewAct.setVisible(false);
         paneStudentList.setVisible(true);
         paneStudentDetail.setVisible(false);
+        paneAddStudent.setVisible(false);
         displayStudentList();
+    }
+    
+    @FXML
+    void handleAddStudentSwitch(ActionEvent event) {
+    	paneViewActivity.setVisible(false);
+        paneAddNewAct.setVisible(false);
+        paneStudentList.setVisible(false);
+        paneStudentDetail.setVisible(false);
+        paneAddStudent.setVisible(true);
     }
 
     private Alert alert;
@@ -619,6 +691,7 @@ public class AdminController {
     }
 
     private void showStudentDetail(entity.Student student) {
+    	this.currentStudent = student;
         paneStudentList.setVisible(false);
         paneStudentDetail.setVisible(true);
         // Cập nhật thông tin sinh viên
@@ -661,4 +734,27 @@ public class AdminController {
         ActScore1.setCellValueFactory(cellData -> cellData.getValue().scoreProperty());
         ActTime1.setCellValueFactory(cellData -> cellData.getValue().timeProperty());
     }
+    
+    // Thêm 1 account student nữa
+    @FXML
+    void genNewAccount(ActionEvent event) {
+    	String studentID = genAccountID.getText();
+    	String studentUserName = genAccountUserName.getText();
+    	String studentPassword = genAccountPassWord.getText();
+    	
+    	boolean ok = handle.entity.UserHandle.addStudent(studentID, studentUserName, studentPassword);
+    	if (ok) 
+    	{
+            showAlert(Alert.AlertType.INFORMATION,"Thành công","Đã tạo tài khoản sinh viên mới!");
+            displayStudentList();
+            genAccountID.clear();
+            genAccountUserName.clear();
+            genAccountPassWord.clear();
+        } 
+    	else 
+    	{
+            showAlert(Alert.AlertType.ERROR, "Trùng ID / UserName", "Mã số hoặc tên đăng nhập đã tồn tại!");
+        }
+    }
+    
 }

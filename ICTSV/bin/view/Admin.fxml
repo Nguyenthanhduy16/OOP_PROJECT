@@ -487,7 +487,7 @@
                                         </AnchorPane>
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane fx:id="paneViewActivity" layoutY="3.0" prefHeight="1000.0" prefWidth="1197.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="5.0">
+                                <AnchorPane fx:id="paneViewActivity" layoutY="3.0" prefHeight="1000.0" prefWidth="1197.0" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="5.0">
                                     <children>
                                         <AnchorPane layoutX="24.0" layoutY="142.0" prefHeight="722.0" prefWidth="1151.0" AnchorPane.leftAnchor="40.0">
                                             <stylesheets>
@@ -712,7 +712,7 @@
                                     <Font size="48.0" />
                                  </font>
                               </Label>
-                              <AnchorPane layoutX="33.0" layoutY="123.0" prefHeight="856.0" prefWidth="1161.0" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="135.0" AnchorPane.topAnchor="123.0">
+                              <AnchorPane layoutX="33.0" layoutY="123.0" prefHeight="771.0" prefWidth="1161.0" AnchorPane.bottomAnchor="106.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="135.0" AnchorPane.topAnchor="123.0">
                                  <stylesheets>
                                     <URL value="@../style/layout.css" />
                                     <URL value="@../style/button.css" />
@@ -734,9 +734,20 @@
                                     </ScrollPane>
                                  </children>
                               </AnchorPane>
+                              <Button fx:id="addStudentButton" layoutX="528.0" layoutY="917.0" mnemonicParsing="false" onAction="#handleAddStudentSwitch" text="Thêm sinh viên">
+                                 <styleClass>
+                                    <String fx:value="register-button" />
+                                    <String fx:value="button-with-shadow-surround-red" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <stylesheets>
+                                    <URL value="@../style/button.css" />
+                                    <URL value="@../style/layout.css" />
+                                 </stylesheets>
+                              </Button>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="paneStudentDetail" layoutX="8.0" layoutY="-1.0" prefHeight="1000.0" prefWidth="1329.0" visible="false" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="-1.0">
+                        <AnchorPane fx:id="paneStudentDetail" layoutX="8.0" layoutY="-1.0" prefHeight="1000.0" prefWidth="1329.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="-1.0">
                            <children>
                               <Label layoutX="449.0" layoutY="14.0" prefHeight="72.0" prefWidth="378.0" styleClass="gradient_red" stylesheets="@../style/text.css" text="Thông tin chi tiết">
                                  <font>
@@ -831,6 +842,66 @@
                                     <URL value="@../style/button.css" />
                                     <URL value="@../style/layout.css" />
                                  </stylesheets>
+                              </Button>
+                              <Button fx:id="removeStudentButton" layoutX="983.0" layoutY="24.0" mnemonicParsing="false" onAction="#removeCurrentStudent" text="Xóa sinh viên">
+                                 <stylesheets>
+                                    <URL value="@../style/button.css" />
+                                    <URL value="@../style/layout.css" />
+                                 </stylesheets>
+                                 <styleClass>
+                                    <String fx:value="register-button" />
+                                    <String fx:value="radius" />
+                                    <String fx:value="button-with-shadow-surround-red" />
+                                 </styleClass>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="paneAddStudent" prefHeight="1000.0" prefWidth="1329.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label layoutX="331.0" layoutY="21.0" styleClass="gradient_red" stylesheets="@../style/text.css" text="Thêm tài khoản sinh viên mới">
+                                 <font>
+                                    <Font name="System Bold" size="48.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="153.0" layoutY="245.0" text="User ID">
+                                 <font>
+                                    <Font name="System Bold" size="36.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="97.0" layoutY="395.0" text="User name">
+                                 <font>
+                                    <Font name="System Bold" size="36.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="116.0" layoutY="545.0" text="Mật khẩu">
+                                 <font>
+                                    <Font name="System Bold" size="36.0" />
+                                 </font></Label>
+                              <TextField fx:id="genAccountID" layoutX="357.0" layoutY="239.0" prefHeight="54.0" prefWidth="364.0" styleClass="search-bar" stylesheets="@../style/search-bar.css">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="genAccountUserName" layoutX="357.0" layoutY="389.0" prefHeight="54.0" prefWidth="364.0" styleClass="search-bar" stylesheets="@../style/search-bar.css">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="genAccountPassWord" layoutX="357.0" layoutY="539.0" prefHeight="54.0" prefWidth="364.0" styleClass="search-bar" stylesheets="@../style/search-bar.css">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </TextField>
+                              <Button fx:id="createAccountButton" layoutX="567.0" layoutY="906.0" mnemonicParsing="false" onAction="#genNewAccount" text="Tạo tài khoản">
+                                 <stylesheets>
+                                    <URL value="@../style/button.css" />
+                                    <URL value="@../style/layout.css" />
+                                 </stylesheets>
+                                 <styleClass>
+                                    <String fx:value="register-button" />
+                                    <String fx:value="radius" />
+                                    <String fx:value="button-with-shadow-surround-red" />
+                                 </styleClass>
                               </Button>
                            </children>
                         </AnchorPane>
