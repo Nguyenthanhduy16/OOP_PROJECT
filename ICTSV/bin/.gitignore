@@ -1,2 +1,7 @@
-/view/
+/controller/
 /data/
+/entity/
+/handle/
+/screen/
+/style/
+/view/

@@ -44,6 +44,9 @@ public class AdminController {
     private AnchorPane panStuNActList;
     @FXML
     private GridPane studentGridPane;
+    
+    @FXML
+    private Button backToViewStudentList;
 
     // Labels
     @FXML
@@ -224,6 +227,15 @@ public class AdminController {
         public BooleanProperty selectedProperty() {
             return selected;
         }
+    }
+    
+    @FXML
+    void backToStudentList(ActionEvent event) {
+    	paneViewActivity.setVisible(false);
+        paneAddNewAct.setVisible(false);
+        paneStudentList.setVisible(true);
+        paneStudentDetail.setVisible(false);
+        displayStudentList();
     }
 
     // Observable lists for tables
