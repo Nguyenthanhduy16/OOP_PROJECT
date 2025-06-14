@@ -181,7 +181,15 @@ public class AdminController {
     @FXML
     void removeCurrentStudent(ActionEvent event) {
     	// Nếu không thể xóa được
-    	if (currentStudent == null) return;
+    	if (currentStudent == null)
+    	{
+    		Alert noti = new Alert(Alert.AlertType.WARNING);
+    		noti.setTitle("Không thể xóa");
+    		noti.setHeaderText(null);
+    		noti.setContentText("Không thể xóa được do sinh viên đang null");
+    		noti.show();
+    		return;
+    	}
     	
     	Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
     	confirm.setTitle("Xác nhận xóa ?");
@@ -701,7 +709,7 @@ public class AdminController {
 	 private void showStudentDetail(Student student) 
 	 {
 
-
+		 this.currentStudent = student;
 	     paneStudentList.setVisible(false);
 	     paneStudentDetail.setVisible(true);
 
@@ -759,6 +767,22 @@ public class AdminController {
     	String studentID = genAccountID.getText();
     	String studentUserName = genAccountUserName.getText();
     	String studentPassword = genAccountPassWord.getText();
+    	
+    	// Phải điền đủ thông tin
+    	if (studentID.isBlank() || studentUserName.isBlank() || studentPassword.isBlank()) {
+            showAlert(Alert.AlertType.WARNING,
+                      "Thiếu thông tin",
+                      "Bạn phải nhập đầy đủ MSSV, tên đăng nhập và mật khẩu!");
+            return;
+        }
+
+        // MSSV phải có 8 số
+        if (!studentID.matches("\\d{8}")) {
+            showAlert(Alert.AlertType.ERROR,
+                      "Sai định dạng",
+                      "MSSV phải gồm đúng 8 chữ số!");
+            return;
+        }
     	
     	boolean ok = handle.entity.UserHandle.addStudent(studentID, studentUserName, studentPassword);
     	if (ok) 

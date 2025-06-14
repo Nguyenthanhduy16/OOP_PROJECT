@@ -164,78 +164,7 @@
                <center>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="editAvatarPane" prefHeight="1012.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <BorderPane prefHeight="1012.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <top>
-                                    <AnchorPane prefHeight="122.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
-                                       <children>
-                                          <Label layoutX="490.0" layoutY="26.0" styleClass="gradient_red" stylesheets="@../style/text.css" text="Sửa avatar">
-                                             <font>
-                                                <Font size="48.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                       <styleClass>
-                                          <String fx:value="body" />
-                                          <String fx:value="radius" />
-                                          <String fx:value="shadow" />
-                                       </styleClass>
-                                       <stylesheets>
-                                          <URL value="@../style/layout.css" />
-                                          <URL value="@../style/button.css" />
-                                       </stylesheets>
-                                    </AnchorPane>
-                                 </top>
-                                 <center>
-                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                                       <children>
-                                          <AnchorPane layoutX="62.0" layoutY="45.0" prefHeight="800.0" prefWidth="1093.0" style="-fx-background-color: #ffff;" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="45.0">
-                                             <stylesheets>
-                                                <URL value="@../style/layout.css" />
-                                                <URL value="@../style/button.css" />
-                                             </stylesheets>
-                                             <styleClass>
-                                                <String fx:value="radius" />
-                                                <String fx:value="shadow" />
-                                             </styleClass>
-                                             <children>
-                                                <Label layoutX="432.0" layoutY="14.0" styleClass="gradient_red" stylesheets="@../style/text.css" text="Avatar hiện tại">
-                                                   <font>
-                                                      <Font size="36.0" />
-                                                   </font>
-                                                </Label>
-                                                <AnchorPane layoutX="347.0" layoutY="115.0" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #ffff;" stylesheets="@../style/button.css">
-                                                   <children>
-                                                      <ImageView fx:id="currentAvatar" fitHeight="400.0" fitWidth="400.0" layoutX="7.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
-                                                   </children>
-                                                   <styleClass>
-                                                      <String fx:value="shadow" />
-                                                      <String fx:value="radius" />
-                                                   </styleClass>
-                                                </AnchorPane>
-                                                <Button fx:id="insertPicture" layoutX="487.0" layoutY="544.0" mnemonicParsing="false" onAction="#changeAvatar" stylesheets="@../style/button.css" text="Nhập ảnh">
-                                                   <styleClass>
-                                                      <String fx:value="register-button" />
-                                                      <String fx:value="radius" />
-                                                      <String fx:value="button-with-shadow-surround-red" />
-                                                   </styleClass>
-                                                </Button>
-                                                <Button fx:id="acceptPicture" layoutX="488.0" layoutY="737.0" mnemonicParsing="false" onAction="#confirmChange" stylesheets="@../style/button.css" text="Xác nhận">
-                                                   <styleClass>
-                                                      <String fx:value="register-button" />
-                                                      <String fx:value="radius" />
-                                                      <String fx:value="button-with-shadow-surround-red" />
-                                                   </styleClass>
-                                                </Button>
-                                             </children>
-                                          </AnchorPane>
-                                       </children>
-                                    </AnchorPane>
-                                 </center>
-                              </BorderPane>
-                           </children></AnchorPane>
-                        <AnchorPane fx:id="registerActivityPane" layoutX="8.0" layoutY="337.0" prefHeight="1000.0" prefWidth="1200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="registerActivityPane" layoutX="8.0" layoutY="337.0" prefHeight="1000.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane layoutX="23.0" layoutY="145.0" prefHeight="726.0" prefWidth="1161.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="16.0">
                                  <stylesheets>
@@ -576,6 +505,77 @@
                               </MenuButton>
                            </children>
                         </AnchorPane>
+                        <AnchorPane fx:id="editAvatarPane" prefHeight="1012.0" prefWidth="1200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <BorderPane prefHeight="1012.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <top>
+                                    <AnchorPane prefHeight="122.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <Label layoutX="490.0" layoutY="26.0" styleClass="gradient_red" stylesheets="@../style/text.css" text="Sửa avatar">
+                                             <font>
+                                                <Font size="48.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="body" />
+                                          <String fx:value="radius" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <stylesheets>
+                                          <URL value="@../style/layout.css" />
+                                          <URL value="@../style/button.css" />
+                                       </stylesheets>
+                                    </AnchorPane>
+                                 </top>
+                                 <center>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <AnchorPane layoutX="62.0" layoutY="45.0" prefHeight="800.0" prefWidth="1093.0" style="-fx-background-color: #ffff;" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="45.0">
+                                             <stylesheets>
+                                                <URL value="@../style/layout.css" />
+                                                <URL value="@../style/button.css" />
+                                             </stylesheets>
+                                             <styleClass>
+                                                <String fx:value="radius" />
+                                                <String fx:value="shadow" />
+                                             </styleClass>
+                                             <children>
+                                                <Label layoutX="432.0" layoutY="14.0" styleClass="gradient_red" stylesheets="@../style/text.css" text="Avatar hiện tại">
+                                                   <font>
+                                                      <Font size="36.0" />
+                                                   </font>
+                                                </Label>
+                                                <AnchorPane layoutX="347.0" layoutY="115.0" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #ffff;" stylesheets="@../style/button.css">
+                                                   <children>
+                                                      <ImageView fx:id="currentAvatar" fitHeight="400.0" fitWidth="400.0" layoutX="7.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                   <styleClass>
+                                                      <String fx:value="shadow" />
+                                                      <String fx:value="radius" />
+                                                   </styleClass>
+                                                </AnchorPane>
+                                                <Button fx:id="insertPicture" layoutX="487.0" layoutY="544.0" mnemonicParsing="false" onAction="#changeAvatar" stylesheets="@../style/button.css" text="Nhập ảnh">
+                                                   <styleClass>
+                                                      <String fx:value="register-button" />
+                                                      <String fx:value="radius" />
+                                                      <String fx:value="button-with-shadow-surround-red" />
+                                                   </styleClass>
+                                                </Button>
+                                                <Button fx:id="acceptPicture" layoutX="488.0" layoutY="737.0" mnemonicParsing="false" onAction="#confirmChange" stylesheets="@../style/button.css" text="Xác nhận">
+                                                   <styleClass>
+                                                      <String fx:value="register-button" />
+                                                      <String fx:value="radius" />
+                                                      <String fx:value="button-with-shadow-surround-red" />
+                                                   </styleClass>
+                                                </Button>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </AnchorPane>
+                                 </center>
+                              </BorderPane>
+                           </children></AnchorPane>
                      </children>
                   </AnchorPane>
                </center>
