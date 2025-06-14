@@ -11,11 +11,11 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/CODES/OOP_PROJECT/ICTSV/src/view/login/lib/jackson-annotations-2.15.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/CODES/OOP_PROJECT/ICTSV/src/view/login/lib/jackson-core-2.15.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/CODES/OOP_PROJECT/ICTSV/src/view/login/lib/jackson-databind-2.15.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/CODES/OOP_PROJECT/ICTSV/src/view/login/lib/miglayout-core-11.4.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/CODES/OOP_PROJECT/ICTSV/src/view/login/lib/miglayout-swing-11.4.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/CODES/OOP_PROJECT/ICTSV/src/view/login/lib/timingframework-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/OneDrive - Hanoi University of Science and Technology/Be_tap_code/Java/OOP_PROJECT/ICTSV/src/view/login/lib/jackson-annotations-2.15.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/OneDrive - Hanoi University of Science and Technology/Be_tap_code/Java/OOP_PROJECT/ICTSV/src/view/login/lib/jackson-core-2.15.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/OneDrive - Hanoi University of Science and Technology/Be_tap_code/Java/OOP_PROJECT/ICTSV/src/view/login/lib/jackson-databind-2.15.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/OneDrive - Hanoi University of Science and Technology/Be_tap_code/Java/OOP_PROJECT/ICTSV/src/view/login/lib/miglayout-core-11.4.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/OneDrive - Hanoi University of Science and Technology/Be_tap_code/Java/OOP_PROJECT/ICTSV/src/view/login/lib/miglayout-swing-11.4.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/OneDrive - Hanoi University of Science and Technology/Be_tap_code/Java/OOP_PROJECT/ICTSV/src/view/login/lib/timingframework-1.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
