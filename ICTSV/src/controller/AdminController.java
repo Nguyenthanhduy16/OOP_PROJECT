@@ -392,6 +392,13 @@ public class AdminController {
         // Thêm listener để tự động lọc khi chọn dropdown
         ActCategorySelected.setOnAction(event -> handleSearchActivity(null));
         ActSemesterSelected.setOnAction(event -> handleSearchActivity(null));
+        
+        // Gán cho bảng biết các thuộc tính
+        ActivitiesName1.setCellValueFactory(c -> c.getValue().nameProperty());
+        ActivitiesCategory1.setCellValueFactory(c -> c.getValue().categoryProperty());
+        ActPlace1.setCellValueFactory(c -> c.getValue().placeProperty());
+        ActScore1.setCellValueFactory(c -> c.getValue().scoreProperty());
+        ActTime1.setCellValueFactory(c -> c.getValue().timeProperty());
     }
 
     // Hàm này để luôn đọc lại dữ liệu từ file json qua Admin

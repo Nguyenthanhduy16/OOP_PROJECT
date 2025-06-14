@@ -61,7 +61,7 @@
                                  <graphic>
                                     <ImageView fitHeight="25.0" fitWidth="25.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@/view/img/search.png" />
+                                          <Image url="@img/search.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -73,7 +73,7 @@
                                  <graphic>
                                     <ImageView fitHeight="25.0" fitWidth="25.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@/view/img/eye.png" />
+                                          <Image url="@img/eye.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -85,7 +85,7 @@
                                  <graphic>
                                     <ImageView fitHeight="25.0" fitWidth="25.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@/view/img/chart-histogram.png" />
+                                          <Image url="@img/chart-histogram.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -127,7 +127,7 @@
                                  <graphic>
                                     <ImageView fitHeight="25.0" fitWidth="25.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@/view/img/exit.png" />
+                                          <Image url="@img/exit.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -164,7 +164,7 @@
                <center>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="editAvatarPane" prefHeight="1012.0" prefWidth="1200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="editAvatarPane" prefHeight="1012.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <BorderPane prefHeight="1012.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <top>
@@ -235,7 +235,7 @@
                                  </center>
                               </BorderPane>
                            </children></AnchorPane>
-                        <AnchorPane fx:id="registerActivityPane" layoutX="8.0" layoutY="337.0" prefHeight="1000.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="registerActivityPane" layoutX="8.0" layoutY="337.0" prefHeight="1000.0" prefWidth="1200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane layoutX="23.0" layoutY="145.0" prefHeight="726.0" prefWidth="1161.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="16.0">
                                  <stylesheets>
@@ -298,6 +298,7 @@
                                     <String fx:value="register-button" />
                                     <String fx:value="header" />
                                     <String fx:value="button-with-shadow-surround-red" />
+                                    <String fx:value="radius" />
                                  </styleClass>
                               </Button>
                               <Button layoutX="31.0" layoutY="45.0" minWidth="36.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="50.0" style="-fx-border-radius: 10;" AnchorPane.bottomAnchor="918.0" AnchorPane.topAnchor="45.0">
@@ -333,7 +334,7 @@
                                  <graphic>
                                     <ImageView fitHeight="25.0" fitWidth="25.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@/view/img/search.png" />
+                                          <Image url="@img/search.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -401,7 +402,7 @@
                                  <graphic>
                                     <ImageView fitHeight="25.0" fitWidth="25.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@/view/img/search.png" />
+                                          <Image url="@img/search.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
