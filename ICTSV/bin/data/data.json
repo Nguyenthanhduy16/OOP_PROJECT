@@ -40,6 +40,38 @@
     "date" : "21/05/2025",
     "location" : "Lớp học C9-205",
     "semester" : "2024.2"
+  }, {
+    "title" : "Học tập",
+    "name" : "Đạt giải Khuyến khích cuộc thi Olympic Toán sinh viên",
+    "status" : true,
+    "score" : 5,
+    "date" : "10/10/2023",
+    "location" : "Đà Nẵng",
+    "semester" : "2023.2"
+  }, {
+    "title" : "Kỷ luật",
+    "name" : "Không vi phạm quy định giờ giấc ra vào trường",
+    "status" : true,
+    "score" : 6,
+    "date" : "22/11/2023",
+    "location" : "Trường ĐHBK",
+    "semester" : "2023.2"
+  }, {
+    "title" : "Xã hội",
+    "name" : "Tình nguyện tiếp sức mùa thi",
+    "status" : true,
+    "score" : 1,
+    "date" : "02/12/2023",
+    "location" : "Trường THPT Chu Văn An",
+    "semester" : "2023.2"
+  }, {
+    "title" : "Ý thức",
+    "name" : "Tham gia hoạt động quyên góp sách cho trẻ em vùng cao",
+    "status" : true,
+    "score" : 3,
+    "date" : "05/09/2023",
+    "location" : "Sảnh thư viện Tạ Quang Bửu",
+    "semester" : "2023.2"
   } ]
 }, {
   "userID" : "20235804",

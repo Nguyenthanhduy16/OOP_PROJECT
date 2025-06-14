@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.scene.chart.BarChart?>
@@ -30,7 +40,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentController">
    <children>
       <AnchorPane fx:id="Student_controller" prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -96,7 +106,7 @@
                                        <stops>
                                           <Stop>
                                              <color>
-                                                <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
+                                                <Color blue="0.2763157784938812" green="0.2763157784938812" red="0.2763157784938812" />
                                              </color>
                                           </Stop>
                                           <Stop offset="0.006711409395973154">
@@ -195,7 +205,7 @@
                                        <stops>
                                           <Stop>
                                              <color>
-                                                <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
+                                                <Color blue="0.2763157784938812" green="0.2763157784938812" red="0.2763157784938812" />
                                              </color>
                                           </Stop>
                                           <Stop offset="0.006711409395973154">
@@ -230,13 +240,13 @@
                                     <String fx:value="radius" />
                                  </styleClass>
                               </Button>
-                              <Button layoutX="31.0" layoutY="45.0" minWidth="36.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="50.0" style="-fx-border-radius: 10;" AnchorPane.bottomAnchor="918.0" AnchorPane.topAnchor="45.0">
+                              <Button fx:id="searchButton" layoutX="31.0" layoutY="45.0" minWidth="36.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="50.0" style="-fx-border-radius: 10;" AnchorPane.bottomAnchor="918.0" AnchorPane.topAnchor="45.0">
                                  <textFill>
                                     <RadialGradient centerX="0.5220994475138121" centerY="0.566350710900474" radius="0.5">
                                        <stops>
                                           <Stop>
                                              <color>
-                                                <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
+                                                <Color blue="0.2763157784938812" green="0.2763157784938812" red="0.2763157784938812" />
                                              </color>
                                           </Stop>
                                           <Stop offset="0.006711409395973154">
@@ -304,7 +314,7 @@
                                        <stops>
                                           <Stop>
                                              <color>
-                                                <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
+                                                <Color blue="0.2763157784938812" green="0.2763157784938812" red="0.2763157784938812" />
                                              </color>
                                           </Stop>
                                           <Stop offset="0.006711409395973154">
@@ -372,7 +382,7 @@
                                        <stops>
                                           <Stop>
                                              <color>
-                                                <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
+                                                <Color blue="0.2763157784938812" green="0.2763157784938812" red="0.2763157784938812" />
                                              </color>
                                           </Stop>
                                           <Stop offset="0.006711409395973154">
@@ -489,10 +499,10 @@
                               <Separator layoutX="20.0" layoutY="509.0" prefHeight="0.0" prefWidth="1160.0" AnchorPane.bottomAnchor="488.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="509.0" />
                               <MenuButton fx:id="semesterMenuButton" layoutX="17.0" layoutY="521.0" maxHeight="41.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="41.0" prefWidth="97.0" text="Kỳ học" AnchorPane.leftAnchor="17.0">
                                  <items>
-                                    <MenuItem mnemonicParsing="false" onAction="#handleSemesterSelection" text="Kỳ 2023.1" />
-                                    <MenuItem mnemonicParsing="false" onAction="#handleSemesterSelection" text="Kỳ 2023.2" />
-                                    <MenuItem mnemonicParsing="false" onAction="#handleSemesterSelection" text="Kỳ 2024.1" />
-                                    <MenuItem mnemonicParsing="false" onAction="#handleSemesterSelection" text="Kỳ 2024.2" />
+                                    <MenuItem mnemonicParsing="false" onAction="#handleSemesterSelection" text="2023.1" />
+                                    <MenuItem mnemonicParsing="false" onAction="#handleSemesterSelection" text="2023.2" />
+                                    <MenuItem mnemonicParsing="false" onAction="#handleSemesterSelection" text="2024.1" />
+                                    <MenuItem mnemonicParsing="false" onAction="#handleSemesterSelection" text="2024.2" />
                                  </items>
                                  <stylesheets>
                                     <URL value="@../style/menu_button.css" />

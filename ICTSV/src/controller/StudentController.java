@@ -218,6 +218,9 @@ public class StudentController implements Initializable
     }
     // TODO thêm
     @FXML
+    private Button searchButton;
+    
+    @FXML
     private TextField searchField;
     
     @FXML
@@ -352,8 +355,9 @@ public class StudentController implements Initializable
             System.out.println("Student is null in StudentController");
         } else {
             registeredActivityDisplay(allActivities);
-            searchField.textProperty().addListener((obs, oldText, newText) -> {
-                searchActivities(newText);
+            searchButton.setOnAction(event -> {
+                String searchText = searchField.getText();
+                searchActivities(searchText);
             });
         }
     }
