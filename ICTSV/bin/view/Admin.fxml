@@ -13,6 +13,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -84,6 +85,13 @@
                                             <font>
                                                 <Font size="20.0" />
                                             </font>
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/list.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
                                         </Button>
                                         <Button fx:id="buttonViewStudent" layoutX="114.0" layoutY="671.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="340.0" style="-fx-background-radius: 10;" stylesheets="@../style/button.css" text="Quản lý sinh viên" visible="false">
                                             <textFill>
@@ -151,6 +159,13 @@
                                                 <String fx:value="shadow" />
                                     <String fx:value="button-with-shadow-surround-yellow" />
                                             </styleClass>
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/exit.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
                                         </Button>
                                         <Label fx:id="textID" layoutX="227.0" layoutY="393.0" styleClass="gradient_brown" stylesheets="@../style/text.css" text="000001" textFill="#141f59">
                                             <font>
@@ -203,8 +218,15 @@
                                             <font>
                                                 <Font size="20.0" />
                                             </font>
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/add.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
                                         </Button>
-                              <Button fx:id="buttonViewStuList" layoutX="145.0" layoutY="745.0" mnemonicParsing="false" onAction="#handleViewStudentList" prefHeight="78.0" prefWidth="293.0" style="-fx-background-radius: 10;" styleClass="button-with-shadow-surround-yellow" stylesheets="@../style/button.css" text="Xem danh sách sinh viên">
+                              <Button fx:id="buttonViewStuList" layoutX="145.0" layoutY="745.0" mnemonicParsing="false" onAction="#handleViewStudentList" prefHeight="78.0" prefWidth="293.0" style="-fx-background-radius: 10;" styleClass="button-with-shadow-surround-yellow" stylesheets="@../style/button.css" text="Danh sách sinh viên">
                                  <textFill>
                                     <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                                        <stops>
@@ -234,6 +256,13 @@
                                  <font>
                                     <Font size="20.0" />
                                  </font>
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/users.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
                               </Button>
                                     </children>
                                     <effect>
