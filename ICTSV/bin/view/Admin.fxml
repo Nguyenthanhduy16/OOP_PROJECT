@@ -684,7 +684,7 @@
                                                         <Font name="System Bold" size="33.0" />
                                                     </font>
                                                 </Label>
-                                                <ComboBox fx:id="ActivitiesCategorySelected" layoutX="268.0" layoutY="20.0" prefHeight="61.0" prefWidth="219.0" styleClass="dropbox" stylesheets="@../style/drop_box.css">
+                                                <ComboBox fx:id="ActivitiesCategorySelected" layoutX="268.0" layoutY="20.0" prefHeight="61.0" prefWidth="219.0" promptText="Loại" styleClass="dropbox" stylesheets="@../style/drop_box.css">
                                                     <items>
                                                         <FXCollections fx:factory="observableArrayList">
                                                             <String fx:value="Tất cả" />

@@ -1,5 +1,5 @@
 .search-bar {
-  -fx-border-color: linear-gradient(to right, #e6ba38, #ebd8a1);
+  -fx-border-color: #e6ba38;
   -fx-border-width: 7px;
   -fx-border-radius: 10px;
   -fx-background-color: transparent;

@@ -1,56 +1,54 @@
-/* Áp dụng cho DropDownButton styleClass="dropbox" */
+/* ComboBox có styleClass="dropbox" – chỉ viền gradient */
 .dropbox {
-    -fx-background-color: white;
-    -fx-border-color: #cccccc;
-    -fx-border-radius: 4;
-    -fx-background-radius: 4;
+  /* 2 lớp background: 1-gradient (viền), 2-trắng (ruột) */
+  -fx-background-color: #e6ba38, /* stroke */ white; /* inner fill */
 
-    /* Tăng kích thước chữ và padding */
-    -fx-font-size: 15px;
-    -fx-font-weight: bold;
-    -fx-padding: 10 20;      /* trên/dưới 12, trái/phải 20 */
+  /* khoảng cách giữa 2 lớp = bề dày viền (3 px ở đây)  */
+  -fx-background-insets: 0, 5;
 
-    /* Đặt chiều rộng & chiều cao tối thiểu */
-    -fx-min-width: 200px;
-    -fx-min-height: 50px;
+  /* bo góc cho 2 lớp (bên trong giảm 3 px) */
+  -fx-background-radius: 10, 7;
+
+  /* tắt viền mặc định → không bị chồng màu */
+  -fx-border-width: 0;
+
+  /* chữ & đệm như cũ */
+  -fx-font-size: 15px;
+  -fx-font-weight: bold;
+  -fx-padding: 10 20;
+  -fx-min-width: 200px;
+  -fx-min-height: 50px;
 }
 
-/* Hiệu ứng hover trên nút chính */
+/* Hover – chỉ đổi màu viền, ruột vẫn trắng */
 .dropbox:hover {
-    -fx-background-color: #f5f5f5;
+  -fx-background-color: #e6ba38, white;
+  -fx-background-insets: 0, 5;
+  -fx-background-radius: 10, 7;
 }
 
-/* Phần mũi tên */
+/* Nút mũi tên (giữ trắng để “ăn” chung nền) */
 .dropbox .arrow-button {
-    -fx-background-color: transparent;
-    -fx-padding: 0 16;       /* rộng hơn để cân với padding chính */
+  -fx-background-color: transparent; /* lấy nền trắng của lớp trong */
+  -fx-padding: 0 16;
 }
 
-/* Hover lên mũi tên */
 .dropbox .arrow-button:hover {
-    -fx-background-color: rgba(51,51,51,0.05);
+  -fx-background-color: rgba(0, 0, 0, 0.05); /* nhẹ tay, không phá viền */
 }
 
-/* Style cho menu item */
+/* Menu item giữ nguyên */
 .dropbox .menu-item {
-    -fx-background-color: white;
-    -fx-text-fill: #333333;
-
-    /* Tăng padding và font-size cho từng mục */
-    -fx-font-size: 15px;
-    -fx-padding: 8 12;       /* trên/dưới 8, trái/phải 12 */
-
-    /* Đảm bảo menu đủ rộng */
-    -fx-pref-width: 250px;
+  -fx-background-color: white;
+  -fx-text-fill: #333;
+  -fx-font-size: 15px;
+  -fx-padding: 8 12;
+  -fx-pref-width: 250px;
 }
-
-/* Hover trên từng mục menu */
 .dropbox .menu-item:hover {
-    -fx-background-color: #f0f0f0;
+  -fx-background-color: #fff2cc;
 }
-
-/* Mục đang chọn */
 .dropbox .menu-item:selected {
-    -fx-background-color: #e6e6e6;
-    -fx-text-fill: #000000;
+  -fx-background-color: #fbd46d;
+  -fx-text-fill: #000;
 }
