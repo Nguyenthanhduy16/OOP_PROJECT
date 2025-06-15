@@ -3,18 +3,73 @@
   "userName" : "admin",
   "passWord" : "admin123",
   "role" : "admin",
-  "listActivities" : [ {
-    "title" : "HocTap",
-    "name" : "Quản lý hệ thống",
+  "listActivities" : [ ]
+}, {
+  "userID" : "20235696",
+  "userName" : "Nguyễn Thành Duy",
+  "passWord" : "Duy20235696",
+  "role" : "student",
+  "registeredActivities" : [ ]
+}, {
+  "userID" : "20235692",
+  "userName" : "Nguyễn Hải Dương",
+  "passWord" : "Duong20235692",
+  "role" : "student",
+  "registeredActivities" : [ ]
+}, {
+  "userID" : "20235801",
+  "userName" : "Đỗ Hạnh Nhi",
+  "passWord" : "Nhi20235801",
+  "role" : "student",
+  "registeredActivities" : [ ]
+}, {
+  "userID" : "20235772",
+  "userName" : "Nguyễn Thành Long",
+  "passWord" : "Long20235772",
+  "role" : "student",
+  "registeredActivities" : [ ]
+}, {
+  "userID" : "20235804",
+  "userName" : "Trịnh Yến Nhi",
+  "passWord" : "Nhi20235804",
+  "role" : "student",
+  "registeredActivities" : [ {
+    "title" : "Kỷ luật",
+    "name" : "Không sử dụng chất kích thích trong học đường",
     "status" : true,
-    "score" : 20,
-    "date" : "29/05/2025",
-    "location" : "Nhà C2"
+    "score" : 5,
+    "date" : "01/05/2025",
+    "location" : "Trường",
+    "semester" : "2024.2"
+  }, {
+    "title" : "Ý thức",
+    "name" : "Không hút thuốc tại các khu vực cấm",
+    "status" : true,
+    "score" : 3,
+    "date" : "15/04/2025",
+    "location" : "KTX",
+    "semester" : "2024.2"
+  }, {
+    "title" : "Học tập",
+    "name" : "Tham dự hội thảo về phương pháp học tập hiệu quả",
+    "status" : true,
+    "score" : 5,
+    "date" : "12/04/2023",
+    "location" : "Hội trường C2",
+    "semester" : "2023.1"
+  }, {
+    "title" : "Xã hội",
+    "name" : "Tham gia chương trình tình nguyện mùa xuân",
+    "status" : true,
+    "score" : 3,
+    "date" : "25/01/2023",
+    "location" : "Hà Nam",
+    "semester" : "2023.1"
   } ]
 }, {
-  "userID" : "20231234",
-  "userName" : "J98",
-  "passWord" : "student123",
+  "userID" : "20235752",
+  "userName" : "Đinh Ngọc Khánh",
+  "passWord" : "Khanh20235752",
   "role" : "student",
   "registeredActivities" : [ {
     "title" : "Học tập",
@@ -26,87 +81,11 @@
     "semester" : "2024.2"
   }, {
     "title" : "Ý thức",
-    "name" : "Đi học đúng giờ và đầy đủ",
-    "status" : true,
-    "score" : 3,
-    "date" : "22/05/2025",
-    "location" : "Phòng học C4",
-    "semester" : "2024.2"
-  }, {
-    "title" : "Ý thức",
-    "name" : "Hỗ trợ bạn học trong các tình huống khó khăn",
-    "status" : true,
-    "score" : 5,
-    "date" : "21/05/2025",
-    "location" : "Lớp học C9-205",
-    "semester" : "2024.2"
-  }, {
-    "title" : "Học tập",
-    "name" : "Đạt giải Khuyến khích cuộc thi Olympic Toán sinh viên",
-    "status" : true,
-    "score" : 5,
-    "date" : "10/10/2023",
-    "location" : "Đà Nẵng",
-    "semester" : "2023.2"
-  }, {
-    "title" : "Kỷ luật",
-    "name" : "Không vi phạm quy định giờ giấc ra vào trường",
-    "status" : true,
-    "score" : 6,
-    "date" : "22/11/2023",
-    "location" : "Trường ĐHBK",
-    "semester" : "2023.2"
-  }, {
-    "title" : "Xã hội",
-    "name" : "Tình nguyện tiếp sức mùa thi",
+    "name" : "Tuân thủ quy chế thi cử, trung thực trong thi",
     "status" : true,
     "score" : 1,
-    "date" : "02/12/2023",
-    "location" : "Trường THPT Chu Văn An",
-    "semester" : "2023.2"
-  }, {
-    "title" : "Ý thức",
-    "name" : "Tham gia hoạt động quyên góp sách cho trẻ em vùng cao",
-    "status" : true,
-    "score" : 3,
-    "date" : "05/09/2023",
-    "location" : "Sảnh thư viện Tạ Quang Bửu",
-    "semester" : "2023.2"
+    "date" : "10/06/2025",
+    "location" : "Phòng thi D5",
+    "semester" : "2024.2"
   } ]
-}, {
-  "userID" : "20235804",
-  "userName" : "J97",
-  "passWord" : "student123",
-  "role" : "student",
-  "registeredActivities" : [ {
-    "title" : "Học tập",
-    "name" : "Tham gia thi thử CK",
-    "status" : true,
-    "score" : 50,
-    "date" : "29/05/2025",
-    "location" : "Nhà C2",
-    "semester" : "Kỳ 2023.1"
-  }, {
-    "title" : "Học tập",
-    "name" : "Hello World",
-    "status" : true,
-    "score" : 50,
-    "date" : "29/05/2025",
-    "location" : "Nhà C2",
-    "semester" : "Kỳ 2023.1"
-  }, {
-    "title" : "Học tập",
-    "name" : "GPA >= 3.6",
-    "status" : true,
-    "score" : 30,
-    "date" : "29/05/2025",
-    "location" : "Nhà C2",
-    "semester" : "Kỳ 2023.1"
-  } ]
-}, {
-  "userID" : "20235752",
-  "userName" : "Kaio",
-  "passWord" : "12345",
-  "role" : "student",
-  "registeredActivities" : [ ]
 } ]

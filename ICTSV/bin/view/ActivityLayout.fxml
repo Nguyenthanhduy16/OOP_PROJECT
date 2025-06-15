@@ -32,7 +32,7 @@
                </font>
             </Label>
             <CheckBox fx:id="btnAddToList" layoutX="143.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnAddToListClicked" prefHeight="23.0" prefWidth="28.0" />
-            <Label fx:id="registerOrUnregister" layoutX="131.0" layoutY="165.0" styleClass="orange" stylesheets="@/style/text.css" text="Đăng ký" />
+            <Label fx:id="registerOrUnregister" alignment="CENTER" layoutX="110.0" layoutY="165.0" prefHeight="17.0" prefWidth="84.0" styleClass="orange" stylesheets="@/style/text.css" text="Đăng ký" />
             <AnchorPane layoutX="14.0" layoutY="126.0" minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="114.0">
                <children>
                   <Label fx:id="labelDate" layoutX="29.0" layoutY="2.0" styleClass="purple" stylesheets="@/style/text.css" text="2025-06-30" />

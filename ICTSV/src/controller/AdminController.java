@@ -117,6 +117,8 @@ public class AdminController {
     private ComboBox<String> ActivitiesCategorySelected;
     @FXML
     private ComboBox<String> ActSemesterSelected;
+    @FXML
+    private ComboBox<String> NewActSemesterCombo;
 
     // TableViews
     @FXML
@@ -391,12 +393,14 @@ public class AdminController {
 
         // Khởi tạo danh sách lựa chọn trong ComboBox
         ActCategorySelected.setItems(FXCollections.observableArrayList("Tất cả tiêu chí", "Học tập", "Xã hội", "Kỷ luật", "Ý thức"));
-        ActivitiesCategorySelected.setItems(FXCollections.observableArrayList( "Học tập", "Xã hội", "Kỷ luật", "Ý thức"));
         ActCategorySelected.getSelectionModel().select("Tất cả tiêu chí");
+        ActivitiesCategorySelected.setItems(FXCollections.observableArrayList( "Học tập", "Xã hội", "Kỷ luật", "Ý thức"));
         ActivitiesCategorySelected.setValue("Chọn loại");
         ActSemesterSelected.setItems(FXCollections.observableArrayList("Tất cả các kỳ","2023.1", "2023.2", "2024.1", "2024.2"));
         ActSemesterSelected.setValue("Tất cả các kỳ");
-
+        NewActSemesterCombo.setItems(FXCollections.observableArrayList("2023.1", "2023.2", "2024.1", "2024.2"));
+        NewActSemesterCombo.setValue("Chọn kỳ học");
+        
         // Thêm listener để tự động lọc khi chọn dropdown
         ActCategorySelected.setOnAction(event -> handleSearchActivity(null));
         ActSemesterSelected.setOnAction(event -> handleSearchActivity(null));
@@ -407,6 +411,7 @@ public class AdminController {
         ActPlace1.setCellValueFactory(c -> c.getValue().placeProperty());
         ActScore1.setCellValueFactory(c -> c.getValue().scoreProperty());
         ActTime1.setCellValueFactory(c -> c.getValue().timeProperty());
+        
     }
 
     // Hàm này để luôn đọc lại dữ liệu từ file json qua Admin
@@ -565,9 +570,9 @@ public class AdminController {
             return;
         }
 
-        String semester = NewActSemester.getText().trim();
-        if (semester.isEmpty()) {
-            showAlert(Alert.AlertType.WARNING, "Thiếu thông tin", "Vui lòng nhập Kỳ học.");
+        String semester = NewActSemesterCombo.getValue();
+        if (semester == null || semester.isEmpty()) {
+            showAlert(Alert.AlertType.WARNING, "Thiếu thông tin", "Vui lòng chọn Kỳ học.");
             return;
         }
         // Kiểm tra trùng tên và kỳ học
@@ -607,7 +612,7 @@ public class AdminController {
             NewActScore.clear();
             NewActTime.clear();
             NewActPlace.clear();
-            NewActSemester.clear();
+            NewActSemesterCombo.setValue(null);
         } else {
             // Nếu chọn "Tiếp tục thêm", chỉ cần clear form để họ nhập lần kế tiếp
             NewActName.clear();
@@ -615,7 +620,7 @@ public class AdminController {
             NewActScore.clear();
             NewActTime.clear();
             NewActPlace.clear();
-            NewActSemester.clear();
+            NewActSemesterCombo.setValue(null);
             // Giữ nguyên paneAddNewAct đang hiển thị
         }
     }
