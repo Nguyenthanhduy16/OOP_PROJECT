@@ -1,2 +1,9 @@
 /LoginService.class
 /package-info.class
+/ActivityController.class
+/AdminController$Activities.class
+/AdminController.class
+/StudentController.class
+/StudentInfoController.class
+/StudentRegisteredActivityController.class
+/ViewStudentController.class
