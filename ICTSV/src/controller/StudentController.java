@@ -177,6 +177,9 @@ public class StudentController implements Initializable
 	@FXML
     private Button removeStudentButton;
 	
+	@FXML
+    private RadioButton viewSemesterAll;
+	
 
     @FXML
     void activityRegisterButtonClick(MouseEvent event) {
@@ -288,14 +291,16 @@ public class StudentController implements Initializable
     // Thực hiện việc sort các activity theo kỳ học trong phần xem các hoạt động đã đăng ký
     public void switchSemesterInViewRegisteredAct (ActionEvent e)
     {
-    	// Lấy radiobutton
     	RadioButton rbutton = (RadioButton) e.getSource();
+    	if (rbutton == viewSemesterAll || "Tất cả".equalsIgnoreCase(rbutton.getText().trim())) 
+    	{
+    	        redraw(student.getRegisteredActivities());
+    	        return;
+    	}
+
     	String semesterChosen = rbutton.getText().trim();
-    	
-    	// Lọc danh sách hoạt động
-    	List <Activity> filter = student.getRegisteredActivities().stream().filter(a -> semesterChosen.equalsIgnoreCase(a.getSemester())).collect(Collectors.toList());
-    	
-    	redraw(filter);
+    	List<Activity> filtered = student.getRegisteredActivities().stream().filter(a -> semesterChosen.equalsIgnoreCase(a.getSemester())).collect(Collectors.toList());
+    	redraw(filtered);
     }
     
     // Phương thức redraw vẽ lại các hoạt động filter theo kỳ
