@@ -11,9 +11,7 @@ import javafx.scene.control.Label;
 public class ActivityController {
     private Activity activity;
     private Student student;
-    
-    
-    
+
     @FXML
     private Label registerOrUnregister;
     

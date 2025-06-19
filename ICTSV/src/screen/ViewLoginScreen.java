@@ -49,26 +49,6 @@ public class ViewLoginScreen extends javax.swing.JFrame {
         ).getImage();
         setIconImage(icon);
     }
-    
-    
-    /*
-    private void initAccounts() {
-        // User accounts
-        userAccounts.put("tyn", "5804");
-        // Admin accounts
-        adminAccounts.put("admin", "admin123");
-    }*/
-
-    /*public boolean authenticate(String role, String identifier, String password) {
-        if (role.equals("User")) {
-            return userAccounts.containsKey(identifier) && userAccounts.get(identifier).equals(password);
-        } else if (role.equals("Admin")) {
-            return adminAccounts.containsKey(identifier) && adminAccounts.get(identifier).equals(password);
-        }
-        return false;
-    }*/
-    
-   
 
     private void init() {
         layout = new MigLayout("fill, insets 0");

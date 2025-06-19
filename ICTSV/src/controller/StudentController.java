@@ -58,14 +58,10 @@ import javafx.stage.FileChooser;
 public class StudentController implements Initializable 
 {
 	private Student student;
-	
-
-	
 	public void setStudent (Student student)
 	{
 		this.student = student;
-		
-	    // Chỉ lấy danh sách hoạt động từ đúng userID của student này
+	    //lấy danh sách hoạt động từ đúng userID của student này
 	    List<Activity> registered = UserHandle.getActivitiesByStudentId(student.getUserID());
 	    if (registered != null) {
 	        student.setRegisteredActivitiesJson(registered);
@@ -84,9 +80,7 @@ public class StudentController implements Initializable
 	
 	@FXML
     private AnchorPane editAvatarPane;
-	
 
-	
 	@FXML
     private TextField registeredActivitySearchText;
 	
@@ -170,7 +164,6 @@ public class StudentController implements Initializable
 	@FXML
     private Button editAvatarButton;
 	
-	
 	@FXML
     private Button insertPicture;
 	
@@ -180,7 +173,12 @@ public class StudentController implements Initializable
 	@FXML
     private RadioButton viewSemesterAll;
 	
-
+    @FXML
+    private Button searchButton;
+    
+    @FXML
+    private TextField searchField;
+    
     @FXML
     void activityRegisterButtonClick(MouseEvent event) {
     	
@@ -195,23 +193,21 @@ public class StudentController implements Initializable
     void registerPageButtonClicked(MouseEvent event) {
 
     }
-    
-    
 
+    @FXML
+    void viewActivityPageButtonClicked(MouseEvent event) {
+    	
+    }
+    
     @FXML
     void registerSearchButtonClicked(MouseEvent event) {
     	String keyword = registeredActivitySearchText.getText().trim();
 
         if (keyword.isBlank()) {
-            displayRegisteredActivity();      // Hiển thị lại toàn bộ nếu ô trống
+            displayRegisteredActivity();      // Hiển thị toàn bộ hoạt động nếu ô trống
         } else {
             searchRegisteredActivity(keyword);
         }
-    }
-
-    @FXML
-    void viewActivityPageButtonClicked(MouseEvent event) {
-    	
     }
 
     @FXML
@@ -219,21 +215,14 @@ public class StudentController implements Initializable
     	khoiTaoDuLieu();
     	displayScoreCharts();
     }
-    // TODO thêm
-    @FXML
-    private Button searchButton;
-    
-    @FXML
-    private TextField searchField;
     
     @FXML
     private void cancelActivity(ActionEvent event) 
     {
     	System.out.println("Cancel activity button clicked");
-
         boolean hasCancel = false;
 
-        /* ① ‒ quét đúng bảng “Đã đăng ký” */
+        // quét đúng bảng “Đã đăng ký” 
         for (Node node : viewRegistedActivityGridPane.getChildren()) {
             if (node instanceof AnchorPane anchor) {
                 Object ud = anchor.getUserData();
@@ -241,7 +230,7 @@ public class StudentController implements Initializable
 
                     Activity activity = ac.getActivity();
 
-                    /* xoá khi đang TỒN TẠI trong danh sách */
+       // xoá nếu đã tồn tại trong danh sách 
                     if (student.getRegisteredActivities().remove(activity)) {
                     	handle.entity.UserHandle.removeActivityFromStudent(student.getUserID(), activity.getName());
                         hasCancel = true;
@@ -256,8 +245,8 @@ public class StudentController implements Initializable
             return;
         }
 
-        /* ③ ‒ vẽ lại cả hai bảng để đồng bộ UI */
-        displayRegisteredActivity();     // bảng “Đã đăng ký”
+        // vẽ lại cả hai bảng để đồng bộ UI 
+        displayRegisteredActivity();     			  // bảng “Đã đăng ký”
         registeredActivityDisplay(allActivities);     // bảng “Đăng ký”
     }
     
@@ -273,7 +262,7 @@ public class StudentController implements Initializable
                         Activity activity = ac.getActivity();
                         if (!student.getRegisteredActivities().contains(activity)) {
                             student.addActivity(activity);               // Cập nhật trên RAM/UI
-                            UserHandle.addActivityToStudent(student.getUserID(), activity);   // ⬅️  Ghi vào file
+                            UserHandle.addActivityToStudent(student.getUserID(), activity);   //  Ghi vào file
                             ac.markAsRegistered();
                         }
                     }
@@ -283,9 +272,8 @@ public class StudentController implements Initializable
 
         System.out.println("Tổng số hoạt động đã đăng ký: " + student.getRegisteredActivities().size());
     }
-    // Thuộc tính alert này dùng để hiện thông báo thôi :))))
+    // Thuộc tính alert dùng để hiện thông báo 
     private Alert alert;
-    
     
     private String currentSemes = "2024.2";
     // Thực hiện việc sort các activity theo kỳ học trong phần xem các hoạt động đã đăng ký
@@ -375,11 +363,9 @@ public class StudentController implements Initializable
                 (a.getTitle() != null && a.getTitle().toLowerCase().contains(searchText.toLowerCase())) ||
                 (a.getSemester() != null && a.getSemester().toLowerCase().contains(searchText.toLowerCase())) ||
                 (a.getName() != null && a.getName().toLowerCase().contains(searchText.toLowerCase()))
-                
-                // Có thể thêm điều kiện khác nếu cần
             )
             .collect(Collectors.toList());
-
+        
         // Xóa các node hiện tại khỏi gridPane
         gridPane.getChildren().clear();
         // Hiển thị lại các activity đã lọc
@@ -484,12 +470,6 @@ public class StudentController implements Initializable
         maxScores.put("Học tập", 30);
         maxScores.put("Xã hội", 25);
         Map<String, Integer> criteria = scoreDataBySemester.get(selectedSemester);
-//        if (criteria != null) {
-//            for (Map.Entry<String, Integer> entry : criteria.entrySet()) {
-//                XYChart.Data<String, Number> data = new XYChart.Data<>(entry.getKey(), entry.getValue());
-//                barSeries.getData().add(data);
-//            }
-//        }
         for (int i = 0; i < allCriteria.length; i++) {
             String criterion = allCriteria[i];
             int value = (criteria != null && criteria.containsKey(criterion)) ? criteria.get(criterion) : 0;
@@ -532,7 +512,10 @@ public class StudentController implements Initializable
     // Phương thức này thực hiện việc reset lại datalist và thêm vào mọi activity đã đăng ký vô
     public void registeredActivityDisplay(List<Activity> activities) {
         final String ITEM_FXML_FILE_PATH = "/view/ActivityLayout.fxml";
-
+        
+        activities = handle.entity.ActivityHandle.loadActivities(); 
+        gridPane.getChildren().clear();
+        
         int column = 0;
         int row    = 1;
 
@@ -583,7 +566,7 @@ public class StudentController implements Initializable
         	    ctrl.markNotRegistered();
         	    ctrl.changeDisplay(2);
 
-        	    pane.setUserData(ctrl);              // 👈 thêm dòng này
+        	    pane.setUserData(ctrl);              //  thêm dòng này
 
         	    if (column == 3) { column = 0; row++; }
         	    viewRegistedActivityGridPane.add(pane, column++, row);
@@ -596,7 +579,7 @@ public class StudentController implements Initializable
         }
     }
     
-    // Phương thức thực hiện việc tìm kiếm các hoạt động đã đăng ký 💔💔💔
+    // Phương thức thực hiện việc tìm kiếm các hoạt động đã đăng ký 
     public void searchRegisteredActivity (String text)
     {
         viewRegistedActivityGridPane.getChildren().clear();
@@ -751,7 +734,7 @@ public class StudentController implements Initializable
     	}
     }
     
-    // Cảnh báo người chơi khi thoát chương trình, đồng thời nếu như mà student thoát thì show lại cửa sổ login
+    // Cảnh báo người dùng khi thoát chương trình, đồng thời nếu như mà student thoát thì thoát ra or show lại cửa sổ login 
     public void logout ()
     {
     	try 
@@ -805,7 +788,7 @@ public class StudentController implements Initializable
         if (!scoreDataBySemester.isEmpty()) {
             String firstSemester = scoreDataBySemester.keySet().iterator().next();
             semesterMenuButton.setText(firstSemester);
-            updateBarChart(firstSemester); // Tự động hiển thị biểu đồ luôn
+            updateBarChart(firstSemester); // Tự động hiển thị biểu đồ 
         }
     }
 

@@ -44,41 +44,6 @@ public class ViewStudentScreen extends Application {
     } 
 
     public static void main(String[] args) {
-    	try {
-	        ObjectMapper mapper = new ObjectMapper();
-
-	        File file = new File("src/data/data.json"); // đường dẫn file JSON
-            List<User> users = mapper.readValue(new File("src/data/data.json"),
-                    new TypeReference<List<User>>() {});
-
-	        for (User u : users) {
-	            if (u instanceof Student && u.getUserID().equals("20235804")) {
-	                student = (Student) u;
-	            }
-	            if (u instanceof Admin && u.getUserID().equals("GV1001")) {
-	                admin = (Admin) u;
-	            }
-	        }
-
-	        if (student == null) {
-	            System.out.println("Student không tồn tại trong JSON.");
-	            return;
-	        }
-	        // Gán admin cho student 
-	        student.setAdmin(admin);
-	        System.out.println("Admin activities: " + admin.getAllActivities().size());
-	        System.out.println("All activities:");
-	        for (Activity a : admin.getAllActivities()) {
-	            System.out.println(" - " + a.getName());
-	        }
-	        System.out.println("Student activities:");
-	        for (Activity a : student.getRegisteredActivities()) {
-	            System.out.println(" - " + a.getName());
-	        }
-	        launch(args);
-
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+    	launch(args);
     }
 }

@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -364,7 +365,7 @@ public class AdminController {
         });
 
 
-        // ✅ Cột ActSelected - bổ sung tickbox
+        // Cột ActSelected - bổ sung tickbox
         ActSelected.setCellValueFactory(cellData -> cellData.getValue().selectedProperty());
         ActSelected.setCellFactory(column -> new TableCell<>() {
             private final CheckBox checkBox = new CheckBox();
@@ -702,7 +703,7 @@ public class AdminController {
                     pane.setUserData(ctrl);
                     if (column == 3) { column = 0; row++; }
                     studentGridPane.add(pane, column++, row);
-                    GridPane.setMargin(pane, new javafx.geometry.Insets(20, 10, 10, 10));
+                    GridPane.setMargin(pane, new Insets(20, 10, 10, 10));
                 }
             }
         } catch (Exception e) {
