@@ -276,7 +276,7 @@ public class StudentController implements Initializable
     private Alert alert;
     
     private String currentSemes = "2024.2";
-    // Thực hiện việc sort các activity theo kỳ học trong phần xem các hoạt động đã đăng ký
+    // Thực hiện việc sort các activity theo kỳ học khi chọn kỳ học trong phần xem các hoạt động đã đăng ký
     public void switchSemesterInViewRegisteredAct (ActionEvent e)
     {
     	RadioButton rbutton = (RadioButton) e.getSource();
