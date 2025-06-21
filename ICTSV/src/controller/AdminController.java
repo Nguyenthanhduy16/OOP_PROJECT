@@ -711,7 +711,7 @@ public class AdminController {
         }
     }
 
-
+    
 	 private void showStudentDetail(Student student) 
 	 {
 

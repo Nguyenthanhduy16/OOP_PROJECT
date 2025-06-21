@@ -111,24 +111,4 @@ public class Activity {
     public int hashCode() {
         return name != null ? name.hashCode() : 0;
     }
-
-//	public double getHocTap() {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
-//
-//	public double getKyLuat() {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
-//
-//	public double getXaHoi() {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
-//
-//	public double getYThuc() {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
 }

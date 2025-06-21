@@ -16,7 +16,7 @@ import entity.User;
 public class LoginHandle {
     private List<User> users;
     
-    // Sử lý cache
+    // Xử lý cache
     public List<User> loadUsers() {
         ObjectMapper mapper = new ObjectMapper();
         try {
