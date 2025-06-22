@@ -467,20 +467,13 @@ public class StudentController implements Initializable
         
         // Danh sách tiêu chí cố định
         String[] allCriteria = {"Học tập",  "Kỷ luật", "Ý thức",  "Xã hội"};
-        // Map điểm tối đa cho từng tiêu chí
-        Map<String, Integer> maxScores = new HashMap<>();
-        maxScores.put("Ý thức", 20);
-        maxScores.put("Kỷ luật", 25);
-        maxScores.put("Học tập", 30);
-        maxScores.put("Xã hội", 25);
+
         Map<String, Integer> criteria = scoreDataBySemester.get(selectedSemester);
-        for (int i = 0; i < allCriteria.length; i++) {
-            String criterion = allCriteria[i];
+        
+        for (String criterion : allCriteria) {
             int value = (criteria != null && criteria.containsKey(criterion)) ? criteria.get(criterion) : 0;
-            int maxValue = maxScores.getOrDefault(criterion, 100); // fallback max = 100 nếu không có
-            // Giới hạn điểm hiển thị
-            int displayedValue = Math.min(value, maxValue);
-            XYChart.Data<String, Number> data = new XYChart.Data<>(criterion, displayedValue);
+            System.out.println(criterion + ": " + value);
+            XYChart.Data<String, Number> data = new XYChart.Data<>(criterion, value);
             barSeries.getData().add(data);
         }
 
@@ -771,7 +764,14 @@ public class StudentController implements Initializable
     
     private void khoiTaoDuLieu() {
         scoreDataBySemester.clear(); // Dọn dẹp dữ liệu cũ
-
+        
+        // Map điểm tối đa cho từng tiêu chí
+        Map<String, Integer> maxScores = new HashMap<>();
+        maxScores.put("Ý thức", 20);
+        maxScores.put("Kỷ luật", 25);
+        maxScores.put("Học tập", 30);
+        maxScores.put("Xã hội", 25);
+        
         List<Activity> activities = student.getRegisteredActivities();
 
         for (Activity activity : activities) {
@@ -783,8 +783,14 @@ public class StudentController implements Initializable
             scoreDataBySemester.putIfAbsent(semester, new HashMap<>());
 
             Map<String, Integer> criteriaMap = scoreDataBySemester.get(semester);
-            // Cộng dồn điểm cho tiêu chí
-            criteriaMap.put(criterion, criteriaMap.getOrDefault(criterion, 0) + score);
+            
+            // Lấy điểm hiện tại của tiêu chí trong học kỳ đó
+            int currentScore = criteriaMap.getOrDefault(criterion, 0);
+            int maxScore = maxScores.get(criterion);
+            
+            // Cộng dồn nhưng không vượt quá điểm tối đa
+            int newScore = Math.min(currentScore + score, maxScore);
+            criteriaMap.put(criterion, newScore);
         }
 
         // Gán mặc định học kỳ đầu tiên (nếu có)
