@@ -25,6 +25,190 @@
     "date" : "10/06/2025",
     "location" : "Phòng thi D5",
     "semester" : "2024.2"
+  }, {
+    "title" : "Học tập",
+    "name" : "Tham dự hội thảo toàn quốc về Trí tuệ nhân tạo",
+    "status" : true,
+    "score" : 1,
+    "date" : "05/06/2025",
+    "location" : "Hội trường C2",
+    "semester" : "2024.2"
+  }, {
+    "title" : "Xã hội",
+    "name" : "Tổ chức chương trình thiện nguyện cộng đồng",
+    "status" : true,
+    "score" : 1,
+    "date" : "02/06/2025",
+    "location" : "Xã Đông Hưng",
+    "semester" : "2024.2"
+  }, {
+    "title" : "Học tập",
+    "name" : "Viết bài chia sẻ kinh nghiệm học tập trên fanpage khoa",
+    "status" : true,
+    "score" : 3,
+    "date" : "01/06/2025",
+    "location" : "Online",
+    "semester" : "2024.2"
+  }, {
+    "title" : "Học tập",
+    "name" : "Nhận học bổng khuyến khích học tập",
+    "status" : true,
+    "score" : 3,
+    "date" : "28/05/2025",
+    "location" : "Phòng CTSV",
+    "semester" : "2024.2"
+  }, {
+    "title" : "Ý thức",
+    "name" : "Bỏ rác đúng nơi quy định",
+    "status" : true,
+    "score" : 3,
+    "date" : "28/05/2025",
+    "location" : "Toàn trường",
+    "semester" : "2024.2"
+  }, {
+    "title" : "Ý thức",
+    "name" : "Đi học đúng giờ và đầy đủ",
+    "status" : true,
+    "score" : 3,
+    "date" : "22/05/2025",
+    "location" : "Phòng học C4",
+    "semester" : "2024.2"
+  }, {
+    "title" : "Ý thức",
+    "name" : "Hỗ trợ bạn học trong các tình huống khó khăn",
+    "status" : true,
+    "score" : 5,
+    "date" : "21/05/2025",
+    "location" : "Lớp học C9-205",
+    "semester" : "2024.2"
+  }, {
+    "title" : "Ý thức",
+    "name" : "Tham gia dọn vệ sinh giảng đường",
+    "status" : true,
+    "score" : 1,
+    "date" : "12/05/2025",
+    "location" : "Giảng đường D3",
+    "semester" : "2024.2"
+  }, {
+    "title" : "Kỷ luật",
+    "name" : "Không vi phạm nội quy học đường",
+    "status" : true,
+    "score" : 3,
+    "date" : "10/05/2025",
+    "location" : "Trường ĐHBK",
+    "semester" : "2024.2"
+  }, {
+    "title" : "Học tập",
+    "name" : "Hỗ trợ học nhóm cho sinh viên khóa dưới",
+    "status" : true,
+    "score" : 3,
+    "date" : "08/05/2025",
+    "location" : "Thư viện TQB",
+    "semester" : "2024.2"
+  }, {
+    "title" : "Xã hội",
+    "name" : "Tuyên truyền nâng cao nhận thức về an toàn giao thông",
+    "status" : true,
+    "score" : 6,
+    "date" : "05/05/2025",
+    "location" : "Sân trường C9",
+    "semester" : "2024.2"
+  }, {
+    "title" : "Kỷ luật",
+    "name" : "Không sử dụng chất kích thích trong học đường",
+    "status" : true,
+    "score" : 5,
+    "date" : "01/05/2025",
+    "location" : "Trường",
+    "semester" : "2024.2"
+  }, {
+    "title" : "Kỷ luật",
+    "name" : "Báo cáo hành vi vi phạm của sinh viên khác",
+    "status" : true,
+    "score" : 6,
+    "date" : "28/04/2025",
+    "location" : "Phòng CTSV",
+    "semester" : "2024.2"
+  }, {
+    "title" : "Kỷ luật",
+    "name" : "Tham gia lớp kỹ năng sống và phổ biến pháp luật",
+    "status" : true,
+    "score" : 1,
+    "date" : "18/04/2025",
+    "location" : "Hội trường D8",
+    "semester" : "2024.2"
+  }, {
+    "title" : "Kỷ luật",
+    "name" : "Tham dự buổi phổ biến quy chế đào tạo",
+    "status" : true,
+    "score" : 3,
+    "date" : "15/04/2025",
+    "location" : "Nhà D3",
+    "semester" : "2024.2"
+  }, {
+    "title" : "Ý thức",
+    "name" : "Không hút thuốc tại các khu vực cấm",
+    "status" : true,
+    "score" : 3,
+    "date" : "15/04/2025",
+    "location" : "KTX",
+    "semester" : "2024.2"
+  }, {
+    "title" : "Học tập",
+    "name" : "Hoàn thành khóa học trực tuyến trên nền tảng Coursera",
+    "status" : true,
+    "score" : 5,
+    "date" : "12/04/2025",
+    "location" : "Online",
+    "semester" : "2024.2"
+  }, {
+    "title" : "Kỷ luật",
+    "name" : "Không vi phạm luật an toàn giao thông",
+    "status" : true,
+    "score" : 5,
+    "date" : "30/03/2025",
+    "location" : "Ký túc xá",
+    "semester" : "2024.2"
+  }, {
+    "title" : "Học tập",
+    "name" : "Tham gia kỳ thi Olympic Tin học",
+    "status" : true,
+    "score" : 6,
+    "date" : "25/03/2025",
+    "location" : "Hội trường D2",
+    "semester" : "2024.2"
+  }, {
+    "title" : "Học tập",
+    "name" : "Thuyết trình chuyên đề trong môn học",
+    "status" : true,
+    "score" : 5,
+    "date" : "18/02/2025",
+    "location" : "Phòng 103-C1",
+    "semester" : "2024.2"
+  }, {
+    "title" : "Học tập",
+    "name" : "Đạt GPA học kỳ trên 3.6",
+    "status" : true,
+    "score" : 3,
+    "date" : "10/01/2025",
+    "location" : "Bách khoa",
+    "semester" : "2024.2"
+  }, {
+    "title" : "Xã hội",
+    "name" : "Tổ chức hội trại truyền thống cấp khoa",
+    "status" : true,
+    "score" : 6,
+    "date" : "20/10/2024",
+    "location" : "Sân vận động Bách khoa",
+    "semester" : "2024.2"
+  }, {
+    "title" : "Ý thức",
+    "name" : "Hướng dẫn tân sinh viên trong quá trình nhập học",
+    "status" : true,
+    "score" : 1,
+    "date" : "05/09/2024",
+    "location" : "Khu A1",
+    "semester" : "2024.2"
   } ]
 }, {
   "userID" : "20235692",
