@@ -191,7 +191,11 @@ public class StudentController implements Initializable
 
     @FXML
     void registerPageButtonClicked(MouseEvent event) {
+        // Nạp lại toàn bộ hoạt động mới nhất từ nguồn (file JSON, DB,...)
+        allActivities = handle.entity.ActivityHandle.loadActivities();
 
+        // Hiển thị lại các hoạt động
+        registeredActivityDisplay(allActivities);
     }
 
     @FXML
@@ -513,7 +517,6 @@ public class StudentController implements Initializable
     public void registeredActivityDisplay(List<Activity> activities) {
         final String ITEM_FXML_FILE_PATH = "/view/ActivityLayout.fxml";
         
-        activities = handle.entity.ActivityHandle.loadActivities(); 
         gridPane.getChildren().clear();
         
         int column = 0;
